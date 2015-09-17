@@ -15,6 +15,7 @@
 		286503241BAB001900BB041D /* WebNotificationsIOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286503231BAB001900BB041D /* WebNotificationsIOSTests.swift */; };
 		2865032F1BAB001900BB041D /* WebNotificationsIOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2865032E1BAB001900BB041D /* WebNotificationsIOSUITests.swift */; };
 		2865033D1BAB019200BB041D /* URLsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2865033C1BAB019200BB041D /* URLsTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		2865033F1BAB06A600BB041D /* URLAddTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2865033E1BAB06A600BB041D /* URLAddTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		2865032E1BAB001900BB041D /* WebNotificationsIOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebNotificationsIOSUITests.swift; sourceTree = "<group>"; };
 		286503301BAB001900BB041D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2865033C1BAB019200BB041D /* URLsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLsTableViewController.swift; sourceTree = "<group>"; };
+		2865033E1BAB06A600BB041D /* URLAddTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLAddTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,7 @@
 				286503171BAB001900BB041D /* LaunchScreen.storyboard */,
 				2865031A1BAB001900BB041D /* Info.plist */,
 				2865033C1BAB019200BB041D /* URLsTableViewController.swift */,
+				2865033E1BAB06A600BB041D /* URLAddTableViewController.swift */,
 			);
 			path = WebNotificationsIOS;
 			sourceTree = "<group>";
@@ -259,6 +262,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				286503111BAB001900BB041D /* ViewController.swift in Sources */,
+				2865033F1BAB06A600BB041D /* URLAddTableViewController.swift in Sources */,
 				2865033D1BAB019200BB041D /* URLsTableViewController.swift in Sources */,
 				2865030F1BAB001900BB041D /* AppDelegate.swift in Sources */,
 			);

@@ -68,10 +68,10 @@
             </objects>
             <point key="canvasLocation" x="1276" y="374"/>
         </scene>
-        <!--Table View Controller-->
+        <!--URL Add Table View Controller-->
         <scene sceneID="GSF-Ty-DUi">
             <objects>
-                <tableViewController id="cbn-tT-6I7" sceneMemberID="viewController">
+                <tableViewController id="cbn-tT-6I7" customClass="URLAddTableViewController" customModule="WebNotificationsIOS" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="oL6-Xa-dtX">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -91,7 +91,18 @@
                             <outlet property="delegate" destination="cbn-tT-6I7" id="gh9-t3-70s"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="JoZ-fD-ASd"/>
+                    <navigationItem key="navigationItem" id="JoZ-fD-ASd">
+                        <barButtonItem key="leftBarButtonItem" style="plain" id="rh3-85-jb2">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="oo4-se-eLs">
+                                <rect key="frame" x="20" y="7" width="133" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Cancel"/>
+                                <connections>
+                                    <action selector="cancel:" destination="cbn-tT-6I7" eventType="touchUpInside" id="HkM-rI-qCS"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a9G-GF-C3o" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
