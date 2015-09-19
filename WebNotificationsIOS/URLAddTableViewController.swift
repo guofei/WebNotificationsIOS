@@ -31,6 +31,7 @@ class URLAddTableViewController: UITableViewController {
 
     // MARK: - Table view data source
 
+	/*
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 0
@@ -40,6 +41,7 @@ class URLAddTableViewController: UITableViewController {
         // #warning Incomplete implementation, return the number of rows
         return 0
     }
+	*/
 
     /*
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
