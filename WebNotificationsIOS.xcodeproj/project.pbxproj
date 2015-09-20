@@ -16,6 +16,10 @@
 		2865032F1BAB001900BB041D /* WebNotificationsIOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2865032E1BAB001900BB041D /* WebNotificationsIOSUITests.swift */; };
 		2865033D1BAB019200BB041D /* URLsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2865033C1BAB019200BB041D /* URLsTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		2865033F1BAB06A600BB041D /* URLAddTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2865033E1BAB06A600BB041D /* URLAddTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		287222E71BAE640D00309BB7 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 287222E51BAE640D00309BB7 /* Realm.framework */; };
+		287222E81BAE640D00309BB7 /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 287222E51BAE640D00309BB7 /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		287222E91BAE640D00309BB7 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 287222E61BAE640D00309BB7 /* RealmSwift.framework */; };
+		287222EA1BAE640D00309BB7 /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 287222E61BAE640D00309BB7 /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +39,21 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		287222EB1BAE640D00309BB7 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				287222EA1BAE640D00309BB7 /* RealmSwift.framework in Embed Frameworks */,
+				287222E81BAE640D00309BB7 /* Realm.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		2865030B1BAB001900BB041D /* WebNotificationsIOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WebNotificationsIOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2865030E1BAB001900BB041D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -51,6 +70,8 @@
 		286503301BAB001900BB041D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2865033C1BAB019200BB041D /* URLsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLsTableViewController.swift; sourceTree = "<group>"; };
 		2865033E1BAB06A600BB041D /* URLAddTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLAddTableViewController.swift; sourceTree = "<group>"; };
+		287222E51BAE640D00309BB7 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Realm.framework; sourceTree = "<group>"; };
+		287222E61BAE640D00309BB7 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +79,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				287222E91BAE640D00309BB7 /* RealmSwift.framework in Frameworks */,
+				287222E71BAE640D00309BB7 /* Realm.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,6 +104,8 @@
 		286503021BAB001900BB041D = {
 			isa = PBXGroup;
 			children = (
+				287222E51BAE640D00309BB7 /* Realm.framework */,
+				287222E61BAE640D00309BB7 /* RealmSwift.framework */,
 				2865030D1BAB001900BB041D /* WebNotificationsIOS */,
 				286503221BAB001900BB041D /* WebNotificationsIOSTests */,
 				2865032D1BAB001900BB041D /* WebNotificationsIOSUITests */,
@@ -141,6 +166,7 @@
 				286503071BAB001900BB041D /* Sources */,
 				286503081BAB001900BB041D /* Frameworks */,
 				286503091BAB001900BB041D /* Resources */,
+				287222EB1BAE640D00309BB7 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -198,6 +224,7 @@
 				TargetAttributes = {
 					2865030A1BAB001900BB041D = {
 						CreatedOnToolsVersion = 7.0;
+						DevelopmentTeam = D38TAEJ8G7;
 					};
 					2865031E1BAB001900BB041D = {
 						CreatedOnToolsVersion = 7.0;
@@ -404,6 +431,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = WebNotificationsIOS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = kaku.WebNotificationsIOS;
@@ -415,6 +447,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = WebNotificationsIOS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = kaku.WebNotificationsIOS;
@@ -489,6 +526,7 @@
 				286503351BAB001900BB041D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		286503361BAB001900BB041D /* Build configuration list for PBXNativeTarget "WebNotificationsIOSTests" */ = {
 			isa = XCConfigurationList;
@@ -497,6 +535,7 @@
 				286503381BAB001900BB041D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		286503391BAB001900BB041D /* Build configuration list for PBXNativeTarget "WebNotificationsIOSUITests" */ = {
 			isa = XCConfigurationList;
@@ -505,6 +544,7 @@
 				2865033B1BAB001900BB041D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
