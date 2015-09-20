@@ -124,9 +124,15 @@
                                 <rect key="frame" x="447" y="7" width="133" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Save"/>
+                                <connections>
+                                    <action selector="save:" destination="cbn-tT-6I7" eventType="touchUpInside" id="zHs-BH-eo2"/>
+                                </connections>
                             </button>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="urlField" destination="6bJ-tR-Ju4" id="kGW-KG-qx0"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a9G-GF-C3o" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

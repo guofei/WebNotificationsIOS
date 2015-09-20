@@ -7,11 +7,30 @@
 //
 
 import UIKit
+import RealmSwift
 
 class URLAddTableViewController: UITableViewController {
+	@IBOutlet weak var urlField: UITextField!
 
 	@IBAction func cancel(sender: AnyObject) {
 		self.dismissViewControllerAnimated(true, completion: nil)
+	}
+
+	@IBAction func save(sender: AnyObject) {
+		if let inputURL = urlField.text {
+			print(inputURL)
+			/*
+			let url = Url()
+			url.url = inputURL
+
+			do {
+			let realm = try Realm()
+			try realm.write {
+			realm.add(url)
+			}
+			} catch {
+			}*/
+		}
 	}
 
 	override func viewDidLoad() {
