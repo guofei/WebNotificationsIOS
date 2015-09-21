@@ -20,16 +20,16 @@ class URLAddTableViewController: UITableViewController {
 	@IBAction func save(sender: AnyObject) {
 		if let url = UrlHelper.getURL(urlField.text) {
 			print(url)
-			/*
-			let url = Url()
-			url.url = inputURL
+			let page = Page()
+			page.url = url
 			do {
 				let realm = try Realm()
 				try realm.write {
-					realm.add(url)
+					realm.add(page)
 				}
 			} catch {
-			}*/
+				print("error")
+			}
 		}
 	}
 

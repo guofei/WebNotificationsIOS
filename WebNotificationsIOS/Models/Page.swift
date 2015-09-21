@@ -10,11 +10,14 @@ import Foundation
 import RealmSwift
 
 
-class Url: Object {
+class Page: Object {
     dynamic var url = ""
 	dynamic var sec = 3 * 60 * 60
 	dynamic var pushChannel = ""
-	dynamic var stop_fetch = false
+	dynamic var stopFetch = false
+	dynamic var title = ""
+	dynamic var createdAt = NSDate()
+	dynamic var updatedAt = NSDate()
 
 	override static func primaryKey() -> String? {
 		return "url"
