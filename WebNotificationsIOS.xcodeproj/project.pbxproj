@@ -20,6 +20,7 @@
 		287222E81BAE640D00309BB7 /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 287222E51BAE640D00309BB7 /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		287222E91BAE640D00309BB7 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 287222E61BAE640D00309BB7 /* RealmSwift.framework */; };
 		287222EA1BAE640D00309BB7 /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 287222E61BAE640D00309BB7 /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		28738ECB1BAFDFE60083D95F /* UrlHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28738ECA1BAFDFE60083D95F /* UrlHelper.swift */; settings = {ASSET_TAGS = (); }; };
 		2875B94C1BAE7EC20020A4C5 /* Url.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2875B94B1BAE7EC20020A4C5 /* Url.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
@@ -73,6 +74,7 @@
 		2865033E1BAB06A600BB041D /* URLAddTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLAddTableViewController.swift; sourceTree = "<group>"; };
 		287222E51BAE640D00309BB7 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Realm.framework; sourceTree = "<group>"; };
 		287222E61BAE640D00309BB7 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = "<group>"; };
+		28738ECA1BAFDFE60083D95F /* UrlHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UrlHelper.swift; sourceTree = "<group>"; };
 		2875B94B1BAE7EC20020A4C5 /* Url.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Url.swift; path = Models/Url.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -128,6 +130,7 @@
 		2865030D1BAB001900BB041D /* WebNotificationsIOS */ = {
 			isa = PBXGroup;
 			children = (
+				28738EC91BAFDFBC0083D95F /* utils */,
 				2875B94D1BAE820C0020A4C5 /* Models */,
 				2865030E1BAB001900BB041D /* AppDelegate.swift */,
 				286503101BAB001900BB041D /* ViewController.swift */,
@@ -157,6 +160,14 @@
 				286503301BAB001900BB041D /* Info.plist */,
 			);
 			path = WebNotificationsIOSUITests;
+			sourceTree = "<group>";
+		};
+		28738EC91BAFDFBC0083D95F /* utils */ = {
+			isa = PBXGroup;
+			children = (
+				28738ECA1BAFDFE60083D95F /* UrlHelper.swift */,
+			);
+			name = utils;
 			sourceTree = "<group>";
 		};
 		2875B94D1BAE820C0020A4C5 /* Models */ = {
@@ -302,6 +313,7 @@
 				286503111BAB001900BB041D /* ViewController.swift in Sources */,
 				2865033F1BAB06A600BB041D /* URLAddTableViewController.swift in Sources */,
 				2865033D1BAB019200BB041D /* URLsTableViewController.swift in Sources */,
+				28738ECB1BAFDFE60083D95F /* UrlHelper.swift in Sources */,
 				2865030F1BAB001900BB041D /* AppDelegate.swift in Sources */,
 				2875B94C1BAE7EC20020A4C5 /* Url.swift in Sources */,
 			);

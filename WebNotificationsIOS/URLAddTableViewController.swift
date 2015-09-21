@@ -9,6 +9,7 @@
 import UIKit
 import RealmSwift
 
+
 class URLAddTableViewController: UITableViewController {
 	@IBOutlet weak var urlField: UITextField!
 
@@ -17,17 +18,16 @@ class URLAddTableViewController: UITableViewController {
 	}
 
 	@IBAction func save(sender: AnyObject) {
-		if let inputURL = urlField.text {
-			print(inputURL)
+		if let url = UrlHelper.getURL(urlField.text) {
+			print(url)
 			/*
 			let url = Url()
 			url.url = inputURL
-
 			do {
-			let realm = try Realm()
-			try realm.write {
-			realm.add(url)
-			}
+				let realm = try Realm()
+				try realm.write {
+					realm.add(url)
+				}
 			} catch {
 			}*/
 		}
