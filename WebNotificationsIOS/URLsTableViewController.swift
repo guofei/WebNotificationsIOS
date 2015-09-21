@@ -7,6 +7,9 @@
 //
 
 import UIKit
+import RealmSwift
+import Alamofire
+
 
 class URLsTableViewController: UITableViewController {
 
@@ -34,15 +37,29 @@ class URLsTableViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 5
+		do {
+			let result = try Realm().objects(Page)
+			return result.count
+		} catch {
+			print("error")
+			return 0
+		}
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("URLCell", forIndexPath: indexPath)
 
+		do {
+			let result = try Realm().objects(Page)
+			let page = result[indexPath.row]
+			let res = Alamofire.request(.GET, page.url)
+			cell.detailTextLabel?.text = page.url
+		} catch {
+
+		}
         // Configure the cell...
-		cell.textLabel?.text = "title"
-		cell.detailTextLabel?.text = "detail"
+		// cell.textLabel?.text = "title"
+		// cell.detailTextLabel?.text = "detail"
 
         return cell
     }
