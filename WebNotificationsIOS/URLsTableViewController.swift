@@ -9,9 +9,20 @@
 import UIKit
 import RealmSwift
 import Alamofire
+import Ji
 
 
 class URLsTableViewController: UITableViewController {
+	var pages : Results<Page>? {
+		get {
+			do {
+				let result = try Realm().objects(Page)
+				return result
+			} catch {
+				return nil
+			}
+		}
+	}
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,6 +33,12 @@ class URLsTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
+
+	override func viewDidAppear(animated: Bool) {
+		super.viewDidAppear(animated)
+
+		tableView.reloadData()
+	}
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -37,11 +54,9 @@ class URLsTableViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-		do {
-			let result = try Realm().objects(Page)
-			return result.count
-		} catch {
-			print("error")
+		if pages != nil {
+			return pages!.count
+		} else {
 			return 0
 		}
     }
@@ -49,17 +64,22 @@ class URLsTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("URLCell", forIndexPath: indexPath)
 
-		do {
-			let result = try Realm().objects(Page)
-			let page = result[indexPath.row]
-			let res = Alamofire.request(.GET, page.url)
+		if pages != nil {
+			let page = pages![indexPath.row]
 			cell.detailTextLabel?.text = page.url
-		} catch {
 
+			let jiDoc = Ji(htmlURL: NSURL(string: page.url)!)
+			// let content = jiDoc?.description
+			// print(content)
+			let titleNode = jiDoc?.xPath("//head/title")?.first
+			let title = titleNode?.content
+			cell.textLabel?.text = title
+
+			cell.accessoryType = UITableViewCellAccessoryType.Checkmark
+			// Configure the cell...
+			// cell.textLabel?.text = "title"
+			// cell.detailTextLabel?.text = "detail"
 		}
-        // Configure the cell...
-		// cell.textLabel?.text = "title"
-		// cell.detailTextLabel?.text = "detail"
 
         return cell
     }

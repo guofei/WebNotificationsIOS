@@ -18,19 +18,8 @@ class URLAddTableViewController: UITableViewController {
 	}
 
 	@IBAction func save(sender: AnyObject) {
-		if let url = UrlHelper.getURL(urlField.text) {
-			print(url)
-			let page = Page()
-			page.url = url
-			do {
-				let realm = try Realm()
-				try realm.write {
-					realm.add(page)
-				}
-			} catch {
-				print("error")
-			}
-		}
+		Page.add(UrlHelper.getURL(urlField.text))
+		self.dismissViewControllerAnimated(true, completion: nil)
 	}
 
 	override func viewDidLoad() {
