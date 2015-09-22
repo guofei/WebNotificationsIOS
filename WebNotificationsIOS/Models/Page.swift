@@ -51,6 +51,26 @@ class Page: Object {
 		}
 	}
 
+	static func deleteByURL(url: String?) -> Bool {
+		if url != nil {
+			do {
+				let realm = try Realm()
+				let predicate = NSPredicate(format: "url = %@", url!)
+				let pages = realm.objects(Page).filter(predicate)
+				for page in pages {
+					try realm.write {
+						realm.delete(page)
+					}
+				}
+				return true
+			} catch {
+				return false
+			}
+		}
+
+		return false
+	}
+
 	static func updateAll(closure: (Dictionary<String, Bool>) -> Void) {
 		let qos = Int(QOS_CLASS_USER_INITIATED.rawValue)
 		let queue = dispatch_get_global_queue(qos, 0)
