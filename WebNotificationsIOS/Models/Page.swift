@@ -26,6 +26,13 @@ class Page: Object {
 		return "url"
 	}
 
+	func formatedUpdate() -> String {
+		let dateFormatter = NSDateFormatter()
+		dateFormatter.timeStyle = .ShortStyle
+		dateFormatter.dateStyle = .ShortStyle
+		return dateFormatter.stringFromDate(updatedAt)
+	}
+
 	static func add(url: String?) -> Bool {
 		if let url = url {
 			let page = Page()
@@ -55,19 +62,18 @@ class Page: Object {
 				for	page in pages {
 					let jiDoc = Ji(htmlURL: NSURL(string: page.url)!)
 					let title = jiDoc?.xPath("//head/title")?.first?.content
-					let content = jiDoc?.description
+					let body = jiDoc?.xPath("//body")
+					let content = body == nil ? jiDoc?.description : body?.first?.content
 					if page.title != title || page.content != content {
-						if title != nil {
-							page.title = title!
-						}
-						if content != nil {
-							page.content = content!
-						}
-
 						try realm.write {
-							realm.add(page, update: true)
+							if title != nil {
+								page.title = title!
+							}
+							if content != nil {
+								page.content = content!
+							}
+							page.updatedAt = NSDate()
 						}
-
 						result[page.url] = true
 					}
 				}

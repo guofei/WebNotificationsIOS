@@ -136,7 +136,7 @@
 		2865030D1BAB001900BB041D /* WebNotificationsIOS */ = {
 			isa = PBXGroup;
 			children = (
-				28738EC91BAFDFBC0083D95F /* utils */,
+				28738EC91BAFDFBC0083D95F /* Utils */,
 				2875B94D1BAE820C0020A4C5 /* Models */,
 				2865030E1BAB001900BB041D /* AppDelegate.swift */,
 				286503121BAB001900BB041D /* Main.storyboard */,
@@ -167,12 +167,12 @@
 			path = WebNotificationsIOSUITests;
 			sourceTree = "<group>";
 		};
-		28738EC91BAFDFBC0083D95F /* utils */ = {
+		28738EC91BAFDFBC0083D95F /* Utils */ = {
 			isa = PBXGroup;
 			children = (
 				28738ECA1BAFDFE60083D95F /* UrlHelper.swift */,
 			);
-			name = utils;
+			name = Utils;
 			sourceTree = "<group>";
 		};
 		2875B94D1BAE820C0020A4C5 /* Models */ = {

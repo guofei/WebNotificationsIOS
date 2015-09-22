@@ -24,6 +24,23 @@ class URLsTableViewController: UITableViewController {
 		}
 	}
 
+	var urls = [String: Bool]()
+
+	@IBAction func refresh(sender: AnyObject) {
+		refresh()
+	}
+
+	private func refresh() {
+		urls = [String: Bool]()
+		Page.updateAll() { (dic: Dictionary<String, Bool>) -> Void in
+			dispatch_sync(dispatch_get_main_queue()) {
+				self.urls = dic
+				self.tableView.reloadData()
+				self.refreshControl?.endRefreshing()
+			}
+		}
+	}
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -36,8 +53,8 @@ class URLsTableViewController: UITableViewController {
 
 	override func viewDidAppear(animated: Bool) {
 		super.viewDidAppear(animated)
-
-		tableView.reloadData()
+		refreshControl?.beginRefreshing()
+		refresh()
 	}
 
     override func didReceiveMemoryWarning() {
@@ -66,19 +83,11 @@ class URLsTableViewController: UITableViewController {
 
 		if pages != nil {
 			let page = pages![indexPath.row]
-			cell.detailTextLabel?.text = page.url
-
-			let jiDoc = Ji(htmlURL: NSURL(string: page.url)!)
-			// let content = jiDoc?.description
-			// print(content)
-			let titleNode = jiDoc?.xPath("//head/title")?.first
-			let title = titleNode?.content
-			cell.textLabel?.text = title
-
-			cell.accessoryType = UITableViewCellAccessoryType.Checkmark
-			// Configure the cell...
-			// cell.textLabel?.text = "title"
-			// cell.detailTextLabel?.text = "detail"
+			cell.detailTextLabel?.text = page.formatedUpdate() + " " + page.url
+			cell.textLabel?.text = page.title
+			if ((urls[page.url]) == true) {
+				cell.accessoryType = UITableViewCellAccessoryType.Checkmark
+			}
 		}
 
         return cell

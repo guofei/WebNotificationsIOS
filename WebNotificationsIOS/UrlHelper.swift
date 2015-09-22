@@ -24,11 +24,15 @@ extension String {
 class UrlHelper {
 	static func getURL (url: String?) -> String? {
 		if let url = url {
-			if url.hasPrefix("http") {
-				return url.removeWhitespace()
+			let str = url.removeWhitespace()
+			if (str.characters.count > 0) {
+				if url.hasPrefix("http") {
+					return str
+				} else {
+					return "http://" + str
+				}
 			} else {
-				let s = "http://" + url
-				return s.removeWhitespace()
+				return nil
 			}
 		} else {
 			return nil
