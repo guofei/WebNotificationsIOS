@@ -16,7 +16,7 @@ class URLsTableViewController: UITableViewController {
 	var pages : Results<Page>? {
 		get {
 			do {
-				let result = try Realm().objects(Page)
+				let result = try Realm().objects(Page).sorted("createdAt", ascending: false)
 				return result
 			} catch {
 				return nil
@@ -87,6 +87,8 @@ class URLsTableViewController: UITableViewController {
 			cell.textLabel?.text = page.title
 			if ((urls[page.url]) == true) {
 				cell.accessoryType = UITableViewCellAccessoryType.Checkmark
+			} else {
+				cell.accessoryType = UITableViewCellAccessoryType.None
 			}
 		}
 
