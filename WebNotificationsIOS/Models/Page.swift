@@ -8,6 +8,7 @@
 
 import Foundation
 import RealmSwift
+import Alamofire
 import Ji
 
 
@@ -53,6 +54,10 @@ class Page: Object {
 		return false
 	}
 
+	private struct API {
+		static let URL = "http://webupdatenotification.com/pages"
+	}
+
 	static func add(url: String?, closure: (Bool) -> Void) {
 		let qos = Int(QOS_CLASS_USER_INITIATED.rawValue)
 		let queue = dispatch_get_global_queue(qos, 0)
@@ -60,11 +65,21 @@ class Page: Object {
 			if let url = url {
 				let jiDoc = Ji(htmlURL: NSURL(string: url)!)
 				let title = jiDoc?.xPath("//title")?.first?.content
-				let content = jiDoc?.rootNode?.content
+				let body = jiDoc?.xPath("//body")?.first?.content
+				let content = body == nil ? jiDoc?.rootNode?.content : body
 				let page = Page()
 				page.url = url
 				if let uuid = User.getUUID() {
 					page.pushChannel = uuid
+					let parameters = [
+						"page": [
+							"url": page.url,
+							"sec": page.sec,
+							"push_channel": page.pushChannel,
+							"stop_fetch": page.stopFetch
+						]
+					]
+					Alamofire.request(.POST, API.URL, parameters: parameters)
 				}
 				if title != nil {
 					page.title = title!
@@ -101,7 +116,8 @@ class Page: Object {
 						continue
 					}
 					let title = jiDoc?.xPath("//title")?.first?.content
-					let content = jiDoc?.rootNode?.content
+					let body = jiDoc?.xPath("//body")?.first?.content
+					let content = body == nil ? jiDoc?.rootNode?.content : body
 					if page.title != title || page.content != content {
 						try realm.write {
 							if title != nil {
