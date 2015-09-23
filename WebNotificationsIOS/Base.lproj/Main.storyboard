@@ -71,7 +71,7 @@
             </objects>
             <point key="canvasLocation" x="1080" y="-328"/>
         </scene>
-        <!--Add URL-->
+        <!--Add-->
         <scene sceneID="GSF-Ty-DUi">
             <objects>
                 <tableViewController id="cbn-tT-6I7" customClass="URLAddTableViewController" customModule="WebNotificationsIOS" customModuleProvider="target" sceneMemberID="viewController">
@@ -110,7 +110,7 @@
                             <outlet property="delegate" destination="cbn-tT-6I7" id="gh9-t3-70s"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Add URL" id="JoZ-fD-ASd">
+                    <navigationItem key="navigationItem" title="Add" id="JoZ-fD-ASd">
                         <barButtonItem key="leftBarButtonItem" style="plain" id="rh3-85-jb2">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="oo4-se-eLs">
                                 <rect key="frame" x="20" y="7" width="133" height="30"/>
