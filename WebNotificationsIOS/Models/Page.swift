@@ -63,6 +63,9 @@ class Page: Object {
 				let content = jiDoc?.rootNode?.content
 				let page = Page()
 				page.url = url
+				if let uuid = User.getUUID() {
+					page.pushChannel = uuid
+				}
 				if title != nil {
 					page.title = title!
 				}
