@@ -13,6 +13,7 @@ import Ji
 
 
 class URLsTableViewController: UITableViewController {
+
 	var pages : Results<Page>? {
 		get {
 			do {
@@ -32,7 +33,7 @@ class URLsTableViewController: UITableViewController {
 
 	private func refresh() {
 		refreshControl?.beginRefreshing()
-		urls = [String: Bool]()
+		urls.removeAll()
 		Page.updateAll() { (dic: Dictionary<String, Bool>) -> Void in
 			dispatch_sync(dispatch_get_main_queue()) {
 				self.urls = dic
@@ -44,12 +45,14 @@ class URLsTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
 		refresh()
     }
 
 	override func viewDidAppear(animated: Bool) {
 		super.viewDidAppear(animated)
+		refreshControl?.beginRefreshing()
+		tableView.reloadData()
+		self.refreshControl?.endRefreshing()
 	}
 
     override func didReceiveMemoryWarning() {
@@ -66,8 +69,8 @@ class URLsTableViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-		if pages != nil {
-			return pages!.count
+		if let allPages = pages {
+			return allPages.count
 		} else {
 			return 0
 		}
@@ -76,8 +79,8 @@ class URLsTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("URLCell", forIndexPath: indexPath)
 
-		if pages != nil {
-			let page = pages![indexPath.row]
+		if let allPages = pages {
+			let page = allPages[indexPath.row]
 			cell.detailTextLabel?.text = page.formatedUpdate() + " " + page.url
 			cell.textLabel?.text = page.title
 			if ((urls[page.url]) == true) {
@@ -104,9 +107,11 @@ class URLsTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
             // Delete the row from the data source
-			let page = pages![indexPath.row]
-			Page.deleteByURL(page.url)
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+			if let allPages = pages {
+				let page = allPages[indexPath.row]
+				Page.deleteByURL(page.url)
+				tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+			}
         }
     }
 
@@ -139,7 +144,8 @@ class URLsTableViewController: UITableViewController {
 			if let subVC = segue.destinationViewController as? PageViewController {
 				if let cell = sender as? UITableViewCell {
 					if let indexPath = tableView.indexPathForCell(cell) {
-						if let page = pages?[indexPath.row] {
+						if let allPages = pages {
+							let page = allPages[indexPath.row]
 							subVC.targetURL = page.url
 						}
 					}

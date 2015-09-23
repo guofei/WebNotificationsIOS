@@ -33,24 +33,6 @@ class Page: Object {
 		return dateFormatter.stringFromDate(updatedAt)
 	}
 
-	static func add(url: String?) -> Bool {
-		if let url = url {
-			let page = Page()
-			page.url = url
-			do {
-				let realm = try Realm()
-				try realm.write {
-					realm.add(page)
-				}
-			} catch {
-				return false
-			}
-			return true
-		} else {
-			return false
-		}
-	}
-
 	static func deleteByURL(url: String?) -> Bool {
 		if url != nil {
 			do {
@@ -69,6 +51,37 @@ class Page: Object {
 		}
 
 		return false
+	}
+
+	static func add(url: String?, closure: (Bool) -> Void) {
+		let qos = Int(QOS_CLASS_USER_INITIATED.rawValue)
+		let queue = dispatch_get_global_queue(qos, 0)
+		dispatch_async(queue) {
+			if let url = url {
+				let jiDoc = Ji(htmlURL: NSURL(string: url)!)
+				let title = jiDoc?.xPath("//title")?.first?.content
+				let content = jiDoc?.rootNode?.content
+				let page = Page()
+				page.url = url
+				if title != nil {
+					page.title = title!
+				}
+				if content != nil {
+					page.content = content!
+				}
+				do {
+					let realm = try Realm()
+					try realm.write {
+						realm.add(page)
+					}
+				} catch {
+					print("database error")
+				}
+				closure(true)
+			} else {
+				closure(false)
+			}
+		}
 	}
 
 	static func updateAll(closure: (Dictionary<String, Bool>) -> Void) {

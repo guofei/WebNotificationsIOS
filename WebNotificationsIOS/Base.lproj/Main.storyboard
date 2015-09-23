@@ -79,6 +79,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <activityIndicatorView key="tableFooterView" hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" id="3Rc-y7-Qw1">
+                            <rect key="frame" x="0.0" y="161" width="600" height="20"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </activityIndicatorView>
                         <sections>
                             <tableViewSection id="sai-yC-DwQ">
                                 <cells>
@@ -133,6 +137,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="spinner" destination="3Rc-y7-Qw1" id="Nf0-1P-hGi"/>
                         <outlet property="urlField" destination="6bJ-tR-Ju4" id="kGW-KG-qx0"/>
                     </connections>
                 </tableViewController>
@@ -213,7 +218,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SPT-mS-gZw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2051" y="390"/>
+            <point key="canvasLocation" x="2052" y="382"/>
         </scene>
     </scenes>
 </document>

@@ -13,13 +13,21 @@ import RealmSwift
 class URLAddTableViewController: UITableViewController {
 	@IBOutlet weak var urlField: UITextField!
 
+	@IBOutlet weak var spinner: UIActivityIndicatorView!
+
 	@IBAction func cancel(sender: AnyObject) {
 		self.dismissViewControllerAnimated(true, completion: nil)
 	}
 
 	@IBAction func save(sender: AnyObject) {
-		Page.add(UrlHelper.getURL(urlField.text))
-		self.dismissViewControllerAnimated(true, completion: nil)
+		spinner?.startAnimating()
+		Page.add(UrlHelper.getURL(urlField.text)) { (ok: Bool) -> Void in
+			dispatch_sync(dispatch_get_main_queue()) {
+				self.spinner?.stopAnimating()
+				self.dismissViewControllerAnimated(true, completion: nil)
+			}
+		}
+		// Page.add(UrlHelper.getURL(urlField.text))
 	}
 
 	override func viewDidLoad() {
