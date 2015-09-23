@@ -16,7 +16,7 @@ class Page: Object {
 	dynamic var sec = 3 * 60 * 60
 	dynamic var pushChannel = ""
 	dynamic var stopFetch = false
-	dynamic var title = ""
+	dynamic var title = "unknown"
 	dynamic var content = ""
 	dynamic var digest = ""
 	dynamic var createdAt = NSDate()
@@ -81,9 +81,11 @@ class Page: Object {
 				let pages = realm.objects(Page)
 				for	page in pages {
 					let jiDoc = Ji(htmlURL: NSURL(string: page.url)!)
-					let title = jiDoc?.xPath("//head/title")?.first?.content
-					let body = jiDoc?.xPath("//body")
-					let content = body == nil ? jiDoc?.description : body?.first?.content
+					if jiDoc == nil {
+						continue
+					}
+					let title = jiDoc?.xPath("//title")?.first?.content
+					let content = jiDoc?.rootNode?.content
 					if page.title != title || page.content != content {
 						try realm.write {
 							if title != nil {
