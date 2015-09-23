@@ -114,10 +114,7 @@
 		286503021BAB001900BB041D = {
 			isa = PBXGroup;
 			children = (
-				28738ED11BB06D4E0083D95F /* Ji.framework */,
-				28738ECC1BB050330083D95F /* Alamofire.framework */,
-				287222E51BAE640D00309BB7 /* Realm.framework */,
-				287222E61BAE640D00309BB7 /* RealmSwift.framework */,
+				28738ED51BB260610083D95F /* Frameworks */,
 				2865030D1BAB001900BB041D /* WebNotificationsIOS */,
 				286503221BAB001900BB041D /* WebNotificationsIOSTests */,
 				2865032D1BAB001900BB041D /* WebNotificationsIOSUITests */,
@@ -176,6 +173,17 @@
 				28738ECA1BAFDFE60083D95F /* UrlHelper.swift */,
 			);
 			name = Utils;
+			sourceTree = "<group>";
+		};
+		28738ED51BB260610083D95F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				28738ED11BB06D4E0083D95F /* Ji.framework */,
+				28738ECC1BB050330083D95F /* Alamofire.framework */,
+				287222E51BAE640D00309BB7 /* Realm.framework */,
+				287222E61BAE640D00309BB7 /* RealmSwift.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		2875B94D1BAE820C0020A4C5 /* Models */ = {
