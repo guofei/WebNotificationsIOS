@@ -22,6 +22,7 @@
 		28738ECB1BAFDFE60083D95F /* UrlHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28738ECA1BAFDFE60083D95F /* UrlHelper.swift */; settings = {ASSET_TAGS = (); }; };
 		28738ECD1BB050330083D95F /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28738ECC1BB050330083D95F /* Alamofire.framework */; };
 		28738ED21BB06D4E0083D95F /* Ji.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28738ED11BB06D4E0083D95F /* Ji.framework */; };
+		28738ED41BB1C6B60083D95F /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28738ED31BB1C6B60083D95F /* PageViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		2875B94C1BAE7EC20020A4C5 /* Page.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2875B94B1BAE7EC20020A4C5 /* Page.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
@@ -77,6 +78,7 @@
 		28738ECA1BAFDFE60083D95F /* UrlHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UrlHelper.swift; sourceTree = "<group>"; };
 		28738ECC1BB050330083D95F /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		28738ED11BB06D4E0083D95F /* Ji.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Ji.framework; path = Carthage/Build/iOS/Ji.framework; sourceTree = "<group>"; };
+		28738ED31BB1C6B60083D95F /* PageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
 		2875B94B1BAE7EC20020A4C5 /* Page.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Page.swift; path = Models/Page.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -140,6 +142,7 @@
 				2875B94D1BAE820C0020A4C5 /* Models */,
 				2865030E1BAB001900BB041D /* AppDelegate.swift */,
 				286503121BAB001900BB041D /* Main.storyboard */,
+				28738ED31BB1C6B60083D95F /* PageViewController.swift */,
 				286503151BAB001900BB041D /* Assets.xcassets */,
 				286503171BAB001900BB041D /* LaunchScreen.storyboard */,
 				2865031A1BAB001900BB041D /* Info.plist */,
@@ -337,6 +340,7 @@
 				2865033F1BAB06A600BB041D /* URLAddTableViewController.swift in Sources */,
 				2865033D1BAB019200BB041D /* URLsTableViewController.swift in Sources */,
 				28738ECB1BAFDFE60083D95F /* UrlHelper.swift in Sources */,
+				28738ED41BB1C6B60083D95F /* PageViewController.swift in Sources */,
 				2865030F1BAB001900BB041D /* AppDelegate.swift in Sources */,
 				2875B94C1BAE7EC20020A4C5 /* Page.swift in Sources */,
 			);

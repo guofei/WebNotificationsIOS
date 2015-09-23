@@ -126,14 +126,25 @@ class URLsTableViewController: UITableViewController {
     }
     */
 
-    /*
+
     // MARK: - Navigation
+
+	private struct StoryBoard {
+		static let toWebPageSegue = "toWebPage"
+	}
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+		if (segue.identifier == StoryBoard.toWebPageSegue) {
+			if let subVC = segue.destinationViewController as? PageViewController {
+				if let cell = sender as? UITableViewCell {
+					if let indexPath = tableView.indexPathForCell(cell) {
+						if let page = pages?[indexPath.row] {
+							subVC.targetURL = page.url
+						}
+					}
+				}
+			}
+		}
     }
-    */
-
 }

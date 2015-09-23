@@ -37,6 +37,9 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="jPo-xg-NsD" kind="show" identifier="toWebPage" id="2Tz-vH-cBR"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -66,7 +69,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dVl-6v-WWW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1276" y="374"/>
+            <point key="canvasLocation" x="1080" y="-328"/>
         </scene>
         <!--Add URL-->
         <scene sceneID="GSF-Ty-DUi">
@@ -154,6 +157,45 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="s48-hd-JWZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="364" y="410"/>
+        </scene>
+        <!--Page View Controller-->
+        <scene sceneID="W7Y-m2-Kvk">
+            <objects>
+                <viewController id="jPo-xg-NsD" customClass="PageViewController" customModule="WebNotificationsIOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="7ON-CI-CXL"/>
+                        <viewControllerLayoutGuide type="bottom" id="e7W-VE-pEm"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Rb8-z0-QO4">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2bG-yk-Pyd">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </webView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="dGm-XX-pIl">
+                                <rect key="frame" x="290" y="290" width="20" height="20"/>
+                            </activityIndicatorView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="2bG-yk-Pyd" firstAttribute="centerX" secondItem="dGm-XX-pIl" secondAttribute="centerX" id="CTO-1p-D7d"/>
+                            <constraint firstItem="2bG-yk-Pyd" firstAttribute="centerY" secondItem="dGm-XX-pIl" secondAttribute="centerY" id="iAU-Ps-kVF"/>
+                            <constraint firstItem="2bG-yk-Pyd" firstAttribute="bottom" secondItem="e7W-VE-pEm" secondAttribute="top" id="o6w-e5-ONe"/>
+                            <constraint firstItem="dGm-XX-pIl" firstAttribute="centerY" secondItem="Rb8-z0-QO4" secondAttribute="centerY" id="pfW-1i-Ltm"/>
+                            <constraint firstAttribute="trailing" secondItem="2bG-yk-Pyd" secondAttribute="trailing" id="tHK-ql-Fqi"/>
+                            <constraint firstItem="2bG-yk-Pyd" firstAttribute="leading" secondItem="Rb8-z0-QO4" secondAttribute="leading" id="vii-t4-LtZ"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="spinner" destination="dGm-XX-pIl" id="Ad5-sM-Fyx"/>
+                        <outlet property="webView" destination="2bG-yk-Pyd" id="xQi-f2-CsC"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dWL-Gf-0Hk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1853" y="-315"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="hG0-kw-nz8">
