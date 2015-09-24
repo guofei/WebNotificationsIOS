@@ -15,10 +15,6 @@
 		2865032F1BAB001900BB041D /* WebNotificationsIOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2865032E1BAB001900BB041D /* WebNotificationsIOSUITests.swift */; };
 		2865033D1BAB019200BB041D /* URLsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2865033C1BAB019200BB041D /* URLsTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		2865033F1BAB06A600BB041D /* URLAddTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2865033E1BAB06A600BB041D /* URLAddTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		287222E71BAE640D00309BB7 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 287222E51BAE640D00309BB7 /* Realm.framework */; };
-		287222E81BAE640D00309BB7 /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 287222E51BAE640D00309BB7 /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		287222E91BAE640D00309BB7 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 287222E61BAE640D00309BB7 /* RealmSwift.framework */; };
-		287222EA1BAE640D00309BB7 /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 287222E61BAE640D00309BB7 /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		28738ECB1BAFDFE60083D95F /* UrlHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28738ECA1BAFDFE60083D95F /* UrlHelper.swift */; settings = {ASSET_TAGS = (); }; };
 		28738ECD1BB050330083D95F /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28738ECC1BB050330083D95F /* Alamofire.framework */; };
 		28738ED21BB06D4E0083D95F /* Ji.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28738ED11BB06D4E0083D95F /* Ji.framework */; };
@@ -36,6 +32,10 @@
 		28738EEB1BB2619B0083D95F /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 28738EEA1BB2619B0083D95F /* libz.tbd */; };
 		28738EED1BB261AF0083D95F /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 28738EEC1BB261AF0083D95F /* libsqlite3.tbd */; };
 		2875B94C1BAE7EC20020A4C5 /* Page.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2875B94B1BAE7EC20020A4C5 /* Page.swift */; settings = {ASSET_TAGS = (); }; };
+		289952151BB4116B0003A7A4 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 289952131BB4116B0003A7A4 /* Realm.framework */; };
+		289952161BB4116B0003A7A4 /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 289952131BB4116B0003A7A4 /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		289952171BB4116B0003A7A4 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 289952141BB4116B0003A7A4 /* RealmSwift.framework */; };
+		289952181BB4116B0003A7A4 /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 289952141BB4116B0003A7A4 /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		28B480E31BB2D618006B257A /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B480E21BB2D618006B257A /* User.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
@@ -57,14 +57,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		287222EB1BAE640D00309BB7 /* Embed Frameworks */ = {
+		289952121BB410C60003A7A4 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				287222EA1BAE640D00309BB7 /* RealmSwift.framework in Embed Frameworks */,
-				287222E81BAE640D00309BB7 /* Realm.framework in Embed Frameworks */,
+				289952181BB4116B0003A7A4 /* RealmSwift.framework in Embed Frameworks */,
+				289952161BB4116B0003A7A4 /* Realm.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -72,7 +72,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		2865030B1BAB001900BB041D /* WebNotificationsIOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WebNotificationsIOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2865030B1BAB001900BB041D /* WebChecker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WebChecker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2865030E1BAB001900BB041D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		286503131BAB001900BB041D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		286503151BAB001900BB041D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -86,8 +86,6 @@
 		286503301BAB001900BB041D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2865033C1BAB019200BB041D /* URLsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLsTableViewController.swift; sourceTree = "<group>"; };
 		2865033E1BAB06A600BB041D /* URLAddTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLAddTableViewController.swift; sourceTree = "<group>"; };
-		287222E51BAE640D00309BB7 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Realm.framework; sourceTree = "<group>"; };
-		287222E61BAE640D00309BB7 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = "<group>"; };
 		28738ECA1BAFDFE60083D95F /* UrlHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UrlHelper.swift; sourceTree = "<group>"; };
 		28738ECC1BB050330083D95F /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		28738ED11BB06D4E0083D95F /* Ji.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Ji.framework; path = Carthage/Build/iOS/Ji.framework; sourceTree = "<group>"; };
@@ -105,6 +103,8 @@
 		28738EEA1BB2619B0083D95F /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		28738EEC1BB261AF0083D95F /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		2875B94B1BAE7EC20020A4C5 /* Page.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Page.swift; path = Models/Page.swift; sourceTree = "<group>"; };
+		289952131BB4116B0003A7A4 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Realm.framework; sourceTree = "<group>"; };
+		289952141BB4116B0003A7A4 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = "<group>"; };
 		28B480E21BB2D618006B257A /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = Models/User.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -122,12 +122,12 @@
 				28738EE11BB261500083D95F /* CoreLocation.framework in Frameworks */,
 				28738EDF1BB261450083D95F /* CoreGraphics.framework in Frameworks */,
 				28738EDD1BB2613A0083D95F /* CFNetwork.framework in Frameworks */,
+				289952151BB4116B0003A7A4 /* Realm.framework in Frameworks */,
 				28738EDB1BB2612D0083D95F /* AudioToolbox.framework in Frameworks */,
 				28738ED71BB260C60083D95F /* Bolts.framework in Frameworks */,
-				287222E91BAE640D00309BB7 /* RealmSwift.framework in Frameworks */,
-				287222E71BAE640D00309BB7 /* Realm.framework in Frameworks */,
 				28738ECD1BB050330083D95F /* Alamofire.framework in Frameworks */,
 				28738ED91BB260CE0083D95F /* Parse.framework in Frameworks */,
+				289952171BB4116B0003A7A4 /* RealmSwift.framework in Frameworks */,
 				28738ED21BB06D4E0083D95F /* Ji.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -163,7 +163,7 @@
 		2865030C1BAB001900BB041D /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				2865030B1BAB001900BB041D /* WebNotificationsIOS.app */,
+				2865030B1BAB001900BB041D /* WebChecker.app */,
 				2865031F1BAB001900BB041D /* WebNotificationsIOSTests.xctest */,
 				2865032A1BAB001900BB041D /* WebNotificationsIOSUITests.xctest */,
 			);
@@ -216,6 +216,8 @@
 		28738ED51BB260610083D95F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				289952131BB4116B0003A7A4 /* Realm.framework */,
+				289952141BB4116B0003A7A4 /* RealmSwift.framework */,
 				28738EEC1BB261AF0083D95F /* libsqlite3.tbd */,
 				28738EEA1BB2619B0083D95F /* libz.tbd */,
 				28738EE81BB2617A0083D95F /* SystemConfiguration.framework */,
@@ -230,8 +232,6 @@
 				28738ED61BB260C60083D95F /* Bolts.framework */,
 				28738ED11BB06D4E0083D95F /* Ji.framework */,
 				28738ECC1BB050330083D95F /* Alamofire.framework */,
-				287222E51BAE640D00309BB7 /* Realm.framework */,
-				287222E61BAE640D00309BB7 /* RealmSwift.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -248,23 +248,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		2865030A1BAB001900BB041D /* WebNotificationsIOS */ = {
+		2865030A1BAB001900BB041D /* WebChecker */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 286503331BAB001900BB041D /* Build configuration list for PBXNativeTarget "WebNotificationsIOS" */;
+			buildConfigurationList = 286503331BAB001900BB041D /* Build configuration list for PBXNativeTarget "WebChecker" */;
 			buildPhases = (
 				286503071BAB001900BB041D /* Sources */,
 				286503081BAB001900BB041D /* Frameworks */,
 				286503091BAB001900BB041D /* Resources */,
-				287222EB1BAE640D00309BB7 /* Embed Frameworks */,
 				28738ECF1BB050E60083D95F /* ShellScript */,
+				289952121BB410C60003A7A4 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = WebNotificationsIOS;
+			name = WebChecker;
 			productName = WebNotificationsIOS;
-			productReference = 2865030B1BAB001900BB041D /* WebNotificationsIOS.app */;
+			productReference = 2865030B1BAB001900BB041D /* WebChecker.app */;
 			productType = "com.apple.product-type.application";
 		};
 		2865031E1BAB001900BB041D /* WebNotificationsIOSTests */ = {
@@ -339,7 +339,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				2865030A1BAB001900BB041D /* WebNotificationsIOS */,
+				2865030A1BAB001900BB041D /* WebChecker */,
 				2865031E1BAB001900BB041D /* WebNotificationsIOSTests */,
 				286503291BAB001900BB041D /* WebNotificationsIOSUITests */,
 			);
@@ -427,12 +427,12 @@
 /* Begin PBXTargetDependency section */
 		286503211BAB001900BB041D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 2865030A1BAB001900BB041D /* WebNotificationsIOS */;
+			target = 2865030A1BAB001900BB041D /* WebChecker */;
 			targetProxy = 286503201BAB001900BB041D /* PBXContainerItemProxy */;
 		};
 		2865032C1BAB001900BB041D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 2865030A1BAB001900BB041D /* WebNotificationsIOS */;
+			target = 2865030A1BAB001900BB041D /* WebChecker */;
 			targetProxy = 2865032B1BAB001900BB041D /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -636,7 +636,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		286503331BAB001900BB041D /* Build configuration list for PBXNativeTarget "WebNotificationsIOS" */ = {
+		286503331BAB001900BB041D /* Build configuration list for PBXNativeTarget "WebChecker" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				286503341BAB001900BB041D /* Debug */,

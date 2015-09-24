@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import RealmSwift
 
 
 class URLAddTableViewController: UITableViewController {
@@ -20,7 +19,7 @@ class URLAddTableViewController: UITableViewController {
 	}
 
 	var sec = 3 * 60 * 60
-	var stopFetch = true
+	var stopFetch = false
 
 	@IBAction func save(sender: AnyObject) {
 		spinner?.startAnimating()
@@ -30,7 +29,6 @@ class URLAddTableViewController: UITableViewController {
 				self.dismissViewControllerAnimated(true, completion: nil)
 			}
 		}
-		// Page.add(UrlHelper.getURL(urlField.text))
 	}
 
 	override func viewDidLoad() {
