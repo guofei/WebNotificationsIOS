@@ -19,9 +19,12 @@ class URLAddTableViewController: UITableViewController {
 		self.dismissViewControllerAnimated(true, completion: nil)
 	}
 
+	var sec = 3 * 60 * 60
+	var stopFetch = true
+
 	@IBAction func save(sender: AnyObject) {
 		spinner?.startAnimating()
-		Page.add(UrlHelper.getURL(urlField.text)) { (ok: Bool) -> Void in
+		Page.add(UrlHelper.getURL(urlField.text), second: sec, stopFetch: stopFetch) { (ok: Bool) -> Void in
 			dispatch_sync(dispatch_get_main_queue()) {
 				self.spinner?.stopAnimating()
 				self.dismissViewControllerAnimated(true, completion: nil)

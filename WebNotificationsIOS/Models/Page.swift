@@ -13,10 +13,11 @@ import Ji
 
 
 class Page: Object {
+	dynamic var id = 0
     dynamic var url = ""
 	dynamic var sec = 3 * 60 * 60
 	dynamic var pushChannel = ""
-	dynamic var stopFetch = false
+	dynamic var stopFetch = true
 	dynamic var title = "unknown"
 	dynamic var content = ""
 	dynamic var digest = ""
@@ -58,7 +59,7 @@ class Page: Object {
 		static let URL = "http://webupdatenotification.com/pages"
 	}
 
-	static func add(url: String?, closure: (Bool) -> Void) {
+	static func add(url: String?, second: Int, stopFetch: Bool, closure: (Bool) -> Void) {
 		let qos = Int(QOS_CLASS_USER_INITIATED.rawValue)
 		let queue = dispatch_get_global_queue(qos, 0)
 		dispatch_async(queue) {
@@ -79,7 +80,18 @@ class Page: Object {
 							"stop_fetch": page.stopFetch
 						]
 					]
-					Alamofire.request(.POST, API.URL, parameters: parameters)
+					Alamofire.request(.POST, API.URL, parameters: parameters).responseJSON { response in
+						switch response.2 {
+						case .Success:
+							if let dic = response.2.value as? Dictionary<String,AnyObject> {
+								if let id = dic["id"] {
+									print("JSON: \(id)")
+								}
+							}
+						case .Failure(let error):
+							print(error)
+						}
+					}
 				}
 				if title != nil {
 					page.title = title!
@@ -102,6 +114,7 @@ class Page: Object {
 		}
 	}
 
+	// TODO remove when update
 	static func updateAll(closure: (Dictionary<String, Bool>) -> Void) {
 		let qos = Int(QOS_CLASS_USER_INITIATED.rawValue)
 		let queue = dispatch_get_global_queue(qos, 0)
