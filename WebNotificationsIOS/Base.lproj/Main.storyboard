@@ -8,7 +8,7 @@
         <!--Pages-->
         <scene sceneID="weI-YD-7X9">
             <objects>
-                <tableViewController id="p5b-RV-I1v" customClass="URLsTableViewController" customModule="WebNotificationsIOS" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="p5b-RV-I1v" customClass="URLsTableViewController" customModule="WebChecker" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="3q1-Zz-Ifo">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -74,7 +74,7 @@
         <!--Add-->
         <scene sceneID="GSF-Ty-DUi">
             <objects>
-                <tableViewController id="cbn-tT-6I7" customClass="URLAddTableViewController" customModule="WebNotificationsIOS" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="cbn-tT-6I7" customClass="URLAddTableViewController" customModule="WebChecker" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="oL6-Xa-dtX">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -86,7 +86,7 @@
                         <sections>
                             <tableViewSection id="sai-yC-DwQ">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="URLAdd" id="OBO-32-H8C">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="URLAdd" id="OBO-32-H8C">
                                         <rect key="frame" x="0.0" y="99" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="OBO-32-H8C" id="NoW-jO-HwJ">
@@ -166,7 +166,7 @@
         <!--Page View Controller-->
         <scene sceneID="W7Y-m2-Kvk">
             <objects>
-                <viewController id="jPo-xg-NsD" customClass="PageViewController" customModule="WebNotificationsIOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="jPo-xg-NsD" customClass="PageViewController" customModule="WebChecker" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="7ON-CI-CXL"/>
                         <viewControllerLayoutGuide type="bottom" id="e7W-VE-pEm"/>
