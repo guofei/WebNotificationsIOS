@@ -195,6 +195,11 @@ class Page: Object {
 					let title = jiDoc?.xPath("//title")?.first?.content
 					let body = jiDoc?.xPath("//body")?.first?.content
 					let content = body == nil ? jiDoc?.rootNode?.content : body
+					if let checkContent = content {
+						if checkContent == page.content {
+							continue
+						}
+					}
 					let url = page.url
 					realm.write {
 						if let _ = Page.getByURL(url) {
