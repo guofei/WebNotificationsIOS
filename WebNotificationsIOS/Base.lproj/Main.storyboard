@@ -80,7 +80,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                         <activityIndicatorView key="tableFooterView" hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" id="3Rc-y7-Qw1">
-                            <rect key="frame" x="0.0" y="161" width="600" height="20"/>
+                            <rect key="frame" x="0.0" y="411" width="600" height="20"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </activityIndicatorView>
                         <sections>
@@ -103,6 +103,31 @@
                                                 <constraint firstItem="6bJ-tR-Ju4" firstAttribute="trailing" secondItem="NoW-jO-HwJ" secondAttribute="trailingMargin" id="CEN-4V-otM"/>
                                                 <constraint firstItem="6bJ-tR-Ju4" firstAttribute="centerY" secondItem="NoW-jO-HwJ" secondAttribute="centerY" id="Ib4-us-YeT"/>
                                                 <constraint firstItem="6bJ-tR-Ju4" firstAttribute="leading" secondItem="NoW-jO-HwJ" secondAttribute="leadingMargin" id="NYG-Nh-orO"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection headerTitle="Scheduling" id="gol-AF-YID">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="Timer" rowHeight="200" id="x7f-Eb-spd">
+                                        <rect key="frame" x="0.0" y="193" width="600" height="200"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="x7f-Eb-spd" id="XrW-la-ptr">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="199.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <datePicker userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="countDownTimer" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="HJS-EC-K0X">
+                                                    <rect key="frame" x="0.0" y="8" width="600" height="216"/>
+                                                    <date key="date" timeIntervalSinceReferenceDate="464884726.20042902">
+                                                        <!--2015-09-25 14:38:46 +0000-->
+                                                    </date>
+                                                </datePicker>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="HJS-EC-K0X" firstAttribute="leading" secondItem="XrW-la-ptr" secondAttribute="leading" id="KJv-rJ-VaL"/>
+                                                <constraint firstItem="HJS-EC-K0X" firstAttribute="top" secondItem="XrW-la-ptr" secondAttribute="topMargin" id="UZk-ye-bHZ"/>
+                                                <constraint firstAttribute="trailing" secondItem="HJS-EC-K0X" secondAttribute="trailing" id="Zvn-7z-2KD"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -137,6 +162,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="datePicker" destination="HJS-EC-K0X" id="MHs-IZ-gtX"/>
                         <outlet property="spinner" destination="3Rc-y7-Qw1" id="Nf0-1P-hGi"/>
                         <outlet property="urlField" destination="6bJ-tR-Ju4" id="kGW-KG-qx0"/>
                     </connections>

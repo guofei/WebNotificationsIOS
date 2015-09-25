@@ -14,15 +14,18 @@ class URLAddTableViewController: UITableViewController {
 
 	@IBOutlet weak var spinner: UIActivityIndicatorView!
 
+	@IBOutlet weak var datePicker: UIDatePicker!
+
 	@IBAction func cancel(sender: AnyObject) {
 		self.dismissViewControllerAnimated(true, completion: nil)
 	}
 
-	var sec = 3 * 60 * 60
+	var defaultSecond = 3 * 60 * 60
 	var stopFetch = false
 
 	@IBAction func save(sender: AnyObject) {
 		spinner?.startAnimating()
+		let sec = Int(datePicker.countDownDuration)
 		Page.add(UrlHelper.getURL(urlField.text), second: sec, stopFetch: stopFetch) { (ok: Bool) -> Void in
 			dispatch_sync(dispatch_get_main_queue()) {
 				self.spinner?.stopAnimating()
@@ -33,6 +36,7 @@ class URLAddTableViewController: UITableViewController {
 
 	override func viewDidLoad() {
         super.viewDidLoad()
+		datePicker.countDownDuration = Double(defaultSecond)
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
