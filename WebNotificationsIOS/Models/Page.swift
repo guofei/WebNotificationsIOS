@@ -178,7 +178,6 @@ class Page: Object {
 		}
 	}
 
-	// TODO remove when update
 	static func updateAll(closure: (Dictionary<String, Bool>) -> Void) {
 		let qos = Int(QOS_CLASS_USER_INITIATED.rawValue)
 		let queue = dispatch_get_global_queue(qos, 0)
