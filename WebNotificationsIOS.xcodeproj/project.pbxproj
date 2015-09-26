@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2858C7461BB6CC89005D7543 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2858C7451BB6CC89005D7543 /* StoreKit.framework */; };
 		2865030F1BAB001900BB041D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2865030E1BAB001900BB041D /* AppDelegate.swift */; };
 		286503141BAB001900BB041D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 286503121BAB001900BB041D /* Main.storyboard */; };
 		286503161BAB001900BB041D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 286503151BAB001900BB041D /* Assets.xcassets */; };
@@ -27,7 +28,6 @@
 		28738EE11BB261500083D95F /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28738EE01BB261500083D95F /* CoreLocation.framework */; };
 		28738EE31BB2615A0083D95F /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28738EE21BB2615A0083D95F /* QuartzCore.framework */; };
 		28738EE51BB261650083D95F /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28738EE41BB261650083D95F /* Security.framework */; };
-		28738EE71BB261700083D95F /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28738EE61BB261700083D95F /* StoreKit.framework */; };
 		28738EE91BB2617A0083D95F /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28738EE81BB2617A0083D95F /* SystemConfiguration.framework */; };
 		28738EEB1BB2619B0083D95F /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 28738EEA1BB2619B0083D95F /* libz.tbd */; };
 		28738EED1BB261AF0083D95F /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 28738EEC1BB261AF0083D95F /* libsqlite3.tbd */; };
@@ -72,6 +72,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		2858C7451BB6CC89005D7543 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		2865030B1BAB001900BB041D /* WebChecker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WebChecker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2865030E1BAB001900BB041D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		286503131BAB001900BB041D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -98,7 +99,6 @@
 		28738EE01BB261500083D95F /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		28738EE21BB2615A0083D95F /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		28738EE41BB261650083D95F /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
-		28738EE61BB261700083D95F /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		28738EE81BB2617A0083D95F /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		28738EEA1BB2619B0083D95F /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		28738EEC1BB261AF0083D95F /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
@@ -116,7 +116,7 @@
 				28738EED1BB261AF0083D95F /* libsqlite3.tbd in Frameworks */,
 				28738EEB1BB2619B0083D95F /* libz.tbd in Frameworks */,
 				28738EE91BB2617A0083D95F /* SystemConfiguration.framework in Frameworks */,
-				28738EE71BB261700083D95F /* StoreKit.framework in Frameworks */,
+				2858C7461BB6CC89005D7543 /* StoreKit.framework in Frameworks */,
 				28738EE51BB261650083D95F /* Security.framework in Frameworks */,
 				28738EE31BB2615A0083D95F /* QuartzCore.framework in Frameworks */,
 				28738EE11BB261500083D95F /* CoreLocation.framework in Frameworks */,
@@ -216,12 +216,12 @@
 		28738ED51BB260610083D95F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2858C7451BB6CC89005D7543 /* StoreKit.framework */,
 				289952131BB4116B0003A7A4 /* Realm.framework */,
 				289952141BB4116B0003A7A4 /* RealmSwift.framework */,
 				28738EEC1BB261AF0083D95F /* libsqlite3.tbd */,
 				28738EEA1BB2619B0083D95F /* libz.tbd */,
 				28738EE81BB2617A0083D95F /* SystemConfiguration.framework */,
-				28738EE61BB261700083D95F /* StoreKit.framework */,
 				28738EE41BB261650083D95F /* Security.framework */,
 				28738EE21BB2615A0083D95F /* QuartzCore.framework */,
 				28738EE01BB261500083D95F /* CoreLocation.framework */,
@@ -316,6 +316,9 @@
 						CreatedOnToolsVersion = 7.0;
 						DevelopmentTeam = D38TAEJ8G7;
 						SystemCapabilities = {
+							com.apple.InAppPurchase = {
+								enabled = 1;
+							};
 							com.apple.Push = {
 								enabled = 1;
 							};

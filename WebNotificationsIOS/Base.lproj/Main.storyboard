@@ -80,7 +80,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                         <activityIndicatorView key="tableFooterView" hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" id="3Rc-y7-Qw1">
-                            <rect key="frame" x="0.0" y="411" width="600" height="20"/>
+                            <rect key="frame" x="0.0" y="491" width="600" height="20"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </activityIndicatorView>
                         <sections>
@@ -117,7 +117,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="199.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="countDownTimer" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="HJS-EC-K0X">
+                                                <datePicker userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="countDownTimer" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="HJS-EC-K0X">
                                                     <rect key="frame" x="0.0" y="8" width="600" height="216"/>
                                                     <date key="date" timeIntervalSinceReferenceDate="464884726.20042902">
                                                         <!--2015-09-25 14:38:46 +0000-->
@@ -128,6 +128,33 @@
                                                 <constraint firstItem="HJS-EC-K0X" firstAttribute="leading" secondItem="XrW-la-ptr" secondAttribute="leading" id="KJv-rJ-VaL"/>
                                                 <constraint firstItem="HJS-EC-K0X" firstAttribute="top" secondItem="XrW-la-ptr" secondAttribute="topMargin" id="UZk-ye-bHZ"/>
                                                 <constraint firstAttribute="trailing" secondItem="HJS-EC-K0X" secondAttribute="trailing" id="Zvn-7z-2KD"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection footerTitle="" id="ECV-g8-iyP">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="BuyTable" id="Vsz-8f-aa1">
+                                        <rect key="frame" x="0.0" y="429" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Vsz-8f-aa1" id="NKA-IL-85U">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A8t-dG-8nw">
+                                                    <rect key="frame" x="8" y="7" width="584" height="30"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <state key="normal" title="Buy Pro version to unlock scheduling"/>
+                                                    <connections>
+                                                        <action selector="buyPro:" destination="cbn-tT-6I7" eventType="touchUpInside" id="Dcn-ah-0oD"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="A8t-dG-8nw" firstAttribute="trailing" secondItem="NKA-IL-85U" secondAttribute="trailingMargin" id="AZE-8s-wb1"/>
+                                                <constraint firstItem="A8t-dG-8nw" firstAttribute="centerY" secondItem="NKA-IL-85U" secondAttribute="centerY" id="D0v-89-Qu3"/>
+                                                <constraint firstItem="A8t-dG-8nw" firstAttribute="leading" secondItem="NKA-IL-85U" secondAttribute="leadingMargin" id="T0F-yt-CrO"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -162,6 +189,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="buyTable" destination="Vsz-8f-aa1" id="yzs-CK-pXM"/>
                         <outlet property="datePicker" destination="HJS-EC-K0X" id="MHs-IZ-gtX"/>
                         <outlet property="spinner" destination="3Rc-y7-Qw1" id="Nf0-1P-hGi"/>
                         <outlet property="urlField" destination="6bJ-tR-Ju4" id="kGW-KG-qx0"/>

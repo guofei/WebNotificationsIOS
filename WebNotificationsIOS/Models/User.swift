@@ -53,4 +53,23 @@ class User: Object {
 			return nil
 		}
 	}
+
+	private struct Key {
+		static let pro = "proUser"
+	}
+
+	static func isProUser() -> Bool {
+		let ud = NSUserDefaults.standardUserDefaults()
+		if let pro = ud.objectForKey(Key.pro) as? Bool {
+			return pro
+		} else {
+			return false
+		}
+	}
+
+	static func setProUser() {
+		let ud = NSUserDefaults.standardUserDefaults()
+		ud.setObject(true, forKey: Key.pro)
+		ud.synchronize()
+	}
 }

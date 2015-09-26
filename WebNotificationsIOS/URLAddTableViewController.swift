@@ -7,13 +7,13 @@
 //
 
 import UIKit
+import Parse
 
 
 class URLAddTableViewController: UITableViewController {
 	@IBOutlet weak var urlField: UITextField!
-
 	@IBOutlet weak var spinner: UIActivityIndicatorView!
-
+	@IBOutlet weak var buyTable: UITableViewCell!
 	@IBOutlet weak var datePicker: UIDatePicker!
 
 	@IBAction func cancel(sender: AnyObject) {
@@ -22,6 +22,27 @@ class URLAddTableViewController: UITableViewController {
 
 	var defaultSecond = 3 * 60 * 60
 	var stopFetch = false
+
+	private func setProUI() {
+		buyTable?.hidden = true
+		datePicker?.userInteractionEnabled = true
+	}
+
+	private struct Product {
+		static let ID = "protest"
+	}
+
+	@IBAction func buyPro(sender: AnyObject) {
+		PFPurchase.buyProduct(Product.ID) { (error: NSError?) -> Void in
+			if (error != nil) {
+				print(error)
+			}
+			if error == nil {
+				self.setProUI()
+				User.setProUser()
+			}
+		}
+	}
 
 	@IBAction func save(sender: AnyObject) {
 		spinner?.startAnimating()
@@ -38,6 +59,9 @@ class URLAddTableViewController: UITableViewController {
         super.viewDidLoad()
 		datePicker.countDownDuration = Double(defaultSecond)
 
+		if (User.isProUser()) {
+			setProUI()
+		}
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
