@@ -163,7 +163,7 @@ class Page: Object {
 				do {
 					let realm = try Realm()
 					realm.write {
-						realm.add(page)
+						realm.add(page, update: true)
 					}
 				} catch {
 					print("database error")

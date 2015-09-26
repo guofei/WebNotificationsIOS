@@ -315,6 +315,11 @@
 					2865030A1BAB001900BB041D = {
 						CreatedOnToolsVersion = 7.0;
 						DevelopmentTeam = D38TAEJ8G7;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 					2865031E1BAB001900BB041D = {
 						CreatedOnToolsVersion = 7.0;
@@ -553,7 +558,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.webupdatenotification;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "2804933a-9db5-456d-875c-ed3435a15545";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -572,7 +577,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.webupdatenotification;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "2804933a-9db5-456d-875c-ed3435a15545";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

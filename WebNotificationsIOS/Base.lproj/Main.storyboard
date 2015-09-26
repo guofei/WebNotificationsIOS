@@ -117,7 +117,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="199.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <datePicker userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="countDownTimer" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="HJS-EC-K0X">
+                                                <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="countDownTimer" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="HJS-EC-K0X">
                                                     <rect key="frame" x="0.0" y="8" width="600" height="216"/>
                                                     <date key="date" timeIntervalSinceReferenceDate="464884726.20042902">
                                                         <!--2015-09-25 14:38:46 +0000-->
