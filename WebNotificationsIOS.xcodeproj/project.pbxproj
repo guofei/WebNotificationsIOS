@@ -10,6 +10,7 @@
 		2858C7461BB6CC89005D7543 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2858C7451BB6CC89005D7543 /* StoreKit.framework */; };
 		2858C7491BB7A856005D7543 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2858C7471BB7A856005D7543 /* Realm.framework */; };
 		2858C74A1BB7A856005D7543 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2858C7481BB7A856005D7543 /* RealmSwift.framework */; };
+		2858C74C1BB83B1B005D7543 /* SecretKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2858C74B1BB83B1B005D7543 /* SecretKey.swift */; settings = {ASSET_TAGS = (); }; };
 		2865030F1BAB001900BB041D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2865030E1BAB001900BB041D /* AppDelegate.swift */; };
 		286503141BAB001900BB041D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 286503121BAB001900BB041D /* Main.storyboard */; };
 		286503161BAB001900BB041D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 286503151BAB001900BB041D /* Assets.xcassets */; };
@@ -58,6 +59,7 @@
 		2858C7451BB6CC89005D7543 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		2858C7471BB7A856005D7543 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
 		2858C7481BB7A856005D7543 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
+		2858C74B1BB83B1B005D7543 /* SecretKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecretKey.swift; sourceTree = "<group>"; };
 		2865030B1BAB001900BB041D /* WebChecker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WebChecker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2865030E1BAB001900BB041D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		286503131BAB001900BB041D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -159,6 +161,7 @@
 				28738EC91BAFDFBC0083D95F /* Utils */,
 				2875B94D1BAE820C0020A4C5 /* Models */,
 				2865030E1BAB001900BB041D /* AppDelegate.swift */,
+				2858C74B1BB83B1B005D7543 /* SecretKey.swift */,
 				286503121BAB001900BB041D /* Main.storyboard */,
 				28738ED31BB1C6B60083D95F /* PageViewController.swift */,
 				286503151BAB001900BB041D /* Assets.xcassets */,
@@ -389,6 +392,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2865033F1BAB06A600BB041D /* URLAddTableViewController.swift in Sources */,
+				2858C74C1BB83B1B005D7543 /* SecretKey.swift in Sources */,
 				2865033D1BAB019200BB041D /* URLsTableViewController.swift in Sources */,
 				28738ECB1BAFDFE60083D95F /* UrlHelper.swift in Sources */,
 				28738ED41BB1C6B60083D95F /* PageViewController.swift in Sources */,

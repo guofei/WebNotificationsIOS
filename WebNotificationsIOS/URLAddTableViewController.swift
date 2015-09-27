@@ -43,12 +43,16 @@ class URLAddTableViewController: UITableViewController {
 
 	@IBAction func buyPro(sender: AnyObject) {
 		PFPurchase.buyProduct(Product.ID) { (error: NSError?) -> Void in
-			if (error != nil) {
-				print(error)
-			}
 			if error == nil {
 				self.setProUI()
 				User.setProUser()
+				let alert = UIAlertController(title: "Success", message: "Thank you for buying pro", preferredStyle: UIAlertControllerStyle.Alert)
+				alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))
+				self.presentViewController(alert, animated: true, completion: nil)
+			} else {
+				let alert = UIAlertController(title: "Error", message: error?.description, preferredStyle: UIAlertControllerStyle.Alert)
+				alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))
+				self.presentViewController(alert, animated: true, completion: nil)
 			}
 		}
 	}

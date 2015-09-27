@@ -5,7 +5,7 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Pages-->
+        <!--List-->
         <scene sceneID="weI-YD-7X9">
             <objects>
                 <tableViewController id="p5b-RV-I1v" customClass="URLsTableViewController" customModule="WebChecker" customModuleProvider="target" sceneMemberID="viewController">
@@ -47,7 +47,7 @@
                             <outlet property="delegate" destination="p5b-RV-I1v" id="OZB-ya-Pcw"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Pages" id="Bf8-ZN-xEN">
+                    <navigationItem key="navigationItem" title="List" id="Bf8-ZN-xEN">
                         <barButtonItem key="rightBarButtonItem" style="plain" id="Xu1-Pp-LwP">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="AxP-6h-NoT">
                                 <rect key="frame" x="447" y="1" width="133" height="42"/>
@@ -138,7 +138,7 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="Scheduling" footerTitle="Check for update on cloud" id="gol-AF-YID">
+                            <tableViewSection headerTitle="Cloud Scheduling" footerTitle="Check for update every #minute by cloud" id="gol-AF-YID">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="Timer" rowHeight="200" id="x7f-Eb-spd">
                                         <rect key="frame" x="0.0" y="273" width="600" height="200"/>
@@ -175,7 +175,7 @@
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A8t-dG-8nw">
                                                     <rect key="frame" x="8" y="7" width="584" height="30"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                    <state key="normal" title="Buy Pro version to unlock scheduling"/>
+                                                    <state key="normal" title="Buy Pro to unlock cloud scheduling"/>
                                                     <connections>
                                                         <action selector="buyPro:" destination="cbn-tT-6I7" eventType="touchUpInside" id="Dcn-ah-0oD"/>
                                                     </connections>
