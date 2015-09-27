@@ -138,7 +138,7 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="Scheduling(Cloud Side)" id="gol-AF-YID">
+                            <tableViewSection headerTitle="Scheduling on cloud" id="gol-AF-YID">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="Timer" rowHeight="200" id="x7f-Eb-spd">
                                         <rect key="frame" x="0.0" y="273" width="600" height="200"/>
