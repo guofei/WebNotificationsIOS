@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		2858C7461BB6CC89005D7543 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2858C7451BB6CC89005D7543 /* StoreKit.framework */; };
+		2858C7491BB7A856005D7543 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2858C7471BB7A856005D7543 /* Realm.framework */; };
+		2858C74A1BB7A856005D7543 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2858C7481BB7A856005D7543 /* RealmSwift.framework */; };
 		2865030F1BAB001900BB041D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2865030E1BAB001900BB041D /* AppDelegate.swift */; };
 		286503141BAB001900BB041D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 286503121BAB001900BB041D /* Main.storyboard */; };
 		286503161BAB001900BB041D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 286503151BAB001900BB041D /* Assets.xcassets */; };
@@ -32,10 +34,6 @@
 		28738EEB1BB2619B0083D95F /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 28738EEA1BB2619B0083D95F /* libz.tbd */; };
 		28738EED1BB261AF0083D95F /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 28738EEC1BB261AF0083D95F /* libsqlite3.tbd */; };
 		2875B94C1BAE7EC20020A4C5 /* Page.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2875B94B1BAE7EC20020A4C5 /* Page.swift */; settings = {ASSET_TAGS = (); }; };
-		289952151BB4116B0003A7A4 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 289952131BB4116B0003A7A4 /* Realm.framework */; };
-		289952161BB4116B0003A7A4 /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 289952131BB4116B0003A7A4 /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		289952171BB4116B0003A7A4 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 289952141BB4116B0003A7A4 /* RealmSwift.framework */; };
-		289952181BB4116B0003A7A4 /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 289952141BB4116B0003A7A4 /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		28B480E31BB2D618006B257A /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B480E21BB2D618006B257A /* User.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
@@ -56,23 +54,10 @@
 		};
 /* End PBXContainerItemProxy section */
 
-/* Begin PBXCopyFilesBuildPhase section */
-		289952121BB410C60003A7A4 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				289952181BB4116B0003A7A4 /* RealmSwift.framework in Embed Frameworks */,
-				289952161BB4116B0003A7A4 /* Realm.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
-
 /* Begin PBXFileReference section */
 		2858C7451BB6CC89005D7543 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		2858C7471BB7A856005D7543 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
+		2858C7481BB7A856005D7543 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
 		2865030B1BAB001900BB041D /* WebChecker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WebChecker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2865030E1BAB001900BB041D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		286503131BAB001900BB041D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -103,8 +88,6 @@
 		28738EEA1BB2619B0083D95F /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		28738EEC1BB261AF0083D95F /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		2875B94B1BAE7EC20020A4C5 /* Page.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Page.swift; path = Models/Page.swift; sourceTree = "<group>"; };
-		289952131BB4116B0003A7A4 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Realm.framework; sourceTree = "<group>"; };
-		289952141BB4116B0003A7A4 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = "<group>"; };
 		28B480E21BB2D618006B257A /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = Models/User.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -113,6 +96,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2858C7491BB7A856005D7543 /* Realm.framework in Frameworks */,
+				2858C74A1BB7A856005D7543 /* RealmSwift.framework in Frameworks */,
 				28738EED1BB261AF0083D95F /* libsqlite3.tbd in Frameworks */,
 				28738EEB1BB2619B0083D95F /* libz.tbd in Frameworks */,
 				28738EE91BB2617A0083D95F /* SystemConfiguration.framework in Frameworks */,
@@ -122,12 +107,10 @@
 				28738EE11BB261500083D95F /* CoreLocation.framework in Frameworks */,
 				28738EDF1BB261450083D95F /* CoreGraphics.framework in Frameworks */,
 				28738EDD1BB2613A0083D95F /* CFNetwork.framework in Frameworks */,
-				289952151BB4116B0003A7A4 /* Realm.framework in Frameworks */,
 				28738EDB1BB2612D0083D95F /* AudioToolbox.framework in Frameworks */,
 				28738ED71BB260C60083D95F /* Bolts.framework in Frameworks */,
 				28738ECD1BB050330083D95F /* Alamofire.framework in Frameworks */,
 				28738ED91BB260CE0083D95F /* Parse.framework in Frameworks */,
-				289952171BB4116B0003A7A4 /* RealmSwift.framework in Frameworks */,
 				28738ED21BB06D4E0083D95F /* Ji.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -216,9 +199,9 @@
 		28738ED51BB260610083D95F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2858C7471BB7A856005D7543 /* Realm.framework */,
+				2858C7481BB7A856005D7543 /* RealmSwift.framework */,
 				2858C7451BB6CC89005D7543 /* StoreKit.framework */,
-				289952131BB4116B0003A7A4 /* Realm.framework */,
-				289952141BB4116B0003A7A4 /* RealmSwift.framework */,
 				28738EEC1BB261AF0083D95F /* libsqlite3.tbd */,
 				28738EEA1BB2619B0083D95F /* libz.tbd */,
 				28738EE81BB2617A0083D95F /* SystemConfiguration.framework */,
@@ -256,7 +239,6 @@
 				286503081BAB001900BB041D /* Frameworks */,
 				286503091BAB001900BB041D /* Resources */,
 				28738ECF1BB050E60083D95F /* ShellScript */,
-				289952121BB410C60003A7A4 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -390,6 +372,8 @@
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Ji.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Realm.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RealmSwift.framework",
 			);
 			outputPaths = (
 			);
