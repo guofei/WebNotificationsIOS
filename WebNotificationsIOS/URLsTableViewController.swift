@@ -27,6 +27,12 @@ class URLsTableViewController: UITableViewController {
 
 	var urls = [String: Bool]()
 
+	private func setChecked(url: String?) {
+		if let url = url {
+			urls[url] = nil
+		}
+	}
+
 	@IBAction func refresh(sender: AnyObject) {
 		refresh()
 	}
@@ -146,6 +152,7 @@ class URLsTableViewController: UITableViewController {
 					if let indexPath = tableView.indexPathForCell(cell) {
 						if let allPages = pages {
 							let page = allPages[indexPath.row]
+							setChecked(page.url)
 							subVC.targetURL = page.url
 						}
 					}

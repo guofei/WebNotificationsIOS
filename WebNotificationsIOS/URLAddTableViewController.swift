@@ -11,17 +11,26 @@ import Parse
 
 
 class URLAddTableViewController: UITableViewController {
+	var defaultSecond = 3 * 60 * 60
+	var stopFetch : Bool {
+		get {
+			if notification == nil {
+				return false
+			} else {
+				return !notification.on
+			}
+		}
+	}
+
 	@IBOutlet weak var urlField: UITextField!
 	@IBOutlet weak var spinner: UIActivityIndicatorView!
 	@IBOutlet weak var buyTable: UITableViewCell!
 	@IBOutlet weak var datePicker: UIDatePicker!
+	@IBOutlet weak var notification: UISwitch!
 
 	@IBAction func cancel(sender: AnyObject) {
 		self.dismissViewControllerAnimated(true, completion: nil)
 	}
-
-	var defaultSecond = 3 * 60 * 60
-	var stopFetch = false
 
 	private func setProUI() {
 		buyTable?.hidden = true
@@ -47,6 +56,7 @@ class URLAddTableViewController: UITableViewController {
 	@IBAction func save(sender: AnyObject) {
 		spinner?.startAnimating()
 		let sec = Int(datePicker.countDownDuration)
+		print(stopFetch)
 		Page.add(UrlHelper.getURL(urlField.text), second: sec, stopFetch: stopFetch) { (ok: Bool) -> Void in
 			dispatch_sync(dispatch_get_main_queue()) {
 				self.spinner?.stopAnimating()

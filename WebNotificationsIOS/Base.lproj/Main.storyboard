@@ -80,7 +80,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                         <activityIndicatorView key="tableFooterView" hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" id="3Rc-y7-Qw1">
-                            <rect key="frame" x="0.0" y="491" width="600" height="20"/>
+                            <rect key="frame" x="0.0" y="571" width="600" height="20"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </activityIndicatorView>
                         <sections>
@@ -108,10 +108,40 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="Scheduling" id="gol-AF-YID">
+                            <tableViewSection footerTitle="" id="t3E-pz-6T7">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="Setting" id="8e5-Pf-Cc2">
+                                        <rect key="frame" x="0.0" y="179" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="8e5-Pf-Cc2" id="XT8-jj-c4D">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Notification" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hJf-Hd-JC3">
+                                                    <rect key="frame" x="8" y="11" width="88" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GMh-yr-hPO">
+                                                    <rect key="frame" x="543" y="6" width="51" height="31"/>
+                                                </switch>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="hJf-Hd-JC3" firstAttribute="centerY" secondItem="GMh-yr-hPO" secondAttribute="centerY" id="4Wj-7Q-LcC"/>
+                                                <constraint firstItem="hJf-Hd-JC3" firstAttribute="leading" secondItem="XT8-jj-c4D" secondAttribute="leadingMargin" id="K3W-cq-H4J"/>
+                                                <constraint firstItem="GMh-yr-hPO" firstAttribute="trailing" secondItem="XT8-jj-c4D" secondAttribute="trailingMargin" id="YCE-al-jss"/>
+                                                <constraint firstItem="hJf-Hd-JC3" firstAttribute="centerY" secondItem="XT8-jj-c4D" secondAttribute="centerY" id="adE-rq-Vzc"/>
+                                                <constraint firstItem="hJf-Hd-JC3" firstAttribute="top" secondItem="XT8-jj-c4D" secondAttribute="topMargin" constant="3" id="qRw-oA-ulx"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection headerTitle="Scheduling(Cloud Side)" id="gol-AF-YID">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="Timer" rowHeight="200" id="x7f-Eb-spd">
-                                        <rect key="frame" x="0.0" y="193" width="600" height="200"/>
+                                        <rect key="frame" x="0.0" y="273" width="600" height="200"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="x7f-Eb-spd" id="XrW-la-ptr">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="199.5"/>
@@ -136,7 +166,7 @@
                             <tableViewSection footerTitle="" id="ECV-g8-iyP">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="BuyTable" id="Vsz-8f-aa1">
-                                        <rect key="frame" x="0.0" y="429" width="600" height="44"/>
+                                        <rect key="frame" x="0.0" y="509" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Vsz-8f-aa1" id="NKA-IL-85U">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
@@ -191,6 +221,7 @@
                     <connections>
                         <outlet property="buyTable" destination="Vsz-8f-aa1" id="yzs-CK-pXM"/>
                         <outlet property="datePicker" destination="HJS-EC-K0X" id="MHs-IZ-gtX"/>
+                        <outlet property="notification" destination="GMh-yr-hPO" id="XdH-Ba-7gD"/>
                         <outlet property="spinner" destination="3Rc-y7-Qw1" id="Nf0-1P-hGi"/>
                         <outlet property="urlField" destination="6bJ-tR-Ju4" id="kGW-KG-qx0"/>
                     </connections>
