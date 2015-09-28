@@ -10,7 +10,7 @@ import UIKit
 import Parse
 
 
-class URLAddTableViewController: UITableViewController {
+class URLAddTableViewController: UITableViewController, UITextFieldDelegate {
 	var defaultSecond = 3 * 60 * 60
 	var stopFetch : Bool {
 		get {
@@ -30,6 +30,10 @@ class URLAddTableViewController: UITableViewController {
 
 	@IBAction func cancel(sender: AnyObject) {
 		self.dismissViewControllerAnimated(true, completion: nil)
+	}
+
+	@IBAction func tap(sender: AnyObject) {
+		view.endEditing(true)
 	}
 
 	private func setProUI() {
@@ -75,6 +79,7 @@ class URLAddTableViewController: UITableViewController {
 
 	override func viewDidLoad() {
         super.viewDidLoad()
+		urlField?.delegate = self
 		datePicker.countDownDuration = Double(defaultSecond)
 
 		if (User.isProUser()) {
@@ -89,6 +94,11 @@ class URLAddTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
+
+	func textFieldShouldReturn(textField: UITextField) -> Bool{
+		urlField?.resignFirstResponder()
+		return true
+	}
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

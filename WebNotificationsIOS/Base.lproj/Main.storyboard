@@ -79,6 +79,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <gestureRecognizers/>
                         <activityIndicatorView key="tableFooterView" hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" id="3Rc-y7-Qw1">
                             <rect key="frame" x="0.0" y="580" width="600" height="20"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -96,7 +97,7 @@
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="URL" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6bJ-tR-Ju4">
                                                     <rect key="frame" x="8" y="7" width="584" height="30"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="URL"/>
+                                                    <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="URL" enablesReturnKeyAutomatically="YES"/>
                                                 </textField>
                                             </subviews>
                                             <constraints>
@@ -194,6 +195,7 @@
                         <connections>
                             <outlet property="dataSource" destination="cbn-tT-6I7" id="roV-GP-rS7"/>
                             <outlet property="delegate" destination="cbn-tT-6I7" id="gh9-t3-70s"/>
+                            <outletCollection property="gestureRecognizers" destination="dmz-OG-y3T" appends="YES" id="eWZ-21-g3K"/>
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Add" id="JoZ-fD-ASd">
@@ -227,6 +229,11 @@
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a9G-GF-C3o" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="dmz-OG-y3T">
+                    <connections>
+                        <action selector="tap:" destination="cbn-tT-6I7" id="FMk-HY-qBy"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="2863" y="390"/>
         </scene>
