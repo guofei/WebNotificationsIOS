@@ -37,6 +37,7 @@
 		28738EED1BB261AF0083D95F /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 28738EEC1BB261AF0083D95F /* libsqlite3.tbd */; };
 		2875B94C1BAE7EC20020A4C5 /* Page.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2875B94B1BAE7EC20020A4C5 /* Page.swift */; settings = {ASSET_TAGS = (); }; };
 		28B480E31BB2D618006B257A /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B480E21BB2D618006B257A /* User.swift */; settings = {ASSET_TAGS = (); }; };
+		28ED12791BB981B30046F6BF /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 28ED12781BB981B30046F6BF /* Localizable.strings */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -96,6 +97,9 @@
 		28738EEC1BB261AF0083D95F /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		2875B94B1BAE7EC20020A4C5 /* Page.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Page.swift; path = Models/Page.swift; sourceTree = "<group>"; };
 		28B480E21BB2D618006B257A /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = Models/User.swift; sourceTree = "<group>"; };
+		28ED12781BB981B30046F6BF /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		28ED127A1BB982730046F6BF /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Main.strings; sourceTree = "<group>"; };
+		28ED127B1BB982730046F6BF /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -187,6 +191,7 @@
 				2865033C1BAB019200BB041D /* URLsTableViewController.swift */,
 				2865033E1BAB06A600BB041D /* URLAddTableViewController.swift */,
 				2858C75F1BB84335005D7543 /* WebNotificationsIOS-Bridging-Header.h */,
+				28ED12781BB981B30046F6BF /* Localizable.strings */,
 			);
 			path = WebNotificationsIOS;
 			sourceTree = "<group>";
@@ -363,6 +368,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				286503191BAB001900BB041D /* LaunchScreen.storyboard in Resources */,
+				28ED12791BB981B30046F6BF /* Localizable.strings in Resources */,
 				286503161BAB001900BB041D /* Assets.xcassets in Resources */,
 				286503141BAB001900BB041D /* Main.storyboard in Resources */,
 			);
@@ -456,6 +462,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				286503131BAB001900BB041D /* Base */,
+				28ED127A1BB982730046F6BF /* ja */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -464,6 +471,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				286503181BAB001900BB041D /* Base */,
+				28ED127B1BB982730046F6BF /* ja */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
