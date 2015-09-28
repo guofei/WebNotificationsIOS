@@ -38,10 +38,12 @@ class URLAddTableViewController: UITableViewController {
 	}
 
 	private struct Product {
-		static let ID = "protest"
+		static let ID = "proversion"
 	}
 
 	@IBAction func buyPro(sender: AnyObject) {
+		Flurry.logEvent("Buy Pro")
+
 		PFPurchase.buyProduct(Product.ID) { (error: NSError?) -> Void in
 			if error == nil {
 				self.setProUI()
@@ -50,6 +52,8 @@ class URLAddTableViewController: UITableViewController {
 				alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))
 				self.presentViewController(alert, animated: true, completion: nil)
 			} else {
+				let errorParams = ["message": error!.description];
+				Flurry.logEvent("Buy Pro Error", withParameters: errorParams)
 				let alert = UIAlertController(title: "Error", message: error?.description, preferredStyle: UIAlertControllerStyle.Alert)
 				alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))
 				self.presentViewController(alert, animated: true, completion: nil)
@@ -76,6 +80,9 @@ class URLAddTableViewController: UITableViewController {
 		if (User.isProUser()) {
 			setProUI()
 		}
+
+		Flurry.logEvent("Add URL")
+
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
