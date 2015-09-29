@@ -19,17 +19,24 @@ class User: Object {
 		return "uuid"
 	}
 
-	static func created() -> Bool {
+	static func createUUID() -> String? {
 		do {
 			let realm = try Realm()
 			let users = realm.objects(User)
 			if users.count > 0 {
-				return true
+				return nil
 			} else {
-				return false
+				let user = User()
+				let uuid = "user_" + NSUUID().UUIDString
+				user.uuid = uuid
+				user.email = uuid
+				realm.write {
+					realm.add(user)
+				}
+				return uuid
 			}
 		} catch {
-			return false
+			return nil
 		}
 	}
 
@@ -40,14 +47,7 @@ class User: Object {
 			if users.count > 0 {
 				return users.first!.uuid
 			} else {
-				let user = User()
-				let uuid = "user_" + NSUUID().UUIDString
-				user.uuid = uuid
-				user.email = uuid
-				realm.write {
-					realm.add(user)
-				}
-				return uuid
+				return nil
 			}
 		} catch {
 			return nil

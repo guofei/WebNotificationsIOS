@@ -155,10 +155,8 @@ class Page: Object {
 				if let content = body == nil ? jiDoc?.rootNode?.content : body {
 					page.content = content
 				}
-				if User.created() {
-					if let channel = User.getUUID() {
-						page.pushChannel = channel
-					}
+				if let channel = User.getUUID() {
+					page.pushChannel = channel
 				}
 				do {
 					let realm = try Realm()
@@ -168,9 +166,7 @@ class Page: Object {
 				} catch {
 					print("database error")
 				}
-				if User.created() {
-					serverCreate(url, second: second, stopFetch: stopFetch)
-				}
+				serverCreate(url, second: second, stopFetch: stopFetch)
 				closure(true)
 			} else {
 				closure(false)
