@@ -27,15 +27,14 @@ class User: Object {
 	}
 
 	static func currentUser() -> User? {
-		do {
-			let realm = try Realm()
+		if let realm = getDB() {
 			let users = realm.objects(User)
 			if users.count > 0 {
 				return users.first
 			} else {
 				return nil
 			}
-		} catch {
+		} else {
 			return nil
 		}
 	}
@@ -45,13 +44,10 @@ class User: Object {
 			return
 		}
 		if let user = currentUser() {
-			do {
-				let realm = try Realm()
+			if let realm = getDB() {
 				realm.write {
 					user.id = id!
 				}
-			} catch {
-				print("database error")
 			}
 		}
 	}
@@ -93,8 +89,7 @@ class User: Object {
 	}
 
 	static func createUUID() -> String? {
-		do {
-			let realm = try Realm()
+		if let realm = getDB() {
 			let users = realm.objects(User)
 			if users.count > 0 {
 				return nil
@@ -109,7 +104,7 @@ class User: Object {
 				createUserToServer(uuid)
 				return uuid
 			}
-		} catch {
+		} else {
 			return nil
 		}
 	}

@@ -36,6 +36,7 @@
 		28738EEB1BB2619B0083D95F /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 28738EEA1BB2619B0083D95F /* libz.tbd */; };
 		28738EED1BB261AF0083D95F /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 28738EEC1BB261AF0083D95F /* libsqlite3.tbd */; };
 		2875B94C1BAE7EC20020A4C5 /* Page.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2875B94B1BAE7EC20020A4C5 /* Page.swift */; settings = {ASSET_TAGS = (); }; };
+		28A64FD11BBC4E9A0007DF95 /* DBHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A64FD01BBC4E9A0007DF95 /* DBHelper.swift */; settings = {ASSET_TAGS = (); }; };
 		28B480E31BB2D618006B257A /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B480E21BB2D618006B257A /* User.swift */; settings = {ASSET_TAGS = (); }; };
 		28ED12791BB981B30046F6BF /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 28ED12781BB981B30046F6BF /* Localizable.strings */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
@@ -96,6 +97,7 @@
 		28738EEA1BB2619B0083D95F /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		28738EEC1BB261AF0083D95F /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		2875B94B1BAE7EC20020A4C5 /* Page.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Page.swift; path = Models/Page.swift; sourceTree = "<group>"; };
+		28A64FD01BBC4E9A0007DF95 /* DBHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBHelper.swift; sourceTree = "<group>"; };
 		28B480E21BB2D618006B257A /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = Models/User.swift; sourceTree = "<group>"; };
 		28ED12781BB981B30046F6BF /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		28ED127A1BB982730046F6BF /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Main.strings; sourceTree = "<group>"; };
@@ -218,6 +220,7 @@
 			isa = PBXGroup;
 			children = (
 				28738ECA1BAFDFE60083D95F /* UrlHelper.swift */,
+				28A64FD01BBC4E9A0007DF95 /* DBHelper.swift */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -419,6 +422,7 @@
 				2858C74C1BB83B1B005D7543 /* SecretKey.swift in Sources */,
 				2865033D1BAB019200BB041D /* URLsTableViewController.swift in Sources */,
 				28738ECB1BAFDFE60083D95F /* UrlHelper.swift in Sources */,
+				28A64FD11BBC4E9A0007DF95 /* DBHelper.swift in Sources */,
 				28738ED41BB1C6B60083D95F /* PageViewController.swift in Sources */,
 				2865030F1BAB001900BB041D /* AppDelegate.swift in Sources */,
 				2875B94C1BAE7EC20020A4C5 /* Page.swift in Sources */,

@@ -45,12 +45,11 @@ class Page: Object {
 		if url == nil {
 			return nil
 		}
-		do {
-			let realm = try Realm()
+		if let realm = getDB() {
 			let predicate = NSPredicate(format: "url = %@", url!)
 			let pages = realm.objects(Page).filter(predicate)
 			return pages.first
-		} catch {
+		} else {
 			return nil
 		}
 	}
@@ -131,15 +130,12 @@ class Page: Object {
 			case .Success:
 				if let dic = response.2.value as? Dictionary<String, AnyObject> {
 					if let id = dic["id"] as? Int {
-						do {
-							let realm = try Realm()
+						if let realm = getDB() {
 							realm.write {
 								if let page = Page.getByURL(url) {
 									page.id = id
 								}
 							}
-						} catch {
-							print("database error")
 						}
 					}
 				}
@@ -154,13 +150,12 @@ class Page: Object {
 			if page.id > 0 {
 				serverStopFetch(page.id, url: page.url, channel: page.pushChannel)
 			}
-			do {
-				let realm = try Realm()
+			if let realm = getDB() {
 				realm.write {
 					realm.delete(page)
 				}
 				return true
-			} catch {
+			} else {
 				return false
 			}
 		}
@@ -184,15 +179,14 @@ class Page: Object {
 			if let channel = User.getUUID() {
 				page.pushChannel = channel
 			}
-			do {
-				let realm = try Realm()
+			if let realm = getDB() {
 				realm.write {
 					realm.add(page, update: true)
 				}
-			} catch {
+				return true
+			} else {
 				return false
 			}
-			return true
 		} else {
 			return false
 		}
@@ -216,8 +210,7 @@ class Page: Object {
 		let queue = dispatch_get_global_queue(qos, 0)
 		dispatch_async(queue) {
 			var result = [String: Bool]()
-			do {
-				let realm = try Realm()
+			if let realm = getDB() {
 				let pages = realm.objects(Page)
 				for	page in pages {
 					let jiDoc = Ji(htmlURL: NSURL(string: page.url)!)
@@ -249,8 +242,6 @@ class Page: Object {
 						serverCreate(page.url, second: page.sec, stopFetch: page.stopFetch)
 					}
 				}
-			} catch {
-				print("database error")
 			}
 			closure(result)
 		}
