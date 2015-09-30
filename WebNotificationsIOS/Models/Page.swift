@@ -28,10 +28,10 @@ class Page: Object {
 		return "url"
 	}
 
-
 	private struct API {
+		static let GET = "http://webupdatenotification.com/users/"
 		static let ADD = "http://webupdatenotification.com/pages"
-		static let DELETE = "http://webupdatenotification.com/pages/"
+		static let UPDATE = "http://webupdatenotification.com/pages/"
 	}
 
 	func formatedUpdate() -> String {
@@ -55,22 +55,91 @@ class Page: Object {
 		}
 	}
 
-	static func serverDelete(id: Int, url: String?, channel: String?) {
-		if url == nil || channel == nil {
+	static func serverStopFetch(id: Int, url: String?, channel: String?) {
+		if url == nil || channel == nil || id <= 0 {
 			return
 		}
-		let deleteURL = API.DELETE + "\(id)"
-		Alamofire.request(.GET, deleteURL).responseJSON { response in
+		let updateURL = API.UPDATE + "\(id)"
+		if let page = getByURL(url) {
+			let parameters = [
+				"page": [
+					"url": url!,
+					"sec": page.sec,
+					"push_channel": channel!,
+					"stop_fetch": true
+				]
+			]
+			Alamofire.request(.PUT, updateURL, parameters: parameters)
+		}
+	}
+
+	static func serverUpdate() {
+		let qos = Int(QOS_CLASS_USER_INITIATED.rawValue)
+		let queue = dispatch_get_global_queue(qos, 0)
+		dispatch_async(queue) {
+			if let user = User.currentUser() {
+				if user.id > 0 {
+					let getURL = API.GET + "\(user.id)" + "/pages"
+					Alamofire.request(.GET, getURL).responseJSON { response in
+						switch response.2 {
+						case .Success:
+							if let arr = response.2.value as? Array<Dictionary<String, AnyObject>> {
+								for item in arr {
+									let url = item["url"] as? String
+									let page = getByURL(url)
+									if page != nil {
+										continue
+									}
+									if let stopFetch = item["stop_fetch"] as? Bool {
+										if stopFetch {
+											continue
+										}
+										if let sec = item["sec"] as? Int {
+											addURL(url, second: sec, stopFetch: false)
+										}
+									}
+								}
+							}
+						case .Failure(let error):
+							print(error)
+						}
+					}
+				}
+			}
+		}
+	}
+
+	static func serverCreate(url: String?, second: Int, stopFetch: Bool) {
+		if url == nil || !User.isOpenNotification() {
+			return
+		}
+
+		let uuid = User.getUUID()
+		if uuid == nil {
+			return
+		}
+		let parameters = [
+			"page": [
+				"url": url!,
+				"sec": second,
+				"push_channel": uuid!,
+				"stop_fetch": stopFetch
+			]
+		]
+		Alamofire.request(.POST, API.ADD, parameters: parameters).responseJSON { response in
 			switch response.2 {
 			case .Success:
 				if let dic = response.2.value as? Dictionary<String, AnyObject> {
-					if let serverID = dic["id"] as? Int {
-						if let serverURL = dic["url"] as? String {
-							if let serverChannel = dic["push_channel"] as? String {
-								if id == serverID && url! == serverURL && channel! == serverChannel {
-									Alamofire.request(.DELETE, deleteURL)
+					if let id = dic["id"] as? Int {
+						do {
+							let realm = try Realm()
+							realm.write {
+								if let page = Page.getByURL(url) {
+									page.id = id
 								}
 							}
+						} catch {
+							print("database error")
 						}
 					}
 				}
@@ -83,7 +152,7 @@ class Page: Object {
 	static func deleteByURL(url: String?) -> Bool {
 		if let page = getByURL(url) {
 			if page.id > 0 {
-				serverDelete(page.id, url: page.url, channel: page.pushChannel)
+				serverStopFetch(page.id, url: page.url, channel: page.pushChannel)
 			}
 			do {
 				let realm = try Realm()
@@ -98,43 +167,34 @@ class Page: Object {
 		return false
 	}
 
-	static func serverCreate(url: String?, second: Int, stopFetch: Bool) {
-		if url == nil {
-			return
-		}
-		let uuid = User.getUUID()
-		if (uuid == nil) {
-			return
-		}
-
-		let parameters = [
-			"page": [
-				"url": url!,
-				"sec": second,
-				"push_channel": uuid!,
-				"stop_fetch": stopFetch
-			]
-		]
-		Alamofire.request(.POST, API.ADD, parameters: parameters).responseJSON { response in
-			switch response.2 {
-			case .Success:
-				if let dic = response.2.value as? Dictionary<String, AnyObject> {
-					if let id = dic["id"] as? Int {
-						if let page = Page.getByURL(url) {
-							do {
-								let realm = try Realm()
-								realm.write {
-									page.id = id
-								}
-							} catch {
-								print("database error")
-							}
-						}
-					}
-				}
-			case .Failure(let error):
-				print(error)
+	static func addURL(url: String?, second: Int, stopFetch: Bool) -> Bool {
+		if let url = url {
+			let page = Page()
+			page.url = url
+			page.sec = second
+			page.stopFetch = stopFetch
+			let jiDoc = Ji(htmlURL: NSURL(string: url)!)
+			if let title = jiDoc?.xPath("//title")?.first?.content {
+				page.title = title
 			}
+			let body = jiDoc?.xPath("//body")?.first?.content
+			if let content = body == nil ? jiDoc?.rootNode?.content : body {
+				page.content = content
+			}
+			if let channel = User.getUUID() {
+				page.pushChannel = channel
+			}
+			do {
+				let realm = try Realm()
+				realm.write {
+					realm.add(page, update: true)
+				}
+			} catch {
+				return false
+			}
+			return true
+		} else {
+			return false
 		}
 	}
 
@@ -142,30 +202,7 @@ class Page: Object {
 		let qos = Int(QOS_CLASS_USER_INITIATED.rawValue)
 		let queue = dispatch_get_global_queue(qos, 0)
 		dispatch_async(queue) {
-			if let url = url {
-				let page = Page()
-				page.url = url
-				page.sec = second
-				page.stopFetch = stopFetch
-				let jiDoc = Ji(htmlURL: NSURL(string: url)!)
-				if let title = jiDoc?.xPath("//title")?.first?.content {
-					page.title = title
-				}
-				let body = jiDoc?.xPath("//body")?.first?.content
-				if let content = body == nil ? jiDoc?.rootNode?.content : body {
-					page.content = content
-				}
-				if let channel = User.getUUID() {
-					page.pushChannel = channel
-				}
-				do {
-					let realm = try Realm()
-					realm.write {
-						realm.add(page, update: true)
-					}
-				} catch {
-					print("database error")
-				}
+			if addURL(url, second: second, stopFetch: stopFetch) {
 				serverCreate(url, second: second, stopFetch: stopFetch)
 				closure(true)
 			} else {
@@ -208,6 +245,9 @@ class Page: Object {
 						}
 					}
 					result[page.url] = true
+					if page.id <= 0 {
+						serverCreate(page.url, second: page.sec, stopFetch: page.stopFetch)
+					}
 				}
 			} catch {
 				print("database error")

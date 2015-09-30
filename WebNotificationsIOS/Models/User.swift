@@ -8,8 +8,10 @@
 
 import Foundation
 import RealmSwift
+import Alamofire
 
 class User: Object {
+	dynamic var id = 0
     dynamic var uuid = ""
 	dynamic var email = ""
 	dynamic var password = ""
@@ -17,6 +19,77 @@ class User: Object {
 
 	override static func primaryKey() -> String? {
 		return "uuid"
+	}
+
+	private struct API {
+		static let ADD = "http://webupdatenotification.com/users"
+		static let TOUCH = "http://webupdatenotification.com/users/touch"
+	}
+
+	static func currentUser() -> User? {
+		do {
+			let realm = try Realm()
+			let users = realm.objects(User)
+			if users.count > 0 {
+				return users.first
+			} else {
+				return nil
+			}
+		} catch {
+			return nil
+		}
+	}
+
+	static func currentUserSetID(id: Int?) {
+		if id == nil {
+			return
+		}
+		if let user = currentUser() {
+			do {
+				let realm = try Realm()
+				realm.write {
+					user.id = id!
+				}
+			} catch {
+				print("database error")
+			}
+		}
+	}
+
+	static func createUserToServer(channel: String) {
+		if !isOpenNotification() {
+			return
+		}
+		let parameters = [
+			"user": [ "channel": channel ]
+		]
+		Alamofire.request(.POST, API.ADD, parameters: parameters).responseJSON { response in
+			switch response.2 {
+			case .Success:
+				if let dic = response.2.value as? Dictionary<String, AnyObject> {
+					if let serverID = dic["id"] as? Int {
+						currentUserSetID(serverID)
+					}
+				}
+			case .Failure(let error):
+				print(error)
+			}
+		}
+	}
+
+	static func touchServer() {
+		if !isOpenNotification() {
+			return
+		}
+		let uuid = getUUID()
+		if uuid == nil {
+			return
+		}
+
+		let parameters = [
+			"user": [ "channel": uuid! ]
+		]
+		Alamofire.request(.POST, API.TOUCH, parameters: parameters)
 	}
 
 	static func createUUID() -> String? {
@@ -33,6 +106,7 @@ class User: Object {
 				realm.write {
 					realm.add(user)
 				}
+				createUserToServer(uuid)
 				return uuid
 			}
 		} catch {
@@ -40,18 +114,16 @@ class User: Object {
 		}
 	}
 
-	static func getUUID() -> String? {
-		do {
-			let realm = try Realm()
-			let users = realm.objects(User)
-			if users.count > 0 {
-				return users.first!.uuid
-			} else {
-				return nil
-			}
-		} catch {
-			return nil
+	static func isOpenNotification() -> Bool {
+		if getUUID() == nil {
+			return false
+		} else {
+			return true;
 		}
+	}
+
+	static func getUUID() -> String? {
+		return currentUser()?.uuid
 	}
 
 	private struct Key {
