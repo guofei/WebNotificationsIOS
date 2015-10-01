@@ -12,6 +12,7 @@ import Alamofire
 import Ji
 
 
+// pushChannel is equal User::uuid
 class Page: Object {
 	dynamic var id = 0
     dynamic var url = ""
@@ -26,12 +27,6 @@ class Page: Object {
 
 	override static func primaryKey() -> String? {
 		return "url"
-	}
-
-	private struct API {
-		static let GET = "http://webupdatenotification.com/users/"
-		static let ADD = "http://webupdatenotification.com/pages"
-		static let UPDATE = "http://webupdatenotification.com/pages/"
 	}
 
 	func formatedUpdate() -> String {
@@ -54,93 +49,33 @@ class Page: Object {
 		}
 	}
 
-	static func serverStopFetch(id: Int, url: String?, channel: String?) {
-		if url == nil || channel == nil || id <= 0 {
-			return
-		}
-		let updateURL = API.UPDATE + "\(id)"
-		if let page = getByURL(url) {
-			let parameters = [
-				"page": [
-					"url": url!,
-					"sec": page.sec,
-					"push_channel": channel!,
-					"stop_fetch": true
-				]
-			]
-			Alamofire.request(.PUT, updateURL, parameters: parameters)
-		}
+	private static func serverStopFetch(page: Page) {
+		API.PageAPI.update(page.id, url: page.url, second: page.sec, uuid: User.getUUID(), stopFetch: true)
 	}
 
-	static func serverUpdate() {
-		let qos = Int(QOS_CLASS_USER_INITIATED.rawValue)
-		let queue = dispatch_get_global_queue(qos, 0)
-		dispatch_async(queue) {
-			if let user = User.currentUser() {
-				if user.id > 0 {
-					let getURL = API.GET + "\(user.id)" + "/pages"
-					Alamofire.request(.GET, getURL).responseJSON { response in
-						switch response.2 {
-						case .Success:
-							if let arr = response.2.value as? Array<Dictionary<String, AnyObject>> {
-								for item in arr {
-									let url = item["url"] as? String
-									let page = getByURL(url)
-									if page != nil {
-										continue
-									}
-									if let stopFetch = item["stop_fetch"] as? Bool {
-										if stopFetch {
-											continue
-										}
-										if let sec = item["sec"] as? Int {
-											addURL(url, second: sec, stopFetch: false)
-										}
-									}
-								}
-							}
-						case .Failure(let error):
-							print(error)
-						}
+	static func sync() {
+		if let user = User.currentUser() {
+			API.PageAPI.all(user.id) { id, url, sec, stopFetch in
+				if (id != nil && url != nil && sec != nil && stopFetch != nil) {
+					let page = getByURL(url)
+					if page == nil {
+						addURL(url, second: sec!, stopFetch: stopFetch!)
 					}
 				}
 			}
 		}
 	}
 
-	static func serverCreate(url: String?, second: Int, stopFetch: Bool) {
-		if url == nil || !User.isOpenNotification() {
-			return
-		}
-
-		let uuid = User.getUUID()
-		if uuid == nil {
-			return
-		}
-		let parameters = [
-			"page": [
-				"url": url!,
-				"sec": second,
-				"push_channel": uuid!,
-				"stop_fetch": stopFetch
-			]
-		]
-		Alamofire.request(.POST, API.ADD, parameters: parameters).responseJSON { response in
-			switch response.2 {
-			case .Success:
-				if let dic = response.2.value as? Dictionary<String, AnyObject> {
-					if let id = dic["id"] as? Int {
-						if let realm = getDB() {
-							realm.write {
-								if let page = Page.getByURL(url) {
-									page.id = id
-								}
-							}
+	private static func serverCreate(url: String?, second: Int, stopFetch: Bool) {
+		API.PageAPI.create(url, uuid: User.getUUID(), second: second, stopFetch: stopFetch) { id in
+			if let id = id {
+				if let realm = getDB() {
+					realm.write {
+						if let page = Page.getByURL(url) {
+							page.id = id
 						}
 					}
 				}
-			case .Failure(let error):
-				print(error)
 			}
 		}
 	}
@@ -148,7 +83,7 @@ class Page: Object {
 	static func deleteByURL(url: String?) -> Bool {
 		if let page = getByURL(url) {
 			if page.id > 0 {
-				serverStopFetch(page.id, url: page.url, channel: page.pushChannel)
+				serverStopFetch(page)
 			}
 			if let realm = getDB() {
 				realm.write {

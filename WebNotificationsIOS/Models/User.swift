@@ -10,6 +10,8 @@ import Foundation
 import RealmSwift
 import Alamofire
 
+
+// uuid is equal channel
 class User: Object {
 	dynamic var id = 0
     dynamic var uuid = ""
@@ -19,11 +21,6 @@ class User: Object {
 
 	override static func primaryKey() -> String? {
 		return "uuid"
-	}
-
-	private struct API {
-		static let ADD = "http://webupdatenotification.com/users"
-		static let TOUCH = "http://webupdatenotification.com/users/touch"
 	}
 
 	static func currentUser() -> User? {
@@ -39,53 +36,20 @@ class User: Object {
 		}
 	}
 
-	static func currentUserSetID(id: Int?) {
-		if id == nil {
-			return
-		}
+	static func getUUID() -> String? {
+		return currentUser()?.uuid
+	}
+
+	static func sync() {
 		if let user = currentUser() {
-			if let realm = getDB() {
-				realm.write {
-					user.id = id!
+			if user.id <= 0 {
+				API.UserAPI.create(getUUID()) { userID in
+					currentUserSetID(userID)
 				}
+			} else {
+				API.UserAPI.touch(User.getUUID())
 			}
 		}
-	}
-
-	static func createUserToServer(channel: String) {
-		if !isOpenNotification() {
-			return
-		}
-		let parameters = [
-			"user": [ "channel": channel ]
-		]
-		Alamofire.request(.POST, API.ADD, parameters: parameters).responseJSON { response in
-			switch response.2 {
-			case .Success:
-				if let dic = response.2.value as? Dictionary<String, AnyObject> {
-					if let serverID = dic["id"] as? Int {
-						currentUserSetID(serverID)
-					}
-				}
-			case .Failure(let error):
-				print(error)
-			}
-		}
-	}
-
-	static func touchServer() {
-		if !isOpenNotification() {
-			return
-		}
-		let uuid = getUUID()
-		if uuid == nil {
-			return
-		}
-
-		let parameters = [
-			"user": [ "channel": uuid! ]
-		]
-		Alamofire.request(.POST, API.TOUCH, parameters: parameters)
 	}
 
 	static func createUUID() -> String? {
@@ -101,7 +65,7 @@ class User: Object {
 				realm.write {
 					realm.add(user)
 				}
-				createUserToServer(uuid)
+				sync()
 				return uuid
 			}
 		} else {
@@ -109,16 +73,17 @@ class User: Object {
 		}
 	}
 
-	static func isOpenNotification() -> Bool {
-		if getUUID() == nil {
-			return false
-		} else {
-			return true;
+	private static func currentUserSetID(id: Int?) {
+		if id == nil {
+			return
 		}
-	}
-
-	static func getUUID() -> String? {
-		return currentUser()?.uuid
+		if let user = currentUser() {
+			if let realm = getDB() {
+				realm.write {
+					user.id = id!
+				}
+			}
+		}
 	}
 
 	private struct Key {
