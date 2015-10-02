@@ -43,11 +43,11 @@ class User: Object {
 	static func sync() {
 		if let user = currentUser() {
 			if user.id <= 0 {
-				API.UserAPI.create(getUUID()) { userID in
+				API.User.create(getUUID()) { userID in
 					currentUserSetID(userID)
 				}
 			} else {
-				API.UserAPI.touch(User.getUUID())
+				API.User.touch(User.getUUID())
 			}
 		}
 	}
@@ -86,13 +86,9 @@ class User: Object {
 		}
 	}
 
-	private struct Key {
-		static let pro = "proUser"
-	}
-
 	static func isProUser() -> Bool {
 		let ud = NSUserDefaults.standardUserDefaults()
-		if let pro = ud.objectForKey(Key.pro) as? Bool {
+		if let pro = ud.objectForKey(Product.NSUserDefaultsKey) as? Bool {
 			return pro
 		} else {
 			return false
@@ -101,7 +97,7 @@ class User: Object {
 
 	static func setProUser() {
 		let ud = NSUserDefaults.standardUserDefaults()
-		ud.setObject(true, forKey: Key.pro)
+		ud.setObject(true, forKey: Product.NSUserDefaultsKey)
 		ud.synchronize()
 	}
 }

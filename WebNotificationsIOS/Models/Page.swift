@@ -50,12 +50,12 @@ class Page: Object {
 	}
 
 	private static func serverStopFetch(page: Page) {
-		API.PageAPI.update(page.id, url: page.url, second: page.sec, uuid: User.getUUID(), stopFetch: true)
+		API.Page.update(page.id, url: page.url, second: page.sec, uuid: User.getUUID(), stopFetch: true)
 	}
 
 	static func sync() {
 		if let user = User.currentUser() {
-			API.PageAPI.all(user.id) { id, url, sec, stopFetch in
+			API.Page.all(user.id) { id, url, sec, stopFetch in
 				if (id != nil && url != nil && sec != nil && stopFetch != nil) {
 					let page = getByURL(url)
 					if page == nil {
@@ -67,7 +67,7 @@ class Page: Object {
 	}
 
 	private static func serverCreate(url: String?, second: Int, stopFetch: Bool) {
-		API.PageAPI.create(url, uuid: User.getUUID(), second: second, stopFetch: stopFetch) { id in
+		API.Page.create(url, uuid: User.getUUID(), second: second, stopFetch: stopFetch) { id in
 			if let id = id {
 				if let realm = getDB() {
 					realm.write {

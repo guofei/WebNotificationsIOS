@@ -41,10 +41,6 @@ class URLAddTableViewController: UITableViewController, UITextFieldDelegate {
 		datePicker?.userInteractionEnabled = true
 	}
 
-	private struct Product {
-		static let ID = "proversion"
-	}
-
 	@IBAction func buyPro(sender: AnyObject) {
 		Flurry.logEvent("Buy Pro")
 

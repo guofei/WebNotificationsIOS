@@ -12,7 +12,7 @@ import Alamofire
 
 
 class API {
-	class PageAPI {
+	class Page {
 		private struct URL {
 			static let USERGET = "http://webupdatenotification.com/users/"
 			static let PAGEADD = "http://webupdatenotification.com/pages"
@@ -96,7 +96,7 @@ class API {
 		}
 	}
 
-	class UserAPI {
+	class User {
 		private struct URL {
 			static let ADD = "http://webupdatenotification.com/users"
 			static let TOUCH = "http://webupdatenotification.com/users/touch"
