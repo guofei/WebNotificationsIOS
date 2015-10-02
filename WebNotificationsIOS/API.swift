@@ -53,7 +53,7 @@ class API {
 				return
 			}
 
-			let updateURL = URL.PAGEUPDATE + "\(id)"
+			let updateURL = URL.PAGEUPDATE + "\(id!)"
 			let parameters = [
 				"page": [
 					"url": url!,
@@ -75,7 +75,7 @@ class API {
 			let qos = Int(QOS_CLASS_USER_INITIATED.rawValue)
 			let queue = dispatch_get_global_queue(qos, 0)
 			dispatch_async(queue) {
-				let getURL = URL.USERGET + "\(userID)" + "/pages"
+				let getURL = URL.USERGET + "\(userID!)" + "/pages"
 				Alamofire.request(.GET, getURL).responseJSON { response in
 					switch response.2 {
 					case .Success:
