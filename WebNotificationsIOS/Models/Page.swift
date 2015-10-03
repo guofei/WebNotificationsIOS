@@ -8,8 +8,6 @@
 
 import Foundation
 import RealmSwift
-import Alamofire
-import Ji
 
 
 // pushChannel is equal User::uuid
@@ -29,14 +27,14 @@ class Page: Object {
 		return "url"
 	}
 
-	func formatedUpdate() -> String {
+	func formatedUpdateTime() -> String {
 		let dateFormatter = NSDateFormatter()
 		dateFormatter.timeStyle = .ShortStyle
 		dateFormatter.dateStyle = .ShortStyle
 		return dateFormatter.stringFromDate(updatedAt)
 	}
 
-	static func getByURL(url: String?) -> Page? {
+	private static func getByURL(url: String?) -> Page? {
 		if url == nil {
 			return nil
 		}
@@ -59,14 +57,14 @@ class Page: Object {
 				if (id != nil && url != nil && sec != nil && stopFetch != nil) {
 					let page = getByURL(url)
 					if page == nil {
-						addURL(url, second: sec!, stopFetch: stopFetch!)
+						addURL(id, url: url, second: sec!, stopFetch: stopFetch!)
 					}
 				}
 			}
 		}
 	}
 
-	private static func serverCreate(url: String?, second: Int, stopFetch: Bool) {
+	private static func updateID(url: String?, second: Int, stopFetch: Bool) {
 		API.Page.create(url, uuid: User.getUUID(), second: second, stopFetch: stopFetch) { id in
 			if let id = id {
 				if let realm = getDB() {
@@ -97,18 +95,20 @@ class Page: Object {
 		return false
 	}
 
-	static func addURL(url: String?, second: Int, stopFetch: Bool) -> Bool {
+	private static func addURL(id: Int?, url: String?, second: Int, stopFetch: Bool) -> Bool {
 		if let url = url {
 			let page = Page()
+			if let id = id {
+				page.id = id
+			}
 			page.url = url
 			page.sec = second
 			page.stopFetch = stopFetch
-			let jiDoc = Ji(htmlURL: NSURL(string: url)!)
-			if let title = jiDoc?.xPath("//title")?.first?.content {
+			let res = parse(url)
+			if let title = res.title {
 				page.title = title
 			}
-			let body = jiDoc?.xPath("//body")?.first?.content
-			if let content = body == nil ? jiDoc?.rootNode?.content : body {
+			if let content = res.content {
 				page.content = content
 			}
 			if let channel = User.getUUID() {
@@ -131,8 +131,8 @@ class Page: Object {
 		let qos = Int(QOS_CLASS_USER_INITIATED.rawValue)
 		let queue = dispatch_get_global_queue(qos, 0)
 		dispatch_async(queue) {
-			if addURL(url, second: second, stopFetch: stopFetch) {
-				serverCreate(url, second: second, stopFetch: stopFetch)
+			if addURL(nil, url: url, second: second, stopFetch: stopFetch) {
+				updateID(url, second: second, stopFetch: stopFetch)
 				closure(true)
 			} else {
 				closure(false)
@@ -148,33 +148,27 @@ class Page: Object {
 			if let realm = getDB() {
 				let pages = realm.objects(Page)
 				for	page in pages {
-					let jiDoc = Ji(htmlURL: NSURL(string: page.url)!)
-					if jiDoc == nil {
-						continue
-					}
-					let title = jiDoc?.xPath("//title")?.first?.content
-					let body = jiDoc?.xPath("//body")?.first?.content
-					let content = body == nil ? jiDoc?.rootNode?.content : body
-					if let checkContent = content {
-						if checkContent == page.content {
+					let res = parse(page.url)
+					if let content = res.content {
+						if content == page.content {
 							continue
 						}
 					}
 					let url = page.url
 					realm.write {
 						if let _ = Page.getByURL(url) {
-							if let tt = title {
-								page.title = tt
+							if let title = res.title {
+								page.title = title
 							}
-							if let ct = content {
-								page.content = ct
+							if let content = res.content {
+								page.content = content
 							}
 							page.updatedAt = NSDate()
 						}
 					}
 					result[page.url] = true
 					if page.id <= 0 {
-						serverCreate(page.url, second: page.sec, stopFetch: page.stopFetch)
+						updateID(page.url, second: page.sec, stopFetch: page.stopFetch)
 					}
 				}
 			}

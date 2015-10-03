@@ -38,6 +38,7 @@
 		28738EED1BB261AF0083D95F /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 28738EEC1BB261AF0083D95F /* libsqlite3.tbd */; };
 		2875B94C1BAE7EC20020A4C5 /* Page.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2875B94B1BAE7EC20020A4C5 /* Page.swift */; settings = {ASSET_TAGS = (); }; };
 		288E8C291BBEDDD00075DB56 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 288E8C281BBEDDD00075DB56 /* Product.swift */; settings = {ASSET_TAGS = (); }; };
+		288E8C2B1BBEE9A90075DB56 /* Parse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 288E8C2A1BBEE9A90075DB56 /* Parse.swift */; settings = {ASSET_TAGS = (); }; };
 		28A64FD11BBC4E9A0007DF95 /* DBHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A64FD01BBC4E9A0007DF95 /* DBHelper.swift */; settings = {ASSET_TAGS = (); }; };
 		28B480E31BB2D618006B257A /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B480E21BB2D618006B257A /* User.swift */; settings = {ASSET_TAGS = (); }; };
 		28ED12791BB981B30046F6BF /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 28ED12781BB981B30046F6BF /* Localizable.strings */; settings = {ASSET_TAGS = (); }; };
@@ -101,6 +102,7 @@
 		28738EEC1BB261AF0083D95F /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		2875B94B1BAE7EC20020A4C5 /* Page.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Page.swift; path = Models/Page.swift; sourceTree = "<group>"; };
 		288E8C281BBEDDD00075DB56 /* Product.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
+		288E8C2A1BBEE9A90075DB56 /* Parse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parse.swift; sourceTree = "<group>"; };
 		28A64FD01BBC4E9A0007DF95 /* DBHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBHelper.swift; sourceTree = "<group>"; };
 		28B480E21BB2D618006B257A /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = Models/User.swift; sourceTree = "<group>"; };
 		28ED12781BB981B30046F6BF /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
@@ -227,6 +229,7 @@
 				28A64FD01BBC4E9A0007DF95 /* DBHelper.swift */,
 				285B1BA01BBD3D4900BA3540 /* API.swift */,
 				288E8C281BBEDDD00075DB56 /* Product.swift */,
+				288E8C2A1BBEE9A90075DB56 /* Parse.swift */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -425,6 +428,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2865033F1BAB06A600BB041D /* URLAddTableViewController.swift in Sources */,
+				288E8C2B1BBEE9A90075DB56 /* Parse.swift in Sources */,
 				2858C74C1BB83B1B005D7543 /* SecretKey.swift in Sources */,
 				2865033D1BAB019200BB041D /* URLsTableViewController.swift in Sources */,
 				28738ECB1BAFDFE60083D95F /* UrlHelper.swift in Sources */,
