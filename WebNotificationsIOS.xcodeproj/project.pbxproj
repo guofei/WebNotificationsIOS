@@ -85,6 +85,7 @@
 		286503301BAB001900BB041D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2865033C1BAB019200BB041D /* URLsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLsTableViewController.swift; sourceTree = "<group>"; };
 		2865033E1BAB06A600BB041D /* URLAddTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLAddTableViewController.swift; sourceTree = "<group>"; };
+		286A42DD1BC042930065E647 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Main.strings; sourceTree = "<group>"; };
 		28738ECA1BAFDFE60083D95F /* UrlHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UrlHelper.swift; sourceTree = "<group>"; };
 		28738ECC1BB050330083D95F /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		28738ED11BB06D4E0083D95F /* Ji.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Ji.framework; path = Carthage/Build/iOS/Ji.framework; sourceTree = "<group>"; };
@@ -106,7 +107,6 @@
 		28A64FD01BBC4E9A0007DF95 /* DBHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBHelper.swift; sourceTree = "<group>"; };
 		28B480E21BB2D618006B257A /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = Models/User.swift; sourceTree = "<group>"; };
 		28ED12781BB981B30046F6BF /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
-		28ED127A1BB982730046F6BF /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Main.strings; sourceTree = "<group>"; };
 		28ED127B1BB982730046F6BF /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -361,6 +361,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ja,
 			);
 			mainGroup = 286503021BAB001900BB041D;
 			productRefGroup = 2865030C1BAB001900BB041D /* Products */;
@@ -478,7 +479,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				286503131BAB001900BB041D /* Base */,
-				28ED127A1BB982730046F6BF /* ja */,
+				286A42DD1BC042930065E647 /* ja */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
