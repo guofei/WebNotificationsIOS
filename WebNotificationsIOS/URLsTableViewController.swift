@@ -51,6 +51,7 @@ class URLsTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+		// tableView.setEditing(true, animated: true)
 		refresh()
     }
 
@@ -92,12 +93,20 @@ class URLsTableViewController: UITableViewController {
 			if ((urls[page.url]) == true) {
 				cell.accessoryType = UITableViewCellAccessoryType.Checkmark
 			} else {
-				cell.accessoryType = UITableViewCellAccessoryType.None
+				cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
 			}
 		}
 
         return cell
     }
+
+	/*
+	override func tableView(tableView: UITableView, accessoryButtonTappedForRowWithIndexPath indexPath: NSIndexPath) {
+		let alert = UIAlertController(title: "Update", message: "Page has been updated", preferredStyle: UIAlertControllerStyle.Alert)
+		alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+		self.presentViewController(alert, animated: true, completion: nil)
+	}
+	*/
 
 
 	/*

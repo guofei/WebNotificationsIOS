@@ -49,13 +49,13 @@ class URLAddTableViewController: UITableViewController, UITextFieldDelegate {
 				self.setProUI()
 				User.setProUser()
 				let alert = UIAlertController(title: "Success", message: "Thank you for buying pro", preferredStyle: UIAlertControllerStyle.Alert)
-				alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))
+				alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
 				self.presentViewController(alert, animated: true, completion: nil)
 			} else {
 				let errorParams = ["message": error!.description];
 				Flurry.logEvent("Buy Pro Error", withParameters: errorParams)
 				let alert = UIAlertController(title: "Error", message: error?.description, preferredStyle: UIAlertControllerStyle.Alert)
-				alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))
+				alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
 				self.presentViewController(alert, animated: true, completion: nil)
 			}
 		}
