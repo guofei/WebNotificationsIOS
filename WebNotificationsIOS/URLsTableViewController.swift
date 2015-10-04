@@ -36,11 +36,11 @@ class URLsTableViewController: UITableViewController {
 	@IBOutlet weak var editButton: UIButton!
 	@IBAction func edit(sender: AnyObject) {
 		if tableView.editing {
-			tableView.setEditing(false, animated: true)
-			editButton.setTitle(NSLocalizedString("EditButtonNormalTitle", comment: ""), forState: UIControlState.Normal)
+			tableView?.setEditing(false, animated: true)
+			editButton?.setTitle(NSLocalizedString("EditButtonNormalTitle", comment: ""), forState: UIControlState.Normal)
 		} else {
-			tableView.setEditing(true, animated: true)
-			editButton.setTitle(NSLocalizedString("EditButtonEditedTitle", comment: ""), forState: UIControlState.Normal)
+			tableView?.setEditing(true, animated: true)
+			editButton?.setTitle(NSLocalizedString("EditButtonEditedTitle", comment: ""), forState: UIControlState.Normal)
 		}
 	}
 
@@ -54,7 +54,7 @@ class URLsTableViewController: UITableViewController {
 		Page.updateAll() { (dic: Dictionary<String, Bool>) -> Void in
 			dispatch_sync(dispatch_get_main_queue()) {
 				self.urls = dic
-				self.tableView.reloadData()
+				self.tableView?.reloadData()
 				self.refreshControl?.endRefreshing()
 			}
 		}
@@ -68,7 +68,7 @@ class URLsTableViewController: UITableViewController {
 	override func viewDidAppear(animated: Bool) {
 		super.viewDidAppear(animated)
 		refreshControl?.beginRefreshing()
-		tableView.reloadData()
+		tableView?.reloadData()
 		self.refreshControl?.endRefreshing()
 	}
 
