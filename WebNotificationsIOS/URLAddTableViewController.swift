@@ -107,7 +107,6 @@ class URLAddTableViewController: UITableViewController, UITextFieldDelegate {
 		if !User.isOpenNotifaction() {
 			notification?.setOn(false, animated: false)
 			notification?.enabled = false
-			tableView?.headerViewForSection(1)?.textLabel?.text = "hi"
 		} else {
 			notification?.enabled = true
 		}
