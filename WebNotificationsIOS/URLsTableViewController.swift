@@ -103,7 +103,7 @@ class URLsTableViewController: UITableViewController {
 			if ((urls[page.url]) == true) {
 				cell.accessoryType = UITableViewCellAccessoryType.Checkmark
 			} else {
-				cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
+				cell.accessoryType = UITableViewCellAccessoryType.None
 			}
 		}
 
