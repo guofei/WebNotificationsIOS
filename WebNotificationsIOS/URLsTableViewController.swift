@@ -110,6 +110,16 @@ class URLsTableViewController: UITableViewController {
         return cell
     }
 
+	override func tableView(table: UITableView, didSelectRowAtIndexPath indexPath:NSIndexPath) {
+		if tableView.editing {
+			let cell = tableView.cellForRowAtIndexPath(indexPath)
+			performSegueWithIdentifier(StoryBoard.toAddURLSegue, sender: cell)
+		} else {
+			let cell = tableView.cellForRowAtIndexPath(indexPath)
+			performSegueWithIdentifier(StoryBoard.toWebPageSegue, sender: cell)
+		}
+	}
+
 	/*
 	override func tableView(tableView: UITableView, accessoryButtonTappedForRowWithIndexPath indexPath: NSIndexPath) {
 		let alert = UIAlertController(title: "Update", message: "Page has been updated", preferredStyle: UIAlertControllerStyle.Alert)
@@ -161,6 +171,7 @@ class URLsTableViewController: UITableViewController {
 
 	private struct StoryBoard {
 		static let toWebPageSegue = "toWebPage"
+		static let toAddURLSegue = "toAddURL"
 	}
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -173,6 +184,19 @@ class URLsTableViewController: UITableViewController {
 							let page = allPages[indexPath.row]
 							setChecked(page.url)
 							subVC.targetURL = page.url
+						}
+					}
+				}
+			}
+		} else if (segue.identifier == StoryBoard.toAddURLSegue) {
+			if let nav = segue.destinationViewController as? UINavigationController {
+				if let addURLVC = nav.viewControllers.first as? URLAddTableViewController {
+					if let cell = sender as? UITableViewCell {
+						if let indexPath = tableView.indexPathForCell(cell) {
+							if let allPages = pages {
+								let page = allPages[indexPath.row]
+								addURLVC.originURL = page.url
+							}
 						}
 					}
 				}

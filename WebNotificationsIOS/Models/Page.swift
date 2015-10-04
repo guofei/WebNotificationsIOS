@@ -57,7 +57,7 @@ class Page: Object {
 				if (id != nil && url != nil && sec != nil && stopFetch != nil) {
 					let page = getByURL(url)
 					if page == nil {
-						addURL(id, url: url, second: sec!, stopFetch: stopFetch!)
+						addorUpdateURL(id, url: url, second: sec!, stopFetch: stopFetch!)
 					}
 				}
 			}
@@ -95,7 +95,7 @@ class Page: Object {
 		return false
 	}
 
-	private static func addURL(id: Int?, url: String?, second: Int, stopFetch: Bool) -> Bool {
+	private static func addorUpdateURL(id: Int?, url: String?, second: Int, stopFetch: Bool) -> Bool {
 		if let url = url {
 			let page = Page()
 			if let id = id {
@@ -127,11 +127,11 @@ class Page: Object {
 		}
 	}
 
-	static func add(url: String?, second: Int, stopFetch: Bool, closure: (Bool) -> Void) {
+	static func addOrUpdate(url: String?, second: Int, stopFetch: Bool, closure: (Bool) -> Void) {
 		let qos = Int(QOS_CLASS_USER_INITIATED.rawValue)
 		let queue = dispatch_get_global_queue(qos, 0)
 		dispatch_async(queue) {
-			if addURL(nil, url: url, second: second, stopFetch: stopFetch) {
+			if addorUpdateURL(nil, url: url, second: second, stopFetch: stopFetch) {
 				updateID(url, second: second, stopFetch: stopFetch)
 				closure(true)
 			} else {

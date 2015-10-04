@@ -22,6 +22,8 @@ class URLAddTableViewController: UITableViewController, UITextFieldDelegate {
 		}
 	}
 
+	var originURL: String?
+
 	@IBOutlet weak var urlField: UITextField!
 	@IBOutlet weak var spinner: UIActivityIndicatorView!
 	@IBOutlet weak var buyTable: UITableViewCell!
@@ -61,10 +63,27 @@ class URLAddTableViewController: UITableViewController, UITextFieldDelegate {
 		}
 	}
 
+	private func changeURL() -> Bool {
+		if originURL == nil {
+			return false
+		}
+
+		if let newURL = UrlHelper.getURL(urlField.text) {
+			if newURL != originURL! {
+				return true
+			}
+		}
+
+		return false
+	}
+
 	@IBAction func save(sender: AnyObject) {
 		spinner?.startAnimating()
 		let sec = Int(datePicker.countDownDuration)
-		Page.add(UrlHelper.getURL(urlField.text), second: sec, stopFetch: stopFetch) { (ok: Bool) -> Void in
+		if changeURL() {
+			Page.deleteByURL(UrlHelper.getURL(originURL))
+		}
+		Page.addOrUpdate(UrlHelper.getURL(urlField.text), second: sec, stopFetch: stopFetch) { (ok: Bool) -> Void in
 			dispatch_sync(dispatch_get_main_queue()) {
 				self.spinner?.stopAnimating()
 				self.dismissViewControllerAnimated(true, completion: nil)
@@ -74,6 +93,7 @@ class URLAddTableViewController: UITableViewController, UITextFieldDelegate {
 
 	override func viewDidLoad() {
         super.viewDidLoad()
+		urlField?.text = originURL
 		urlField?.delegate = self
 		datePicker.countDownDuration = Double(defaultSecond)
 

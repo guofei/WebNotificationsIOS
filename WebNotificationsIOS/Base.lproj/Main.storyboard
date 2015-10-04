@@ -9,13 +9,13 @@
         <scene sceneID="weI-YD-7X9">
             <objects>
                 <tableViewController id="p5b-RV-I1v" customClass="URLsTableViewController" customModule="WebChecker" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="3q1-Zz-Ifo">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelectionDuringEditing="YES" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="3q1-Zz-Ifo">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="URLCell" textLabel="JLn-8k-ZqV" detailTextLabel="jSf-8A-5CT" style="IBUITableViewCellStyleSubtitle" id="k2G-Uk-7iu">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="URLCell" editingAccessoryType="disclosureIndicator" textLabel="JLn-8k-ZqV" detailTextLabel="jSf-8A-5CT" style="IBUITableViewCellStyleSubtitle" id="k2G-Uk-7iu">
                                 <rect key="frame" x="0.0" y="92" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="k2G-Uk-7iu" id="oai-BZ-jSM">
@@ -42,9 +42,6 @@
                                     <animations/>
                                 </tableViewCellContentView>
                                 <animations/>
-                                <connections>
-                                    <segue destination="jPo-xg-NsD" kind="show" identifier="toWebPage" id="2Tz-vH-cBR"/>
-                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -72,7 +69,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <state key="normal" title="+"/>
                                 <connections>
-                                    <segue destination="JNn-iz-n71" kind="presentation" id="1J1-zY-owy"/>
+                                    <segue destination="JNn-iz-n71" kind="presentation" identifier="toAddURL" id="1J1-zY-owy"/>
                                 </connections>
                             </button>
                         </barButtonItem>
@@ -86,6 +83,7 @@
                     </refreshControl>
                     <connections>
                         <outlet property="editButton" destination="kL8-s2-Rcr" id="QJj-CF-0Ov"/>
+                        <segue destination="jPo-xg-NsD" kind="show" identifier="toWebPage" id="wAK-bR-AxE"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dVl-6v-WWW" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -334,7 +332,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dWL-Gf-0Hk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1853" y="-315"/>
+            <point key="canvasLocation" x="1859" y="-498"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="hG0-kw-nz8">
@@ -353,7 +351,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SPT-mS-gZw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2052" y="382"/>
+            <point key="canvasLocation" x="1826" y="-140"/>
         </scene>
     </scenes>
 </document>
