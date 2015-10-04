@@ -33,6 +33,17 @@ class URLsTableViewController: UITableViewController {
 		}
 	}
 
+	@IBOutlet weak var editButton: UIButton!
+	@IBAction func edit(sender: AnyObject) {
+		if tableView.editing {
+			tableView.setEditing(false, animated: true)
+			editButton.setTitle(NSLocalizedString("EditButtonNormalTitle", comment: ""), forState: UIControlState.Normal)
+		} else {
+			tableView.setEditing(true, animated: true)
+			editButton.setTitle(NSLocalizedString("EditButtonEditedTitle", comment: ""), forState: UIControlState.Normal)
+		}
+	}
+
 	@IBAction func refresh(sender: AnyObject) {
 		refresh()
 	}
@@ -51,7 +62,6 @@ class URLsTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-		// tableView.setEditing(true, animated: true)
 		refresh()
     }
 

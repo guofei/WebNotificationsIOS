@@ -21,6 +21,7 @@
 		2865032F1BAB001900BB041D /* WebNotificationsIOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2865032E1BAB001900BB041D /* WebNotificationsIOSUITests.swift */; };
 		2865033D1BAB019200BB041D /* URLsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2865033C1BAB019200BB041D /* URLsTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		2865033F1BAB06A600BB041D /* URLAddTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2865033E1BAB06A600BB041D /* URLAddTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		286A42E31BC0C77E0065E647 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 286A42E51BC0C77E0065E647 /* Localizable.strings */; };
 		28738ECB1BAFDFE60083D95F /* UrlHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28738ECA1BAFDFE60083D95F /* UrlHelper.swift */; settings = {ASSET_TAGS = (); }; };
 		28738ECD1BB050330083D95F /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28738ECC1BB050330083D95F /* Alamofire.framework */; };
 		28738ED21BB06D4E0083D95F /* Ji.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28738ED11BB06D4E0083D95F /* Ji.framework */; };
@@ -41,7 +42,6 @@
 		288E8C2B1BBEE9A90075DB56 /* Parse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 288E8C2A1BBEE9A90075DB56 /* Parse.swift */; settings = {ASSET_TAGS = (); }; };
 		28A64FD11BBC4E9A0007DF95 /* DBHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A64FD01BBC4E9A0007DF95 /* DBHelper.swift */; settings = {ASSET_TAGS = (); }; };
 		28B480E31BB2D618006B257A /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B480E21BB2D618006B257A /* User.swift */; settings = {ASSET_TAGS = (); }; };
-		28ED12791BB981B30046F6BF /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 28ED12781BB981B30046F6BF /* Localizable.strings */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -86,6 +86,9 @@
 		2865033C1BAB019200BB041D /* URLsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLsTableViewController.swift; sourceTree = "<group>"; };
 		2865033E1BAB06A600BB041D /* URLAddTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLAddTableViewController.swift; sourceTree = "<group>"; };
 		286A42DD1BC042930065E647 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Main.strings; sourceTree = "<group>"; };
+		286A42E41BC0C77E0065E647 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
+		286A42E71BC0C7AD0065E647 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		286A42E81BC0C7B90065E647 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		28738ECA1BAFDFE60083D95F /* UrlHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UrlHelper.swift; sourceTree = "<group>"; };
 		28738ECC1BB050330083D95F /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		28738ED11BB06D4E0083D95F /* Ji.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Ji.framework; path = Carthage/Build/iOS/Ji.framework; sourceTree = "<group>"; };
@@ -106,7 +109,6 @@
 		288E8C2A1BBEE9A90075DB56 /* Parse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parse.swift; sourceTree = "<group>"; };
 		28A64FD01BBC4E9A0007DF95 /* DBHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBHelper.swift; sourceTree = "<group>"; };
 		28B480E21BB2D618006B257A /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = Models/User.swift; sourceTree = "<group>"; };
-		28ED12781BB981B30046F6BF /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		28ED127B1BB982730046F6BF /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -199,7 +201,7 @@
 				2865033C1BAB019200BB041D /* URLsTableViewController.swift */,
 				2865033E1BAB06A600BB041D /* URLAddTableViewController.swift */,
 				2858C75F1BB84335005D7543 /* WebNotificationsIOS-Bridging-Header.h */,
-				28ED12781BB981B30046F6BF /* Localizable.strings */,
+				286A42E51BC0C77E0065E647 /* Localizable.strings */,
 			);
 			path = WebNotificationsIOS;
 			sourceTree = "<group>";
@@ -381,7 +383,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				286503191BAB001900BB041D /* LaunchScreen.storyboard in Resources */,
-				28ED12791BB981B30046F6BF /* Localizable.strings in Resources */,
+				286A42E31BC0C77E0065E647 /* Localizable.strings in Resources */,
 				286503161BAB001900BB041D /* Assets.xcassets in Resources */,
 				286503141BAB001900BB041D /* Main.storyboard in Resources */,
 			);
@@ -480,6 +482,7 @@
 			children = (
 				286503131BAB001900BB041D /* Base */,
 				286A42DD1BC042930065E647 /* ja */,
+				286A42E81BC0C7B90065E647 /* en */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -491,6 +494,15 @@
 				28ED127B1BB982730046F6BF /* ja */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		286A42E51BC0C77E0065E647 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				286A42E41BC0C77E0065E647 /* ja */,
+				286A42E71BC0C7AD0065E647 /* en */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

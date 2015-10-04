@@ -2,6 +2,9 @@
   Localizable.strings
   WebNotificationsIOS
 
-  Created by kaku on 9/28/15.
+  Created by kaku on 10/4/15.
   Copyright © 2015 kaku. All rights reserved.
 */
+
+"EditButtonNormalTitle" = "Edit";
+"EditButtonEditedTitle" = "Done";

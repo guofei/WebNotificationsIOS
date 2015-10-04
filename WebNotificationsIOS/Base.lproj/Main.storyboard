@@ -59,6 +59,9 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <animations/>
                                 <state key="normal" title="Edit"/>
+                                <connections>
+                                    <action selector="edit:" destination="p5b-RV-I1v" eventType="touchUpInside" id="rTz-NI-5oU"/>
+                                </connections>
                             </button>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" style="plain" id="Xu1-Pp-LwP">
@@ -81,6 +84,9 @@
                             <action selector="refresh:" destination="p5b-RV-I1v" eventType="valueChanged" id="DQ6-uM-43n"/>
                         </connections>
                     </refreshControl>
+                    <connections>
+                        <outlet property="editButton" destination="kL8-s2-Rcr" id="QJj-CF-0Ov"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dVl-6v-WWW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
