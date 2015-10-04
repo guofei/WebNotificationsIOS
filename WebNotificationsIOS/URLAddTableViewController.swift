@@ -91,15 +91,32 @@ class URLAddTableViewController: UITableViewController, UITextFieldDelegate {
 		}
 	}
 
-	override func viewDidLoad() {
-        super.viewDidLoad()
-		urlField?.text = originURL
-		urlField?.delegate = self
-		datePicker.countDownDuration = Double(defaultSecond)
-
+	private func updateUI() {
+		if let url = UrlHelper.getURL(originURL) {
+			if let page = Page.getByURL(url) {
+				urlField?.text = page.url
+				notification?.setOn(!page.stopFetch, animated: false)
+				datePicker?.countDownDuration = Double(page.sec)
+			}
+		} else {
+			datePicker?.countDownDuration = Double(defaultSecond)
+		}
 		if (User.isProUser()) {
 			setProUI()
 		}
+		if !User.isOpenNotifaction() {
+			notification?.setOn(false, animated: false)
+			notification?.enabled = false
+			tableView?.headerViewForSection(1)?.textLabel?.text = "hi"
+		} else {
+			notification?.enabled = true
+		}
+	}
+
+	override func viewDidLoad() {
+        super.viewDidLoad()
+		urlField?.delegate = self
+		updateUI()
 
 		Flurry.logEvent("Add URL")
 

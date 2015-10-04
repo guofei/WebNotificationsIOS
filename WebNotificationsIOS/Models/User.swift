@@ -73,6 +73,14 @@ class User: Object {
 		}
 	}
 
+	static func isOpenNotifaction() -> Bool {
+		if currentUser() == nil {
+			return false
+		} else {
+			return true
+		}
+	}
+
 	private static func currentUserSetID(id: Int?) {
 		if id == nil {
 			return

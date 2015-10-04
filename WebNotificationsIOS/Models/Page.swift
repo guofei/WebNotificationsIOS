@@ -34,7 +34,7 @@ class Page: Object {
 		return dateFormatter.stringFromDate(updatedAt)
 	}
 
-	private static func getByURL(url: String?) -> Page? {
+	static func getByURL(url: String?) -> Page? {
 		if url == nil {
 			return nil
 		}
@@ -64,7 +64,7 @@ class Page: Object {
 		}
 	}
 
-	private static func updateID(url: String?, second: Int, stopFetch: Bool) {
+	private static func syncURL(url: String?, second: Int, stopFetch: Bool) {
 		API.Page.create(url, uuid: User.getUUID(), second: second, stopFetch: stopFetch) { id in
 			if let id = id {
 				if let realm = getDB() {
@@ -100,6 +100,8 @@ class Page: Object {
 			let page = Page()
 			if let id = id {
 				page.id = id
+			} else {
+				page.id = 0
 			}
 			page.url = url
 			page.sec = second
@@ -132,7 +134,7 @@ class Page: Object {
 		let queue = dispatch_get_global_queue(qos, 0)
 		dispatch_async(queue) {
 			if addorUpdateURL(nil, url: url, second: second, stopFetch: stopFetch) {
-				updateID(url, second: second, stopFetch: stopFetch)
+				syncURL(url, second: second, stopFetch: stopFetch)
 				closure(true)
 			} else {
 				closure(false)
@@ -168,7 +170,7 @@ class Page: Object {
 					}
 					result[page.url] = true
 					if page.id <= 0 {
-						updateID(page.url, second: page.sec, stopFetch: page.stopFetch)
+						syncURL(page.url, second: page.sec, stopFetch: page.stopFetch)
 					}
 				}
 			}
