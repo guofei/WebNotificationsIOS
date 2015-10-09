@@ -21,7 +21,7 @@
 "WKJ-Yb-gyi.normalTitle" = "保存";
 
 /* Class = "UITableViewSection"; footerTitle = "Check for update every #minute by cloud"; ObjectID = "gol-AF-YID"; */
-"gol-AF-YID.footerTitle" = "注：チェックはCloud上で行います";
+"gol-AF-YID.footerTitle" = "Cloud上のチェック頻度を調整";
 
 /* Class = "UITableViewSection"; headerTitle = "Cloud Scheduling"; ObjectID = "gol-AF-YID"; */
 "gol-AF-YID.headerTitle" = "チェック頻度（Pro版）";

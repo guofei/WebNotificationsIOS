@@ -24,7 +24,7 @@
 "gol-AF-YID.footerTitle" = "Check for update every #minute by cloud";
 
 /* Class = "UITableViewSection"; headerTitle = "Cloud Scheduling"; ObjectID = "gol-AF-YID"; */
-"gol-AF-YID.headerTitle" = "Cloud Scheduling";
+"gol-AF-YID.headerTitle" = "Cloud Scheduling(Pro feature)";
 
 /* Class = "UILabel"; text = "Notification"; ObjectID = "hJf-Hd-JC3"; */
 "hJf-Hd-JC3.text" = "Notification";

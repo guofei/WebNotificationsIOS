@@ -10,7 +10,7 @@ import UIKit
 import Parse
 
 
-class URLAddTableViewController: UITableViewController, UITextFieldDelegate {
+class URLAddTableViewController: UITableViewController, UITextFieldDelegate, SKPaymentTransactionObserver {
 	var defaultSecond = 3 * 60 * 60
 	var stopFetch : Bool {
 		get {
@@ -23,7 +23,7 @@ class URLAddTableViewController: UITableViewController, UITextFieldDelegate {
 	}
 
 	var originURL: String?
-
+	@IBOutlet weak var restoreCell: UITableViewCell!
 	@IBOutlet weak var urlField: UITextField!
 	@IBOutlet weak var spinner: UIActivityIndicatorView!
 	@IBOutlet weak var buyTable: UITableViewCell!
@@ -41,6 +41,19 @@ class URLAddTableViewController: UITableViewController, UITextFieldDelegate {
 	private func setProUI() {
 		buyTable?.hidden = true
 		datePicker?.userInteractionEnabled = true
+		restoreCell?.userInteractionEnabled = true
+	}
+
+	@IBAction func restore(sender: AnyObject) {
+		PFPurchase.restore()
+	}
+
+	private func alert(title: String?, message: String?) {
+		if (title != nil && message != nil) {
+			let alert = UIAlertController(title: title!, message: message!, preferredStyle: UIAlertControllerStyle.Alert)
+			alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+			self.presentViewController(alert, animated: true, completion: nil)
+		}
 	}
 
 	@IBAction func buyPro(sender: AnyObject) {
@@ -50,17 +63,26 @@ class URLAddTableViewController: UITableViewController, UITextFieldDelegate {
 			if error == nil {
 				self.setProUI()
 				User.setProUser()
-				let alert = UIAlertController(title: "Success", message: "Thank you for buying pro", preferredStyle: UIAlertControllerStyle.Alert)
-				alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
-				self.presentViewController(alert, animated: true, completion: nil)
+				self.alert("Success", message: "Thank you for buying pro version")
 			} else {
+				self.alert("Error", message: error?.description)
 				let errorParams = ["message": error!.description];
 				Flurry.logEvent("Buy Pro Error", withParameters: errorParams)
-				let alert = UIAlertController(title: "Error", message: error?.description, preferredStyle: UIAlertControllerStyle.Alert)
-				alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
-				self.presentViewController(alert, animated: true, completion: nil)
 			}
 		}
+	}
+
+	func paymentQueue(queue: SKPaymentQueue, updatedTransactions transactions: [SKPaymentTransaction]) {
+	}
+
+	func paymentQueueRestoreCompletedTransactionsFinished(queue: SKPaymentQueue) {
+		alert("Success", message: "Thank you for buying pro version")
+		setProUI()
+		updateUI()
+	}
+
+	func paymentQueue(queue: SKPaymentQueue, restoreCompletedTransactionsFailedWithError error: NSError) {
+		alert("Error", message: error.description)
 	}
 
 	private func changeURL() -> Bool {
@@ -114,6 +136,7 @@ class URLAddTableViewController: UITableViewController, UITextFieldDelegate {
 
 	override func viewDidLoad() {
         super.viewDidLoad()
+
 		urlField?.delegate = self
 		updateUI()
 
@@ -125,6 +148,16 @@ class URLAddTableViewController: UITableViewController, UITextFieldDelegate {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
+
+	override func viewWillAppear(animated: Bool) {
+		super.viewWillAppear(animated)
+		SKPaymentQueue.defaultQueue().addTransactionObserver(self)
+	}
+
+	override func viewWillDisappear(animated: Bool) {
+		super.viewWillDisappear(animated)
+		SKPaymentQueue.defaultQueue().removeTransactionObserver(self)
+	}
 
 	func textFieldShouldReturn(textField: UITextField) -> Bool{
 		urlField?.resignFirstResponder()

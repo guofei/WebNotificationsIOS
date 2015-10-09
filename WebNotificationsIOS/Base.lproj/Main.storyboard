@@ -101,7 +101,7 @@
                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                         <gestureRecognizers/>
                         <activityIndicatorView key="tableFooterView" hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" id="3Rc-y7-Qw1">
-                            <rect key="frame" x="0.0" y="580" width="600" height="20"/>
+                            <rect key="frame" x="0.0" y="624" width="600" height="20"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <animations/>
                         </activityIndicatorView>
@@ -223,6 +223,32 @@
                                         </tableViewCellContentView>
                                         <animations/>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="Restore" id="YWa-L9-pNM">
+                                        <rect key="frame" x="0.0" y="562" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="YWa-L9-pNM" id="Iqy-ka-tZQ">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LOm-e9-sFB">
+                                                    <rect key="frame" x="8" y="7" width="584" height="30"/>
+                                                    <animations/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <state key="normal" title="Restore Purchases"/>
+                                                    <connections>
+                                                        <action selector="restore:" destination="cbn-tT-6I7" eventType="touchUpInside" id="AmE-2u-9xw"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <animations/>
+                                            <constraints>
+                                                <constraint firstItem="LOm-e9-sFB" firstAttribute="trailing" secondItem="Iqy-ka-tZQ" secondAttribute="trailingMargin" id="DXs-Of-QrU"/>
+                                                <constraint firstItem="LOm-e9-sFB" firstAttribute="centerY" secondItem="Iqy-ka-tZQ" secondAttribute="centerY" id="RGh-QC-XCJ"/>
+                                                <constraint firstItem="LOm-e9-sFB" firstAttribute="leading" secondItem="Iqy-ka-tZQ" secondAttribute="leadingMargin" id="cwQ-h1-wJG"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <animations/>
+                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                         </sections>
@@ -260,6 +286,7 @@
                         <outlet property="buyTable" destination="Vsz-8f-aa1" id="yzs-CK-pXM"/>
                         <outlet property="datePicker" destination="HJS-EC-K0X" id="MHs-IZ-gtX"/>
                         <outlet property="notification" destination="GMh-yr-hPO" id="XdH-Ba-7gD"/>
+                        <outlet property="restoreCell" destination="YWa-L9-pNM" id="FQ1-cg-A5p"/>
                         <outlet property="spinner" destination="3Rc-y7-Qw1" id="Nf0-1P-hGi"/>
                         <outlet property="urlField" destination="6bJ-tR-Ju4" id="kGW-KG-qx0"/>
                     </connections>
