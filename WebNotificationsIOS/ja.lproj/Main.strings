@@ -3,7 +3,7 @@
 "6bJ-tR-Ju4.placeholder" = "URL";
 
 /* Class = "UIButton"; normalTitle = "Buy Pro to unlock cloud scheduling"; ObjectID = "A8t-dG-8nw"; */
-"A8t-dG-8nw.normalTitle" = "Pro版を買う";
+"A8t-dG-8nw.normalTitle" = "Pro版を購入する";
 
 /* Class = "UIButton"; normalTitle = "+"; ObjectID = "AxP-6h-NoT"; */
 "AxP-6h-NoT.normalTitle" = "+";
@@ -16,6 +16,9 @@
 
 /* Class = "UINavigationItem"; title = "Add"; ObjectID = "JoZ-fD-ASd"; */
 "JoZ-fD-ASd.title" = "追加";
+
+/* Class = "UIButton"; normalTitle = "Restore Purchases"; ObjectID = "LOm-e9-sFB"; */
+"LOm-e9-sFB.normalTitle" = "以前の購入を復元";
 
 /* Class = "UIButton"; normalTitle = "Save"; ObjectID = "WKJ-Yb-gyi"; */
 "WKJ-Yb-gyi.normalTitle" = "保存";

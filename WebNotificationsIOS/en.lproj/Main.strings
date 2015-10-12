@@ -17,6 +17,9 @@
 /* Class = "UINavigationItem"; title = "Add"; ObjectID = "JoZ-fD-ASd"; */
 "JoZ-fD-ASd.title" = "Add";
 
+/* Class = "UIButton"; normalTitle = "Restore Purchases"; ObjectID = "LOm-e9-sFB"; */
+"LOm-e9-sFB.normalTitle" = "Restore Purchases";
+
 /* Class = "UIButton"; normalTitle = "Save"; ObjectID = "WKJ-Yb-gyi"; */
 "WKJ-Yb-gyi.normalTitle" = "Save";
 
