@@ -57,7 +57,7 @@ class Page: Object {
 				if (id != nil && url != nil && sec != nil && stopFetch != nil) {
 					let page = getByURL(url)
 					if page == nil {
-						addorUpdateURL(id, url: url, second: sec!, stopFetch: stopFetch!)
+						addOrUpdateURL(id, url: url, second: sec!, stopFetch: stopFetch!)
 					}
 				}
 			}
@@ -95,35 +95,37 @@ class Page: Object {
 		return false
 	}
 
-	private static func addorUpdateURL(id: Int?, url: String?, second: Int, stopFetch: Bool) -> Bool {
-		if let url = url {
-			let page = Page()
-			if let id = id {
-				page.id = id
-			} else {
-				page.id = 0
+	private static func addOrUpdateURL(id: Int?, url: String?, second: Int, stopFetch: Bool) -> Bool {
+		if url == nil {
+			return false
+		}
+		let res = parse(url!)
+		if res.title == nil && res.content == nil {
+			return false
+		}
+		let page = Page()
+		if let id = id {
+			page.id = id
+		} else {
+			page.id = 0
+		}
+		page.url = url!
+		page.sec = second
+		page.stopFetch = stopFetch
+		if let title = res.title {
+			page.title = title
+		}
+		if let content = res.content {
+			page.content = content
+		}
+		if let channel = User.getUUID() {
+			page.pushChannel = channel
+		}
+		if let realm = getDB() {
+			realm.write {
+				realm.add(page, update: true)
 			}
-			page.url = url
-			page.sec = second
-			page.stopFetch = stopFetch
-			let res = parse(url)
-			if let title = res.title {
-				page.title = title
-			}
-			if let content = res.content {
-				page.content = content
-			}
-			if let channel = User.getUUID() {
-				page.pushChannel = channel
-			}
-			if let realm = getDB() {
-				realm.write {
-					realm.add(page, update: true)
-				}
-				return true
-			} else {
-				return false
-			}
+			return true
 		} else {
 			return false
 		}
@@ -133,7 +135,7 @@ class Page: Object {
 		let qos = Int(QOS_CLASS_USER_INITIATED.rawValue)
 		let queue = dispatch_get_global_queue(qos, 0)
 		dispatch_async(queue) {
-			if addorUpdateURL(nil, url: url, second: second, stopFetch: stopFetch) {
+			if addOrUpdateURL(nil, url: url, second: second, stopFetch: stopFetch) {
 				syncURL(url, second: second, stopFetch: stopFetch)
 				closure(true)
 			} else {

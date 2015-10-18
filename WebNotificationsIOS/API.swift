@@ -103,7 +103,7 @@ class API {
 		}
 
 		static func create(uuid: String?, result: (userID: Int?) -> Void) {
-			if uuid == nil || uuid?.characters.count <= 0{
+			if uuid == nil || uuid?.characters.count <= 0 {
 				return
 			}
 

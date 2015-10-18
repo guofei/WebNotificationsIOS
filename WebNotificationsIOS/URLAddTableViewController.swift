@@ -42,7 +42,14 @@ class URLAddTableViewController: UITableViewController, UITextFieldDelegate, SKP
 		Page.addOrUpdate(UrlHelper.getURL(urlField.text), second: sec, stopFetch: stopFetch) { (ok: Bool) -> Void in
 			dispatch_sync(dispatch_get_main_queue()) {
 				self.spinner?.stopAnimating()
-				self.dismissViewControllerAnimated(true, completion: nil)
+				if ok {
+					self.dismissViewControllerAnimated(true, completion: nil)
+				} else {
+					self.alert("Error", message: "URL error!")
+					if let url = UrlHelper.getURL(self.urlField.text) {
+						Flurry.logEvent("Error URL", withParameters: ["url": url])
+					}
+				}
 			}
 		}
 		Flurry.logEvent("Add URL")
