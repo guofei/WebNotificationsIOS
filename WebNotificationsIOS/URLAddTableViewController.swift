@@ -9,7 +9,6 @@
 import UIKit
 import Parse
 
-
 class URLAddTableViewController: UITableViewController, UITextFieldDelegate, SKPaymentTransactionObserver {
 	var defaultSecond = 3 * 60 * 60
 	var stopFetch : Bool {
@@ -57,13 +56,12 @@ class URLAddTableViewController: UITableViewController, UITextFieldDelegate, SKP
 	}
 
 	@IBAction func buyPro(sender: AnyObject) {
-		Flurry.logEvent("Buy Pro")
-
 		PFPurchase.buyProduct(Product.ID) { (error: NSError?) -> Void in
 			if error == nil {
 				self.setProUI()
 				User.setProUser()
 				self.alert("Success", message: "Thank you for buying pro version")
+				Flurry.logEvent("Buy Pro Successed")
 			} else {
 				self.alert("Error", message: error?.description)
 				let errorParams = ["message": error!.description];
@@ -73,12 +71,17 @@ class URLAddTableViewController: UITableViewController, UITextFieldDelegate, SKP
 	}
 
 	func paymentQueue(queue: SKPaymentQueue, updatedTransactions transactions: [SKPaymentTransaction]) {
+		print("paymentQueue")
 	}
 
 	func paymentQueueRestoreCompletedTransactionsFinished(queue: SKPaymentQueue) {
-		alert("Success", message: "Thank you for buying pro version")
-		setProUI()
-		updateUI()
+		for transaction:SKPaymentTransaction in queue.transactions {
+			if transaction.payment.productIdentifier == Product.ID {
+				alert("Success", message: "Thank you for buying pro version")
+				setProUI()
+				updateUI()
+			}
+		}
 	}
 
 	func paymentQueue(queue: SKPaymentQueue, restoreCompletedTransactionsFailedWithError error: NSError) {
