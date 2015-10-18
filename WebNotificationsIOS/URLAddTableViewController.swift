@@ -33,26 +33,27 @@ class URLAddTableViewController: UITableViewController, UITextFieldDelegate, SKP
 		self.dismissViewControllerAnimated(true, completion: nil)
 	}
 
+	@IBAction func save(sender: AnyObject) {
+		spinner?.startAnimating()
+		let sec = Int(datePicker.countDownDuration)
+		if changeURL() {
+			Page.deleteByURL(UrlHelper.getURL(originURL))
+		}
+		Page.addOrUpdate(UrlHelper.getURL(urlField.text), second: sec, stopFetch: stopFetch) { (ok: Bool) -> Void in
+			dispatch_sync(dispatch_get_main_queue()) {
+				self.spinner?.stopAnimating()
+				self.dismissViewControllerAnimated(true, completion: nil)
+			}
+		}
+		Flurry.logEvent("Add URL")
+	}
+
 	@IBAction func tap(sender: AnyObject) {
 		view.endEditing(true)
 	}
 
-	private func setProUI() {
-		buyTable?.hidden = true
-		datePicker?.userInteractionEnabled = true
-		restoreCell?.userInteractionEnabled = true
-	}
-
 	@IBAction func restore(sender: AnyObject) {
 		PFPurchase.restore()
-	}
-
-	private func alert(title: String?, message: String?) {
-		if (title != nil && message != nil) {
-			let alert = UIAlertController(title: title!, message: message!, preferredStyle: UIAlertControllerStyle.Alert)
-			alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
-			self.presentViewController(alert, animated: true, completion: nil)
-		}
 	}
 
 	@IBAction func buyPro(sender: AnyObject) {
@@ -77,15 +78,23 @@ class URLAddTableViewController: UITableViewController, UITextFieldDelegate, SKP
 	func paymentQueueRestoreCompletedTransactionsFinished(queue: SKPaymentQueue) {
 		for transaction:SKPaymentTransaction in queue.transactions {
 			if transaction.payment.productIdentifier == Product.ID {
-				alert("Success", message: "Thank you for buying pro version")
+				alert("Success", message: "Restore successed")
 				setProUI()
-				updateUI()
+				// User.setProUser()
 			}
 		}
 	}
 
 	func paymentQueue(queue: SKPaymentQueue, restoreCompletedTransactionsFailedWithError error: NSError) {
 		alert("Error", message: error.description)
+	}
+
+	private func alert(title: String?, message: String?) {
+		if (title != nil && message != nil) {
+			let alert = UIAlertController(title: title!, message: message!, preferredStyle: UIAlertControllerStyle.Alert)
+			alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+			self.presentViewController(alert, animated: true, completion: nil)
+		}
 	}
 
 	private func changeURL() -> Bool {
@@ -102,18 +111,10 @@ class URLAddTableViewController: UITableViewController, UITextFieldDelegate, SKP
 		return false
 	}
 
-	@IBAction func save(sender: AnyObject) {
-		spinner?.startAnimating()
-		let sec = Int(datePicker.countDownDuration)
-		if changeURL() {
-			Page.deleteByURL(UrlHelper.getURL(originURL))
-		}
-		Page.addOrUpdate(UrlHelper.getURL(urlField.text), second: sec, stopFetch: stopFetch) { (ok: Bool) -> Void in
-			dispatch_sync(dispatch_get_main_queue()) {
-				self.spinner?.stopAnimating()
-				self.dismissViewControllerAnimated(true, completion: nil)
-			}
-		}
+	private func setProUI() {
+		buyTable?.hidden = true
+		restoreCell?.hidden = true
+		datePicker?.userInteractionEnabled = true
 	}
 
 	private func updateUI() {
@@ -142,8 +143,6 @@ class URLAddTableViewController: UITableViewController, UITextFieldDelegate, SKP
 
 		urlField?.delegate = self
 		updateUI()
-
-		Flurry.logEvent("Add URL")
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
