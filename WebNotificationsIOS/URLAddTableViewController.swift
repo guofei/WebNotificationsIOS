@@ -35,10 +35,10 @@ class URLAddTableViewController: UITableViewController, UITextFieldDelegate, SKP
 
 	@IBAction func save(sender: AnyObject) {
 		spinner?.startAnimating()
-		let sec = Int(datePicker.countDownDuration)
 		if changeURL() {
 			Page.deleteByURL(UrlHelper.getURL(originURL))
 		}
+		let sec = Int(datePicker.countDownDuration)
 		Page.addOrUpdate(UrlHelper.getURL(urlField.text), second: sec, stopFetch: stopFetch) { (ok: Bool) -> Void in
 			dispatch_sync(dispatch_get_main_queue()) {
 				self.spinner?.stopAnimating()

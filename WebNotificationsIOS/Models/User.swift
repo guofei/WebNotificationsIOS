@@ -62,7 +62,7 @@ class User: Object {
 				let uuid = "user_" + NSUUID().UUIDString
 				user.uuid = uuid
 				user.email = uuid
-				realm.write {
+				try! realm.write {
 					realm.add(user)
 				}
 				sync()
@@ -87,7 +87,7 @@ class User: Object {
 		}
 		if let user = currentUser() {
 			if let realm = getDB() {
-				realm.write {
+				try! realm.write {
 					user.id = id!
 				}
 			}

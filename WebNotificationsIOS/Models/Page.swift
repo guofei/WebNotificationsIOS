@@ -68,7 +68,7 @@ class Page: Object {
 		API.Page.create(url, uuid: User.getUUID(), second: second, stopFetch: stopFetch) { id in
 			if let id = id {
 				if let realm = getDB() {
-					realm.write {
+					try! realm.write {
 						if let page = Page.getByURL(url) {
 							page.id = id
 						}
@@ -84,7 +84,7 @@ class Page: Object {
 				serverStopFetch(page)
 			}
 			if let realm = getDB() {
-				realm.write {
+				try!realm.write {
 					realm.delete(page)
 				}
 				return true
@@ -122,7 +122,7 @@ class Page: Object {
 			page.pushChannel = channel
 		}
 		if let realm = getDB() {
-			realm.write {
+			try! realm.write {
 				realm.add(page, update: true)
 			}
 			return true
@@ -159,7 +159,7 @@ class Page: Object {
 						}
 					}
 					let url = page.url
-					realm.write {
+					try! realm.write {
 						if let _ = Page.getByURL(url) {
 							if let title = res.title {
 								page.title = title
