@@ -9,3 +9,4 @@
 "EditButtonNormalTitle" = "編集";
 "EditButtonEditedTitle" = "完了";
 "OpenNotifactionPlease" = "iOSの設定で通知が許可されている必要がある";
+"AccessError" = "このウェブページにアクセスできません";

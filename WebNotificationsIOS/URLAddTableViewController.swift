@@ -44,15 +44,15 @@ class URLAddTableViewController: UITableViewController, UITextFieldDelegate, SKP
 				self.spinner?.stopAnimating()
 				if ok {
 					self.dismissViewControllerAnimated(true, completion: nil)
+					Flurry.logEvent("Add URL")
 				} else {
-					self.alert("Error", message: "URL error!")
+					self.alert("Error", message: NSLocalizedString("AccessError", comment: ""))
 					if let url = UrlHelper.getURL(self.urlField.text) {
 						Flurry.logEvent("Error URL", withParameters: ["url": url])
 					}
 				}
 			}
 		}
-		Flurry.logEvent("Add URL")
 	}
 
 	@IBAction func tap(sender: AnyObject) {
@@ -64,6 +64,7 @@ class URLAddTableViewController: UITableViewController, UITextFieldDelegate, SKP
 	}
 
 	@IBAction func buyPro(sender: AnyObject) {
+		spinner?.startAnimating()
 		PFPurchase.buyProduct(Product.ID) { (error: NSError?) -> Void in
 			if error == nil {
 				self.setProUI()
@@ -75,6 +76,7 @@ class URLAddTableViewController: UITableViewController, UITextFieldDelegate, SKP
 				let errorParams = ["message": error!.description];
 				Flurry.logEvent("Buy Pro Error", withParameters: errorParams)
 			}
+			self.spinner?.stopAnimating()
 		}
 	}
 
