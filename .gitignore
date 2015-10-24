@@ -1,5 +1,6 @@
 .DS_Store
 *~
 /Carthage/
+/Pods/
 UserInterfaceState.xcuserstate
 SecretKey.swift
