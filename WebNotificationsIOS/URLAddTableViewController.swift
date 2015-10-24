@@ -11,7 +11,6 @@ import Parse
 import Flurry_iOS_SDK
 
 class URLAddTableViewController: UITableViewController, UITextFieldDelegate {
-	var defaultSecond = 3 * 60 * 60
 	var stopFetch : Bool {
 		get {
 			if notification == nil {
@@ -136,7 +135,7 @@ class URLAddTableViewController: UITableViewController, UITextFieldDelegate {
 				datePicker?.countDownDuration = Double(page.sec)
 			}
 		} else {
-			datePicker?.countDownDuration = Double(defaultSecond)
+			datePicker?.countDownDuration = Double(PageConst.defaultSecond)
 		}
 		if (User.isProUser()) {
 			setProUI()

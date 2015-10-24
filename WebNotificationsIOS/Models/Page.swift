@@ -9,6 +9,9 @@
 import Foundation
 import RealmSwift
 
+struct PageConst {
+	static let defaultSecond = 3 * 60 * 60
+}
 
 // pushChannel is equal User::uuid
 class Page: Object {
