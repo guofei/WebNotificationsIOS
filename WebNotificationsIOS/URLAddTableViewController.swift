@@ -65,11 +65,14 @@ class URLAddTableViewController: UITableViewController, UITextFieldDelegate {
 	}
 
 	@IBAction func buyPro(sender: AnyObject) {
-		// Flurry.logEvent("Buy Pro Clicked")
+		Flurry.logEvent("Buy Pro Clicked")
 		spinner?.startAnimating()
 		PFPurchase.buyProduct(Product.ID) { (error: NSError?) -> Void in
 			if error == nil {
 				self.setProUI()
+				Flurry.logEvent("Buy Pro Successed")
+			} else {
+				Flurry.logEvent("Buy Pro Error")
 			}
 			self.spinner?.stopAnimating()
 		}
