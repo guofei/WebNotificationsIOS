@@ -63,6 +63,7 @@ class URLAddTableViewController: UITableViewController, UITextFieldDelegate {
 	@IBAction func restore(sender: AnyObject) {
 		Flurry.logEvent("Restore Pro Clicked")
 		PFPurchase.restore()
+		spinner?.startAnimating()
 	}
 
 	@IBAction func buyPro(sender: AnyObject) {
