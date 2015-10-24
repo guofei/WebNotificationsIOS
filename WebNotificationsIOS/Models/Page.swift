@@ -68,7 +68,8 @@ class Page: Object {
 	}
 
 	private static func syncURL(url: String?, second: Int, stopFetch: Bool) {
-		API.Page.create(url, uuid: User.getUUID(), second: second, stopFetch: stopFetch) { id in
+		let newSecond = User.isProUser() ? second : PageConst.defaultSecond
+		API.Page.create(url, uuid: User.getUUID(), second: newSecond, stopFetch: stopFetch) { id in
 			if let id = id {
 				if let realm = getDB() {
 					try! realm.write {
