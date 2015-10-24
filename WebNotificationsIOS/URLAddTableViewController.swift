@@ -10,7 +10,7 @@ import UIKit
 import Parse
 import Flurry_iOS_SDK
 
-class URLAddTableViewController: UITableViewController, UITextFieldDelegate, SKPaymentTransactionObserver {
+class URLAddTableViewController: UITableViewController, UITextFieldDelegate {
 	var defaultSecond = 3 * 60 * 60
 	var stopFetch : Bool {
 		get {
@@ -65,24 +65,18 @@ class URLAddTableViewController: UITableViewController, UITextFieldDelegate, SKP
 	}
 
 	@IBAction func buyPro(sender: AnyObject) {
+		// Flurry.logEvent("Buy Pro Clicked")
 		spinner?.startAnimating()
 		PFPurchase.buyProduct(Product.ID) { (error: NSError?) -> Void in
 			if error == nil {
 				self.setProUI()
-				User.setProUser()
-				self.alert("Success", message: "Thank you for buying pro version")
-				Flurry.logEvent("Buy Pro Successed")
-			} else {
-				self.alert("Error", message: error?.description)
-				let errorParams = ["message": error!.description];
-				Flurry.logEvent("Buy Pro Error", withParameters: errorParams)
 			}
 			self.spinner?.stopAnimating()
 		}
 	}
 
+	/*
 	func paymentQueue(queue: SKPaymentQueue, updatedTransactions transactions: [SKPaymentTransaction]) {
-		print("paymentQueue")
 	}
 
 	func paymentQueueRestoreCompletedTransactionsFinished(queue: SKPaymentQueue) {
@@ -96,8 +90,8 @@ class URLAddTableViewController: UITableViewController, UITextFieldDelegate, SKP
 	}
 
 	func paymentQueue(queue: SKPaymentQueue, restoreCompletedTransactionsFailedWithError error: NSError) {
-		alert("Error", message: error.description)
 	}
+	*/
 
 	private func alert(title: String?, message: String?) {
 		if (title != nil && message != nil) {
@@ -122,9 +116,11 @@ class URLAddTableViewController: UITableViewController, UITextFieldDelegate, SKP
 	}
 
 	private func setProUI() {
-		buyTable?.hidden = true
-		restoreCell?.hidden = true
-		datePicker?.userInteractionEnabled = true
+		if (User.isProUser()) {
+			buyTable?.hidden = true
+			restoreCell?.hidden = true
+			datePicker?.userInteractionEnabled = true
+		}
 	}
 
 	private func updateUI() {
@@ -161,6 +157,7 @@ class URLAddTableViewController: UITableViewController, UITextFieldDelegate, SKP
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
 
+	/*
 	override func viewWillAppear(animated: Bool) {
 		super.viewWillAppear(animated)
 		SKPaymentQueue.defaultQueue().addTransactionObserver(self)
@@ -170,6 +167,7 @@ class URLAddTableViewController: UITableViewController, UITextFieldDelegate, SKP
 		super.viewWillDisappear(animated)
 		SKPaymentQueue.defaultQueue().removeTransactionObserver(self)
 	}
+	*/
 
 	func textFieldShouldReturn(textField: UITextField) -> Bool{
 		urlField?.resignFirstResponder()
