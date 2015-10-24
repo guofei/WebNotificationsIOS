@@ -11,7 +11,6 @@
 		2858C7491BB7A856005D7543 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2858C7471BB7A856005D7543 /* Realm.framework */; };
 		2858C74A1BB7A856005D7543 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2858C7481BB7A856005D7543 /* RealmSwift.framework */; };
 		2858C74C1BB83B1B005D7543 /* SecretKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2858C74B1BB83B1B005D7543 /* SecretKey.swift */; };
-		2858C75C1BB83FF7005D7543 /* libFlurry_7.1.1.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2858C75B1BB83FF7005D7543 /* libFlurry_7.1.1.a */; };
 		285B1BA11BBD3D4900BA3540 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285B1BA01BBD3D4900BA3540 /* API.swift */; };
 		2865030F1BAB001900BB041D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2865030E1BAB001900BB041D /* AppDelegate.swift */; };
 		286503141BAB001900BB041D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 286503121BAB001900BB041D /* Main.storyboard */; };
@@ -68,10 +67,6 @@
 		2858C7471BB7A856005D7543 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
 		2858C7481BB7A856005D7543 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
 		2858C74B1BB83B1B005D7543 /* SecretKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecretKey.swift; sourceTree = "<group>"; };
-		2858C7591BB83FF7005D7543 /* Flurry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Flurry.h; sourceTree = "<group>"; };
-		2858C75A1BB83FF7005D7543 /* FlurryWatch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlurryWatch.h; sourceTree = "<group>"; };
-		2858C75B1BB83FF7005D7543 /* libFlurry_7.1.1.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libFlurry_7.1.1.a; sourceTree = "<group>"; };
-		2858C75F1BB84335005D7543 /* WebNotificationsIOS-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "WebNotificationsIOS-Bridging-Header.h"; sourceTree = "<group>"; };
 		285B1BA01BBD3D4900BA3540 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		2865030B1BAB001900BB041D /* WebChecker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WebChecker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2865030E1BAB001900BB041D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -134,7 +129,6 @@
 				28738EDD1BB2613A0083D95F /* CFNetwork.framework in Frameworks */,
 				28738EDB1BB2612D0083D95F /* AudioToolbox.framework in Frameworks */,
 				28738ED71BB260C60083D95F /* Bolts.framework in Frameworks */,
-				2858C75C1BB83FF7005D7543 /* libFlurry_7.1.1.a in Frameworks */,
 				28738ECD1BB050330083D95F /* Alamofire.framework in Frameworks */,
 				28738ED91BB260CE0083D95F /* Parse.framework in Frameworks */,
 				28738ED21BB06D4E0083D95F /* Ji.framework in Frameworks */,
@@ -159,16 +153,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2858C7581BB83FF7005D7543 /* Flurry */ = {
-			isa = PBXGroup;
-			children = (
-				2858C7591BB83FF7005D7543 /* Flurry.h */,
-				2858C75A1BB83FF7005D7543 /* FlurryWatch.h */,
-				2858C75B1BB83FF7005D7543 /* libFlurry_7.1.1.a */,
-			);
-			path = Flurry;
-			sourceTree = "<group>";
-		};
 		286503021BAB001900BB041D = {
 			isa = PBXGroup;
 			children = (
@@ -194,7 +178,6 @@
 		2865030D1BAB001900BB041D /* WebNotificationsIOS */ = {
 			isa = PBXGroup;
 			children = (
-				2858C7581BB83FF7005D7543 /* Flurry */,
 				28738EC91BAFDFBC0083D95F /* Utils */,
 				2875B94D1BAE820C0020A4C5 /* Models */,
 				2865030E1BAB001900BB041D /* AppDelegate.swift */,
@@ -206,7 +189,6 @@
 				2865031A1BAB001900BB041D /* Info.plist */,
 				2865033C1BAB019200BB041D /* URLsTableViewController.swift */,
 				2865033E1BAB06A600BB041D /* URLAddTableViewController.swift */,
-				2858C75F1BB84335005D7543 /* WebNotificationsIOS-Bridging-Header.h */,
 				286A42E51BC0C77E0065E647 /* Localizable.strings */,
 			);
 			path = WebNotificationsIOS;
@@ -674,7 +656,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.webupdatenotification;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/WebNotificationsIOS/WebNotificationsIOS-Bridging-Header.h";
+				SWIFT_INSTALL_OBJC_HEADER = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 			};
 			name = Debug;
 		};
@@ -699,7 +682,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.webupdatenotification;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/WebNotificationsIOS/WebNotificationsIOS-Bridging-Header.h";
+				SWIFT_INSTALL_OBJC_HEADER = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 			};
 			name = Release;
 		};

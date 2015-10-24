@@ -8,6 +8,7 @@
 
 import UIKit
 import Parse
+import Flurry_iOS_SDK
 
 class URLAddTableViewController: UITableViewController, UITextFieldDelegate, SKPaymentTransactionObserver {
 	var defaultSecond = 3 * 60 * 60

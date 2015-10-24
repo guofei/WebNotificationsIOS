@@ -1,3 +1,4 @@
+# coding: utf-8
 # Uncomment this line to define a global platform for your project
 # platform :ios, '8.0'
 # Uncomment this line if you're using Swift
@@ -10,6 +11,7 @@ target 'WebChecker' do
   pod 'Ji', '~> 1.2.0'
   pod 'RealmSwift'
   pod 'Parse'
+  pod 'Flurry-iOS-SDK/FlurrySDK'
 end
 
 target 'WebNotificationsIOSTests' do
