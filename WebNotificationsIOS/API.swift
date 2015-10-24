@@ -32,9 +32,9 @@ class API {
 				]
 			]
 			Alamofire.request(.POST, URL.PAGEADD, parameters: parameters).responseJSON { response in
-				switch response.2 {
+				switch response.result {
 				case .Success:
-					if let dic = response.2.value as? Dictionary<String, AnyObject> {
+					if let dic = response.result.value as? Dictionary<String, AnyObject> {
 						if let id = dic["id"] as? Int {
 							clourse(id: id)
 						}
@@ -77,9 +77,9 @@ class API {
 			dispatch_async(queue) {
 				let getURL = URL.USERGET + "\(userID!)" + "/pages"
 				Alamofire.request(.GET, getURL).responseJSON { response in
-					switch response.2 {
+					switch response.result {
 					case .Success:
-						if let arr = response.2.value as? Array<Dictionary<String, AnyObject>> {
+						if let arr = response.result.value as? Array<Dictionary<String, AnyObject>> {
 							for item in arr {
 								let id = item["id"] as? Int
 								let url = item["url"] as? String
@@ -111,9 +111,9 @@ class API {
 				"user": [ "channel": uuid! ]
 			]
 			Alamofire.request(.POST, URL.ADD, parameters: parameters).responseJSON { response in
-				switch response.2 {
+				switch response.result {
 				case .Success:
-					if let dic = response.2.value as? Dictionary<String, AnyObject> {
+					if let dic = response.result.value as? Dictionary<String, AnyObject> {
 						if let id = dic["id"] as? Int {
 							result(userID: id)
 						}
