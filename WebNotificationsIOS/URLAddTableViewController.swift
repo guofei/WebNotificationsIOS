@@ -61,6 +61,7 @@ class URLAddTableViewController: UITableViewController, UITextFieldDelegate {
 	}
 
 	@IBAction func restore(sender: AnyObject) {
+		Flurry.logEvent("Restore Pro Clicked")
 		PFPurchase.restore()
 	}
 
@@ -70,7 +71,7 @@ class URLAddTableViewController: UITableViewController, UITextFieldDelegate {
 		PFPurchase.buyProduct(Product.ID) { (error: NSError?) -> Void in
 			if error == nil {
 				self.setProUI()
-				Flurry.logEvent("Buy Pro Successed")
+				Flurry.logEvent("Buy Pro OK")
 			} else {
 				Flurry.logEvent("Buy Pro Error")
 			}
