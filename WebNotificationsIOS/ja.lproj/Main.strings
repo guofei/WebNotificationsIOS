@@ -40,3 +40,6 @@
 
 /* Class = "UIButton"; normalTitle = "Cancel"; ObjectID = "oo4-se-eLs"; */
 "oo4-se-eLs.normalTitle" = "キャンセル";
+
+/* Class = "UITableViewSection"; footerTitle = "Enable via \"Setting\" on you iPhone"; ObjectID = "t3E-pz-6T7"; */
+"t3E-pz-6T7.footerTitle" = "iPhoneの[設定]から通知を有効にしてください";
