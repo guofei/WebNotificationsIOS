@@ -60,7 +60,7 @@ class Page: Object {
 				if (id != nil && url != nil && sec != nil && stopFetch != nil) {
 					let page = getByURL(url)
 					if page == nil {
-						addOrUpdateURL(id, url: url, second: sec!, stopFetch: stopFetch!)
+						addOrUpdateURLToLocal(id, url: url, second: sec!, stopFetch: stopFetch!)
 					}
 				}
 			}
@@ -100,7 +100,7 @@ class Page: Object {
 		return false
 	}
 
-	private static func addOrUpdateURL(id: Int?, url: String?, second: Int, stopFetch: Bool) -> Bool {
+	private static func addOrUpdateURLToLocal(id: Int?, url: String?, second: Int, stopFetch: Bool) -> Bool {
 		if url == nil {
 			return false
 		}
@@ -140,7 +140,7 @@ class Page: Object {
 		let qos = Int(QOS_CLASS_USER_INITIATED.rawValue)
 		let queue = dispatch_get_global_queue(qos, 0)
 		dispatch_async(queue) {
-			if addOrUpdateURL(nil, url: url, second: second, stopFetch: stopFetch) {
+			if addOrUpdateURLToLocal(nil, url: url, second: second, stopFetch: stopFetch) {
 				syncURL(url, second: second, stopFetch: stopFetch)
 				closure(true)
 			} else {
