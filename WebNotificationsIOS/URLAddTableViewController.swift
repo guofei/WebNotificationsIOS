@@ -34,19 +34,9 @@ class URLAddTableViewController: UITableViewController, UITextFieldDelegate {
 	}
 
 	@IBAction func notificationChanged(sender: UISwitch) {
-		/*
-		if UIApplication.sharedApplication().isRegisteredForRemoteNotifications() {
-			print("ok")
-		} else {
-			print("no")
-		}
-
 		if sender.on {
-			let settings = UIUserNotificationSettings(forTypes: [.Alert, .Badge, .Sound], categories: nil)
-			UIApplication.sharedApplication().registerUserNotificationSettings(settings)
-			UIApplication.sharedApplication().registerForRemoteNotifications()
+			Notifaction.setFirstTime()
 		}
-		*/
 	}
 
 	@IBAction func save(sender: AnyObject) {
@@ -156,11 +146,18 @@ class URLAddTableViewController: UITableViewController, UITextFieldDelegate {
 		if (User.isProUser()) {
 			setProUI()
 		}
-		if !User.isOpenNotifaction() {
+		switch (Notifaction.type()) {
+		case Notifaction.UNKNOWN:
+			notification?.enabled = true
+			notification?.setOn(false, animated: false)
+			break
+		case Notifaction.ON:
+			notification?.enabled = true
+			break
+		case Notifaction.OFF:
 			notification?.setOn(false, animated: false)
 			notification?.enabled = false
-		} else {
-			notification?.enabled = true
+			break
 		}
 	}
 
