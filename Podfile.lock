@@ -9,11 +9,11 @@ PODS:
   - Ji/Ji-libxml (1.2.0)
   - Parse (1.9.1):
     - Bolts/Tasks (>= 1.4.0)
-  - Realm (0.96.1):
-    - Realm/Headers (= 0.96.1)
-  - Realm/Headers (0.96.1)
-  - RealmSwift (0.96.1):
-    - Realm (= 0.96.1)
+  - Realm (0.96.2):
+    - Realm/Headers (= 0.96.2)
+  - Realm/Headers (0.96.2)
+  - RealmSwift (0.96.2):
+    - Realm (= 0.96.2)
 
 DEPENDENCIES:
   - Alamofire (~> 3.0)
@@ -28,7 +28,7 @@ SPEC CHECKSUMS:
   Flurry-iOS-SDK: 014d366cad101f05d4e8c191c0e0c0871d5704f7
   Ji: ddebb22f9ac445db6e884b66f78ea74fb135fdb7
   Parse: 54a965c8c19a6dde90284ab654dbcc77ef8c001b
-  Realm: d05e4621f67fb1c36acd4e573ac5b52a407fc2cc
-  RealmSwift: 6c96a72b385027d9593b69f6821c697fe843eb68
+  Realm: 3ce8448151c571e90b85002d984d7f93f54fc8a3
+  RealmSwift: 485599fe54e35461c4a0daa7d01d8fbf11424873
 
 COCOAPODS: 0.39.0

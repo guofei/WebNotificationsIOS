@@ -33,6 +33,22 @@ class URLAddTableViewController: UITableViewController, UITextFieldDelegate {
 		self.dismissViewControllerAnimated(true, completion: nil)
 	}
 
+	@IBAction func notificationChanged(sender: UISwitch) {
+		/*
+		if UIApplication.sharedApplication().isRegisteredForRemoteNotifications() {
+			print("ok")
+		} else {
+			print("no")
+		}
+
+		if sender.on {
+			let settings = UIUserNotificationSettings(forTypes: [.Alert, .Badge, .Sound], categories: nil)
+			UIApplication.sharedApplication().registerUserNotificationSettings(settings)
+			UIApplication.sharedApplication().registerForRemoteNotifications()
+		}
+		*/
+	}
+
 	@IBAction func save(sender: AnyObject) {
 		spinner?.startAnimating()
 		if changeURL() {
