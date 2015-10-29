@@ -9,6 +9,10 @@
 import UIKit
 
 class PageViewController: UIViewController, UIWebViewDelegate {
+	struct StoryBoard {
+		static let ID = "PageView"
+	}
+
 	@IBOutlet weak var webView: UIWebView!
 	@IBOutlet weak var spinner: UIActivityIndicatorView!
 

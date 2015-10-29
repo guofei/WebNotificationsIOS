@@ -33,7 +33,6 @@ enum Notifaction: String {
 			UIApplication.sharedApplication().registerUserNotificationSettings(settings)
 			UIApplication.sharedApplication().registerForRemoteNotifications()
 			setOpen(true)
-			print("first")
 		}
 	}
 
@@ -43,7 +42,6 @@ enum Notifaction: String {
 			UIApplication.sharedApplication().registerUserNotificationSettings(settings)
 			UIApplication.sharedApplication().registerForRemoteNotifications()
 			setOpen(true)
-			print("second")
 		}
 	}
 
