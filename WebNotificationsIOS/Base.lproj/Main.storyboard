@@ -102,7 +102,7 @@
                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                         <gestureRecognizers/>
                         <activityIndicatorView key="tableFooterView" hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" id="3Rc-y7-Qw1">
-                            <rect key="frame" x="0.0" y="640.5" width="600" height="20"/>
+                            <rect key="frame" x="0.0" y="639.5" width="600" height="20"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <animations/>
                         </activityIndicatorView>
@@ -174,7 +174,7 @@
                             <tableViewSection headerTitle="Cloud Scheduling" footerTitle="Check for update every #minute by cloud" id="gol-AF-YID">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="Timer" rowHeight="200" id="x7f-Eb-spd">
-                                        <rect key="frame" x="0.0" y="289.5" width="600" height="200"/>
+                                        <rect key="frame" x="0.0" y="289" width="600" height="200"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="x7f-Eb-spd" id="XrW-la-ptr">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="199.5"/>
@@ -202,7 +202,7 @@
                             <tableViewSection footerTitle="" id="ECV-g8-iyP">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="BuyTable" id="Vsz-8f-aa1">
-                                        <rect key="frame" x="0.0" y="534.5" width="600" height="44"/>
+                                        <rect key="frame" x="0.0" y="533.5" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Vsz-8f-aa1" id="NKA-IL-85U">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
@@ -228,7 +228,7 @@
                                         <animations/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="Restore" id="YWa-L9-pNM">
-                                        <rect key="frame" x="0.0" y="578.5" width="600" height="44"/>
+                                        <rect key="frame" x="0.0" y="577.5" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="YWa-L9-pNM" id="Iqy-ka-tZQ">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
@@ -287,6 +287,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="buyButton" destination="A8t-dG-8nw" id="683-Mc-fyd"/>
                         <outlet property="buyTable" destination="Vsz-8f-aa1" id="yzs-CK-pXM"/>
                         <outlet property="datePicker" destination="HJS-EC-K0X" id="MHs-IZ-gtX"/>
                         <outlet property="notification" destination="GMh-yr-hPO" id="XdH-Ba-7gD"/>

@@ -3,7 +3,7 @@
 "6bJ-tR-Ju4.placeholder" = "URL";
 
 /* Class = "UIButton"; normalTitle = "Buy Pro to unlock cloud scheduling"; ObjectID = "A8t-dG-8nw"; */
-"A8t-dG-8nw.normalTitle" = "Buy Pro to unlock cloud scheduling";
+"A8t-dG-8nw.normalTitle" = "Buy Pro Version ($8.98)";
 
 /* Class = "UIButton"; normalTitle = "+"; ObjectID = "AxP-6h-NoT"; */
 "AxP-6h-NoT.normalTitle" = "+";
@@ -27,7 +27,7 @@
 "gol-AF-YID.footerTitle" = "Check for update every #minute by cloud";
 
 /* Class = "UITableViewSection"; headerTitle = "Cloud Scheduling"; ObjectID = "gol-AF-YID"; */
-"gol-AF-YID.headerTitle" = "Cloud Scheduling(Pro feature)";
+"gol-AF-YID.headerTitle" = "Cloud Scheduling(Pro Version)";
 
 /* Class = "UILabel"; text = "Notification"; ObjectID = "hJf-Hd-JC3"; */
 "hJf-Hd-JC3.text" = "Notification";

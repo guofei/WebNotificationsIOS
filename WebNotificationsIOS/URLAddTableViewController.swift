@@ -10,7 +10,16 @@ import UIKit
 import Parse
 import Flurry_iOS_SDK
 
-class URLAddTableViewController: UITableViewController, UITextFieldDelegate {
+extension SKProduct {
+	func localizedPrice() -> String {
+		let formatter = NSNumberFormatter()
+		formatter.numberStyle = .CurrencyStyle
+		formatter.locale = self.priceLocale
+		return formatter.stringFromNumber(self.price)!
+	}
+}
+
+class URLAddTableViewController: UITableViewController, UITextFieldDelegate, SKProductsRequestDelegate {
 	var stopFetch : Bool {
 		get {
 			if notification == nil {
@@ -21,13 +30,22 @@ class URLAddTableViewController: UITableViewController, UITextFieldDelegate {
 		}
 	}
 
+	var proPrice : String? = nil {
+		didSet {
+			updateUI()
+		}
+	}
+
 	var originURL: String?
+	var productsRequest: SKProductsRequest?
+
 	@IBOutlet weak var restoreCell: UITableViewCell!
 	@IBOutlet weak var urlField: UITextField!
 	@IBOutlet weak var spinner: UIActivityIndicatorView!
 	@IBOutlet weak var buyTable: UITableViewCell!
 	@IBOutlet weak var datePicker: UIDatePicker!
 	@IBOutlet weak var notification: UISwitch!
+	@IBOutlet weak var buyButton: UIButton!
 
 	@IBAction func cancel(sender: AnyObject) {
 		self.dismissViewControllerAnimated(true, completion: nil)
@@ -134,6 +152,10 @@ class URLAddTableViewController: UITableViewController, UITextFieldDelegate {
 	}
 
 	private func updateUI() {
+		if let price = proPrice {
+			let text = NSLocalizedString("BuyProWithoutPrice", comment: "") + " (\(price))"
+			buyButton?.setTitle(text, forState: UIControlState.Normal)
+		}
 		if let url = UrlHelper.getURL(originURL) {
 			if let page = Page.getByURL(url) {
 				urlField?.text = page.url
@@ -161,6 +183,14 @@ class URLAddTableViewController: UITableViewController, UITextFieldDelegate {
 		}
 	}
 
+	func productsRequest(request: SKProductsRequest, didReceiveResponse response: SKProductsResponse) {
+		for	product in response.products {
+			if product.productIdentifier == Product.ID {
+				proPrice = product.localizedPrice()
+			}
+		}
+	}
+
 	override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -174,17 +204,19 @@ class URLAddTableViewController: UITableViewController, UITextFieldDelegate {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
 
-	/*
 	override func viewWillAppear(animated: Bool) {
 		super.viewWillAppear(animated)
-		SKPaymentQueue.defaultQueue().addTransactionObserver(self)
+		let productID: Set<String> = [Product.ID]
+		productsRequest = SKProductsRequest(productIdentifiers: productID)
+		productsRequest?.delegate = self;
+		productsRequest?.start();
 	}
 
 	override func viewWillDisappear(animated: Bool) {
 		super.viewWillDisappear(animated)
-		SKPaymentQueue.defaultQueue().removeTransactionObserver(self)
+		productsRequest?.cancel()
+		productsRequest?.delegate = nil
 	}
-	*/
 
 	func textFieldShouldReturn(textField: UITextField) -> Bool{
 		urlField?.resignFirstResponder()
