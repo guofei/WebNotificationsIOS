@@ -22,6 +22,7 @@ class Page: Object {
 	dynamic var stopFetch = true
 	dynamic var title = "unknown"
 	dynamic var content = ""
+	dynamic var contentDiff = ""
 	dynamic var digest = ""
 	dynamic var createdAt = NSDate()
 	dynamic var updatedAt = NSDate()

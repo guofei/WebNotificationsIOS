@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		285663611BFB8987003B147D /* Migration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285663601BFB8987003B147D /* Migration.swift */; };
 		2858C7461BB6CC89005D7543 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2858C7451BB6CC89005D7543 /* StoreKit.framework */; };
 		2858C7491BB7A856005D7543 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2858C7471BB7A856005D7543 /* Realm.framework */; };
 		2858C74A1BB7A856005D7543 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2858C7481BB7A856005D7543 /* RealmSwift.framework */; };
@@ -64,6 +65,7 @@
 
 /* Begin PBXFileReference section */
 		256DBF57B015F56348B45E3A /* Pods_WebChecker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WebChecker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		285663601BFB8987003B147D /* Migration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Migration.swift; sourceTree = "<group>"; };
 		2858C7451BB6CC89005D7543 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		2858C7471BB7A856005D7543 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
 		2858C7481BB7A856005D7543 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
@@ -254,6 +256,7 @@
 		2875B94D1BAE820C0020A4C5 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				285663601BFB8987003B147D /* Migration.swift */,
 				2875B94B1BAE7EC20020A4C5 /* Page.swift */,
 				28B480E21BB2D618006B257A /* User.swift */,
 			);
@@ -491,6 +494,7 @@
 				2865030F1BAB001900BB041D /* AppDelegate.swift in Sources */,
 				288FDBCB1BE10842003BAA2C /* Notifaction.swift in Sources */,
 				2875B94C1BAE7EC20020A4C5 /* Page.swift in Sources */,
+				285663611BFB8987003B147D /* Migration.swift in Sources */,
 				28B480E31BB2D618006B257A /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
