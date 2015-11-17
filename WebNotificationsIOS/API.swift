@@ -15,6 +15,7 @@ class API {
 	class Page {
 		private struct URL {
 			static let USERGET = "http://webupdatenotification.com/users/"
+			static let PAGEGET = "http://webupdatenotification.com/pages/"
 			static let PAGEADD = "http://webupdatenotification.com/pages"
 			static let PAGEUPDATE = "http://webupdatenotification.com/pages/"
 		}
@@ -65,6 +66,32 @@ class API {
 			Alamofire.request(.PUT, updateURL, parameters: parameters)
 		}
 
+		static func get(pageID: Int?, fun: (id: Int?, url: String?, second: Int?, stopFetch: Bool?, diff: String?) -> Void) {
+			if pageID == nil {
+				return
+			}
+			let qos = Int(QOS_CLASS_USER_INITIATED.rawValue)
+			let queue = dispatch_get_global_queue(qos, 0)
+			dispatch_async(queue) {
+				let getURL = URL.PAGEGET + "\(pageID!)"
+				Alamofire.request(.GET, getURL).responseJSON { response in
+					switch response.result {
+					case .Success:
+						if let item = response.result.value as? Dictionary<String, AnyObject> {
+							let id = item["id"] as? Int
+							let url = item["url"] as? String
+							let stopFetch = item["stop_fetch"] as? Bool
+							let sec = item["sec"] as? Int
+							let diff = item["content_diff"] as? String
+							fun(id: id, url: url, second: sec, stopFetch: stopFetch, diff: diff)
+						}
+					case .Failure(let error):
+						print(error)
+					}
+				}
+			}
+		}
+
 		static func all(userID: Int?, each: (id: Int?, url: String?, second: Int?, stopFetch: Bool?) -> Void) {
 			if userID == nil {
 				return
@@ -85,6 +112,7 @@ class API {
 								let url = item["url"] as? String
 								let stopFetch = item["stop_fetch"] as? Bool
 								let sec = item["sec"] as? Int
+								// let diff = item["content_diff"] as? String
 								each(id: id, url: url, second: sec, stopFetch: stopFetch)
 							}
 						}
