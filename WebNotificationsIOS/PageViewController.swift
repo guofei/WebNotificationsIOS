@@ -11,6 +11,7 @@ import UIKit
 class PageViewController: UIViewController, UIWebViewDelegate {
 	struct StoryBoard {
 		static let ID = "PageView"
+		static let toShowDiffSegue = "toShowDiff"
 	}
 
 	@IBOutlet weak var webView: UIWebView!
@@ -34,6 +35,10 @@ class PageViewController: UIViewController, UIWebViewDelegate {
         // Dispose of any resources that can be recreated.
     }
 
+	@IBAction func stop(sender: UIBarButtonItem) {
+		self.dismissViewControllerAnimated(true, completion: nil)
+	}
+
 	func loadAddressURL() {
 		if let url = targetURL {
 			if let requestURL = NSURL(string: url) {
@@ -55,5 +60,13 @@ class PageViewController: UIViewController, UIWebViewDelegate {
         // Pass the selected object to the new view controller.
     }
     */
+
+	override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+		if (segue.identifier == StoryBoard.toShowDiffSegue) {
+			if let subVC = segue.destinationViewController as? DiffViewController {
+				subVC.targetURL = targetURL
+			}
+		}
+	}
 
 }

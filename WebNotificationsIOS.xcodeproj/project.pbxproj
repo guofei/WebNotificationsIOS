@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		280C0EAC1BFCA25800A77E9A /* DiffViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 280C0EAB1BFCA25800A77E9A /* DiffViewController.swift */; };
 		285663611BFB8987003B147D /* Migration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285663601BFB8987003B147D /* Migration.swift */; };
 		2858C7461BB6CC89005D7543 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2858C7451BB6CC89005D7543 /* StoreKit.framework */; };
 		2858C7491BB7A856005D7543 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2858C7471BB7A856005D7543 /* Realm.framework */; };
@@ -65,6 +66,7 @@
 
 /* Begin PBXFileReference section */
 		256DBF57B015F56348B45E3A /* Pods_WebChecker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WebChecker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		280C0EAB1BFCA25800A77E9A /* DiffViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiffViewController.swift; sourceTree = "<group>"; };
 		285663601BFB8987003B147D /* Migration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Migration.swift; sourceTree = "<group>"; };
 		2858C7451BB6CC89005D7543 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		2858C7471BB7A856005D7543 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
@@ -192,6 +194,7 @@
 				286503171BAB001900BB041D /* LaunchScreen.storyboard */,
 				2865031A1BAB001900BB041D /* Info.plist */,
 				2865033C1BAB019200BB041D /* URLsTableViewController.swift */,
+				280C0EAB1BFCA25800A77E9A /* DiffViewController.swift */,
 				2865033E1BAB06A600BB041D /* URLAddTableViewController.swift */,
 				286A42E51BC0C77E0065E647 /* Localizable.strings */,
 			);
@@ -493,6 +496,7 @@
 				28738ED41BB1C6B60083D95F /* PageViewController.swift in Sources */,
 				2865030F1BAB001900BB041D /* AppDelegate.swift in Sources */,
 				288FDBCB1BE10842003BAA2C /* Notifaction.swift in Sources */,
+				280C0EAC1BFCA25800A77E9A /* DiffViewController.swift in Sources */,
 				2875B94C1BAE7EC20020A4C5 /* Page.swift in Sources */,
 				285663611BFB8987003B147D /* Migration.swift in Sources */,
 				28B480E31BB2D618006B257A /* User.swift in Sources */,

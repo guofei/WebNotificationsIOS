@@ -6,7 +6,6 @@
 //  Copyright © 2015 kaku. All rights reserved.
 //
 
-import Foundation
 import RealmSwift
 
 class Migration {

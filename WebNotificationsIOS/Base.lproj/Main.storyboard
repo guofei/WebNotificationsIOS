@@ -84,7 +84,7 @@
                     </refreshControl>
                     <connections>
                         <outlet property="editButton" destination="kL8-s2-Rcr" id="QJj-CF-0Ov"/>
-                        <segue destination="jPo-xg-NsD" kind="show" identifier="toWebPage" id="wAK-bR-AxE"/>
+                        <segue destination="hyA-8l-QXW" kind="show" identifier="toWebPage" id="wAK-bR-AxE"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dVl-6v-WWW" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -357,6 +357,25 @@
                             <constraint firstItem="2bG-yk-Pyd" firstAttribute="leading" secondItem="Rb8-z0-QO4" secondAttribute="leading" id="vii-t4-LtZ"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="LpY-Qj-bHE">
+                        <barButtonItem key="leftBarButtonItem" systemItem="stop" id="eRJ-az-OlX">
+                            <connections>
+                                <action selector="stop:" destination="jPo-xg-NsD" id="Nnq-mc-W6G"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" id="szQ-AM-6Q4">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="pCL-WE-b8E">
+                                <rect key="frame" x="447" y="7" width="133" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                                <state key="normal" title="Diff (Pro)"/>
+                                <connections>
+                                    <segue destination="iYh-4I-6mB" kind="show" identifier="toShowDiff" id="Vbd-rd-fm0"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="spinner" destination="dGm-XX-pIl" id="Ad5-sM-Fyx"/>
                         <outlet property="webView" destination="2bG-yk-Pyd" id="xQi-f2-CsC"/>
@@ -364,7 +383,44 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dWL-Gf-0Hk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1935" y="-718"/>
+            <point key="canvasLocation" x="2747" y="-718"/>
+        </scene>
+        <!--Diff View Controller-->
+        <scene sceneID="QY2-OG-tUX">
+            <objects>
+                <viewController id="iYh-4I-6mB" customClass="DiffViewController" customModule="WebChecker" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="N8W-gn-78y"/>
+                        <viewControllerLayoutGuide type="bottom" id="zOz-HB-eOh"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="7v7-NV-gcb">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="B2t-3c-zdM">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <animations/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="B2t-3c-zdM" secondAttribute="trailing" id="QJQ-ac-UPg"/>
+                            <constraint firstItem="B2t-3c-zdM" firstAttribute="bottom" secondItem="zOz-HB-eOh" secondAttribute="top" id="VyW-cK-q2s"/>
+                            <constraint firstItem="B2t-3c-zdM" firstAttribute="leading" secondItem="7v7-NV-gcb" secondAttribute="leading" id="rAK-u4-FYG"/>
+                            <constraint firstItem="B2t-3c-zdM" firstAttribute="top" secondItem="7v7-NV-gcb" secondAttribute="top" id="rQR-Vf-Cje"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="textView" destination="B2t-3c-zdM" id="VWH-Wk-b67"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="E8K-Xg-pNt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3414" y="-777"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="hG0-kw-nz8">
@@ -384,6 +440,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SPT-mS-gZw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1826" y="-140"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Xid-Zy-Ocb">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="hyA-8l-QXW" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="KWd-mL-eRQ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <animations/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="jPo-xg-NsD" kind="relationship" relationship="rootViewController" id="NBW-ZK-gdX"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8VD-ta-Aiy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1935" y="-718"/>
         </scene>
     </scenes>
 </document>

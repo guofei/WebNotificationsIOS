@@ -70,6 +70,10 @@ class API {
 			if pageID == nil {
 				return
 			}
+			if pageID! <= 0 {
+				return
+			}
+
 			let qos = Int(QOS_CLASS_USER_INITIATED.rawValue)
 			let queue = dispatch_get_global_queue(qos, 0)
 			dispatch_async(queue) {

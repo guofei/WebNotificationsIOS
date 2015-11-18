@@ -177,13 +177,15 @@ class URLsTableViewController: UITableViewController {
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
 		if (segue.identifier == StoryBoard.toWebPageSegue) {
-			if let subVC = segue.destinationViewController as? PageViewController {
-				if let cell = sender as? UITableViewCell {
-					if let indexPath = tableView.indexPathForCell(cell) {
-						if let allPages = pages {
-							let page = allPages[indexPath.row]
-							setChecked(page.url)
-							subVC.targetURL = page.url
+			if let nav = segue.destinationViewController as? UINavigationController {
+				if let subVC = nav.viewControllers.first as? PageViewController {
+					if let cell = sender as? UITableViewCell {
+						if let indexPath = tableView.indexPathForCell(cell) {
+							if let allPages = pages {
+								let page = allPages[indexPath.row]
+								setChecked(page.url)
+								subVC.targetURL = page.url
+							}
 						}
 					}
 				}
