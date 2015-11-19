@@ -98,7 +98,11 @@ class URLsTableViewController: UITableViewController {
 
 		if let allPages = pages {
 			let page = allPages[indexPath.row]
-			cell.detailTextLabel?.text = page.formatedUpdateTime() + " " + page.url
+			if ((urls[page.url]) == true) {
+				cell.detailTextLabel?.text = "🆕" + page.formatedUpdateTime() + " " + page.url
+			} else {
+				cell.detailTextLabel?.text = page.formatedUpdateTime() + " " + page.url
+			}
 			cell.textLabel?.text = page.title
 			if ((urls[page.url]) == true) {
 				cell.accessoryType = UITableViewCellAccessoryType.Checkmark
