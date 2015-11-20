@@ -363,17 +363,10 @@
                                 <action selector="stop:" destination="jPo-xg-NsD" id="Nnq-mc-W6G"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" id="szQ-AM-6Q4">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="pCL-WE-b8E">
-                                <rect key="frame" x="447" y="7" width="133" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <animations/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
-                                <state key="normal" title="Diff (Pro)"/>
-                                <connections>
-                                    <segue destination="iYh-4I-6mB" kind="show" identifier="toShowDiff" id="Vbd-rd-fm0"/>
-                                </connections>
-                            </button>
+                        <barButtonItem key="rightBarButtonItem" title="Diff(Pro)" id="1CP-uR-xcr">
+                            <connections>
+                                <segue destination="iYh-4I-6mB" kind="show" identifier="toShowDiff" id="zVB-Hb-83k"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
