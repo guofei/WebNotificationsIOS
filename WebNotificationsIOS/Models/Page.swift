@@ -151,7 +151,7 @@ class Page: Object {
 	}
 
 	static func updateAll(closure: (Dictionary<String, Bool>) -> Void) {
-		let qos = Int(QOS_CLASS_USER_INITIATED.rawValue)
+		let qos = Int(QOS_CLASS_UTILITY.rawValue)
 		let queue = dispatch_get_global_queue(qos, 0)
 		dispatch_async(queue) {
 			var result = [String: Bool]()
@@ -164,7 +164,22 @@ class Page: Object {
 							continue
 						}
 					}
-					let contentDiff = Diff.get(res.content, s2: page.content)
+					// TODO : Bug fix and replace API.Page.get
+					// let contentDiff = Diff.get(res.content, s2: page.content)
+					if User.isProUser() {
+						API.Page.get(page.id, fun: { (id, url, second, stopFetch, diff) -> Void in
+							if let db = getDB() {
+								try! db.write {
+									if let pg = Page.getByURL(url) {
+										if let contentDiff = diff {
+											pg.contentDiff = contentDiff
+											pg.updatedAt = NSDate()
+										}
+									}
+								}
+							}
+						})
+					}
 					let url = page.url
 					try! realm.write {
 						if let _ = Page.getByURL(url) {
@@ -172,7 +187,7 @@ class Page: Object {
 								page.title = title
 							}
 							if let content = res.content {
-								page.contentDiff = contentDiff
+								// page.contentDiff = contentDiff
 								page.content = content
 							}
 							page.updatedAt = NSDate()

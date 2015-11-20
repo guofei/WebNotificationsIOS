@@ -16,11 +16,16 @@ class DiffViewController: UIViewController {
 		}
 	}
 
+	var diffText : String?
+
 	@IBOutlet weak var textView: UITextView!
 
 	override func viewDidLoad() {
         super.viewDidLoad()
 
+		if let text = diffText {
+			textView?.text = text
+		}
         // Do any additional setup after loading the view.
     }
 
@@ -32,7 +37,8 @@ class DiffViewController: UIViewController {
 	private func showDiff() {
 		if let url = targetURL {
 			if let page = Page.getByURL(url) {
-				self.textView?.text = page.contentDiff
+				self.diffText = page.contentDiff
+				self.textView?.text = self.diffText
 			}
 		}
 	}
