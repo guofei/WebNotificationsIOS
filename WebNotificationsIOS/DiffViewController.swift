@@ -32,9 +32,7 @@ class DiffViewController: UIViewController {
 	private func showDiff() {
 		if let url = targetURL {
 			if let page = Page.getByURL(url) {
-				API.Page.get(page.id, fun: { (id, url, second, stopFetch, diff) -> Void in
-					self.textView?.text = diff
-				})
+				self.textView?.text = page.contentDiff
 			}
 		}
 	}

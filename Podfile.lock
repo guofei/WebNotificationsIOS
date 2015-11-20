@@ -1,6 +1,7 @@
 PODS:
   - Alamofire (3.1.0)
   - Bolts/Tasks (1.4.0)
+  - Dwifft (0.3)
   - Flurry-iOS-SDK/FlurrySDK (7.2.1)
   - Ji (1.2.0):
     - Ji/Ji (= 1.2.0)
@@ -17,14 +18,25 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire (~> 3.0)
+  - Dwifft (from `git@github.com:jflinter/Dwifft.git`)
   - Flurry-iOS-SDK/FlurrySDK
   - Ji (~> 1.2.0)
   - Parse
   - RealmSwift
 
+EXTERNAL SOURCES:
+  Dwifft:
+    :git: git@github.com:jflinter/Dwifft.git
+
+CHECKOUT OPTIONS:
+  Dwifft:
+    :commit: 00e82c8dbcf6e355d395296a24ac276c9f46335e
+    :git: git@github.com:jflinter/Dwifft.git
+
 SPEC CHECKSUMS:
   Alamofire: 415bd7f56197722978759078486689f7ef913dce
   Bolts: 0e9bce58b9b9f5e8a7a4d47b16d2fabec289072b
+  Dwifft: 3e9a9ba1b049b4d24c4ba488bed7ee16f4925736
   Flurry-iOS-SDK: 014d366cad101f05d4e8c191c0e0c0871d5704f7
   Ji: ddebb22f9ac445db6e884b66f78ea74fb135fdb7
   Parse: 54a965c8c19a6dde90284ab654dbcc77ef8c001b

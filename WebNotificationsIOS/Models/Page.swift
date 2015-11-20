@@ -164,6 +164,7 @@ class Page: Object {
 							continue
 						}
 					}
+					let contentDiff = Diff.get(res.content, s2: page.content)
 					let url = page.url
 					try! realm.write {
 						if let _ = Page.getByURL(url) {
@@ -171,6 +172,7 @@ class Page: Object {
 								page.title = title
 							}
 							if let content = res.content {
+								page.contentDiff = contentDiff
 								page.content = content
 							}
 							page.updatedAt = NSDate()
