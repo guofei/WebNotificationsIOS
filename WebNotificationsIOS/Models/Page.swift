@@ -157,7 +157,6 @@ class Page: Object {
 					if let pg = Page.getByURL(url) {
 						if let contentDiff = diff {
 							pg.contentDiff = contentDiff
-							pg.updatedAt = NSDate()
 						}
 					}
 				}

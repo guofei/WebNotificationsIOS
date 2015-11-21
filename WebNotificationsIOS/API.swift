@@ -74,24 +74,20 @@ class API {
 				return
 			}
 
-			let qos = Int(QOS_CLASS_USER_INITIATED.rawValue)
-			let queue = dispatch_get_global_queue(qos, 0)
-			dispatch_async(queue) {
-				let getURL = URL.PAGEGET + "\(pageID!)"
-				Alamofire.request(.GET, getURL).responseJSON { response in
-					switch response.result {
-					case .Success:
-						if let item = response.result.value as? Dictionary<String, AnyObject> {
-							let id = item["id"] as? Int
-							let url = item["url"] as? String
-							let stopFetch = item["stop_fetch"] as? Bool
-							let sec = item["sec"] as? Int
-							let diff = item["content_diff"] as? String
-							fun(id: id, url: url, second: sec, stopFetch: stopFetch, diff: diff)
-						}
-					case .Failure(let error):
-						print(error)
+			let getURL = URL.PAGEGET + "\(pageID!)"
+			Alamofire.request(.GET, getURL).responseJSON { response in
+				switch response.result {
+				case .Success:
+					if let item = response.result.value as? Dictionary<String, AnyObject> {
+						let id = item["id"] as? Int
+						let url = item["url"] as? String
+						let stopFetch = item["stop_fetch"] as? Bool
+						let sec = item["sec"] as? Int
+						let diff = item["content_diff"] as? String
+						fun(id: id, url: url, second: sec, stopFetch: stopFetch, diff: diff)
 					}
+				case .Failure(let error):
+					print(error)
 				}
 			}
 		}
@@ -103,26 +99,23 @@ class API {
 			if userID! <= 0 {
 				return
 			}
-			let qos = Int(QOS_CLASS_USER_INITIATED.rawValue)
-			let queue = dispatch_get_global_queue(qos, 0)
-			dispatch_async(queue) {
-				let getURL = URL.USERGET + "\(userID!)" + "/pages"
-				Alamofire.request(.GET, getURL).responseJSON { response in
-					switch response.result {
-					case .Success:
-						if let arr = response.result.value as? Array<Dictionary<String, AnyObject>> {
-							for item in arr {
-								let id = item["id"] as? Int
-								let url = item["url"] as? String
-								let stopFetch = item["stop_fetch"] as? Bool
-								let sec = item["sec"] as? Int
-								// let diff = item["content_diff"] as? String
-								each(id: id, url: url, second: sec, stopFetch: stopFetch)
-							}
+
+			let getURL = URL.USERGET + "\(userID!)" + "/pages"
+			Alamofire.request(.GET, getURL).responseJSON { response in
+				switch response.result {
+				case .Success:
+					if let arr = response.result.value as? Array<Dictionary<String, AnyObject>> {
+						for item in arr {
+							let id = item["id"] as? Int
+							let url = item["url"] as? String
+							let stopFetch = item["stop_fetch"] as? Bool
+							let sec = item["sec"] as? Int
+							// let diff = item["content_diff"] as? String
+							each(id: id, url: url, second: sec, stopFetch: stopFetch)
 						}
-					case .Failure(let error):
-						print(error)
 					}
+				case .Failure(let error):
+					print(error)
 				}
 			}
 		}
