@@ -256,27 +256,15 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Add" id="JoZ-fD-ASd">
-                        <barButtonItem key="leftBarButtonItem" id="rh3-85-jb2">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="oo4-se-eLs">
-                                <rect key="frame" x="20" y="7" width="133" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <animations/>
-                                <state key="normal" title="Cancel"/>
-                                <connections>
-                                    <action selector="cancel:" destination="cbn-tT-6I7" eventType="touchUpInside" id="HkM-rI-qCS"/>
-                                </connections>
-                            </button>
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="rh3-85-jb2">
+                            <connections>
+                                <action selector="cancel:" destination="cbn-tT-6I7" id="kgy-HD-Egf"/>
+                            </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" id="hXA-VA-BU0">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="WKJ-Yb-gyi">
-                                <rect key="frame" x="447" y="7" width="133" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <animations/>
-                                <state key="normal" title="Save"/>
-                                <connections>
-                                    <action selector="save:" destination="cbn-tT-6I7" eventType="touchUpInside" id="zHs-BH-eo2"/>
-                                </connections>
-                            </button>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="hXA-VA-BU0">
+                            <connections>
+                                <action selector="save:" destination="cbn-tT-6I7" id="ucn-E3-zSC"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
