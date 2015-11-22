@@ -51,16 +51,10 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="List" id="Bf8-ZN-xEN">
-                        <barButtonItem key="leftBarButtonItem" id="vLJ-k9-Zm8">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="kL8-s2-Rcr">
-                                <rect key="frame" x="20" y="7" width="133" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <animations/>
-                                <state key="normal" title="Edit"/>
-                                <connections>
-                                    <action selector="edit:" destination="p5b-RV-I1v" eventType="touchUpInside" id="rTz-NI-5oU"/>
-                                </connections>
-                            </button>
+                        <barButtonItem key="leftBarButtonItem" title="Edit" id="vLJ-k9-Zm8">
+                            <connections>
+                                <action selector="edit:" destination="p5b-RV-I1v" id="aZ2-vS-5kH"/>
+                            </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Xu1-Pp-LwP">
                             <connections>
@@ -76,7 +70,7 @@
                         </connections>
                     </refreshControl>
                     <connections>
-                        <outlet property="editButton" destination="kL8-s2-Rcr" id="QJj-CF-0Ov"/>
+                        <outlet property="editBar" destination="vLJ-k9-Zm8" id="vrX-OU-dCx"/>
                         <segue destination="hyA-8l-QXW" kind="show" identifier="toWebPage" id="wAK-bR-AxE"/>
                     </connections>
                 </tableViewController>

@@ -33,14 +33,15 @@ class URLsTableViewController: UITableViewController {
 		}
 	}
 
-	@IBOutlet weak var editButton: UIButton!
+	@IBOutlet weak var editBar: UIBarButtonItem!
+
 	@IBAction func edit(sender: AnyObject) {
 		if tableView.editing {
 			tableView?.setEditing(false, animated: true)
-			editButton?.setTitle(NSLocalizedString("EditButtonNormalTitle", comment: ""), forState: UIControlState.Normal)
+			editBar.title = NSLocalizedString("EditButtonNormalTitle", comment: "")
 		} else {
 			tableView?.setEditing(true, animated: true)
-			editButton?.setTitle(NSLocalizedString("EditButtonEditedTitle", comment: ""), forState: UIControlState.Normal)
+			editBar.title = NSLocalizedString("EditButtonEditedTitle", comment: "")
 		}
 	}
 
@@ -63,6 +64,11 @@ class URLsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 		refresh()
+		editBar.possibleTitles = [
+			NSLocalizedString("EditButtonNormalTitle", comment: ""),
+			NSLocalizedString("EditButtonEditedTitle", comment: "")
+		]
+
     }
 
 	override func viewDidAppear(animated: Bool) {
