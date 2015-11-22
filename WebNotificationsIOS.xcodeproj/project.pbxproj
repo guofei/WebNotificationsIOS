@@ -110,10 +110,10 @@
 		288E8C281BBEDDD00075DB56 /* Product.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		288E8C2A1BBEE9A90075DB56 /* Parse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parse.swift; sourceTree = "<group>"; };
 		288FDBCA1BE10842003BAA2C /* Notifaction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Notifaction.swift; sourceTree = "<group>"; };
-		288FDBCD1BE135C7003BAA2C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
-		288FDBCF1BE135D9003BAA2C /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Main.strings; sourceTree = "<group>"; };
 		28A64FD01BBC4E9A0007DF95 /* DBHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBHelper.swift; sourceTree = "<group>"; };
 		28B480E21BB2D618006B257A /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = Models/User.swift; sourceTree = "<group>"; };
+		28B8C1B21C01B627000525FD /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Main.strings; sourceTree = "<group>"; };
+		28B8C1B41C01B634000525FD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		28ED127B1BB982730046F6BF /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		E7894084FD6515A24A382978 /* Pods-WebChecker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WebChecker.release.xcconfig"; path = "Pods/Target Support Files/Pods-WebChecker/Pods-WebChecker.release.xcconfig"; sourceTree = "<group>"; };
 		E8C6C7D0BAB14F18936511E4 /* Pods-WebChecker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WebChecker.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WebChecker/Pods-WebChecker.debug.xcconfig"; sourceTree = "<group>"; };
@@ -543,8 +543,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				286503131BAB001900BB041D /* Base */,
-				288FDBCD1BE135C7003BAA2C /* en */,
-				288FDBCF1BE135D9003BAA2C /* ja */,
+				28B8C1B21C01B627000525FD /* ja */,
+				28B8C1B41C01B634000525FD /* en */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";

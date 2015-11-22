@@ -1,12 +1,12 @@
 
+/* Class = "UIBarButtonItem"; title = "Diff(Pro)"; ObjectID = "1CP-uR-xcr"; */
+"1CP-uR-xcr.title" = "差分(Pro版)";
+
 /* Class = "UITextField"; placeholder = "URL"; ObjectID = "6bJ-tR-Ju4"; */
 "6bJ-tR-Ju4.placeholder" = "URL";
 
 /* Class = "UIButton"; normalTitle = "Buy Pro to unlock cloud scheduling"; ObjectID = "A8t-dG-8nw"; */
 "A8t-dG-8nw.normalTitle" = "Pro版を購入する ($8.98)";
-
-/* Class = "UIButton"; normalTitle = "+"; ObjectID = "AxP-6h-NoT"; */
-"AxP-6h-NoT.normalTitle" = "+";
 
 /* Class = "UINavigationItem"; title = "List"; ObjectID = "Bf8-ZN-xEN"; */
 "Bf8-ZN-xEN.title" = "一覧";
@@ -20,9 +20,6 @@
 /* Class = "UIButton"; normalTitle = "Restore Purchases"; ObjectID = "LOm-e9-sFB"; */
 "LOm-e9-sFB.normalTitle" = "以前の購入を復元";
 
-/* Class = "UIButton"; normalTitle = "Save"; ObjectID = "WKJ-Yb-gyi"; */
-"WKJ-Yb-gyi.normalTitle" = "保存";
-
 /* Class = "UITableViewSection"; footerTitle = "Check for update every #minute by cloud"; ObjectID = "gol-AF-YID"; */
 "gol-AF-YID.footerTitle" = "Cloud上のチェック頻度を調整";
 
@@ -35,11 +32,8 @@
 /* Class = "UILabel"; text = "Subtitle"; ObjectID = "jSf-8A-5CT"; */
 "jSf-8A-5CT.text" = "Subtitle";
 
-/* Class = "UIButton"; normalTitle = "Edit"; ObjectID = "kL8-s2-Rcr"; */
-"kL8-s2-Rcr.normalTitle" = "編集";
-
-/* Class = "UIButton"; normalTitle = "Cancel"; ObjectID = "oo4-se-eLs"; */
-"oo4-se-eLs.normalTitle" = "キャンセル";
-
 /* Class = "UITableViewSection"; footerTitle = "Enable via \"Setting\" on you iPhone"; ObjectID = "t3E-pz-6T7"; */
 "t3E-pz-6T7.footerTitle" = "iPhoneの[設定]から通知を有効にしてください";
+
+/* Class = "UIBarButtonItem"; title = "Edit"; ObjectID = "vLJ-k9-Zm8"; */
+"vLJ-k9-Zm8.title" = "編集";
