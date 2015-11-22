@@ -11,6 +11,7 @@ import UIKit
 class PageViewController: UIViewController, UIWebViewDelegate {
 	struct StoryBoard {
 		static let ID = "PageView"
+		static let Navi = "PageViewNavi"
 		static let toShowDiffSegue = "toShowDiff"
 	}
 

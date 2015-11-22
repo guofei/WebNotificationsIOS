@@ -437,7 +437,7 @@
         <!--Navigation Controller-->
         <scene sceneID="Xid-Zy-Ocb">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="hyA-8l-QXW" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="PageViewNavi" automaticallyAdjustsScrollViewInsets="NO" id="hyA-8l-QXW" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="KWd-mL-eRQ">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>

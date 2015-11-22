@@ -188,14 +188,13 @@
 			children = (
 				28738EC91BAFDFBC0083D95F /* Utils */,
 				2875B94D1BAE820C0020A4C5 /* Models */,
-				2865030E1BAB001900BB041D /* AppDelegate.swift */,
-				2858C74B1BB83B1B005D7543 /* SecretKey.swift */,
 				286503121BAB001900BB041D /* Main.storyboard */,
-				28738ED31BB1C6B60083D95F /* PageViewController.swift */,
 				286503151BAB001900BB041D /* Assets.xcassets */,
 				286503171BAB001900BB041D /* LaunchScreen.storyboard */,
 				2865031A1BAB001900BB041D /* Info.plist */,
+				2865030E1BAB001900BB041D /* AppDelegate.swift */,
 				2865033C1BAB019200BB041D /* URLsTableViewController.swift */,
+				28738ED31BB1C6B60083D95F /* PageViewController.swift */,
 				280C0EAB1BFCA25800A77E9A /* DiffViewController.swift */,
 				2865033E1BAB06A600BB041D /* URLAddTableViewController.swift */,
 				286A42E51BC0C77E0065E647 /* Localizable.strings */,
@@ -265,6 +264,7 @@
 				285663601BFB8987003B147D /* Migration.swift */,
 				2875B94B1BAE7EC20020A4C5 /* Page.swift */,
 				28B480E21BB2D618006B257A /* User.swift */,
+				2858C74B1BB83B1B005D7543 /* SecretKey.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
