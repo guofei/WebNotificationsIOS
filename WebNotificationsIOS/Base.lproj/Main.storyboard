@@ -338,7 +338,7 @@
                                 <action selector="stop:" destination="jPo-xg-NsD" id="Nnq-mc-W6G"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Diff(Pro)" id="1CP-uR-xcr">
+                        <barButtonItem key="rightBarButtonItem" title="Diff" id="1CP-uR-xcr">
                             <connections>
                                 <segue destination="iYh-4I-6mB" kind="show" identifier="toShowDiff" id="zVB-Hb-83k"/>
                             </connections>
