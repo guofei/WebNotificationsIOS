@@ -159,7 +159,7 @@
                                         <rect key="frame" x="0.0" y="289" width="600" height="200"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="x7f-Eb-spd" id="XrW-la-ptr">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="200"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="199.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <datePicker userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="countDownTimer" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="HJS-EC-K0X">
@@ -365,13 +365,13 @@
                         <animations/>
                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                         <sections>
-                            <tableViewSection headerTitle="Diff" footerTitle="Added data:&quot;+&quot;; Deleted data:&quot;-&quot;" id="E40-CB-SlL">
+                            <tableViewSection footerTitle="Added data:&quot;+&quot;; Deleted data:&quot;-&quot;" id="E40-CB-SlL">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="380" id="7vM-qw-pjU">
-                                        <rect key="frame" x="0.0" y="113.5" width="600" height="380"/>
+                                        <rect key="frame" x="0.0" y="99" width="600" height="380"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="7vM-qw-pjU" id="NDY-h9-FKw">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="380"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="379.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Diff is a Pro feature, if you want to see diff please buy it" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="oP3-g3-shW">
@@ -404,7 +404,7 @@
                             <tableViewSection id="NQl-nC-FYm">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="6NL-QH-0nS">
-                                        <rect key="frame" x="0.0" y="538" width="600" height="44"/>
+                                        <rect key="frame" x="0.0" y="523.5" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="6NL-QH-0nS" id="dmF-aZ-ioP">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
@@ -430,7 +430,7 @@
                                         <animations/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="zkG-lz-3Ob">
-                                        <rect key="frame" x="0.0" y="582" width="600" height="44"/>
+                                        <rect key="frame" x="0.0" y="567.5" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="zkG-lz-3Ob" id="QBz-OR-AQJ">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
