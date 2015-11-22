@@ -1,15 +1,21 @@
 
-/* Class = "UIBarButtonItem"; title = "Diff(Pro)"; ObjectID = "1CP-uR-xcr"; */
+/* Class = "UIBarButtonItem"; title = "Diff"; ObjectID = "1CP-uR-xcr"; */
 "1CP-uR-xcr.title" = "差分";
 
 /* Class = "UITextField"; placeholder = "URL"; ObjectID = "6bJ-tR-Ju4"; */
 "6bJ-tR-Ju4.placeholder" = "URL";
 
-/* Class = "UIButton"; normalTitle = "Buy Pro to unlock cloud scheduling"; ObjectID = "A8t-dG-8nw"; */
-"A8t-dG-8nw.normalTitle" = "Pro版を購入する ($8.98)";
+/* Class = "UIButton"; normalTitle = "Buy Pro Version ($8.98)"; ObjectID = "A8t-dG-8nw"; */
+"A8t-dG-8nw.normalTitle" = "Pro版を購入する (¥840)";
 
 /* Class = "UINavigationItem"; title = "List"; ObjectID = "Bf8-ZN-xEN"; */
 "Bf8-ZN-xEN.title" = "一覧";
+
+/* Class = "UITableViewSection"; footerTitle = "Added data:\"+\"; Deleted data:\"-\""; ObjectID = "E40-CB-SlL"; */
+"E40-CB-SlL.footerTitle" = "追加データ:\"+\"; 削除データ:\"-\"";
+
+/* Class = "UITableViewSection"; headerTitle = "Diff"; ObjectID = "E40-CB-SlL"; */
+"E40-CB-SlL.headerTitle" = "差分";
 
 /* Class = "UILabel"; text = "Title"; ObjectID = "JLn-8k-ZqV"; */
 "JLn-8k-ZqV.text" = "Title";
@@ -19,6 +25,12 @@
 
 /* Class = "UIButton"; normalTitle = "Restore Purchases"; ObjectID = "LOm-e9-sFB"; */
 "LOm-e9-sFB.normalTitle" = "以前の購入を復元";
+
+/* Class = "UIButton"; normalTitle = "Buy Pro Version ($8.98)"; ObjectID = "QON-zm-B31"; */
+"QON-zm-B31.normalTitle" = "Pro版を購入する (¥840)";
+
+/* Class = "UIButton"; normalTitle = "Restore Purchases"; ObjectID = "RfB-sw-jru"; */
+"RfB-sw-jru.normalTitle" = "以前の購入を復元";
 
 /* Class = "UITableViewSection"; footerTitle = "Check for update every #minute by cloud"; ObjectID = "gol-AF-YID"; */
 "gol-AF-YID.footerTitle" = "Cloud上のチェック頻度を調整";
@@ -31,6 +43,9 @@
 
 /* Class = "UILabel"; text = "Subtitle"; ObjectID = "jSf-8A-5CT"; */
 "jSf-8A-5CT.text" = "Subtitle";
+
+/* Class = "UITextView"; text = "Diff is a Pro feature, if you want to see diff please buy it"; ObjectID = "oP3-g3-shW"; */
+"oP3-g3-shW.text" = "差分機能をお使いいただくには、Pro版を購入していただく必要がございます.";
 
 /* Class = "UITableViewSection"; footerTitle = "Enable via \"Setting\" on you iPhone"; ObjectID = "t3E-pz-6T7"; */
 "t3E-pz-6T7.footerTitle" = "iPhoneの[設定]から通知を有効にしてください";

@@ -16,7 +16,7 @@ class DiffTableViewController: UITableViewController {
 			showDiff()
 		}
 	}
-	var diffText : String? = "Diff is a Pro feature"
+	var diffText : String? = NSLocalizedString("BuyToUseDiff", comment: "")
 
 	@IBOutlet weak var textView: UITextView!
 	@IBOutlet weak var spinner: UIActivityIndicatorView!

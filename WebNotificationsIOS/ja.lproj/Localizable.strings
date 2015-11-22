@@ -11,3 +11,4 @@
 "OpenNotifactionPlease" = "iOSの設定で通知が許可されている必要がある";
 "AccessError" = "このウェブページにアクセスできません";
 "BuyProWithoutPrice" = "Pro版を購入する";
+"BuyToUseDiff" = "差分機能をお使いいただくには、Pro版を購入していただく必要がございます.";
