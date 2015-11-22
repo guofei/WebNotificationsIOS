@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		280C0EAC1BFCA25800A77E9A /* DiffViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 280C0EAB1BFCA25800A77E9A /* DiffViewController.swift */; };
 		28286D041BFE37D80027A814 /* Diff.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28286D031BFE37D80027A814 /* Diff.swift */; };
 		285663611BFB8987003B147D /* Migration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285663601BFB8987003B147D /* Migration.swift */; };
 		2858C7461BB6CC89005D7543 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2858C7451BB6CC89005D7543 /* StoreKit.framework */; };
@@ -45,6 +44,7 @@
 		288FDBCB1BE10842003BAA2C /* Notifaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 288FDBCA1BE10842003BAA2C /* Notifaction.swift */; };
 		28A64FD11BBC4E9A0007DF95 /* DBHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A64FD01BBC4E9A0007DF95 /* DBHelper.swift */; };
 		28B480E31BB2D618006B257A /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B480E21BB2D618006B257A /* User.swift */; };
+		28B8C1B61C01BE2E000525FD /* DiffTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B8C1B51C01BE2E000525FD /* DiffTableViewController.swift */; };
 		3B144E6081BF1568DC498118 /* Pods_WebChecker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 256DBF57B015F56348B45E3A /* Pods_WebChecker.framework */; };
 /* End PBXBuildFile section */
 
@@ -67,7 +67,6 @@
 
 /* Begin PBXFileReference section */
 		256DBF57B015F56348B45E3A /* Pods_WebChecker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WebChecker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		280C0EAB1BFCA25800A77E9A /* DiffViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiffViewController.swift; sourceTree = "<group>"; };
 		28286D031BFE37D80027A814 /* Diff.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Diff.swift; sourceTree = "<group>"; };
 		285663601BFB8987003B147D /* Migration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Migration.swift; sourceTree = "<group>"; };
 		2858C7451BB6CC89005D7543 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
@@ -114,6 +113,7 @@
 		28B480E21BB2D618006B257A /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = Models/User.swift; sourceTree = "<group>"; };
 		28B8C1B21C01B627000525FD /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Main.strings; sourceTree = "<group>"; };
 		28B8C1B41C01B634000525FD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
+		28B8C1B51C01BE2E000525FD /* DiffTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiffTableViewController.swift; sourceTree = "<group>"; };
 		28ED127B1BB982730046F6BF /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		E7894084FD6515A24A382978 /* Pods-WebChecker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WebChecker.release.xcconfig"; path = "Pods/Target Support Files/Pods-WebChecker/Pods-WebChecker.release.xcconfig"; sourceTree = "<group>"; };
 		E8C6C7D0BAB14F18936511E4 /* Pods-WebChecker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WebChecker.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WebChecker/Pods-WebChecker.debug.xcconfig"; sourceTree = "<group>"; };
@@ -195,7 +195,7 @@
 				2865030E1BAB001900BB041D /* AppDelegate.swift */,
 				2865033C1BAB019200BB041D /* URLsTableViewController.swift */,
 				28738ED31BB1C6B60083D95F /* PageViewController.swift */,
-				280C0EAB1BFCA25800A77E9A /* DiffViewController.swift */,
+				28B8C1B51C01BE2E000525FD /* DiffTableViewController.swift */,
 				2865033E1BAB06A600BB041D /* URLAddTableViewController.swift */,
 				286A42E51BC0C77E0065E647 /* Localizable.strings */,
 			);
@@ -499,7 +499,7 @@
 				28738ED41BB1C6B60083D95F /* PageViewController.swift in Sources */,
 				2865030F1BAB001900BB041D /* AppDelegate.swift in Sources */,
 				288FDBCB1BE10842003BAA2C /* Notifaction.swift in Sources */,
-				280C0EAC1BFCA25800A77E9A /* DiffViewController.swift in Sources */,
+				28B8C1B61C01BE2E000525FD /* DiffTableViewController.swift in Sources */,
 				2875B94C1BAE7EC20020A4C5 /* Page.swift in Sources */,
 				285663611BFB8987003B147D /* Migration.swift in Sources */,
 				28286D041BFE37D80027A814 /* Diff.swift in Sources */,

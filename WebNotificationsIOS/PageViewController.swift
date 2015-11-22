@@ -52,7 +52,8 @@ class PageViewController: UIViewController, UIWebViewDelegate {
 	func webViewDidFinishLoad(webView: UIWebView) {
 		spinner?.stopAnimating()
 	}
-    /*
+
+	/*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -64,7 +65,7 @@ class PageViewController: UIViewController, UIWebViewDelegate {
 
 	override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
 		if (segue.identifier == StoryBoard.toShowDiffSegue) {
-			if let subVC = segue.destinationViewController as? DiffViewController {
+			if let subVC = segue.destinationViewController as? DiffTableViewController {
 				subVC.targetURL = targetURL
 			}
 		}
