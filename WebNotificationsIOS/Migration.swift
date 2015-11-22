@@ -11,13 +11,13 @@ import RealmSwift
 class Migration {
 	static func run() {
 		let config = Realm.Configuration(
-			schemaVersion: 1,
+			schemaVersion: 2,
 
 			migrationBlock: { migration, oldSchemaVersion in
-				if (oldSchemaVersion < 1) {
-					migration.enumerate(Page.className()) { oldObject, newObject in
-						newObject!["contentDiff"] = ""
-					}
+				if (oldSchemaVersion < 2) {
+					// Page.contentDiff wil be automatically added in v1
+					// Page.changed will be automatically added in v2
+					// Page.cellIndex will be automatically added in v2
 				}
 		})
 

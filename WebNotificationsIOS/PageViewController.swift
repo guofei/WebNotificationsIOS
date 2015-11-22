@@ -29,6 +29,7 @@ class PageViewController: UIViewController, UIWebViewDelegate {
 		webView?.delegate = self
 		spinner?.startAnimating()
 		loadAddressURL()
+		Page.update(targetURL, done: {_ in })
     }
 
     override func didReceiveMemoryWarning() {
@@ -37,7 +38,12 @@ class PageViewController: UIViewController, UIWebViewDelegate {
     }
 
 	@IBAction func stop(sender: UIBarButtonItem) {
+		setChecked()
 		self.dismissViewControllerAnimated(true, completion: nil)
+	}
+
+	private func setChecked() {
+		Page.setChanged(targetURL, changed: false)
 	}
 
 	func loadAddressURL() {

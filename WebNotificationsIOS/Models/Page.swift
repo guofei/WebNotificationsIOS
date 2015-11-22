@@ -16,6 +16,7 @@ struct PageConst {
 // pushChannel is equal User::uuid
 class Page: Object {
 	dynamic var id = 0
+	dynamic var cellIndex = 0
     dynamic var url = ""
 	dynamic var sec = 0
 	dynamic var pushChannel = ""
@@ -24,6 +25,7 @@ class Page: Object {
 	dynamic var content = ""
 	dynamic var contentDiff = ""
 	dynamic var digest = ""
+	dynamic var changed = false
 	dynamic var createdAt = NSDate()
 	dynamic var updatedAt = NSDate()
 
@@ -48,6 +50,41 @@ class Page: Object {
 			return pages.first
 		} else {
 			return nil
+		}
+	}
+
+	static func setChanged(url: String?, changed: Bool) {
+		if let page = Page.getByURL(url) {
+			if let realm = getDB() {
+				try! realm.write {
+					page.changed = changed
+				}
+			}
+		}
+	}
+
+	static func getByCellIndex(index: Int) -> Page? {
+		if let realm = getDB() {
+			let predicate = NSPredicate(format: "cellIndex = %@", index)
+			let pages = realm.objects(Page).filter(predicate)
+			if pages.count == 1 {
+				return pages.first
+			} else {
+				return nil
+			}
+		} else {
+			return nil
+		}
+	}
+
+	private static func resetCellIndex() {
+		if let realm = getDB() {
+			let pages = realm.objects(Page)
+			for (index, page) in pages.enumerate() {
+				try! realm.write {
+					page.cellIndex = index
+				}
+			}
 		}
 	}
 
@@ -164,45 +201,63 @@ class Page: Object {
 		})
 	}
 
-	static func updateAll(closure: (Dictionary<String, Bool>) -> Void) {
+	private static func updatePage(page :Page?) -> Bool {
+		if page == nil {
+			return false
+		}
+
+		if let page = page {
+			let res = parse(page.url)
+			if let content = res.content where content != page.content {
+				// TODO : Bug fix and replace API.Page.get
+				// let contentDiff = Diff.get(res.content, s2: page.content)
+				if User.isProUser() {
+					updatePageDiffContent(page.id)
+				}
+				let url = page.url
+				try! getDB()?.write {
+					if let _ = Page.getByURL(url) {
+						if let title = res.title {
+							page.title = title
+						}
+						if let content = res.content {
+							// page.contentDiff = contentDiff
+							page.content = content
+							page.changed = true
+						}
+						page.updatedAt = NSDate()
+					}
+				}
+				if page.id <= 0 {
+					syncURL(page.url, second: page.sec, stopFetch: page.stopFetch)
+				}
+				return true
+			}
+		}
+		return false
+	}
+
+	static func update(url :String?, done: (Bool) -> Void) {
 		let qos = Int(QOS_CLASS_UTILITY.rawValue)
 		let queue = dispatch_get_global_queue(qos, 0)
 		dispatch_async(queue) {
-			var result = [String: Bool]()
+			let page = Page.getByURL(url)
+			let res = updatePage(page)
+			done(res)
+		}
+	}
+
+	static func updateAll(done: (Bool) -> Void) {
+		let qos = Int(QOS_CLASS_UTILITY.rawValue)
+		let queue = dispatch_get_global_queue(qos, 0)
+		dispatch_async(queue) {
 			if let realm = getDB() {
 				let pages = realm.objects(Page)
 				for	page in pages {
-					let res = parse(page.url)
-					if let content = res.content {
-						if content == page.content {
-							continue
-						}
-					}
-					// TODO : Bug fix and replace API.Page.get
-					// let contentDiff = Diff.get(res.content, s2: page.content)
-					if User.isProUser() {
-						updatePageDiffContent(page.id)
-					}
-					let url = page.url
-					try! realm.write {
-						if let _ = Page.getByURL(url) {
-							if let title = res.title {
-								page.title = title
-							}
-							if let content = res.content {
-								// page.contentDiff = contentDiff
-								page.content = content
-							}
-							page.updatedAt = NSDate()
-						}
-					}
-					result[page.url] = true
-					if page.id <= 0 {
-						syncURL(page.url, second: page.sec, stopFetch: page.stopFetch)
-					}
+					updatePage(page)
 				}
 			}
-			closure(result)
+			done(true)
 		}
 	}
 }

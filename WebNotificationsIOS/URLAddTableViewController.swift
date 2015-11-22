@@ -58,9 +58,6 @@ class URLAddTableViewController: UITableViewController, UITextFieldDelegate, SKP
 	}
 
 	@IBAction func save(sender: AnyObject) {
-		if stopFetch {
-			Notifaction.setFirstTime()
-		}
 		spinner?.startAnimating()
 		if changeURL() {
 			Page.deleteByURL(UrlHelper.getURL(originURL))

@@ -25,14 +25,6 @@ class URLsTableViewController: UITableViewController {
 		}
 	}
 
-	var urls = [String: Bool]()
-
-	private func setChecked(url: String?) {
-		if let url = url {
-			urls[url] = nil
-		}
-	}
-
 	@IBOutlet weak var editBar: UIBarButtonItem!
 
 	@IBAction func edit(sender: AnyObject) {
@@ -51,10 +43,8 @@ class URLsTableViewController: UITableViewController {
 
 	private func refresh() {
 		refreshControl?.beginRefreshing()
-		urls.removeAll()
-		Page.updateAll() { (dic: Dictionary<String, Bool>) -> Void in
+		Page.updateAll() { (_) -> Void in
 			dispatch_sync(dispatch_get_main_queue()) {
-				self.urls = dic
 				self.tableView?.reloadData()
 				self.refreshControl?.endRefreshing()
 			}
@@ -104,13 +94,13 @@ class URLsTableViewController: UITableViewController {
 
 		if let allPages = pages {
 			let page = allPages[indexPath.row]
-			if ((urls[page.url]) == true) {
+			if page.changed {
 				cell.detailTextLabel?.text = "🆕" + page.formatedUpdateTime() + " " + page.url
 			} else {
 				cell.detailTextLabel?.text = page.formatedUpdateTime() + " " + page.url
 			}
 			cell.textLabel?.text = page.title
-			if ((urls[page.url]) == true) {
+			if page.changed {
 				cell.accessoryType = UITableViewCellAccessoryType.Checkmark
 			} else {
 				cell.accessoryType = UITableViewCellAccessoryType.None
@@ -193,7 +183,6 @@ class URLsTableViewController: UITableViewController {
 						if let indexPath = tableView.indexPathForCell(cell) {
 							if let allPages = pages {
 								let page = allPages[indexPath.row]
-								setChecked(page.url)
 								subVC.targetURL = page.url
 							}
 						}
