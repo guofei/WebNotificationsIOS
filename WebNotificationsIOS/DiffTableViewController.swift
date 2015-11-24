@@ -37,12 +37,12 @@ class DiffTableViewController: UITableViewController {
 
 	@IBAction func buy(sender: AnyObject) {
 		spinner?.startAnimating()
-		Flurry.logEvent("Buy Pro Clicked")
+		Flurry.logEvent("Buy Pro Clicked", withParameters: ["view": "diff"])
 		PFPurchase.buyProduct(Product.ID) { (error: NSError?) -> Void in
 			if error == nil {
-				Flurry.logEvent("Buy Pro OK")
+				Flurry.logEvent("Buy Pro OK", withParameters: ["view": "diff"])
 			} else {
-				Flurry.logEvent("Buy Pro Error")
+				Flurry.logEvent("Buy Pro Error", withParameters: ["view": "diff"])
 			}
 			self.spinner?.stopAnimating()
 		}
@@ -50,7 +50,7 @@ class DiffTableViewController: UITableViewController {
 
 	@IBAction func restore(sender: AnyObject) {
 		spinner?.startAnimating()
-		Flurry.logEvent("Restore Pro Clicked")
+		Flurry.logEvent("Restore Pro Clicked", withParameters: ["view": "diff"])
 		PFPurchase.restore()
 	}
 

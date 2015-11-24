@@ -84,20 +84,20 @@ class URLAddTableViewController: UITableViewController, UITextFieldDelegate, SKP
 	}
 
 	@IBAction func restore(sender: AnyObject) {
-		Flurry.logEvent("Restore Pro Clicked")
+		Flurry.logEvent("Restore Pro Clicked", withParameters: ["view": "diff"])
 		PFPurchase.restore()
 		spinner?.startAnimating()
 	}
 
 	@IBAction func buyPro(sender: AnyObject) {
-		Flurry.logEvent("Buy Pro Clicked")
+		Flurry.logEvent("Buy Pro Clicked", withParameters: ["view": "urladd"])
 		spinner?.startAnimating()
 		PFPurchase.buyProduct(Product.ID) { (error: NSError?) -> Void in
 			if error == nil {
 				self.setProUI()
-				Flurry.logEvent("Buy Pro OK")
+				Flurry.logEvent("Buy Pro OK", withParameters: ["view": "urladd"])
 			} else {
-				Flurry.logEvent("Buy Pro Error")
+				Flurry.logEvent("Buy Pro Error", withParameters: ["view": "urladd"])
 			}
 			self.spinner?.stopAnimating()
 		}
