@@ -24,6 +24,7 @@ class URLsTableViewController: UITableViewController {
 			}
 		}
 	}
+	var showPageOnce: String?
 
 	@IBOutlet weak var editBar: UIBarButtonItem!
 
@@ -66,6 +67,11 @@ class URLsTableViewController: UITableViewController {
 		refreshControl?.beginRefreshing()
 		tableView?.reloadData()
 		self.refreshControl?.endRefreshing()
+
+		if let url = showPageOnce {
+			showPageOnce = nil
+			performSegueWithIdentifier(StoryBoard.toWebPageSegue, sender: url)
+		}
 	}
 
     override func didReceiveMemoryWarning() {
