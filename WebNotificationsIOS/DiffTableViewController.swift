@@ -10,7 +10,7 @@ import UIKit
 import Parse
 import Flurry_iOS_SDK
 
-class DiffTableViewController: UITableViewController {
+class DiffTableViewController: UITableViewController, SKProductsRequestDelegate {
 	var targetURL : String? {
 		didSet {
 			showDiff()
@@ -18,8 +18,15 @@ class DiffTableViewController: UITableViewController {
 	}
 	var diffText : String? = NSLocalizedString("BuyToUseDiff", comment: "")
 
+	var proPrice : String? = nil {
+		didSet {
+			updatePrice()
+		}
+	}
+
 	@IBOutlet weak var textView: UITextView!
 	@IBOutlet weak var spinner: UIActivityIndicatorView!
+	@IBOutlet weak var buyButton: UIButton!
 
 	override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,6 +68,37 @@ class DiffTableViewController: UITableViewController {
 					diffText = page.contentDiff
 					textView?.text = diffText
 				}
+			}
+		}
+	}
+
+	private func updatePrice() {
+		if let price = proPrice {
+			let text = NSLocalizedString("BuyProWithoutPrice", comment: "") + " (\(price))"
+			buyButton?.setTitle(text, forState: UIControlState.Normal)
+		}
+	}
+
+	var productsRequest: SKProductsRequest?
+
+	override func viewWillAppear(animated: Bool) {
+		super.viewWillAppear(animated)
+		let productID: Set<String> = [Product.ID]
+		productsRequest = SKProductsRequest(productIdentifiers: productID)
+		productsRequest?.delegate = self;
+		productsRequest?.start();
+	}
+
+	override func viewWillDisappear(animated: Bool) {
+		super.viewWillDisappear(animated)
+		productsRequest?.cancel()
+		productsRequest?.delegate = nil
+	}
+
+	func productsRequest(request: SKProductsRequest, didReceiveResponse response: SKProductsResponse) {
+		for	product in response.products {
+			if product.productIdentifier == Product.ID {
+				proPrice = product.localizedPrice()
 			}
 		}
 	}

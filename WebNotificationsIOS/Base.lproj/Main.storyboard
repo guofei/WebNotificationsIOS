@@ -464,6 +464,7 @@
                         </connections>
                     </tableView>
                     <connections>
+                        <outlet property="buyButton" destination="QON-zm-B31" id="eSA-t2-zKA"/>
                         <outlet property="spinner" destination="DlM-PO-RoO" id="3Y9-sV-pP2"/>
                         <outlet property="textView" destination="oP3-g3-shW" id="oTI-7r-1sM"/>
                     </connections>
