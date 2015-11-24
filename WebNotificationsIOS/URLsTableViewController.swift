@@ -111,12 +111,15 @@ class URLsTableViewController: UITableViewController {
     }
 
 	override func tableView(table: UITableView, didSelectRowAtIndexPath indexPath:NSIndexPath) {
-		if tableView.editing {
-			let cell = tableView.cellForRowAtIndexPath(indexPath)
-			performSegueWithIdentifier(StoryBoard.toAddURLSegue, sender: cell)
-		} else {
-			let cell = tableView.cellForRowAtIndexPath(indexPath)
-			performSegueWithIdentifier(StoryBoard.toWebPageSegue, sender: cell)
+		if let allPages = pages {
+			let page = allPages[indexPath.row]
+			if tableView.editing {
+				// let cell = tableView.cellForRowAtIndexPath(indexPath)
+				performSegueWithIdentifier(StoryBoard.toAddURLSegue, sender: page.url)
+			} else {
+				// let cell = tableView.cellForRowAtIndexPath(indexPath)
+				performSegueWithIdentifier(StoryBoard.toWebPageSegue, sender: page.url)
+			}
 		}
 	}
 
@@ -169,7 +172,7 @@ class URLsTableViewController: UITableViewController {
 
     // MARK: - Navigation
 
-	private struct StoryBoard {
+	struct StoryBoard {
 		static let toWebPageSegue = "toWebPage"
 		static let toAddURLSegue = "toAddURL"
 	}
@@ -179,26 +182,16 @@ class URLsTableViewController: UITableViewController {
 		if (segue.identifier == StoryBoard.toWebPageSegue) {
 			if let nav = segue.destinationViewController as? UINavigationController {
 				if let subVC = nav.viewControllers.first as? PageViewController {
-					if let cell = sender as? UITableViewCell {
-						if let indexPath = tableView.indexPathForCell(cell) {
-							if let allPages = pages {
-								let page = allPages[indexPath.row]
-								subVC.targetURL = page.url
-							}
-						}
+					if let url = sender as? String {
+							subVC.targetURL = url
 					}
 				}
 			}
 		} else if (segue.identifier == StoryBoard.toAddURLSegue) {
 			if let nav = segue.destinationViewController as? UINavigationController {
 				if let addURLVC = nav.viewControllers.first as? URLAddTableViewController {
-					if let cell = sender as? UITableViewCell {
-						if let indexPath = tableView.indexPathForCell(cell) {
-							if let allPages = pages {
-								let page = allPages[indexPath.row]
-								addURLVC.originURL = page.url
-							}
-						}
+					if let url = sender as? String {
+						addURLVC.originURL = url
 					}
 				}
 			}
