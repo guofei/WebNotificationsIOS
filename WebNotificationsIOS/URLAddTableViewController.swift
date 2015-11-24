@@ -32,7 +32,7 @@ class URLAddTableViewController: UITableViewController, UITextFieldDelegate, SKP
 
 	var proPrice : String? = nil {
 		didSet {
-			updateUI()
+			updatePrice()
 		}
 	}
 
@@ -151,7 +151,7 @@ class URLAddTableViewController: UITableViewController, UITextFieldDelegate, SKP
 		}
 	}
 
-	private func updateUI() {
+	private func initUI() {
 		if let price = proPrice {
 			let text = NSLocalizedString("BuyProWithoutPrice", comment: "") + " (\(price))"
 			buyButton?.setTitle(text, forState: UIControlState.Normal)
@@ -183,6 +183,13 @@ class URLAddTableViewController: UITableViewController, UITextFieldDelegate, SKP
 		}
 	}
 
+	private func updatePrice() {
+		if let price = proPrice {
+			let text = NSLocalizedString("BuyProWithoutPrice", comment: "") + " (\(price))"
+			buyButton?.setTitle(text, forState: UIControlState.Normal)
+		}
+	}
+
 	func productsRequest(request: SKProductsRequest, didReceiveResponse response: SKProductsResponse) {
 		for	product in response.products {
 			if product.productIdentifier == Product.ID {
@@ -195,7 +202,7 @@ class URLAddTableViewController: UITableViewController, UITextFieldDelegate, SKP
         super.viewDidLoad()
 
 		urlField?.delegate = self
-		updateUI()
+		initUI()
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
