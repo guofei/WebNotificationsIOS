@@ -209,11 +209,7 @@ class Page: Object {
 		if let page = page {
 			let res = parse(page.url)
 			if let content = res.content where content != page.content {
-				// TODO : Bug fix and replace API.Page.get
-				// let contentDiff = Diff.get(res.content, s2: page.content)
-				if User.isProUser() {
-					updatePageDiffContent(page.id)
-				}
+				let contentDiff = User.isProUser() ? DiffHelper.get(res.content, s2: page.content) : ""
 				let url = page.url
 				try! getDB()?.write {
 					if let _ = Page.getByURL(url) {
@@ -221,7 +217,7 @@ class Page: Object {
 							page.title = title
 						}
 						if let content = res.content {
-							// page.contentDiff = contentDiff
+							page.contentDiff = contentDiff
 							page.content = content
 							page.changed = true
 						}
