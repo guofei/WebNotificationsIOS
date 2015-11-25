@@ -12,3 +12,4 @@
 "AccessError" = "このウェブページにアクセスできません";
 "BuyProWithoutPrice" = "Pro版を購入する";
 "BuyToUseDiff" = "差分機能をお使いいただくには、Pro版を購入していただく必要がございます.";
+"NoDiff" = "更新がありません.";
