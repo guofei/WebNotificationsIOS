@@ -10,7 +10,7 @@ import Foundation
 import RealmSwift
 
 struct PageConst {
-	static let defaultSecond = 3 * 60 * 60
+	static let defaultSecond = 4 * 60 * 60
 }
 
 // pushChannel is equal User::uuid
@@ -201,7 +201,7 @@ class Page: Object {
 		})
 	}
 
-	private static func updatePage(page :Page?) -> Bool {
+	private static func checkIsUpdate(page :Page?) -> Bool {
 		if page == nil {
 			return false
 		}
@@ -238,7 +238,7 @@ class Page: Object {
 		let queue = dispatch_get_global_queue(qos, 0)
 		dispatch_async(queue) {
 			let page = Page.getByURL(url)
-			let res = updatePage(page)
+			let res = checkIsUpdate(page)
 			done(res)
 		}
 	}
@@ -250,7 +250,7 @@ class Page: Object {
 			if let realm = getDB() {
 				let pages = realm.objects(Page)
 				for	page in pages {
-					updatePage(page)
+					checkIsUpdate(page)
 				}
 			}
 			done(true)
