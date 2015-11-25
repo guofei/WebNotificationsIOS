@@ -136,8 +136,32 @@ class DiffHelper {
 			return ""
 		}
 
-		let a = s1!.characters.split { $0 == "\n" || $0 == "\t" }.map(String.init)
-		let b = s2!.characters.split { $0 == "\n" || $0 == "\t" }.map(String.init)
+		// let a = s1!.characters.split { $0 == "\n" || $0 == "\r" || $0 == "\t" }.map(String.init)
+		// let b = s2!.characters.split { $0 == "\n" || $0 == "\r" || $0 == "\t" }.map(String.init)
+
+		let a = s1!.characters.split { (c) -> Bool in
+			if c == "\n" {
+				return true
+			} else if c == "\r" {
+				return true
+			} else if c == "\r\n" {
+				return true
+			} else {
+				return false
+			}
+		}.map(String.init)
+		let b = s2!.characters.split { (c) -> Bool in
+			if c == "\n" {
+				return true
+			} else if c == "\r" {
+				return true
+			} else if c == "\r\n" {
+				return true
+			} else {
+				return false
+			}
+		}.map(String.init)
+
 		let diff = a.diff(b)
 		let printableDiff = diff.results.map({ $0.debugDescription }).joinWithSeparator("\n")
 		return printableDiff
