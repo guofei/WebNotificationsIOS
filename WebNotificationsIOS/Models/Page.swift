@@ -187,20 +187,6 @@ class Page: Object {
 		}
 	}
 
-	private static func updatePageDiffContent(pageID: Int?) {
-		API.Page.get(pageID, fun: { (id, url, second, stopFetch, diff) -> Void in
-			if let db = getDB() {
-				try! db.write {
-					if let pg = Page.getByURL(url) {
-						if let contentDiff = diff {
-							pg.contentDiff = contentDiff
-						}
-					}
-				}
-			}
-		})
-	}
-
 	private static func checkIsUpdate(page :Page?) -> Bool {
 		if page == nil {
 			return false
