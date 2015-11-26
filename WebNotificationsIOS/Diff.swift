@@ -160,6 +160,8 @@ class DiffHelper {
 			return ""
 		}
 
+		let splitString = ",、，.。。；;！！!"
+
 		let splitor = { (c: Character) -> Bool in
 			if c == "\n" {
 				return true
@@ -168,13 +170,13 @@ class DiffHelper {
 			} else if c == "\r\n" {
 				return true
 			} else {
-				return false
+				 return splitString.characters.contains(c)
 			}
 		}
 
 		let trans = { (sub: String.CharacterView) -> [String] in
 			let s = String.init(sub)
-			if s.characters.count > 100 {
+			if s.characters.count > 150 {
 				return s.characters.split { $0 == " " }.map(String.init)
 			} else {
 				return [s]
