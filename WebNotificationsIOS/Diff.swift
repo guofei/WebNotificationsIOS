@@ -52,6 +52,14 @@ enum DiffStep<T> : CustomDebugStringConvertible {
 			return "-\(j)@\(i)"
 		}
 	}
+	var toString: String {
+		switch(self) {
+		case .Insert(_, let j):
+			return "+\(j)"
+		case .Delete(_, let j):
+			return "-\(j)"
+		}
+	}
 	var idx: Int {
 		switch(self) {
 		case .Insert(let i, _):
@@ -167,7 +175,7 @@ class DiffHelper {
 		let trans = { (sub: String.CharacterView) -> [String] in
 			let s = String.init(sub)
 			if s.characters.count > 100 {
-				return s.split(20)
+				return s.characters.split { $0 == " " }.map(String.init)
 			} else {
 				return [s]
 			}
@@ -176,7 +184,7 @@ class DiffHelper {
 		let b = s2!.characters.split(isSeparator: splitor).map(trans).flatMap{$0}
 
 		let diff = a.diff(b)
-		let printableDiff = diff.results.map({ $0.debugDescription }).joinWithSeparator("\n")
+		let printableDiff = diff.results.map({ $0.toString }).joinWithSeparator("\n")
 		return printableDiff
 	}
 }
