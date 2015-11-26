@@ -127,6 +127,22 @@ struct MemoizedSequenceComparison<T: Equatable> {
 	}
 }
 
+extension String {
+	func split(len: Int) -> [String] {
+		var currentIndex = 0
+		var array = [String]()
+		let length = self.characters.count
+		while currentIndex < length {
+			let startIndex = self.startIndex.advancedBy(currentIndex)
+			let endIndex = startIndex.advancedBy(len, limit: self.endIndex)
+			let substr = self.substringWithRange(Range(start: startIndex, end: endIndex))
+			array.append(substr)
+			currentIndex += len
+		}
+		return array
+	}
+}
+
 class DiffHelper {
 	static func get(s1: String?, s2: String?) -> String {
 		if (s1 == nil || s2 == nil) {
@@ -136,31 +152,28 @@ class DiffHelper {
 			return ""
 		}
 
-		// let a = s1!.characters.split { $0 == "\n" || $0 == "\r" || $0 == "\t" }.map(String.init)
-		// let b = s2!.characters.split { $0 == "\n" || $0 == "\r" || $0 == "\t" }.map(String.init)
+		let splitor = { (c: Character) -> Bool in
+			if c == "\n" {
+				return true
+			} else if c == "\r" {
+				return true
+			} else if c == "\r\n" {
+				return true
+			} else {
+				return false
+			}
+		}
 
-		let a = s1!.characters.split { (c) -> Bool in
-			if c == "\n" {
-				return true
-			} else if c == "\r" {
-				return true
-			} else if c == "\r\n" {
-				return true
+		let trans = { (sub: String.CharacterView) -> [String] in
+			let s = String.init(sub)
+			if s.characters.count > 100 {
+				return s.split(20)
 			} else {
-				return false
+				return [s]
 			}
-		}.map(String.init)
-		let b = s2!.characters.split { (c) -> Bool in
-			if c == "\n" {
-				return true
-			} else if c == "\r" {
-				return true
-			} else if c == "\r\n" {
-				return true
-			} else {
-				return false
-			}
-		}.map(String.init)
+		}
+		let a = s1!.characters.split(isSeparator: splitor).map(trans).flatMap{$0}
+		let b = s2!.characters.split(isSeparator: splitor).map(trans).flatMap{$0}
 
 		let diff = a.diff(b)
 		let printableDiff = diff.results.map({ $0.debugDescription }).joinWithSeparator("\n")
