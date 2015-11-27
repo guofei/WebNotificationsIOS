@@ -152,15 +152,15 @@ extension String {
 }
 
 class DiffHelper {
-	static func get(s1: String?, s2: String?) -> String {
-		if (s1 == nil || s2 == nil) {
+	static func get(origin: String?, newData: String?) -> String {
+		if (origin == nil || newData == nil) {
 			return ""
 		}
-		if (s1?.characters.count <= 0 || s2?.characters.count <= 0) {
+		if (origin?.characters.count <= 0 || newData?.characters.count <= 0) {
 			return ""
 		}
 
-		let splitString = ",、，.。。；;！！!"
+		let splitSentence = ".。。；;！！!"
 
 		let splitor = { (c: Character) -> Bool in
 			if c == "\n" {
@@ -170,20 +170,23 @@ class DiffHelper {
 			} else if c == "\r\n" {
 				return true
 			} else {
-				 return splitString.characters.contains(c)
+				 return splitSentence.characters.contains(c)
 			}
 		}
 
+		let splitWord = " ,、，:："
+		let maxSentenceLen = 100
+
 		let trans = { (sub: String.CharacterView) -> [String] in
 			let s = String.init(sub)
-			if s.characters.count > 150 {
-				return s.characters.split { $0 == " " }.map(String.init)
+			if s.characters.count > maxSentenceLen {
+				return s.characters.split { splitWord.characters.contains($0) }.map(String.init)
 			} else {
 				return [s]
 			}
 		}
-		let a = s1!.characters.split(isSeparator: splitor).map(trans).flatMap{$0}
-		let b = s2!.characters.split(isSeparator: splitor).map(trans).flatMap{$0}
+		let a = origin!.characters.split(isSeparator: splitor).map(trans).flatMap{$0}
+		let b = newData!.characters.split(isSeparator: splitor).map(trans).flatMap{$0}
 
 		let diff = a.diff(b)
 		let printableDiff = diff.results.map({ $0.toString }).joinWithSeparator("\n")

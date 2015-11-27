@@ -195,7 +195,7 @@ class Page: Object {
 		if let page = page {
 			let res = parse(page.url)
 			if let content = res.content where content != page.content {
-				let contentDiff = User.isProUser() ? DiffHelper.get(res.content, s2: page.content) : ""
+				let contentDiff = User.isProUser() ? DiffHelper.get(page.content, newData: res.content) : ""
 				let url = page.url
 				try! getDB()?.write {
 					if let _ = Page.getByURL(url) {
