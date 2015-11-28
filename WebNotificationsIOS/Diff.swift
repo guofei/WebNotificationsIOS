@@ -160,8 +160,6 @@ class DiffHelper {
 			return ""
 		}
 
-		let splitSentence = ".。。；;！！!"
-
 		let splitor = { (c: Character) -> Bool in
 			if c == "\n" {
 				return true
@@ -170,17 +168,16 @@ class DiffHelper {
 			} else if c == "\r\n" {
 				return true
 			} else {
-				 return splitSentence.characters.contains(c)
+				return false
 			}
 		}
 
-		let splitWord = " ,、，:："
 		let maxSentenceLen = 100
-
+		let splitSentence = " ,、，:：.。。；;！！!"
 		let trans = { (sub: String.CharacterView) -> [String] in
 			let s = String.init(sub)
 			if s.characters.count > maxSentenceLen {
-				return s.characters.split { splitWord.characters.contains($0) }.map(String.init)
+				return s.characters.split { splitSentence.characters.contains($0) }.map(String.init)
 			} else {
 				return [s]
 			}
