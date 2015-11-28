@@ -111,8 +111,6 @@ class URLAddTableViewController: UITableViewController, UITextFieldDelegate, SKP
 		for transaction:SKPaymentTransaction in queue.transactions {
 			if transaction.payment.productIdentifier == Product.ID {
 				alert("Success", message: "Restore successed")
-				setProUI()
-				// User.setProUser()
 			}
 		}
 	}
@@ -148,8 +146,14 @@ class URLAddTableViewController: UITableViewController, UITextFieldDelegate, SKP
 			buyTable?.hidden = true
 			restoreCell?.hidden = true
 			datePicker?.userInteractionEnabled = true
+			if urlField?.enabled == false {
+				urlField?.enabled = true
+				urlField?.placeholder = "URL"
+			}
 		}
 	}
+
+	let userNumUrlLimit = 10
 
 	private func initUI() {
 		if let price = proPrice {
@@ -167,6 +171,11 @@ class URLAddTableViewController: UITableViewController, UITextFieldDelegate, SKP
 		}
 		if (User.isProUser()) {
 			setProUI()
+		} else {
+			if Page.count() >= userNumUrlLimit {
+				urlField?.enabled = false
+				urlField?.placeholder = NSLocalizedString("UnlockAddLimit", comment: "")
+			}
 		}
 		switch (Notifaction.type()) {
 		case Notifaction.UNKNOWN:

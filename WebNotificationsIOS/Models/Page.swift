@@ -40,6 +40,15 @@ class Page: Object {
 		return dateFormatter.stringFromDate(updatedAt)
 	}
 
+	static func count() -> Int {
+		if let realm = getDB() {
+			let pages = realm.objects(Page)
+			return pages.count
+		} else {
+			return 0
+		}
+	}
+
 	static func getByURL(url: String?) -> Page? {
 		if url == nil {
 			return nil
