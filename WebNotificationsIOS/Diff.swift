@@ -160,6 +160,7 @@ class DiffHelper {
 			return ""
 		}
 
+		// just split by Line break
 		let splitor = { (c: Character) -> Bool in
 			if c == "\n" {
 				return true
@@ -177,6 +178,7 @@ class DiffHelper {
 		let trans = { (sub: String.CharacterView) -> [String] in
 			let s = String.init(sub)
 			if s.characters.count > maxSentenceLen {
+				// something like $99.99 will be splited
 				return s.characters.split { splitSentence.characters.contains($0) }.map(String.init)
 			} else {
 				return [s]
