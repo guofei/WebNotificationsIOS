@@ -153,8 +153,6 @@ class URLAddTableViewController: UITableViewController, UITextFieldDelegate, SKP
 		}
 	}
 
-	let userNumUrlLimit = 10
-
 	private func initUI() {
 		if let price = proPrice {
 			let text = NSLocalizedString("BuyProWithoutPrice", comment: "") + " (\(price))"
@@ -172,7 +170,7 @@ class URLAddTableViewController: UITableViewController, UITextFieldDelegate, SKP
 		if (User.isProUser()) {
 			setProUI()
 		} else {
-			if Page.count() >= userNumUrlLimit {
+			if Page.count() >= Product.userNumUrlLimit {
 				urlField?.enabled = false
 				urlField?.placeholder = NSLocalizedString("UnlockAddLimit", comment: "")
 			}

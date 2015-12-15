@@ -219,10 +219,10 @@ class Page: Object {
 						page.updatedAt = NSDate()
 					}
 				}
-				if page.id <= 0 {
-					syncURL(page.url, second: page.sec, stopFetch: page.stopFetch)
-				}
 				return true
+			}
+			if page.id <= 0 {
+				syncURL(page.url, second: page.sec, stopFetch: page.stopFetch)
 			}
 		}
 		return false
