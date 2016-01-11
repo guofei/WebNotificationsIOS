@@ -152,9 +152,10 @@ class Page: Object {
 			return false
 		}
 		let res = parse(url!)
+		/*
 		if res.title == nil && res.content == nil {
 			return false
-		}
+		}*/
 		let page = Page()
 		if let id = id {
 			page.id = id
