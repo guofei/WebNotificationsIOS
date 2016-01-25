@@ -100,11 +100,11 @@ class URLsTableViewController: UITableViewController {
 
 		if let allPages = pages {
 			let page = allPages[indexPath.row]
+			var emoji = page.stopFetch ? "🔕" : ""
 			if page.changed {
-				cell.detailTextLabel?.text = "🆕" + page.formatedUpdateTime() + " " + page.url
-			} else {
-				cell.detailTextLabel?.text = page.formatedUpdateTime() + " " + page.url
+				emoji += "🆕"
 			}
+			cell.detailTextLabel?.text = emoji + page.formatedUpdateTime() + " " + page.url
 			cell.textLabel?.text = page.title
 			if page.changed {
 				cell.accessoryType = UITableViewCellAccessoryType.Checkmark
