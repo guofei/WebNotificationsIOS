@@ -10,10 +10,10 @@ import Foundation
 import RealmSwift
 
 func getDB() -> Realm? {
-	do {
-		let realm = try Realm()
-		return realm
-	} catch {
-		return nil
-	}
+  do {
+    let realm = try Realm()
+    return realm
+  } catch {
+    return nil
+  }
 }

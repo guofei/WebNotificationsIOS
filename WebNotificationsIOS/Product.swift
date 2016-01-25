@@ -7,7 +7,7 @@
 //
 
 struct Product {
-	static let ID = "proversion"
-	static let NSUserDefaultsKey = "proUser"
-	static let userNumUrlLimit = 15
+  static let ID = "proversion"
+  static let NSUserDefaultsKey = "proUser"
+  static let userNumUrlLimit = 15
 }
