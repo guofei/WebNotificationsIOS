@@ -36,8 +36,6 @@
 		28738EE31BB2615A0083D95F /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28738EE21BB2615A0083D95F /* QuartzCore.framework */; };
 		28738EE51BB261650083D95F /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28738EE41BB261650083D95F /* Security.framework */; };
 		28738EE91BB2617A0083D95F /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28738EE81BB2617A0083D95F /* SystemConfiguration.framework */; };
-		28738EEB1BB2619B0083D95F /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 28738EEA1BB2619B0083D95F /* libz.tbd */; };
-		28738EED1BB261AF0083D95F /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 28738EEC1BB261AF0083D95F /* libsqlite3.tbd */; };
 		2875B94C1BAE7EC20020A4C5 /* Page.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2875B94B1BAE7EC20020A4C5 /* Page.swift */; };
 		288E8C291BBEDDD00075DB56 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 288E8C281BBEDDD00075DB56 /* Product.swift */; };
 		288E8C2B1BBEE9A90075DB56 /* Parse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 288E8C2A1BBEE9A90075DB56 /* Parse.swift */; };
@@ -45,7 +43,11 @@
 		28A64FD11BBC4E9A0007DF95 /* DBHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A64FD01BBC4E9A0007DF95 /* DBHelper.swift */; };
 		28B480E31BB2D618006B257A /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B480E21BB2D618006B257A /* User.swift */; };
 		28B8C1B61C01BE2E000525FD /* DiffTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B8C1B51C01BE2E000525FD /* DiffTableViewController.swift */; };
-		3B144E6081BF1568DC498118 /* Pods_WebChecker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 256DBF57B015F56348B45E3A /* Pods_WebChecker.framework */; };
+		3A7CB8BF252579BDBD146D07 /* Pods_WebNotificationsIOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 186920EBBCC916000BE391AC /* Pods_WebNotificationsIOSTests.framework */; };
+		6FD08B6ABF4694B91C9AAF06 /* Pods_WebChecker_WebNotificationsIOSUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46791CEDD5D7EAC5CE7A9AEB /* Pods_WebChecker_WebNotificationsIOSUITests.framework */; };
+		ABCD5E0FF8E9FA32B9928410 /* Pods_WebNotificationsIOSUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62F87E711F643F398808F564 /* Pods_WebNotificationsIOSUITests.framework */; };
+		DF39125F1316AB184FA7558E /* Pods_WebChecker_WebNotificationsIOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F64AFE6B2BB5A3BABEAA9302 /* Pods_WebChecker_WebNotificationsIOSTests.framework */; };
+		FB62C45858E46CE2863088D6 /* Pods_WebChecker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 047A8E8DCA0BF2C04803D811 /* Pods_WebChecker.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,7 +68,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		256DBF57B015F56348B45E3A /* Pods_WebChecker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WebChecker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		047A8E8DCA0BF2C04803D811 /* Pods_WebChecker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WebChecker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0E2DBA43BE7D03AA52813C10 /* Pods-WebChecker-WebNotificationsIOSUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WebChecker-WebNotificationsIOSUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WebChecker-WebNotificationsIOSUITests/Pods-WebChecker-WebNotificationsIOSUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		128753317D564B88C865D6E2 /* Pods-WebChecker-WebNotificationsIOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WebChecker-WebNotificationsIOSTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-WebChecker-WebNotificationsIOSTests/Pods-WebChecker-WebNotificationsIOSTests.release.xcconfig"; sourceTree = "<group>"; };
+		186920EBBCC916000BE391AC /* Pods_WebNotificationsIOSTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WebNotificationsIOSTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		28286D031BFE37D80027A814 /* Diff.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Diff.swift; sourceTree = "<group>"; };
 		285663601BFB8987003B147D /* Migration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Migration.swift; sourceTree = "<group>"; };
 		2858C7451BB6CC89005D7543 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
@@ -115,8 +120,17 @@
 		28B8C1BC1C01F8AD000525FD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		28B8C1BE1C01F8B0000525FD /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Main.strings; sourceTree = "<group>"; };
 		28ED127B1BB982730046F6BF /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
-		E7894084FD6515A24A382978 /* Pods-WebChecker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WebChecker.release.xcconfig"; path = "Pods/Target Support Files/Pods-WebChecker/Pods-WebChecker.release.xcconfig"; sourceTree = "<group>"; };
-		E8C6C7D0BAB14F18936511E4 /* Pods-WebChecker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WebChecker.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WebChecker/Pods-WebChecker.debug.xcconfig"; sourceTree = "<group>"; };
+		2D6A2AAB0EF9067DDB0124A8 /* Pods-WebNotificationsIOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WebNotificationsIOSTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WebNotificationsIOSTests/Pods-WebNotificationsIOSTests.debug.xcconfig"; sourceTree = "<group>"; };
+		2FF7806B7000ED5624765CDF /* Pods-WebNotificationsIOSUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WebNotificationsIOSUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-WebNotificationsIOSUITests/Pods-WebNotificationsIOSUITests.release.xcconfig"; sourceTree = "<group>"; };
+		46791CEDD5D7EAC5CE7A9AEB /* Pods_WebChecker_WebNotificationsIOSUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WebChecker_WebNotificationsIOSUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		62F87E711F643F398808F564 /* Pods_WebNotificationsIOSUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WebNotificationsIOSUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		746029637E273262EE903876 /* Pods-WebNotificationsIOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WebNotificationsIOSTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-WebNotificationsIOSTests/Pods-WebNotificationsIOSTests.release.xcconfig"; sourceTree = "<group>"; };
+		C8BE616E21F7FD9BB2E455FF /* Pods-WebChecker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WebChecker.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WebChecker/Pods-WebChecker.debug.xcconfig"; sourceTree = "<group>"; };
+		E107A0A927BBE26539B81A78 /* Pods-WebChecker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WebChecker.release.xcconfig"; path = "Pods/Target Support Files/Pods-WebChecker/Pods-WebChecker.release.xcconfig"; sourceTree = "<group>"; };
+		E239F58A6DAA8994C89E11DE /* Pods-WebChecker-WebNotificationsIOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WebChecker-WebNotificationsIOSTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WebChecker-WebNotificationsIOSTests/Pods-WebChecker-WebNotificationsIOSTests.debug.xcconfig"; sourceTree = "<group>"; };
+		E65B82E08D22EB937C1F4EC5 /* Pods-WebChecker-WebNotificationsIOSUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WebChecker-WebNotificationsIOSUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-WebChecker-WebNotificationsIOSUITests/Pods-WebChecker-WebNotificationsIOSUITests.release.xcconfig"; sourceTree = "<group>"; };
+		EC817B2E9E6D6A4D27DBEDC2 /* Pods-WebNotificationsIOSUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WebNotificationsIOSUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WebNotificationsIOSUITests/Pods-WebNotificationsIOSUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		F64AFE6B2BB5A3BABEAA9302 /* Pods_WebChecker_WebNotificationsIOSTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WebChecker_WebNotificationsIOSTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,8 +140,6 @@
 			files = (
 				2858C7491BB7A856005D7543 /* Realm.framework in Frameworks */,
 				2858C74A1BB7A856005D7543 /* RealmSwift.framework in Frameworks */,
-				28738EED1BB261AF0083D95F /* libsqlite3.tbd in Frameworks */,
-				28738EEB1BB2619B0083D95F /* libz.tbd in Frameworks */,
 				28738EE91BB2617A0083D95F /* SystemConfiguration.framework in Frameworks */,
 				2858C7461BB6CC89005D7543 /* StoreKit.framework in Frameworks */,
 				28738EE51BB261650083D95F /* Security.framework in Frameworks */,
@@ -140,7 +152,7 @@
 				28738ECD1BB050330083D95F /* Alamofire.framework in Frameworks */,
 				28738ED91BB260CE0083D95F /* Parse.framework in Frameworks */,
 				28738ED21BB06D4E0083D95F /* Ji.framework in Frameworks */,
-				3B144E6081BF1568DC498118 /* Pods_WebChecker.framework in Frameworks */,
+				FB62C45858E46CE2863088D6 /* Pods_WebChecker.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -148,6 +160,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A7CB8BF252579BDBD146D07 /* Pods_WebNotificationsIOSTests.framework in Frameworks */,
+				DF39125F1316AB184FA7558E /* Pods_WebChecker_WebNotificationsIOSTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -155,6 +169,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ABCD5E0FF8E9FA32B9928410 /* Pods_WebNotificationsIOSUITests.framework in Frameworks */,
+				6FD08B6ABF4694B91C9AAF06 /* Pods_WebChecker_WebNotificationsIOSUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -169,7 +185,7 @@
 				286503221BAB001900BB041D /* WebNotificationsIOSTests */,
 				2865032D1BAB001900BB041D /* WebNotificationsIOSUITests */,
 				2865030C1BAB001900BB041D /* Products */,
-				49475DA4A8B06192AA54F93A /* Pods */,
+				A710D15DB13984F7165CE796 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -253,7 +269,11 @@
 				28738ED61BB260C60083D95F /* Bolts.framework */,
 				28738ED11BB06D4E0083D95F /* Ji.framework */,
 				28738ECC1BB050330083D95F /* Alamofire.framework */,
-				256DBF57B015F56348B45E3A /* Pods_WebChecker.framework */,
+				047A8E8DCA0BF2C04803D811 /* Pods_WebChecker.framework */,
+				186920EBBCC916000BE391AC /* Pods_WebNotificationsIOSTests.framework */,
+				62F87E711F643F398808F564 /* Pods_WebNotificationsIOSUITests.framework */,
+				F64AFE6B2BB5A3BABEAA9302 /* Pods_WebChecker_WebNotificationsIOSTests.framework */,
+				46791CEDD5D7EAC5CE7A9AEB /* Pods_WebChecker_WebNotificationsIOSUITests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -269,11 +289,19 @@
 			name = Models;
 			sourceTree = "<group>";
 		};
-		49475DA4A8B06192AA54F93A /* Pods */ = {
+		A710D15DB13984F7165CE796 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				E8C6C7D0BAB14F18936511E4 /* Pods-WebChecker.debug.xcconfig */,
-				E7894084FD6515A24A382978 /* Pods-WebChecker.release.xcconfig */,
+				C8BE616E21F7FD9BB2E455FF /* Pods-WebChecker.debug.xcconfig */,
+				E107A0A927BBE26539B81A78 /* Pods-WebChecker.release.xcconfig */,
+				2D6A2AAB0EF9067DDB0124A8 /* Pods-WebNotificationsIOSTests.debug.xcconfig */,
+				746029637E273262EE903876 /* Pods-WebNotificationsIOSTests.release.xcconfig */,
+				EC817B2E9E6D6A4D27DBEDC2 /* Pods-WebNotificationsIOSUITests.debug.xcconfig */,
+				2FF7806B7000ED5624765CDF /* Pods-WebNotificationsIOSUITests.release.xcconfig */,
+				E239F58A6DAA8994C89E11DE /* Pods-WebChecker-WebNotificationsIOSTests.debug.xcconfig */,
+				128753317D564B88C865D6E2 /* Pods-WebChecker-WebNotificationsIOSTests.release.xcconfig */,
+				0E2DBA43BE7D03AA52813C10 /* Pods-WebChecker-WebNotificationsIOSUITests.debug.xcconfig */,
+				E65B82E08D22EB937C1F4EC5 /* Pods-WebChecker-WebNotificationsIOSUITests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -285,13 +313,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 286503331BAB001900BB041D /* Build configuration list for PBXNativeTarget "WebChecker" */;
 			buildPhases = (
-				B8645DCBAAF93CB4BB1B2742 /* Check Pods Manifest.lock */,
+				16E338A3E1C790C45EE1C215 /* [CP] Check Pods Manifest.lock */,
 				286503071BAB001900BB041D /* Sources */,
 				286503081BAB001900BB041D /* Frameworks */,
 				286503091BAB001900BB041D /* Resources */,
 				28738ECF1BB050E60083D95F /* ShellScript */,
-				6F7DD85639CFA96C7C2E6242 /* Embed Pods Frameworks */,
-				40C6110AEEFB5A7179D100B7 /* Copy Pods Resources */,
+				DC25C096AADCC627106BEC9D /* [CP] Embed Pods Frameworks */,
+				020EC3663D2EFB314357F71D /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -306,9 +334,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 286503361BAB001900BB041D /* Build configuration list for PBXNativeTarget "WebNotificationsIOSTests" */;
 			buildPhases = (
+				1C918045640EE7C4C2766976 /* [CP] Check Pods Manifest.lock */,
 				2865031B1BAB001900BB041D /* Sources */,
 				2865031C1BAB001900BB041D /* Frameworks */,
 				2865031D1BAB001900BB041D /* Resources */,
+				B63C491ED58D240782B8EF50 /* [CP] Embed Pods Frameworks */,
+				3B5EEDF640D5017BCD589455 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -324,9 +355,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 286503391BAB001900BB041D /* Build configuration list for PBXNativeTarget "WebNotificationsIOSUITests" */;
 			buildPhases = (
+				D6B370FFCE1A50015F4BC16F /* [CP] Check Pods Manifest.lock */,
 				286503261BAB001900BB041D /* Sources */,
 				286503271BAB001900BB041D /* Frameworks */,
 				286503281BAB001900BB041D /* Resources */,
+				E376AA7DCADCE175FB313C73 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -419,31 +452,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		28738ECF1BB050E60083D95F /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/Ji.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/Realm.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/RealmSwift.framework",
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "/usr/local/bin/carthage copy-frameworks";
-		};
-		40C6110AEEFB5A7179D100B7 /* Copy Pods Resources */ = {
+		020EC3663D2EFB314357F71D /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -451,14 +467,102 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WebChecker/Pods-WebChecker-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		6F7DD85639CFA96C7C2E6242 /* Embed Pods Frameworks */ = {
+		16E338A3E1C790C45EE1C215 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		1C918045640EE7C4C2766976 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		28738ECF1BB050E60083D95F /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "";
+		};
+		3B5EEDF640D5017BCD589455 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WebChecker-WebNotificationsIOSTests/Pods-WebChecker-WebNotificationsIOSTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B63C491ED58D240782B8EF50 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WebChecker-WebNotificationsIOSTests/Pods-WebChecker-WebNotificationsIOSTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D6B370FFCE1A50015F4BC16F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		DC25C096AADCC627106BEC9D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -466,19 +570,19 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WebChecker/Pods-WebChecker-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		B8645DCBAAF93CB4BB1B2742 /* Check Pods Manifest.lock */ = {
+		E376AA7DCADCE175FB313C73 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WebChecker-WebNotificationsIOSUITests/Pods-WebChecker-WebNotificationsIOSUITests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -653,7 +757,7 @@
 		};
 		286503341BAB001900BB041D /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E8C6C7D0BAB14F18936511E4 /* Pods-WebChecker.debug.xcconfig */;
+			baseConfigurationReference = C8BE616E21F7FD9BB2E455FF /* Pods-WebChecker.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -661,15 +765,11 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = WebNotificationsIOS/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/WebNotificationsIOS/Flurry",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.webupdatenotification;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -680,7 +780,7 @@
 		};
 		286503351BAB001900BB041D /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E7894084FD6515A24A382978 /* Pods-WebChecker.release.xcconfig */;
+			baseConfigurationReference = E107A0A927BBE26539B81A78 /* Pods-WebChecker.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
@@ -688,15 +788,11 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = WebNotificationsIOS/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/WebNotificationsIOS/Flurry",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.webupdatenotification;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -707,6 +803,7 @@
 		};
 		286503371BAB001900BB041D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E239F58A6DAA8994C89E11DE /* Pods-WebChecker-WebNotificationsIOSTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = WebNotificationsIOSTests/Info.plist;
@@ -719,6 +816,7 @@
 		};
 		286503381BAB001900BB041D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 128753317D564B88C865D6E2 /* Pods-WebChecker-WebNotificationsIOSTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = WebNotificationsIOSTests/Info.plist;
@@ -731,6 +829,7 @@
 		};
 		2865033A1BAB001900BB041D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0E2DBA43BE7D03AA52813C10 /* Pods-WebChecker-WebNotificationsIOSUITests.debug.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = WebNotificationsIOSUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -743,6 +842,7 @@
 		};
 		2865033B1BAB001900BB041D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E65B82E08D22EB937C1F4EC5 /* Pods-WebChecker-WebNotificationsIOSUITests.release.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = WebNotificationsIOSUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";

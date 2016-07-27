@@ -1,26 +1,21 @@
-# coding: utf-8
 # Uncomment this line to define a global platform for your project
-# platform :ios, '8.0'
-# Uncomment this line if you're using Swift
-# use_frameworks!
-source 'https://github.com/CocoaPods/Specs.git'
-platform :ios, '8.0'
-use_frameworks!
+# platform :ios, '9.0'
 
 target 'WebChecker' do
+  # Comment this line if you're not using Swift and don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for WebChecker
   pod 'Alamofire', '~> 3.0'
   pod 'Ji', '~> 1.2.0'
   pod 'RealmSwift'
   pod 'Parse'
   pod 'Flurry-iOS-SDK/FlurrySDK'
   # pod 'Dwifft', git: 'git@github.com:jflinter/Dwifft.git'
+
+  target 'WebNotificationsIOSTests' do
+  end
+
+  target 'WebNotificationsIOSUITests' do
+  end
 end
-
-target 'WebNotificationsIOSTests' do
-
-end
-
-target 'WebNotificationsIOSUITests' do
-
-end
-
