@@ -95,20 +95,20 @@ extension Array where Element: Equatable {
 
     while i >= 0 && j >= 0 {
       if i == 0 && j > 0 {
-        j--
+        j -= 1
         result = DiffStep.Insert(j, y[j]) + result
       } else if j == 0 && i > 0 {
-        i--
+        i -= 1
         result = DiffStep.Delete(i, x[i]) + result
       } else if j > 0 && table[i][j] == table[i][j-1] {
-        j--
+        j -= 1
         result = DiffStep.Insert(j, y[j]) + result
       } else if i > 0 && table[i][j] == table[i-1][j] {
-        i--
+        i -= 1
         result = DiffStep.Delete(i, x[i]) + result
       } else {
-        i--
-        j--
+        i -= 1
+        j -= 1
       }
     }
 
@@ -143,7 +143,7 @@ extension String {
     while currentIndex < length {
       let startIndex = self.startIndex.advancedBy(currentIndex)
       let endIndex = startIndex.advancedBy(len, limit: self.endIndex)
-      let substr = self.substringWithRange(Range(start: startIndex, end: endIndex))
+      let substr = self.substringWithRange(Range(startIndex..<endIndex))
       array.append(substr)
       currentIndex += len
     }
