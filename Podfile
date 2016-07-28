@@ -11,6 +11,7 @@ target 'WebChecker' do
   pod 'RealmSwift'
   pod 'Parse'
   pod 'Flurry-iOS-SDK/FlurrySDK'
+  pod 'SwiftyStoreKit'
   # pod 'Dwifft', git: 'git@github.com:jflinter/Dwifft.git'
 
   target 'WebNotificationsIOSTests' do
