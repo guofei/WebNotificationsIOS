@@ -7,19 +7,10 @@
 //
 
 import UIKit
-import Parse
+import SwiftyStoreKit
 import Flurry_iOS_SDK
 
-extension SKProduct {
-  func localizedPrice() -> String {
-    let formatter = NSNumberFormatter()
-    formatter.numberStyle = .CurrencyStyle
-    formatter.locale = self.priceLocale
-    return formatter.stringFromNumber(self.price)!
-  }
-}
-
-class URLAddTableViewController: UITableViewController, UITextFieldDelegate, SKProductsRequestDelegate {
+class URLAddTableViewController: UITableViewController, UITextFieldDelegate {
   var stopFetch : Bool {
     get {
       if notification == nil {
@@ -37,7 +28,6 @@ class URLAddTableViewController: UITableViewController, UITextFieldDelegate, SKP
   }
 
   var originURL: String?
-  var productsRequest: SKProductsRequest?
 
   @IBOutlet weak var restoreCell: UITableViewCell!
   @IBOutlet weak var urlField: UITextField!
@@ -85,19 +75,22 @@ class URLAddTableViewController: UITableViewController, UITextFieldDelegate, SKP
 
   @IBAction func restore(sender: AnyObject) {
     Flurry.logEvent("Restore Pro Clicked", withParameters: ["view": "diff"])
-    PFPurchase.restore()
     spinner?.startAnimating()
+    SwiftyStoreKit.restorePurchases() { results in
+      self.spinner?.stopAnimating()
+    }
   }
 
   @IBAction func buyPro(sender: AnyObject) {
     Flurry.logEvent("Buy Pro Clicked", withParameters: ["view": "urladd"])
     spinner?.startAnimating()
-    PFPurchase.buyProduct(Product.ID) { (error: NSError?) -> Void in
-      if error == nil {
+    SwiftyStoreKit.purchaseProduct(Product.ID) { result in
+      switch result {
+      case .Success(let productId):
         self.setProUI()
-        Flurry.logEvent("Buy Pro OK", withParameters: ["view": "urladd"])
-      } else {
-        Flurry.logEvent("Buy Pro Error", withParameters: ["view": "urladd"])
+        Flurry.logEvent("Buy Pro OK", withParameters: ["view": "urladd", "product": "\(productId)"])
+      case .Error(let error):
+        Flurry.logEvent("Buy Pro Error", withParameters: ["view": "urladd", "error": "\(error)"])
       }
       self.spinner?.stopAnimating()
     }
@@ -197,14 +190,6 @@ class URLAddTableViewController: UITableViewController, UITextFieldDelegate, SKP
     }
   }
 
-  func productsRequest(request: SKProductsRequest, didReceiveResponse response: SKProductsResponse) {
-    for	product in response.products {
-      if product.productIdentifier == Product.ID {
-        proPrice = product.localizedPrice()
-      }
-    }
-  }
-
   override func viewDidLoad() {
     super.viewDidLoad()
 
@@ -220,16 +205,15 @@ class URLAddTableViewController: UITableViewController, UITextFieldDelegate, SKP
 
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(animated)
-    let productID: Set<String> = [Product.ID]
-    productsRequest = SKProductsRequest(productIdentifiers: productID)
-    productsRequest?.delegate = self;
-    productsRequest?.start();
+    SwiftyStoreKit.retrieveProductsInfo([Product.ID]) { result in
+      if let product = result.retrievedProducts.first {
+        self.proPrice = product.localizedPrice()
+      }
+    }
   }
 
   override func viewWillDisappear(animated: Bool) {
     super.viewWillDisappear(animated)
-    productsRequest?.cancel()
-    productsRequest?.delegate = nil
   }
 
   func textFieldShouldReturn(textField: UITextField) -> Bool{

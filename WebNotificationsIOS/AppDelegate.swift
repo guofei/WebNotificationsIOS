@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftyStoreKit
 import Parse
 import Flurry_iOS_SDK
 
@@ -46,9 +47,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     Notifaction.setAfterFirstTime()
 
-    PFPurchase.addObserverForProduct(Product.ID) { (transaction: SKPaymentTransaction?) -> Void in
-      User.setProUser()
-      Flurry.logEvent("Buy or Restore Pro Successed")
+    SwiftyStoreKit.completeTransactions() { completedTransactions in
+      for completedTransaction in completedTransactions {
+        if completedTransaction.transactionState == .Purchased || completedTransaction.transactionState == .Restored {
+          User.setProUser()
+          Flurry.logEvent("Buy or Restore Pro Successed")
+        }
+      }
     }
 
     let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())

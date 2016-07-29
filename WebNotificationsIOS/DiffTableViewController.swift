@@ -7,10 +7,10 @@
 //
 
 import UIKit
-import Parse
+import SwiftyStoreKit
 import Flurry_iOS_SDK
 
-class DiffTableViewController: UITableViewController, SKProductsRequestDelegate {
+class DiffTableViewController: UITableViewController {
   var targetURL : String? {
     didSet {
       showDiff()
@@ -45,11 +45,12 @@ class DiffTableViewController: UITableViewController, SKProductsRequestDelegate 
   @IBAction func buy(sender: AnyObject) {
     spinner?.startAnimating()
     Flurry.logEvent("Buy Pro Clicked", withParameters: ["view": "diff"])
-    PFPurchase.buyProduct(Product.ID) { (error: NSError?) -> Void in
-      if error == nil {
-        Flurry.logEvent("Buy Pro OK", withParameters: ["view": "diff"])
-      } else {
-        Flurry.logEvent("Buy Pro Error", withParameters: ["view": "diff"])
+    SwiftyStoreKit.purchaseProduct(Product.ID) { result in
+      switch result {
+      case .Success(let productId):
+        Flurry.logEvent("Buy Pro OK", withParameters: ["view": "diff", "product": "\(productId)"])
+      case .Error(let error):
+        Flurry.logEvent("Buy Pro Error", withParameters: ["view": "diff", "error": "\(error)"])
       }
       self.spinner?.stopAnimating()
     }
@@ -58,7 +59,9 @@ class DiffTableViewController: UITableViewController, SKProductsRequestDelegate 
   @IBAction func restore(sender: AnyObject) {
     spinner?.startAnimating()
     Flurry.logEvent("Restore Pro Clicked", withParameters: ["view": "diff"])
-    PFPurchase.restore()
+    SwiftyStoreKit.restorePurchases() { results in
+      self.spinner?.stopAnimating()
+    }
   }
 
   private func showDiff() {
@@ -79,28 +82,17 @@ class DiffTableViewController: UITableViewController, SKProductsRequestDelegate 
     }
   }
 
-  var productsRequest: SKProductsRequest?
-
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(animated)
-    let productID: Set<String> = [Product.ID]
-    productsRequest = SKProductsRequest(productIdentifiers: productID)
-    productsRequest?.delegate = self;
-    productsRequest?.start();
+    SwiftyStoreKit.retrieveProductsInfo([Product.ID]) { result in
+      if let product = result.retrievedProducts.first {
+        self.proPrice = product.localizedPrice()
+      }
+    }
   }
 
   override func viewWillDisappear(animated: Bool) {
     super.viewWillDisappear(animated)
-    productsRequest?.cancel()
-    productsRequest?.delegate = nil
-  }
-
-  func productsRequest(request: SKProductsRequest, didReceiveResponse response: SKProductsResponse) {
-    for	product in response.products {
-      if product.productIdentifier == Product.ID {
-        proPrice = product.localizedPrice()
-      }
-    }
   }
 
   override func didReceiveMemoryWarning() {

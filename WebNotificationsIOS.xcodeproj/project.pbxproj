@@ -42,6 +42,7 @@
 		288FDBCB1BE10842003BAA2C /* Notifaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 288FDBCA1BE10842003BAA2C /* Notifaction.swift */; };
 		28A64FD11BBC4E9A0007DF95 /* DBHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A64FD01BBC4E9A0007DF95 /* DBHelper.swift */; };
 		28B480E31BB2D618006B257A /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B480E21BB2D618006B257A /* User.swift */; };
+		28B5F1031D4AF01500D36913 /* SKProductExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B5F1021D4AF01500D36913 /* SKProductExtension.swift */; };
 		28B8C1B61C01BE2E000525FD /* DiffTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B8C1B51C01BE2E000525FD /* DiffTableViewController.swift */; };
 		3A7CB8BF252579BDBD146D07 /* Pods_WebNotificationsIOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 186920EBBCC916000BE391AC /* Pods_WebNotificationsIOSTests.framework */; };
 		6FD08B6ABF4694B91C9AAF06 /* Pods_WebChecker_WebNotificationsIOSUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46791CEDD5D7EAC5CE7A9AEB /* Pods_WebChecker_WebNotificationsIOSUITests.framework */; };
@@ -116,6 +117,7 @@
 		288FDBCA1BE10842003BAA2C /* Notifaction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Notifaction.swift; sourceTree = "<group>"; };
 		28A64FD01BBC4E9A0007DF95 /* DBHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBHelper.swift; sourceTree = "<group>"; };
 		28B480E21BB2D618006B257A /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = Models/User.swift; sourceTree = "<group>"; };
+		28B5F1021D4AF01500D36913 /* SKProductExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKProductExtension.swift; sourceTree = "<group>"; };
 		28B8C1B51C01BE2E000525FD /* DiffTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiffTableViewController.swift; sourceTree = "<group>"; };
 		28B8C1BC1C01F8AD000525FD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		28B8C1BE1C01F8B0000525FD /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Main.strings; sourceTree = "<group>"; };
@@ -241,6 +243,7 @@
 			children = (
 				28738ECA1BAFDFE60083D95F /* UrlHelper.swift */,
 				28A64FD01BBC4E9A0007DF95 /* DBHelper.swift */,
+				28B5F1021D4AF01500D36913 /* SKProductExtension.swift */,
 				285B1BA01BBD3D4900BA3540 /* API.swift */,
 				28286D031BFE37D80027A814 /* Diff.swift */,
 				288E8C281BBEDDD00075DB56 /* Product.swift */,
@@ -597,6 +600,7 @@
 				2858C74C1BB83B1B005D7543 /* SecretKey.swift in Sources */,
 				2865033D1BAB019200BB041D /* URLsTableViewController.swift in Sources */,
 				28738ECB1BAFDFE60083D95F /* UrlHelper.swift in Sources */,
+				28B5F1031D4AF01500D36913 /* SKProductExtension.swift in Sources */,
 				285B1BA11BBD3D4900BA3540 /* API.swift in Sources */,
 				288E8C291BBEDDD00075DB56 /* Product.swift in Sources */,
 				28A64FD11BBC4E9A0007DF95 /* DBHelper.swift in Sources */,
