@@ -9,6 +9,7 @@
 import UIKit
 import SwiftyStoreKit
 import Parse
+import AWSSNS
 import Flurry_iOS_SDK
 
 
@@ -79,7 +80,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     installation?.setDeviceTokenFromData(deviceToken)
     installation?.saveInBackground()
 
-    if let uuid = User.createUUID() {
+    let deviceTokenString = "\(deviceToken)"
+      .stringByTrimmingCharactersInSet(NSCharacterSet(charactersInString:"<>"))
+      .stringByReplacingOccurrencesOfString(" ", withString: "")
+
+    if let uuid = User.createUser(deviceTokenString) {
       installation?.addUniqueObject(uuid, forKey: "channels")
       installation?.saveInBackground()
     }

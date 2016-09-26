@@ -127,20 +127,28 @@ class API {
       static let TOUCH = "http://webupdatenotification.com/users/touch"
     }
 
-    static func create(uuid: String?, result: (userID: Int?) -> Void) {
-      if uuid == nil || uuid?.characters.count <= 0 {
+    static func create(uuid: String?, token: String?, type: String?, locale: String?, zone: String?, result: (userID: Int?, deviceToken: String) -> Void) {
+      if uuid == nil || token == nil || type == nil || locale == nil || zone == nil || (uuid?.isEmpty)! {
         return
       }
 
       let parameters = [
-        "user": [ "channel": uuid! ]
+        "user": [
+          "channel": uuid!,
+          "device_token": token!,
+          "device_type": type!,
+          "locale_identifier": locale!,
+          "time_zone": zone!
+        ]
       ]
       Alamofire.request(.POST, URL.ADD, parameters: parameters).responseJSON { response in
         switch response.result {
         case .Success:
           if let dic = response.result.value as? Dictionary<String, AnyObject> {
             if let id = dic["id"] as? Int {
-              result(userID: id)
+              if let deviceToken = dic["device_token"] as? String {
+                result(userID: id, deviceToken: deviceToken)
+              }
             }
           }
         case .Failure(let error):

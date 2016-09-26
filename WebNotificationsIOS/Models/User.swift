@@ -18,6 +18,12 @@ class User: Object {
   dynamic var email = ""
   dynamic var password = ""
 
+  // schemaVersion: 3
+  dynamic var deviceToken = ""
+  dynamic var deviceType = "iOS"
+  dynamic var localeIdentifier = NSLocale.currentLocale().localeIdentifier
+  dynamic var timeZone = NSTimeZone.localTimeZone().name
+
 
   override static func primaryKey() -> String? {
     return "uuid"
@@ -42,9 +48,9 @@ class User: Object {
 
   static func sync() {
     if let user = currentUser() {
-      if user.id <= 0 {
-        API.User.create(getUUID()) { userID in
-          currentUserSetID(userID)
+      if user.id <= 0 || user.deviceToken.isEmpty {
+        API.User.create(user.uuid, token: user.deviceToken, type: user.deviceType, locale: user.localeIdentifier, zone: user.timeZone) { userID, deviceToken in
+          currentUserSetIDAndDeviceToken(userID, deviceToken: deviceToken)
         }
       } else {
         API.User.touch(User.getUUID())
@@ -52,16 +58,21 @@ class User: Object {
     }
   }
 
-  static func createUUID() -> String? {
+  static func createUser(deviceToken: String) -> String? {
     if let realm = getDB() {
       let users = realm.objects(User)
       if users.count > 0 {
+        let user = users.first
+        try! realm.write {
+          user?.deviceToken = deviceToken
+        }
         return nil
       } else {
         let user = User()
         let uuid = "user_" + NSUUID().UUIDString
         user.uuid = uuid
         user.email = uuid
+        user.deviceToken = deviceToken
         try! realm.write {
           realm.add(user)
         }
@@ -81,14 +92,17 @@ class User: Object {
     }
   }
 
-  private static func currentUserSetID(id: Int?) {
-    if id == nil {
+  private static func currentUserSetIDAndDeviceToken(id: Int?, deviceToken: String?) {
+    if id == nil || deviceToken == nil {
       return
     }
     if let user = currentUser() {
       if let realm = getDB() {
         try! realm.write {
           user.id = id!
+          if user.deviceToken.isEmpty {
+            user.deviceToken = deviceToken!
+          }
         }
       }
     }
