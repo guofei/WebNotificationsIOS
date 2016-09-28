@@ -2,12 +2,11 @@
 //  WebNotificationsIOSTests.swift
 //  WebNotificationsIOSTests
 //
-//  Created by kaku on 9/17/15.
-//  Copyright © 2015 kaku. All rights reserved.
+//  Created by kaku on 9/28/16.
+//  Copyright © 2016 kaku. All rights reserved.
 //
 
 import XCTest
-@testable import WebNotificationsIOS
 
 class WebNotificationsIOSTests: XCTestCase {
     
@@ -28,7 +27,7 @@ class WebNotificationsIOSTests: XCTestCase {
     
     func testPerformanceExample() {
         // This is an example of a performance test case.
-        self.measureBlock {
+        self.measure {
             // Put the code you want to measure the time of here.
         }
     }

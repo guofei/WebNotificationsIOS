@@ -12,11 +12,11 @@ PODS:
   - Ji/Ji-libxml (2.0.0)
   - Parse (1.14.2):
     - Bolts/Tasks (~> 1.8)
-  - Realm (1.1.0):
-    - Realm/Headers (= 1.1.0)
-  - Realm/Headers (1.1.0)
-  - RealmSwift (1.1.0):
-    - Realm (= 1.1.0)
+  - Realm (2.0.0):
+    - Realm/Headers (= 2.0.0)
+  - Realm/Headers (2.0.0)
+  - RealmSwift (2.0.0):
+    - Realm (= 2.0.0)
   - SwiftyStoreKit (0.5.1)
 
 DEPENDENCIES:
@@ -36,8 +36,8 @@ SPEC CHECKSUMS:
   Flurry-iOS-SDK: 97bbeec09cca666c2f1772f6e161c4f8ccff611e
   Ji: 79e11b5256ee809f9f7e51dc7de2059e35adf7a6
   Parse: 4335d65f40cb3d43190d723144bbe1afb9c38230
-  Realm: ceecf1a4540c4ce9efe196fe73fa9855bce05bd8
-  RealmSwift: 838058b2db95b12cb86bd0cf209df642c33fb60a
+  Realm: 6dda421ae4b3e9a09742fc2cf4b876d459cbedcd
+  RealmSwift: 7d015f34a2781a50889be9b5a15c36c08597ea0e
   SwiftyStoreKit: 53c63f91545a3778dc108f860a7414905ce40a63
 
 PODFILE CHECKSUM: d34684d70b49cddcc1e9743193b52eb39c9c4f5b
