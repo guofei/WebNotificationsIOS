@@ -7,22 +7,42 @@
 //
 
 import Foundation
+fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l < r
+  case (nil, _?):
+    return true
+  default:
+    return false
+  }
+}
+
+fileprivate func <= <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l <= r
+  default:
+    return !(rhs < lhs)
+  }
+}
+
 
 struct Diff<T> {
   let results: [DiffStep<T>]
   var insertions: [DiffStep<T>] {
-    return results.filter({ $0.isInsertion }).sort { $0.idx < $1.idx }
+    return results.filter({ $0.isInsertion }).sorted { $0.idx < $1.idx }
   }
   var deletions: [DiffStep<T>] {
-    return results.filter({ !$0.isInsertion }).sort { $0.idx > $1.idx }
+    return results.filter({ !$0.isInsertion }).sorted { $0.idx > $1.idx }
   }
   func reversed() -> Diff<T> {
-    let reversedResults = self.results.reverse().map { (result: DiffStep<T>) -> DiffStep<T> in
+    let reversedResults = self.results.reversed().map { (result: DiffStep<T>) -> DiffStep<T> in
       switch result {
-      case .Insert(let i, let j):
-        return .Delete(i, j)
-      case .Delete(let i, let j):
-        return .Insert(i, j)
+      case .insert(let i, let j):
+        return .delete(i, j)
+      case .delete(let i, let j):
+        return .insert(i, j)
       }
     }
     return Diff<T>(results: reversedResults)
@@ -34,45 +54,45 @@ func +<T> (left: DiffStep<T>, right: Diff<T>) -> Diff<T> {
 }
 
 enum DiffStep<T> : CustomDebugStringConvertible {
-  case Insert(Int, T)
-  case Delete(Int, T)
+  case insert(Int, T)
+  case delete(Int, T)
   var isInsertion: Bool {
     switch(self) {
-    case .Insert:
+    case .insert:
       return true
-    case .Delete:
+    case .delete:
       return false
     }
   }
   var debugDescription: String {
     switch(self) {
-    case .Insert(let i, let j):
+    case .insert(let i, let j):
       return "+\(j)@\(i)"
-    case .Delete(let i, let j):
+    case .delete(let i, let j):
       return "-\(j)@\(i)"
     }
   }
   var toString: String {
     switch(self) {
-    case .Insert(_, let j):
+    case .insert(_, let j):
       return "+\(j)"
-    case .Delete(_, let j):
+    case .delete(_, let j):
       return "-\(j)"
     }
   }
   var idx: Int {
     switch(self) {
-    case .Insert(let i, _):
+    case .insert(let i, _):
       return i
-    case .Delete(let i, _):
+    case .delete(let i, _):
       return i
     }
   }
   var value: T {
     switch(self) {
-    case .Insert(let j):
+    case .insert(let j):
       return j.1
-    case .Delete(let j):
+    case .delete(let j):
       return j.1
     }
   }
@@ -81,13 +101,13 @@ enum DiffStep<T> : CustomDebugStringConvertible {
 extension Array where Element: Equatable {
 
   /// Returns the sequence of ArrayDiffResults required to transform one array into another.
-  func diff(other: [Element]) -> Diff<Element> {
+  func diff(_ other: [Element]) -> Diff<Element> {
     let table = MemoizedSequenceComparison.buildTable(self, other, self.count, other.count)
     return Array.diffFromIndices(table, self, other, self.count, other.count)
   }
 
   /// Walks back through the generated table to generate the diff.
-  private static func diffFromIndices(table: [[Int]], _ x: [Element], _ y: [Element], _ iCount: Int, _ jCount: Int) -> Diff<Element> {
+  fileprivate static func diffFromIndices(_ table: [[Int]], _ x: [Element], _ y: [Element], _ iCount: Int, _ jCount: Int) -> Diff<Element> {
 
     var result = Diff<Element>(results: [])
 
@@ -96,16 +116,16 @@ extension Array where Element: Equatable {
     while i >= 0 && j >= 0 {
       if i == 0 && j > 0 {
         j -= 1
-        result = DiffStep.Insert(j, y[j]) + result
+        result = DiffStep.insert(j, y[j]) + result
       } else if j == 0 && i > 0 {
         i -= 1
-        result = DiffStep.Delete(i, x[i]) + result
+        result = DiffStep.delete(i, x[i]) + result
       } else if j > 0 && table[i][j] == table[i][j-1] {
         j -= 1
-        result = DiffStep.Insert(j, y[j]) + result
+        result = DiffStep.insert(j, y[j]) + result
       } else if i > 0 && table[i][j] == table[i-1][j] {
         i -= 1
-        result = DiffStep.Delete(i, x[i]) + result
+        result = DiffStep.delete(i, x[i]) + result
       } else {
         i -= 1
         j -= 1
@@ -117,8 +137,8 @@ extension Array where Element: Equatable {
 }
 
 struct MemoizedSequenceComparison<T: Equatable> {
-  static func buildTable(x: [T], _ y: [T], _ n: Int, _ m: Int) -> [[Int]] {
-    var table = Array(count: n + 1, repeatedValue: Array(count: m + 1, repeatedValue: 0))
+  static func buildTable(_ x: [T], _ y: [T], _ n: Int, _ m: Int) -> [[Int]] {
+    var table = Array(repeating: Array(repeating: 0, count: m + 1), count: n + 1)
     for i in 0...n {
       for j in 0...m {
         if (i == 0 || j == 0) {
@@ -135,24 +155,8 @@ struct MemoizedSequenceComparison<T: Equatable> {
   }
 }
 
-extension String {
-  func split(len: Int) -> [String] {
-    var currentIndex = 0
-    var array = [String]()
-    let length = self.characters.count
-    while currentIndex < length {
-      let startIndex = self.startIndex.advancedBy(currentIndex)
-      let endIndex = startIndex.advancedBy(len, limit: self.endIndex)
-      let substr = self.substringWithRange(Range(startIndex..<endIndex))
-      array.append(substr)
-      currentIndex += len
-    }
-    return array
-  }
-}
-
 class DiffHelper {
-  static func get(origin: String?, newData: String?) -> String {
+  static func get(_ origin: String?, newData: String?) -> String {
     if (origin == nil || newData == nil) {
       return ""
     }
@@ -184,11 +188,11 @@ class DiffHelper {
         return [s]
       }
     }
-    let a = origin!.characters.split(isSeparator: splitor).map(trans).flatMap{$0}
-    let b = newData!.characters.split(isSeparator: splitor).map(trans).flatMap{$0}
+    let a = origin!.characters.split(whereSeparator: splitor).map(trans).flatMap{$0}
+    let b = newData!.characters.split(whereSeparator: splitor).map(trans).flatMap{$0}
     
     let diff = a.diff(b)
-    let printableDiff = diff.results.map({ $0.toString }).joinWithSeparator("\n")
+    let printableDiff = diff.results.map({ $0.toString }).joined(separator: "\n")
     return printableDiff
   }
 }

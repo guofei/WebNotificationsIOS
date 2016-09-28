@@ -26,43 +26,43 @@ class Page: Object {
   dynamic var contentDiff = ""
   dynamic var digest = ""
   dynamic var changed = false
-  dynamic var createdAt = NSDate()
-  dynamic var updatedAt = NSDate()
+  dynamic var createdAt = Date()
+  dynamic var updatedAt = Date()
 
   override static func primaryKey() -> String? {
     return "url"
   }
 
   func formatedUpdateTime() -> String {
-    let dateFormatter = NSDateFormatter()
-    dateFormatter.timeStyle = .ShortStyle
-    dateFormatter.dateStyle = .ShortStyle
-    return dateFormatter.stringFromDate(updatedAt)
+    let dateFormatter = DateFormatter()
+    dateFormatter.timeStyle = .short
+    dateFormatter.dateStyle = .short
+    return dateFormatter.string(from: updatedAt)
   }
 
   static func count() -> Int {
     if let realm = getDB() {
-      let pages = realm.objects(Page)
+      let pages = realm.objects(Page.self)
       return pages.count
     } else {
       return 0
     }
   }
 
-  static func getByURL(url: String?) -> Page? {
+  static func getByURL(_ url: String?) -> Page? {
     if url == nil {
       return nil
     }
     if let realm = getDB() {
       let predicate = NSPredicate(format: "url = %@", url!)
-      let pages = realm.objects(Page).filter(predicate)
+      let pages = realm.objects(Page.self).filter(predicate)
       return pages.first
     } else {
       return nil
     }
   }
 
-  static func setChanged(url: String?, changed: Bool) {
+  static func setChanged(_ url: String?, changed: Bool) {
     if let page = Page.getByURL(url) {
       if let realm = getDB() {
         try! realm.write {
@@ -72,10 +72,10 @@ class Page: Object {
     }
   }
 
-  static func getByCellIndex(index: Int) -> Page? {
+  static func getByCellIndex(_ index: Int) -> Page? {
     if let realm = getDB() {
       let predicate = NSPredicate(format: "cellIndex = %@", index)
-      let pages = realm.objects(Page).filter(predicate)
+      let pages = realm.objects(Page.self).filter(predicate)
       if pages.count == 1 {
         return pages.first
       } else {
@@ -86,10 +86,10 @@ class Page: Object {
     }
   }
 
-  private static func resetCellIndex() {
+  fileprivate static func resetCellIndex() {
     if let realm = getDB() {
-      let pages = realm.objects(Page)
-      for (index, page) in pages.enumerate() {
+      let pages = realm.objects(Page.self)
+      for (index, page) in pages.enumerated() {
         try! realm.write {
           page.cellIndex = index
         }
@@ -97,7 +97,7 @@ class Page: Object {
     }
   }
 
-  private static func serverStopFetch(page: Page) {
+  fileprivate static func serverStopFetch(_ page: Page) {
     API.Page.update(page.id, url: page.url, second: page.sec, uuid: User.getUUID(), stopFetch: true)
   }
 
@@ -114,7 +114,7 @@ class Page: Object {
     }
   }
 
-  private static func syncURL(url: String?, second: Int, stopFetch: Bool) {
+  fileprivate static func syncURL(_ url: String?, second: Int, stopFetch: Bool) {
     let newSecond = User.isProUser() ? second : PageConst.defaultSecond
     let newStop = Notifaction.type() == Notifaction.ON ? stopFetch : true
     API.Page.create(url, uuid: User.getUUID(), second: newSecond, stopFetch: newStop) { id in
@@ -130,7 +130,7 @@ class Page: Object {
     }
   }
 
-  static func deleteByURL(url: String?) -> Bool {
+  static func deleteByURL(_ url: String?) -> Bool {
     if let page = getByURL(url) {
       if page.id > 0 {
         serverStopFetch(page)
@@ -147,7 +147,7 @@ class Page: Object {
     return false
   }
 
-  private static func addOrUpdateURLToLocal(id: Int?, url: String?, second: Int, stopFetch: Bool) -> Bool {
+  fileprivate static func addOrUpdateURLToLocal(_ id: Int?, url: String?, second: Int, stopFetch: Bool) -> Bool {
     if url == nil {
       return false
     }
@@ -184,10 +184,8 @@ class Page: Object {
     }
   }
 
-  static func addOrUpdate(url: String?, second: Int, stopFetch: Bool, closure: (Bool) -> Void) {
-    let qos = Int(QOS_CLASS_USER_INITIATED.rawValue)
-    let queue = dispatch_get_global_queue(qos, 0)
-    dispatch_async(queue) {
+  static func addOrUpdate(_ url: String?, second: Int, stopFetch: Bool, closure: @escaping (Bool) -> Void) {
+    DispatchQueue.global(qos: DispatchQoS.QoSClass.userInitiated).async {
       if addOrUpdateURLToLocal(nil, url: url, second: second, stopFetch: stopFetch) {
         syncURL(url, second: second, stopFetch: stopFetch)
         closure(true)
@@ -197,14 +195,14 @@ class Page: Object {
     }
   }
 
-  private static func checkIsUpdate(page :Page?) -> Bool {
+  fileprivate static func checkIsUpdate(_ page :Page?) -> Bool {
     if page == nil {
       return false
     }
 
     if let page = page {
       let res = parse(page.url)
-      if let content = res.content where content != page.content {
+      if let content = res.content , content != page.content {
         let contentDiff = User.isProUser() ? DiffHelper.get(page.content, newData: res.content) : ""
         let url = page.url
         try! getDB()?.write {
@@ -217,7 +215,7 @@ class Page: Object {
               page.content = content
               page.changed = true
             }
-            page.updatedAt = NSDate()
+            page.updatedAt = NSDate() as Date
           }
         }
         return true
@@ -229,22 +227,18 @@ class Page: Object {
     return false
   }
 
-  static func update(url :String?, done: (Bool) -> Void) {
-    let qos = Int(QOS_CLASS_UTILITY.rawValue)
-    let queue = dispatch_get_global_queue(qos, 0)
-    dispatch_async(queue) {
+  static func update(_ url :String?, done: @escaping (Bool) -> Void) {
+    DispatchQueue.global(qos: DispatchQoS.QoSClass.utility).async {
       let page = Page.getByURL(url)
       let res = checkIsUpdate(page)
       done(res)
     }
   }
   
-  static func updateAll(done: (Bool) -> Void) {
-    let qos = Int(QOS_CLASS_UTILITY.rawValue)
-    let queue = dispatch_get_global_queue(qos, 0)
-    dispatch_async(queue) {
+  static func updateAll(_ done: @escaping (Bool) -> Void) {
+    DispatchQueue.global(qos: DispatchQoS.QoSClass.utility).async {
       if let realm = getDB() {
-        let pages = realm.objects(Page)
+        let pages = realm.objects(Page.self)
         for	page in pages {
           checkIsUpdate(page)
         }

@@ -11,8 +11,8 @@ import UIKit
 
 
 extension String {
-  func replace(string:String, replacement:String) -> String {
-    return self.stringByReplacingOccurrencesOfString(string, withString: replacement, options: NSStringCompareOptions.LiteralSearch, range: nil)
+  func replace(_ string:String, replacement:String) -> String {
+    return self.replacingOccurrences(of: string, with: replacement, options: NSString.CompareOptions.literal, range: nil)
   }
 
   func removeWhitespace() -> String {
@@ -22,7 +22,7 @@ extension String {
 
 
 class UrlHelper {
-  static func getURL (url: String?) -> String? {
+  static func getURL (_ url: String?) -> String? {
     if let url = url {
       let str = url.removeWhitespace()
       if (str.characters.count > 0) {
@@ -39,13 +39,13 @@ class UrlHelper {
     }
   }
 
-  static func verifyUrl (urlString: String?) -> Bool {
+  static func verifyUrl (_ urlString: String?) -> Bool {
     //Check for nil
     if let urlString = urlString {
       // create NSURL instance
-      if let url = NSURL(string: urlString) {
+      if let url = URL(string: urlString) {
         // check if your application can open the NSURL instance
-        return UIApplication.sharedApplication().canOpenURL(url)
+        return UIApplication.shared.canOpenURL(url)
       }
     }
     return false

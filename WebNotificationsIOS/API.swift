@@ -13,13 +13,13 @@ import Alamofire
 
 class API {
   class Page {
-    private struct URL {
+    fileprivate struct URL {
       static let USERGET = "http://webupdatenotification.com/users/"
       static let PAGEGET = "http://webupdatenotification.com/pages/"
       static let PAGEADD = "http://webupdatenotification.com/pages"
       static let PAGEUPDATE = "http://webupdatenotification.com/pages/"
     }
-    static func create(url: String?, uuid: String?, second: Int?, stopFetch: Bool?, clourse: (id: Int?) -> Void) {
+    static func create(_ url: String?, uuid: String?, second: Int?, stopFetch: Bool?, clourse: @escaping (_ id: Int?) -> Void) {
       if url == nil || uuid == nil || second == nil || stopFetch == nil {
         return
       }
@@ -32,21 +32,21 @@ class API {
           "stop_fetch": stopFetch!
         ]
       ]
-      Alamofire.request(.POST, URL.PAGEADD, parameters: parameters).responseJSON { response in
+      Alamofire.request(URL.PAGEADD, method: .post, parameters: parameters).responseJSON { response in
         switch response.result {
-        case .Success:
+        case .success:
           if let dic = response.result.value as? Dictionary<String, AnyObject> {
             if let id = dic["id"] as? Int {
-              clourse(id: id)
+              clourse(id)
             }
           }
-        case .Failure(let error):
+        case .failure(let error):
           print(error)
         }
       }
     }
 
-    static func update(id: Int?, url: String?, second: Int?, uuid: String?, stopFetch: Bool?) {
+    static func update(_ id: Int?, url: String?, second: Int?, uuid: String?, stopFetch: Bool?) {
       if id == nil || url == nil || uuid == nil || second == nil || stopFetch == nil {
         return
       }
@@ -63,10 +63,10 @@ class API {
           "stop_fetch": stopFetch!
         ]
       ]
-      Alamofire.request(.PUT, updateURL, parameters: parameters)
+      Alamofire.request(updateURL, method: .put, parameters: parameters)
     }
 
-    static func get(pageID: Int?, fun: (id: Int?, url: String?, second: Int?, stopFetch: Bool?, diff: String?) -> Void) {
+    static func get(_ pageID: Int?, fun: @escaping (_ id: Int?, _ url: String?, _ second: Int?, _ stopFetch: Bool?, _ diff: String?) -> Void) {
       if pageID == nil {
         return
       }
@@ -75,24 +75,24 @@ class API {
       }
 
       let getURL = URL.PAGEGET + "\(pageID!)"
-      Alamofire.request(.GET, getURL).responseJSON { response in
+      Alamofire.request(getURL, method: .get).responseJSON { response in
         switch response.result {
-        case .Success:
+        case .success:
           if let item = response.result.value as? Dictionary<String, AnyObject> {
             let id = item["id"] as? Int
             let url = item["url"] as? String
             let stopFetch = item["stop_fetch"] as? Bool
             let sec = item["sec"] as? Int
             let diff = item["content_diff"] as? String
-            fun(id: id, url: url, second: sec, stopFetch: stopFetch, diff: diff)
+            fun(id, url, sec, stopFetch, diff)
           }
-        case .Failure(let error):
+        case .failure(let error):
           print(error)
         }
       }
     }
 
-    static func all(userID: Int?, each: (id: Int?, url: String?, second: Int?, stopFetch: Bool?) -> Void) {
+    static func all(_ userID: Int?, each: @escaping (_ id: Int?, _ url: String?, _ second: Int?, _ stopFetch: Bool?) -> Void) {
       if userID == nil {
         return
       }
@@ -101,9 +101,9 @@ class API {
       }
 
       let getURL = URL.USERGET + "\(userID!)" + "/pages"
-      Alamofire.request(.GET, getURL).responseJSON { response in
+      Alamofire.request(getURL, method: .get).responseJSON { response in
         switch response.result {
-        case .Success:
+        case .success:
           if let arr = response.result.value as? Array<Dictionary<String, AnyObject>> {
             for item in arr {
               let id = item["id"] as? Int
@@ -111,10 +111,10 @@ class API {
               let stopFetch = item["stop_fetch"] as? Bool
               let sec = item["sec"] as? Int
               // let diff = item["content_diff"] as? String
-              each(id: id, url: url, second: sec, stopFetch: stopFetch)
+              each(id, url, sec, stopFetch)
             }
           }
-        case .Failure(let error):
+        case .failure(let error):
           print(error)
         }
       }
@@ -122,12 +122,12 @@ class API {
   }
 
   class User {
-    private struct URL {
+    fileprivate struct URL {
       static let ADD = "http://webupdatenotification.com/users"
       static let TOUCH = "http://webupdatenotification.com/users/touch"
     }
 
-    static func create(uuid: String?, token: String?, type: String?, locale: String?, zone: String?, result: (userID: Int?, deviceToken: String) -> Void) {
+    static func create(_ uuid: String?, token: String?, type: String?, locale: String?, zone: String?, result: @escaping (_ userID: Int?, _ deviceToken: String) -> Void) {
       if uuid == nil || token == nil || type == nil || locale == nil || zone == nil || (uuid?.isEmpty)! {
         return
       }
@@ -141,23 +141,23 @@ class API {
           "time_zone": zone!
         ]
       ]
-      Alamofire.request(.POST, URL.ADD, parameters: parameters).responseJSON { response in
+      Alamofire.request(URL.ADD, method: .post, parameters: parameters).responseJSON { response in
         switch response.result {
-        case .Success:
+        case .success:
           if let dic = response.result.value as? Dictionary<String, AnyObject> {
             if let id = dic["id"] as? Int {
               if let deviceToken = dic["device_token"] as? String {
-                result(userID: id, deviceToken: deviceToken)
+                result(id, deviceToken)
               }
             }
           }
-        case .Failure(let error):
+        case .failure(let error):
           print(error)
         }
       }
     }
     
-    static func touch(uuid: String?) {
+    static func touch(_ uuid: String?) {
       if uuid == nil {
         return
       }
@@ -165,7 +165,7 @@ class API {
       let parameters = [
         "user": [ "channel": uuid! ]
       ]
-      Alamofire.request(.POST, URL.TOUCH, parameters: parameters)
+      Alamofire.request(URL.TOUCH, method: .post, parameters: parameters)
     }
   }
 }

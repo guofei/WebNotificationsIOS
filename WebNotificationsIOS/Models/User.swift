@@ -21,8 +21,8 @@ class User: Object {
   // schemaVersion: 3
   dynamic var deviceToken = ""
   dynamic var deviceType = "iOS"
-  dynamic var localeIdentifier = NSLocale.currentLocale().localeIdentifier
-  dynamic var timeZone = NSTimeZone.localTimeZone().name
+  dynamic var localeIdentifier = Locale.current.identifier
+  dynamic var timeZone = TimeZone.autoupdatingCurrent.identifier
 
 
   override static func primaryKey() -> String? {
@@ -31,7 +31,7 @@ class User: Object {
 
   static func currentUser() -> User? {
     if let realm = getDB() {
-      let users = realm.objects(User)
+      let users = realm.objects(User.self)
       if users.count > 0 {
         return users.first
       } else {
@@ -58,9 +58,9 @@ class User: Object {
     }
   }
 
-  static func createUser(deviceToken: String) -> String? {
+  static func createUser(_ deviceToken: String) -> String? {
     if let realm = getDB() {
-      let users = realm.objects(User)
+      let users = realm.objects(User.self)
       if users.count > 0 {
         let user = users.first
         try! realm.write {
@@ -69,7 +69,7 @@ class User: Object {
         return nil
       } else {
         let user = User()
-        let uuid = "user_" + NSUUID().UUIDString
+        let uuid = "user_" + UUID().uuidString
         user.uuid = uuid
         user.email = uuid
         user.deviceToken = deviceToken
@@ -92,7 +92,7 @@ class User: Object {
     }
   }
 
-  private static func currentUserSetIDAndDeviceToken(id: Int?, deviceToken: String?) {
+  fileprivate static func currentUserSetIDAndDeviceToken(_ id: Int?, deviceToken: String?) {
     if id == nil || deviceToken == nil {
       return
     }
@@ -109,8 +109,8 @@ class User: Object {
   }
 
   static func isProUser() -> Bool {
-    let ud = NSUserDefaults.standardUserDefaults()
-    if let pro = ud.objectForKey(Product.NSUserDefaultsKey) as? Bool {
+    let ud = UserDefaults.standard
+    if let pro = ud.object(forKey: Product.NSUserDefaultsKey) as? Bool {
       return pro
     } else {
       return false
@@ -118,8 +118,8 @@ class User: Object {
   }
   
   static func setProUser() {
-    let ud = NSUserDefaults.standardUserDefaults()
-    ud.setObject(true, forKey: Product.NSUserDefaultsKey)
+    let ud = UserDefaults.standard
+    ud.set(true, forKey: Product.NSUserDefaultsKey)
     ud.synchronize()
   }
 }

@@ -17,7 +17,7 @@ class URLsTableViewController: UITableViewController {
   var pages : Results<Page>? {
     get {
       do {
-        let result = try Realm().objects(Page).sorted("createdAt", ascending: false)
+        let result = try Realm().objects(Page.self).sorted(byProperty: "createdAt", ascending: false)
         return result
       } catch {
         return nil
@@ -28,8 +28,8 @@ class URLsTableViewController: UITableViewController {
 
   @IBOutlet weak var editBar: UIBarButtonItem!
 
-  @IBAction func edit(sender: AnyObject) {
-    if tableView.editing {
+  @IBAction func edit(_ sender: AnyObject) {
+    if tableView.isEditing {
       tableView?.setEditing(false, animated: true)
       editBar.title = NSLocalizedString("EditButtonNormalTitle", comment: "")
     } else {
@@ -38,14 +38,14 @@ class URLsTableViewController: UITableViewController {
     }
   }
 
-  @IBAction func refresh(sender: AnyObject) {
+  @IBAction func refresh(_ sender: AnyObject) {
     refresh()
   }
 
-  private func refresh() {
+  fileprivate func refresh() {
     refreshControl?.beginRefreshing()
     Page.updateAll() { (_) -> Void in
-      dispatch_sync(dispatch_get_main_queue()) {
+      DispatchQueue.main.sync {
         self.tableView?.reloadData()
         self.refreshControl?.endRefreshing()
       }
@@ -62,7 +62,7 @@ class URLsTableViewController: UITableViewController {
 
   }
 
-  override func viewDidAppear(animated: Bool) {
+  override func viewDidAppear(_ animated: Bool) {
     super.viewDidAppear(animated)
     refreshControl?.beginRefreshing()
     tableView?.reloadData()
@@ -70,7 +70,7 @@ class URLsTableViewController: UITableViewController {
 
     if let url = showPageOnce {
       showPageOnce = nil
-      performSegueWithIdentifier(StoryBoard.toWebPageSegue, sender: url)
+      performSegue(withIdentifier: StoryBoard.toWebPageSegue, sender: url)
     }
   }
 
@@ -81,12 +81,12 @@ class URLsTableViewController: UITableViewController {
 
   // MARK: - Table view data source
 
-  override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+  override func numberOfSections(in tableView: UITableView) -> Int {
     // #warning Incomplete implementation, return the number of sections
     return 1
   }
 
-  override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+  override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     // #warning Incomplete implementation, return the number of rows
     if let allPages = pages {
       return allPages.count
@@ -95,8 +95,8 @@ class URLsTableViewController: UITableViewController {
     }
   }
 
-  override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-    let cell = tableView.dequeueReusableCellWithIdentifier("URLCell", forIndexPath: indexPath)
+  override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    let cell = tableView.dequeueReusableCell(withIdentifier: "URLCell", for: indexPath)
 
     if let allPages = pages {
       let page = allPages[indexPath.row]
@@ -107,24 +107,24 @@ class URLsTableViewController: UITableViewController {
       cell.detailTextLabel?.text = emoji + page.formatedUpdateTime() + " " + page.url
       cell.textLabel?.text = page.title
       if page.changed {
-        cell.accessoryType = UITableViewCellAccessoryType.Checkmark
+        cell.accessoryType = UITableViewCellAccessoryType.checkmark
       } else {
-        cell.accessoryType = UITableViewCellAccessoryType.None
+        cell.accessoryType = UITableViewCellAccessoryType.none
       }
     }
 
     return cell
   }
 
-  override func tableView(table: UITableView, didSelectRowAtIndexPath indexPath:NSIndexPath) {
+  override func tableView(_ table: UITableView, didSelectRowAt indexPath:IndexPath) {
     if let allPages = pages {
       let page = allPages[indexPath.row]
-      if tableView.editing {
+      if tableView.isEditing {
         // let cell = tableView.cellForRowAtIndexPath(indexPath)
-        performSegueWithIdentifier(StoryBoard.toAddURLSegue, sender: page.url)
+        performSegue(withIdentifier: StoryBoard.toAddURLSegue, sender: page.url)
       } else {
         // let cell = tableView.cellForRowAtIndexPath(indexPath)
-        performSegueWithIdentifier(StoryBoard.toWebPageSegue, sender: page.url)
+        performSegue(withIdentifier: StoryBoard.toWebPageSegue, sender: page.url)
       }
     }
   }
@@ -148,13 +148,13 @@ class URLsTableViewController: UITableViewController {
 
 
   // Override to support editing the table view.
-  override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-    if editingStyle == .Delete {
+  override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+    if editingStyle == .delete {
       // Delete the row from the data source
       if let allPages = pages {
         let page = allPages[indexPath.row]
         Page.deleteByURL(page.url)
-        tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+        tableView.deleteRows(at: [indexPath], with: .fade)
       }
     }
   }
@@ -184,9 +184,9 @@ class URLsTableViewController: UITableViewController {
   }
 
   // In a storyboard-based application, you will often want to do a little preparation before navigation
-  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     if (segue.identifier == StoryBoard.toWebPageSegue) {
-      if let nav = segue.destinationViewController as? UINavigationController {
+      if let nav = segue.destination as? UINavigationController {
         if let subVC = nav.viewControllers.first as? PageViewController {
           if let url = sender as? String {
             subVC.targetURL = url
@@ -194,7 +194,7 @@ class URLsTableViewController: UITableViewController {
         }
       }
     } else if (segue.identifier == StoryBoard.toAddURLSegue) {
-      if let nav = segue.destinationViewController as? UINavigationController {
+      if let nav = segue.destination as? UINavigationController {
         if let addURLVC = nav.viewControllers.first as? URLAddTableViewController {
           if let url = sender as? String {
             addURLVC.originURL = url

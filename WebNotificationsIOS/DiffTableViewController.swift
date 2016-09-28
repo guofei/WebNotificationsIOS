@@ -42,21 +42,21 @@ class DiffTableViewController: UITableViewController {
     // self.navigationItem.rightBarButtonItem = self.editButtonItem()
   }
 
-  @IBAction func buy(sender: AnyObject) {
+  @IBAction func buy(_ sender: AnyObject) {
     spinner?.startAnimating()
     Flurry.logEvent("Buy Pro Clicked", withParameters: ["view": "diff"])
     SwiftyStoreKit.purchaseProduct(Product.ID) { result in
       switch result {
-      case .Success(let productId):
+      case .success(let productId):
         Flurry.logEvent("Buy Pro OK", withParameters: ["view": "diff", "product": "\(productId)"])
-      case .Error(let error):
+      case .error(let error):
         Flurry.logEvent("Buy Pro Error", withParameters: ["view": "diff", "error": "\(error)"])
       }
       self.spinner?.stopAnimating()
     }
   }
 
-  @IBAction func restore(sender: AnyObject) {
+  @IBAction func restore(_ sender: AnyObject) {
     spinner?.startAnimating()
     Flurry.logEvent("Restore Pro Clicked", withParameters: ["view": "diff"])
     SwiftyStoreKit.restorePurchases() { results in
@@ -64,7 +64,7 @@ class DiffTableViewController: UITableViewController {
     }
   }
 
-  private func showDiff() {
+  fileprivate func showDiff() {
     if User.isProUser() {
       if let url = targetURL {
         if let page = Page.getByURL(url) {
@@ -75,14 +75,14 @@ class DiffTableViewController: UITableViewController {
     }
   }
 
-  private func updatePrice() {
+  fileprivate func updatePrice() {
     if let price = proPrice {
       let text = NSLocalizedString("BuyProWithoutPrice", comment: "") + " (\(price))"
-      buyButton?.setTitle(text, forState: UIControlState.Normal)
+      buyButton?.setTitle(text, for: UIControlState())
     }
   }
 
-  override func viewWillAppear(animated: Bool) {
+  override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     SwiftyStoreKit.retrieveProductsInfo([Product.ID]) { result in
       if let product = result.retrievedProducts.first {
@@ -91,7 +91,7 @@ class DiffTableViewController: UITableViewController {
     }
   }
 
-  override func viewWillDisappear(animated: Bool) {
+  override func viewWillDisappear(_ animated: Bool) {
     super.viewWillDisappear(animated)
   }
 
@@ -102,7 +102,7 @@ class DiffTableViewController: UITableViewController {
 
   // MARK: - Table view data source
 
-  override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+  override func numberOfSections(in tableView: UITableView) -> Int {
     // #warning Incomplete implementation, return the number of sections
     if User.isProUser() {
       return 1

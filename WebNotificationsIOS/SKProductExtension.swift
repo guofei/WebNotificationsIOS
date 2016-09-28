@@ -11,10 +11,10 @@ import StoreKit
 
 extension SKProduct {
   func localizedPrice() -> String {
-    let numberFormatter = NSNumberFormatter()
-    numberFormatter.formatterBehavior = .Behavior10_4
-    numberFormatter.numberStyle = .CurrencyStyle
+    let numberFormatter = NumberFormatter()
+    numberFormatter.formatterBehavior = .behavior10_4
+    numberFormatter.numberStyle = .currency
     numberFormatter.locale = priceLocale
-    return numberFormatter.stringFromNumber(price)!
+    return numberFormatter.string(from: price)!
   }
 }

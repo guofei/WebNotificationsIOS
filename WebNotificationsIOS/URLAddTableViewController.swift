@@ -16,7 +16,7 @@ class URLAddTableViewController: UITableViewController, UITextFieldDelegate {
       if notification == nil {
         return false
       } else {
-        return !notification.on
+        return !notification.isOn
       }
     }
   }
@@ -37,27 +37,27 @@ class URLAddTableViewController: UITableViewController, UITextFieldDelegate {
   @IBOutlet weak var notification: UISwitch!
   @IBOutlet weak var buyButton: UIButton!
 
-  @IBAction func cancel(sender: AnyObject) {
-    self.dismissViewControllerAnimated(true, completion: nil)
+  @IBAction func cancel(_ sender: AnyObject) {
+    self.dismiss(animated: true, completion: nil)
   }
 
-  @IBAction func notificationChanged(sender: UISwitch) {
-    if sender.on {
+  @IBAction func notificationChanged(_ sender: UISwitch) {
+    if sender.isOn {
       Notifaction.setFirstTime()
     }
   }
 
-  @IBAction func save(sender: AnyObject) {
+  @IBAction func save(_ sender: AnyObject) {
     spinner?.startAnimating()
     if changeURL() {
       Page.deleteByURL(UrlHelper.getURL(originURL))
     }
     let sec = Int(datePicker.countDownDuration)
     Page.addOrUpdate(UrlHelper.getURL(urlField.text), second: sec, stopFetch: stopFetch) { (ok: Bool) -> Void in
-      dispatch_sync(dispatch_get_main_queue()) {
+      DispatchQueue.main.sync {
         self.spinner?.stopAnimating()
         if ok {
-          self.dismissViewControllerAnimated(true, completion: nil)
+          self.dismiss(animated: true, completion: nil)
           Flurry.logEvent("Add URL")
         } else {
           self.alert("Error", message: NSLocalizedString("AccessError", comment: ""))
@@ -69,11 +69,11 @@ class URLAddTableViewController: UITableViewController, UITextFieldDelegate {
     }
   }
 
-  @IBAction func tap(sender: AnyObject) {
+  @IBAction func tap(_ sender: AnyObject) {
     view.endEditing(true)
   }
 
-  @IBAction func restore(sender: AnyObject) {
+  @IBAction func restore(_ sender: AnyObject) {
     Flurry.logEvent("Restore Pro Clicked", withParameters: ["view": "diff"])
     spinner?.startAnimating()
     SwiftyStoreKit.restorePurchases() { results in
@@ -81,15 +81,15 @@ class URLAddTableViewController: UITableViewController, UITextFieldDelegate {
     }
   }
 
-  @IBAction func buyPro(sender: AnyObject) {
+  @IBAction func buyPro(_ sender: AnyObject) {
     Flurry.logEvent("Buy Pro Clicked", withParameters: ["view": "urladd"])
     spinner?.startAnimating()
     SwiftyStoreKit.purchaseProduct(Product.ID) { result in
       switch result {
-      case .Success(let productId):
+      case .success(let productId):
         self.setProUI()
         Flurry.logEvent("Buy Pro OK", withParameters: ["view": "urladd", "product": "\(productId)"])
-      case .Error(let error):
+      case .error(let error):
         Flurry.logEvent("Buy Pro Error", withParameters: ["view": "urladd", "error": "\(error)"])
       }
       self.spinner?.stopAnimating()
@@ -112,15 +112,15 @@ class URLAddTableViewController: UITableViewController, UITextFieldDelegate {
   }
   */
 
-  private func alert(title: String?, message: String?) {
+  fileprivate func alert(_ title: String?, message: String?) {
     if (title != nil && message != nil) {
-      let alert = UIAlertController(title: title!, message: message!, preferredStyle: UIAlertControllerStyle.Alert)
-      alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
-      self.presentViewController(alert, animated: true, completion: nil)
+      let alert = UIAlertController(title: title!, message: message!, preferredStyle: UIAlertControllerStyle.alert)
+      alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+      self.present(alert, animated: true, completion: nil)
     }
   }
 
-  private func changeURL() -> Bool {
+  fileprivate func changeURL() -> Bool {
     if originURL == nil {
       return false
     }
@@ -134,22 +134,22 @@ class URLAddTableViewController: UITableViewController, UITextFieldDelegate {
     return false
   }
 
-  private func setProUI() {
+  fileprivate func setProUI() {
     if (User.isProUser()) {
-      buyTable?.hidden = true
-      restoreCell?.hidden = true
-      datePicker?.userInteractionEnabled = true
-      if urlField?.enabled == false {
-        urlField?.enabled = true
+      buyTable?.isHidden = true
+      restoreCell?.isHidden = true
+      datePicker?.isUserInteractionEnabled = true
+      if urlField?.isEnabled == false {
+        urlField?.isEnabled = true
         urlField?.placeholder = "URL"
       }
     }
   }
 
-  private func initUI() {
+  fileprivate func initUI() {
     if let price = proPrice {
       let text = NSLocalizedString("BuyProWithoutPrice", comment: "") + " (\(price))"
-      buyButton?.setTitle(text, forState: UIControlState.Normal)
+      buyButton?.setTitle(text, for: UIControlState())
     }
     if let url = UrlHelper.getURL(originURL) {
       if let page = Page.getByURL(url) {
@@ -164,29 +164,29 @@ class URLAddTableViewController: UITableViewController, UITextFieldDelegate {
       setProUI()
     } else {
       if Page.count() >= Product.userNumUrlLimit {
-        urlField?.enabled = false
+        urlField?.isEnabled = false
         urlField?.placeholder = NSLocalizedString("UnlockAddLimit", comment: "")
       }
     }
     switch (Notifaction.type()) {
     case Notifaction.UNKNOWN:
-      notification?.enabled = true
+      notification?.isEnabled = true
       notification?.setOn(false, animated: false)
       break
     case Notifaction.ON:
-      notification?.enabled = true
+      notification?.isEnabled = true
       break
     case Notifaction.OFF:
       notification?.setOn(false, animated: false)
-      notification?.enabled = false
+      notification?.isEnabled = false
       break
     }
   }
 
-  private func updatePrice() {
+  fileprivate func updatePrice() {
     if let price = proPrice {
       let text = NSLocalizedString("BuyProWithoutPrice", comment: "") + " (\(price))"
-      buyButton?.setTitle(text, forState: UIControlState.Normal)
+      buyButton?.setTitle(text, for: UIControlState())
     }
   }
 
@@ -203,7 +203,7 @@ class URLAddTableViewController: UITableViewController, UITextFieldDelegate {
     // self.navigationItem.rightBarButtonItem = self.editButtonItem()
   }
 
-  override func viewWillAppear(animated: Bool) {
+  override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     SwiftyStoreKit.retrieveProductsInfo([Product.ID]) { result in
       if let product = result.retrievedProducts.first {
@@ -212,11 +212,11 @@ class URLAddTableViewController: UITableViewController, UITextFieldDelegate {
     }
   }
 
-  override func viewWillDisappear(animated: Bool) {
+  override func viewWillDisappear(_ animated: Bool) {
     super.viewWillDisappear(animated)
   }
 
-  func textFieldShouldReturn(textField: UITextField) -> Bool{
+  func textFieldShouldReturn(_ textField: UITextField) -> Bool{
     urlField?.resignFirstResponder()
     return true
   }

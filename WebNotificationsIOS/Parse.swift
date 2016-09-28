@@ -9,12 +9,12 @@
 import Foundation
 import Ji
 
-func parse(url: String?) -> (title: String?, content: String?) {
+func parse(_ url: String?) -> (title: String?, content: String?) {
   if url == nil {
     return (nil, nil)
   }
 
-  let jiDoc = Ji(htmlURL: NSURL(string: url!)!)
+  let jiDoc = Ji(htmlURL: URL(string: url!)!)
   if jiDoc == nil {
     return (nil, nil)
   }
@@ -26,14 +26,14 @@ func parse(url: String?) -> (title: String?, content: String?) {
     if let scripts = jiDoc?.xPath("//script") {
       for item in scripts {
         if let replace = item.content {
-          content = content?.stringByReplacingOccurrencesOfString(replace, withString: "")
+          content = content?.replacingOccurrences(of: replace, with: "")
         }
       }
     }
     if let style = jiDoc?.xPath("//style") {
       for item in style {
         if let replace = item.content {
-          content = content?.stringByReplacingOccurrencesOfString(replace, withString: "")
+          content = content?.replacingOccurrences(of: replace, with: "")
         }
       }
     }

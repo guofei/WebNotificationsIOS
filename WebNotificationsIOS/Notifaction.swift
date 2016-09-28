@@ -15,9 +15,9 @@ enum Notifaction: String {
   case OFF = "notifactionOff"
 
   static func type() -> Notifaction {
-    let ud = NSUserDefaults.standardUserDefaults()
-    if let _ = ud.objectForKey(Notifaction.toString()) as? String {
-      if UIApplication.sharedApplication().isRegisteredForRemoteNotifications() {
+    let ud = UserDefaults.standard
+    if let _ = ud.object(forKey: Notifaction.toString()) as? String {
+      if UIApplication.shared.isRegisteredForRemoteNotifications {
         return ON
       } else {
         return OFF
@@ -29,34 +29,34 @@ enum Notifaction: String {
 
   static func setFirstTime() {
     if type() == Notifaction.UNKNOWN {
-      let settings = UIUserNotificationSettings(forTypes: [.Alert, .Badge, .Sound], categories: nil)
-      UIApplication.sharedApplication().registerUserNotificationSettings(settings)
-      UIApplication.sharedApplication().registerForRemoteNotifications()
+      let settings = UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil)
+      UIApplication.shared.registerUserNotificationSettings(settings)
+      UIApplication.shared.registerForRemoteNotifications()
       setOpen(true)
     }
   }
 
   static func setAfterFirstTime() {
     if type() != Notifaction.UNKNOWN {
-      let settings = UIUserNotificationSettings(forTypes: [.Alert, .Badge, .Sound], categories: nil)
-      UIApplication.sharedApplication().registerUserNotificationSettings(settings)
-      UIApplication.sharedApplication().registerForRemoteNotifications()
+      let settings = UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil)
+      UIApplication.shared.registerUserNotificationSettings(settings)
+      UIApplication.shared.registerForRemoteNotifications()
       setOpen(true)
     }
   }
 
-  private static func setOpen(isOpen: Bool) {
-    let ud = NSUserDefaults.standardUserDefaults()
+  fileprivate static func setOpen(_ isOpen: Bool) {
+    let ud = UserDefaults.standard
     if isOpen {
-      ud.setObject(ON.rawValue, forKey: toString())
+      ud.set(ON.rawValue, forKey: toString())
     } else {
-      ud.setObject(OFF.rawValue, forKey: toString())
+      ud.set(OFF.rawValue, forKey: toString())
     }
     ud.synchronize()
   }
   
   
-  private static func toString() -> String {
+  fileprivate static func toString() -> String {
     return "NotificationType"
   }
 }

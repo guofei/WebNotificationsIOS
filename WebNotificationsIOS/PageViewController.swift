@@ -37,25 +37,25 @@ class PageViewController: UIViewController, UIWebViewDelegate {
     // Dispose of any resources that can be recreated.
   }
 
-  @IBAction func stop(sender: UIBarButtonItem) {
+  @IBAction func stop(_ sender: UIBarButtonItem) {
     setChecked()
-    self.dismissViewControllerAnimated(true, completion: nil)
+    self.dismiss(animated: true, completion: nil)
   }
 
-  private func setChecked() {
+  fileprivate func setChecked() {
     Page.setChanged(targetURL, changed: false)
   }
 
   func loadAddressURL() {
     if let url = targetURL {
-      if let requestURL = NSURL(string: url) {
-        let req = NSURLRequest(URL: requestURL)
+      if let requestURL = URL(string: url) {
+        let req = URLRequest(url: requestURL)
         webView?.loadRequest(req)
       }
     }
   }
 
-  func webViewDidFinishLoad(webView: UIWebView) {
+  func webViewDidFinishLoad(_ webView: UIWebView) {
     spinner?.stopAnimating()
   }
 
@@ -69,9 +69,9 @@ class PageViewController: UIViewController, UIWebViewDelegate {
   }
   */
 
-  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     if (segue.identifier == StoryBoard.toShowDiffSegue) {
-      if let subVC = segue.destinationViewController as? DiffTableViewController {
+      if let subVC = segue.destination as? DiffTableViewController {
         subVC.targetURL = targetURL
       }
     }
