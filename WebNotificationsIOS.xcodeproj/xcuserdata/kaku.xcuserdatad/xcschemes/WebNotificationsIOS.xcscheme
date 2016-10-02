@@ -32,7 +32,7 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "2865031E1BAB001900BB041D"
+               BlueprintIdentifier = "28463CED1D9B522900C9908F"
                BuildableName = "WebNotificationsIOSTests.xctest"
                BlueprintName = "WebNotificationsIOSTests"
                ReferencedContainer = "container:WebNotificationsIOS.xcodeproj">
@@ -42,7 +42,7 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "286503291BAB001900BB041D"
+               BlueprintIdentifier = "28463CDF1D9B521A00C9908F"
                BuildableName = "WebNotificationsIOSUITests.xctest"
                BlueprintName = "WebNotificationsIOSUITests"
                ReferencedContainer = "container:WebNotificationsIOS.xcodeproj">

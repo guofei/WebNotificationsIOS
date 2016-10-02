@@ -682,6 +682,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 0E2DBA43BE7D03AA52813C10 /* Pods-WebChecker-WebNotificationsIOSUITests.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
@@ -700,6 +701,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E65B82E08D22EB937C1F4EC5 /* Pods-WebChecker-WebNotificationsIOSUITests.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
@@ -718,6 +720,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E239F58A6DAA8994C89E11DE /* Pods-WebChecker-WebNotificationsIOSTests.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -737,6 +740,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 128753317D564B88C865D6E2 /* Pods-WebChecker-WebNotificationsIOSTests.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;

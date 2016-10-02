@@ -63,7 +63,7 @@ class API {
           "stop_fetch": stopFetch!
         ]
       ]
-      Alamofire.request(updateURL, method: .put, parameters: parameters)
+      _ = Alamofire.request(updateURL, method: .put, parameters: parameters)
     }
 
     static func get(_ pageID: Int?, fun: @escaping (_ id: Int?, _ url: String?, _ second: Int?, _ stopFetch: Bool?, _ diff: String?) -> Void) {
@@ -165,7 +165,7 @@ class API {
       let parameters = [
         "user": [ "channel": uuid! ]
       ]
-      Alamofire.request(URL.TOUCH, method: .post, parameters: parameters)
+      _ = Alamofire.request(URL.TOUCH, method: .post, parameters: parameters)
     }
   }
 }

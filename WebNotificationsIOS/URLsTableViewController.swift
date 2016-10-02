@@ -153,7 +153,7 @@ class URLsTableViewController: UITableViewController {
       // Delete the row from the data source
       if let allPages = pages {
         let page = allPages[indexPath.row]
-        Page.deleteByURL(page.url)
+        _ = Page.deleteByURL(page.url)
         tableView.deleteRows(at: [indexPath], with: .fade)
       }
     }

@@ -107,7 +107,7 @@ class Page: Object {
         if (id != nil && url != nil && sec != nil && stopFetch != nil) {
           let page = getByURL(url)
           if page == nil {
-            addOrUpdateURLToLocal(id, url: url, second: sec!, stopFetch: stopFetch!)
+            _ = addOrUpdateURLToLocal(id, url: url, second: sec!, stopFetch: stopFetch!)
           }
         }
       }
@@ -240,7 +240,7 @@ class Page: Object {
       if let realm = getDB() {
         let pages = realm.objects(Page.self)
         for	page in pages {
-          checkIsUpdate(page)
+          _ = checkIsUpdate(page)
         }
       }
       done(true)
