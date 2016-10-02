@@ -28,8 +28,6 @@
 		28738ECD1BB050330083D95F /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28738ECC1BB050330083D95F /* Alamofire.framework */; };
 		28738ED21BB06D4E0083D95F /* Ji.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28738ED11BB06D4E0083D95F /* Ji.framework */; };
 		28738ED41BB1C6B60083D95F /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28738ED31BB1C6B60083D95F /* PageViewController.swift */; };
-		28738ED71BB260C60083D95F /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28738ED61BB260C60083D95F /* Bolts.framework */; };
-		28738ED91BB260CE0083D95F /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28738ED81BB260CE0083D95F /* Parse.framework */; };
 		28738EDB1BB2612D0083D95F /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28738EDA1BB2612D0083D95F /* AudioToolbox.framework */; };
 		28738EDD1BB2613A0083D95F /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28738EDC1BB2613A0083D95F /* CFNetwork.framework */; };
 		28738EDF1BB261450083D95F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28738EDE1BB261450083D95F /* CoreGraphics.framework */; };
@@ -164,9 +162,7 @@
 				28738EDF1BB261450083D95F /* CoreGraphics.framework in Frameworks */,
 				28738EDD1BB2613A0083D95F /* CFNetwork.framework in Frameworks */,
 				28738EDB1BB2612D0083D95F /* AudioToolbox.framework in Frameworks */,
-				28738ED71BB260C60083D95F /* Bolts.framework in Frameworks */,
 				28738ECD1BB050330083D95F /* Alamofire.framework in Frameworks */,
-				28738ED91BB260CE0083D95F /* Parse.framework in Frameworks */,
 				28738ED21BB06D4E0083D95F /* Ji.framework in Frameworks */,
 				FB62C45858E46CE2863088D6 /* Pods_WebChecker.framework in Frameworks */,
 			);

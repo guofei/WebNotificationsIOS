@@ -58,7 +58,7 @@ class User: Object {
     }
   }
 
-  static func createUser(_ deviceToken: String) -> String? {
+  static func createUser(deviceToken: String) -> String? {
     if let realm = getDB() {
       let users = realm.objects(User.self)
       if users.count > 0 {

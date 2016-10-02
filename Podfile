@@ -9,7 +9,7 @@ target 'WebChecker' do
   pod 'Alamofire'
   pod 'Ji'
   pod 'RealmSwift'
-  pod 'Parse'
+  # pod 'Parse'
   pod 'Flurry-iOS-SDK/FlurrySDK'
   pod 'SwiftyStoreKit'
   pod 'AWSSNS'

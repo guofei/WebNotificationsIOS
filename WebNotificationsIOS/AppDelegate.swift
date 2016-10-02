@@ -8,7 +8,7 @@
 
 import UIKit
 import SwiftyStoreKit
-import Parse
+// import Parse
 import AWSSNS
 import Flurry_iOS_SDK
 
@@ -26,25 +26,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     Flurry.logEvent("Started Application")
 
     // Initialize Parse.
-    Parse.setApplicationId(SecretKey.ParseID,
-      clientKey: SecretKey.ParseKey)
+    //    Parse.setApplicationId(SecretKey.ParseID,
+    //      clientKey: SecretKey.ParseKey)
 
     // Register for Push Notitications
-    if application.applicationState != UIApplicationState.background {
-      // Track an app open here if we launch with a push, unless
-      // "content_available" was used to trigger a background push (introduced in iOS 7).
-      // In that case, we skip tracking here to avoid double counting the app-open.
-
-      let preBackgroundPush = !application.responds(to: #selector(getter: UIApplication.backgroundRefreshStatus))
-      let oldPushHandlerOnly = !self.responds(to: #selector(UIApplicationDelegate.application(_:didReceiveRemoteNotification:fetchCompletionHandler:)))
-      var pushPayload = false
-      if let options = launchOptions {
-        pushPayload = options[UIApplicationLaunchOptionsKey.remoteNotification] != nil
-      }
-      if (preBackgroundPush || oldPushHandlerOnly || pushPayload) {
-        PFAnalytics.trackAppOpened(launchOptions: launchOptions)
-      }
-    }
+    //    if application.applicationState != UIApplicationState.background {
+    //      // Track an app open here if we launch with a push, unless
+    //      // "content_available" was used to trigger a background push (introduced in iOS 7).
+    //      // In that case, we skip tracking here to avoid double counting the app-open.
+    //
+    //      let preBackgroundPush = !application.responds(to: #selector(getter: UIApplication.backgroundRefreshStatus))
+    //      let oldPushHandlerOnly = !self.responds(to: #selector(UIApplicationDelegate.application(_:didReceiveRemoteNotification:fetchCompletionHandler:)))
+    //      var pushPayload = false
+    //      if let options = launchOptions {
+    //        pushPayload = options[UIApplicationLaunchOptionsKey.remoteNotification] != nil
+    //      }
+    //      if (preBackgroundPush || oldPushHandlerOnly || pushPayload) {
+    //        PFAnalytics.trackAppOpened(launchOptions: launchOptions)
+    //      }
+    //    }
 
     Notifaction.setAfterFirstTime()
 
@@ -76,18 +76,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   }
 
   func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
-    let installation = PFInstallation.current()
-    installation?.setDeviceTokenFrom(deviceToken)
-    installation?.saveInBackground()
+    //    let installation = PFInstallation.current()
+    //    installation?.setDeviceTokenFrom(deviceToken)
+    //    installation?.saveInBackground()
 
     let deviceTokenString = "\(deviceToken)"
       .trimmingCharacters(in: CharacterSet(charactersIn:"<>"))
       .replacingOccurrences(of: " ", with: "")
 
-    if let uuid = User.createUser(deviceTokenString) {
-      installation?.addUniqueObject(uuid, forKey: "channels")
-      installation?.saveInBackground()
-    }
+    _ = User.createUser(deviceToken: deviceTokenString)
+    //    if let uuid = User.createUser(deviceToken: deviceTokenString) {
+    //      installation?.addUniqueObject(uuid, forKey: "channels")
+    //      installation?.saveInBackground()
+    //    }
   }
 
   func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
@@ -98,12 +99,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
   }
 
-  func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any]) {
-    PFPush.handle(userInfo)
-    if application.applicationState == UIApplicationState.inactive {
-      PFAnalytics.trackAppOpened(withRemoteNotificationPayload: userInfo)
-    }
-  }
+//  func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any]) {
+//    PFPush.handle(userInfo)
+//    if application.applicationState == UIApplicationState.inactive {
+//      PFAnalytics.trackAppOpened(withRemoteNotificationPayload: userInfo)
+//    }
+//  }
 
   func applicationWillResignActive(_ application: UIApplication) {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
@@ -121,12 +122,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
   func applicationDidBecomeActive(_ application: UIApplication) {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-    let currentInstallation = PFInstallation.current()
-    if currentInstallation?.badge != 0 {
-      currentInstallation?.badge = 0
-      currentInstallation?.saveEventually()
-    }
-    
+    //    let currentInstallation = PFInstallation.current()
+    //    if currentInstallation?.badge != 0 {
+    //      currentInstallation?.badge = 0
+    //      currentInstallation?.saveEventually()
+    //    }
+
     User.sync()
     Page.sync()
   }
