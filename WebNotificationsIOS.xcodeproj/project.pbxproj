@@ -81,6 +81,7 @@
 		2858C7471BB7A856005D7543 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
 		2858C7481BB7A856005D7543 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
 		2858C74B1BB83B1B005D7543 /* SecretKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecretKey.swift; sourceTree = "<group>"; };
+		285ABDE01DA148BD0087BBD3 /* WebChecker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WebChecker.entitlements; sourceTree = "<group>"; };
 		285B1BA01BBD3D4900BA3540 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		2865030B1BAB001900BB041D /* WebChecker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WebChecker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2865030E1BAB001900BB041D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -192,6 +193,7 @@
 		286503021BAB001900BB041D = {
 			isa = PBXGroup;
 			children = (
+				285ABDE01DA148BD0087BBD3 /* WebChecker.entitlements */,
 				28463CE11D9B521A00C9908F /* WebNotificationsIOSUITests */,
 				28463CEF1D9B522900C9908F /* WebNotificationsIOSTests */,
 				28738ED51BB260610083D95F /* Frameworks */,
@@ -848,6 +850,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = WebChecker.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -873,6 +876,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = WebChecker.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				FRAMEWORK_SEARCH_PATHS = (
