@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import UserNotifications
 
 enum Notifaction: String {
   case UNKNOWN = "notifactionUnknown"
@@ -38,9 +39,17 @@ enum Notifaction: String {
 
   static func setAfterFirstTime() {
     if type() != Notifaction.UNKNOWN {
-      let settings = UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil)
-      UIApplication.shared.registerUserNotificationSettings(settings)
-      UIApplication.shared.registerForRemoteNotifications()
+      if #available(iOS 10.0, *) {
+        UNUserNotificationCenter.current().requestAuthorization(options: [.badge, .alert , .sound]) { (greanted, error) in
+          if greanted {
+            UIApplication.shared.registerForRemoteNotifications();
+          }
+        }
+      } else {
+        let settings = UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil)
+        UIApplication.shared.registerUserNotificationSettings(settings)
+        UIApplication.shared.registerForRemoteNotifications()
+      }
       setOpen(true)
     }
   }

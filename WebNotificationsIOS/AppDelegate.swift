@@ -76,19 +76,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   }
 
   func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
-    //    let installation = PFInstallation.current()
-    //    installation?.setDeviceTokenFrom(deviceToken)
-    //    installation?.saveInBackground()
-
-    let deviceTokenString = "\(deviceToken)"
-      .trimmingCharacters(in: CharacterSet(charactersIn:"<>"))
-      .replacingOccurrences(of: " ", with: "")
-
+    let deviceTokenString = deviceToken.reduce("", {$0 + String(format: "%02X", $1)})
+    print(deviceTokenString)
     _ = User.createUser(deviceToken: deviceTokenString)
-    //    if let uuid = User.createUser(deviceToken: deviceTokenString) {
-    //      installation?.addUniqueObject(uuid, forKey: "channels")
-    //      installation?.saveInBackground()
-    //    }
   }
 
   func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
@@ -99,12 +89,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
   }
 
-//  func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any]) {
-//    PFPush.handle(userInfo)
-//    if application.applicationState == UIApplicationState.inactive {
-//      PFAnalytics.trackAppOpened(withRemoteNotificationPayload: userInfo)
-//    }
-//  }
+  func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any]) {
+    print("didReceiveRemoteNotification")
+  }
 
   func applicationWillResignActive(_ application: UIApplication) {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
@@ -121,13 +108,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   }
 
   func applicationDidBecomeActive(_ application: UIApplication) {
-    // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-    //    let currentInstallation = PFInstallation.current()
-    //    if currentInstallation?.badge != 0 {
-    //      currentInstallation?.badge = 0
-    //      currentInstallation?.saveEventually()
-    //    }
-
     User.sync()
     Page.sync()
   }
