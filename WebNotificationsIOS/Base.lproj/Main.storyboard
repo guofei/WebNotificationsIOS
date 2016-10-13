@@ -58,6 +58,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="wdt-7V-0Ie">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <connections>
                             <action selector="refresh:" destination="p5b-RV-I1v" eventType="valueChanged" id="DQ6-uM-43n"/>
@@ -150,19 +151,17 @@
                                                         <!--2015-09-25 14:38:46 +0000-->
                                                     </date>
                                                 </datePicker>
-                                                <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="3Rc-y7-Qw1">
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="600" id="M1Y-It-Xlb"/>
-                                                    </constraints>
-                                                </activityIndicatorView>
+                                                <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="3Rc-y7-Qw1"/>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="HJS-EC-K0X" firstAttribute="leading" secondItem="XrW-la-ptr" secondAttribute="leading" id="KJv-rJ-VaL"/>
-                                                <constraint firstItem="3Rc-y7-Qw1" firstAttribute="trailing" secondItem="HJS-EC-K0X" secondAttribute="trailing" id="SKq-FY-6xs"/>
-                                                <constraint firstItem="HJS-EC-K0X" firstAttribute="top" secondItem="XrW-la-ptr" secondAttribute="topMargin" id="UZk-ye-bHZ"/>
-                                                <constraint firstAttribute="trailing" secondItem="HJS-EC-K0X" secondAttribute="trailing" id="Zvn-7z-2KD"/>
-                                                <constraint firstItem="3Rc-y7-Qw1" firstAttribute="leading" secondItem="HJS-EC-K0X" secondAttribute="leading" id="hWh-Ym-U5A"/>
-                                                <constraint firstItem="3Rc-y7-Qw1" firstAttribute="centerY" secondItem="XrW-la-ptr" secondAttribute="centerY" id="yrq-E2-GZT"/>
+                                                <constraint firstItem="3Rc-y7-Qw1" firstAttribute="centerY" secondItem="XrW-la-ptr" secondAttribute="centerY" id="1iD-xd-Mwf"/>
+                                                <constraint firstAttribute="trailing" secondItem="HJS-EC-K0X" secondAttribute="trailing" id="95p-sk-Caq"/>
+                                                <constraint firstItem="HJS-EC-K0X" firstAttribute="leading" secondItem="XrW-la-ptr" secondAttribute="leading" id="AP8-8Q-6rA"/>
+                                                <constraint firstItem="3Rc-y7-Qw1" firstAttribute="centerX" secondItem="XrW-la-ptr" secondAttribute="centerX" id="BGs-Ya-0ZN"/>
+                                                <constraint firstAttribute="trailing" secondItem="3Rc-y7-Qw1" secondAttribute="trailing" id="pDg-oo-3GT"/>
+                                                <constraint firstItem="HJS-EC-K0X" firstAttribute="top" secondItem="XrW-la-ptr" secondAttribute="top" id="tCR-N4-nj4"/>
+                                                <constraint firstAttribute="bottom" secondItem="3Rc-y7-Qw1" secondAttribute="bottom" id="uam-a2-M7c"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="HJS-EC-K0X" secondAttribute="bottom" constant="-0.5" id="wAh-UN-QKQ"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -252,12 +251,12 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="2863" y="390"/>
+            <point key="canvasLocation" x="2910" y="272"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="PaG-OC-Tuu">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Jgy-qv-26h" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="start" automaticallyAdjustsScrollViewInsets="NO" id="Jgy-qv-26h" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Ehi-RB-O60">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
