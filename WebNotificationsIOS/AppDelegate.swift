@@ -12,39 +12,33 @@ import SwiftyStoreKit
 import AWSSNS
 import Flurry_iOS_SDK
 
+func urlFromUserInfo(userInfo: [AnyHashable: Any]) -> String? {
+  if let aps = userInfo["aps"] as? NSDictionary {
+    if let url = UrlHelper.getURL(aps["url"] as? String) {
+      return url
+    }
+  }
+  return nil
+}
+
+func urlFromOptions(launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> String? {
+  if let userInfo = launchOptions?[UIApplicationLaunchOptionsKey.remoteNotification] as? [AnyHashable : Any] {
+    return urlFromUserInfo(userInfo: userInfo)
+  }
+  return nil
+}
+
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
   var window: UIWindow?
-  var navigationController: UINavigationController?
 
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
     Migration.run()
 
     Flurry.startSession(SecretKey.FlurryKey)
     Flurry.logEvent("Started Application")
-
-    // Initialize Parse.
-    //    Parse.setApplicationId(SecretKey.ParseID,
-    //      clientKey: SecretKey.ParseKey)
-
-    // Register for Push Notitications
-    //    if application.applicationState != UIApplicationState.background {
-    //      // Track an app open here if we launch with a push, unless
-    //      // "content_available" was used to trigger a background push (introduced in iOS 7).
-    //      // In that case, we skip tracking here to avoid double counting the app-open.
-    //
-    //      let preBackgroundPush = !application.responds(to: #selector(getter: UIApplication.backgroundRefreshStatus))
-    //      let oldPushHandlerOnly = !self.responds(to: #selector(UIApplicationDelegate.application(_:didReceiveRemoteNotification:fetchCompletionHandler:)))
-    //      var pushPayload = false
-    //      if let options = launchOptions {
-    //        pushPayload = options[UIApplicationLaunchOptionsKey.remoteNotification] != nil
-    //      }
-    //      if (preBackgroundPush || oldPushHandlerOnly || pushPayload) {
-    //        PFAnalytics.trackAppOpened(launchOptions: launchOptions)
-    //      }
-    //    }
 
     Notifaction.setAfterFirstTime()
 
@@ -57,20 +51,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       }
     }
 
-    let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-    self.navigationController = storyboard.instantiateInitialViewController() as? UINavigationController
-
-    if let notificationPayload = launchOptions?[UIApplicationLaunchOptionsKey.remoteNotification] as? NSDictionary {
-      if let url = UrlHelper.getURL(notificationPayload["url"] as? String) , Page.getByURL(url) != nil {
-        if let tableVC = navigationController?.topViewController as? URLsTableViewController {
-          tableVC.showPageOnce = url
+    if let url = urlFromOptions(launchOptions: launchOptions) {
+      if Page.getByURL(url) != nil {
+        if let root = self.window?.rootViewController as? UINavigationController {
+          if let tableVC = root.topViewController as? URLsTableViewController {
+            tableVC.showPageOnce = url
+          }
         }
       }
     }
-
-    self.window = UIWindow(frame: UIScreen.main.bounds)
-    self.window?.rootViewController = navigationController
-    self.window?.makeKeyAndVisible()
 
     return true
   }
@@ -109,7 +98,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
   func applicationDidBecomeActive(_ application: UIApplication) {
     User.sync()
-    Page.sync()
+    Page.syncRemoteToLoacle()
   }
   
   func applicationWillTerminate(_ application: UIApplication) {

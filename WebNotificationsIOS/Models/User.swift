@@ -48,12 +48,8 @@ class User: Object {
 
   static func sync() {
     if let user = currentUser() {
-      if user.id <= 0 || user.deviceToken.isEmpty {
-        API.User.create(user.uuid, token: user.deviceToken, type: user.deviceType, locale: user.localeIdentifier, zone: user.timeZone) { userID, deviceToken in
-          currentUserSetIDAndDeviceToken(userID, deviceToken: deviceToken)
-        }
-      } else {
-        API.User.touch(User.getUUID())
+      API.User.create(user.uuid, token: user.deviceToken, type: user.deviceType, locale: user.localeIdentifier, zone: user.timeZone) { userID, deviceToken in
+        currentUserSetIDAndDeviceToken(userID, deviceToken: deviceToken)
       }
     }
   }

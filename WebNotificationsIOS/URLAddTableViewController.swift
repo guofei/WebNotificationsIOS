@@ -53,7 +53,7 @@ class URLAddTableViewController: UITableViewController, UITextFieldDelegate {
       _ = Page.deleteByURL(UrlHelper.getURL(originURL))
     }
     let sec = Int(datePicker.countDownDuration)
-    Page.addOrUpdate(UrlHelper.getURL(urlField.text), second: sec, stopFetch: stopFetch) { (ok: Bool) -> Void in
+    Page.createOrUpdate(UrlHelper.getURL(urlField.text), second: sec, stopFetch: stopFetch) { (ok: Bool) -> Void in
       DispatchQueue.main.sync {
         self.spinner?.stopAnimating()
         if ok {

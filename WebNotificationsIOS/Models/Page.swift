@@ -101,13 +101,14 @@ class Page: Object {
     API.Page.update(page.id, url: page.url, second: page.sec, uuid: User.getUUID(), stopFetch: true)
   }
 
-  static func sync() {
+  // dont check page nil
+  static func syncRemoteToLoacle() {
     if let user = User.currentUser() {
       API.Page.all(user.id) { id, url, sec, stopFetch in
         if (id != nil && url != nil && sec != nil && stopFetch != nil) {
           let page = getByURL(url)
           if page == nil {
-            _ = addOrUpdateURLToLocal(id, url: url, second: sec!, stopFetch: stopFetch!)
+            _ = createOrUpdateURLToLocal(id, url: url, second: sec!, stopFetch: stopFetch!)
           }
         }
       }
@@ -147,15 +148,11 @@ class Page: Object {
     return false
   }
 
-  fileprivate static func addOrUpdateURLToLocal(_ id: Int?, url: String?, second: Int, stopFetch: Bool) -> Bool {
+  fileprivate static func createOrUpdateURLToLocal(_ id: Int?, url: String?, second: Int, stopFetch: Bool) -> Bool {
     if url == nil {
       return false
     }
     let res = parse(url!)
-    /*
-    if res.title == nil && res.content == nil {
-    return false
-    }*/
     let page = Page()
     if let id = id {
       page.id = id
@@ -184,9 +181,9 @@ class Page: Object {
     }
   }
 
-  static func addOrUpdate(_ url: String?, second: Int, stopFetch: Bool, closure: @escaping (Bool) -> Void) {
+  static func createOrUpdate(_ url: String?, second: Int, stopFetch: Bool, closure: @escaping (Bool) -> Void) {
     DispatchQueue.global(qos: DispatchQoS.QoSClass.userInitiated).async {
-      if addOrUpdateURLToLocal(nil, url: url, second: second, stopFetch: stopFetch) {
+      if createOrUpdateURLToLocal(nil, url: url, second: second, stopFetch: stopFetch) {
         syncURL(url, second: second, stopFetch: stopFetch)
         closure(true)
       } else {
