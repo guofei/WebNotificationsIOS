@@ -77,6 +77,15 @@ class URLAddTableViewController: UITableViewController, UITextFieldDelegate {
     Flurry.logEvent("Restore Pro Clicked", withParameters: ["view": "diff"])
     spinner?.startAnimating()
     SwiftyStoreKit.restorePurchases() { results in
+      if results.restoreFailedProducts.count > 0 {
+        print("Restore Failed: \(results.restoreFailedProducts)")
+      } else if results.restoredProductIds.count > 0 {
+        User.setProUser()
+        self.setProUI()
+        print("Restore Success: \(results.restoredProductIds)")
+      } else {
+        print("Nothing to Restore")
+      }
       self.spinner?.stopAnimating()
     }
   }
@@ -87,6 +96,7 @@ class URLAddTableViewController: UITableViewController, UITextFieldDelegate {
     SwiftyStoreKit.purchaseProduct(Product.ID) { result in
       switch result {
       case .success(let productId):
+        User.setProUser()
         self.setProUI()
         Flurry.logEvent("Buy Pro OK", withParameters: ["view": "urladd", "product": "\(productId)"])
       case .error(let error):

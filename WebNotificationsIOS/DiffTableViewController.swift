@@ -48,6 +48,7 @@ class DiffTableViewController: UITableViewController {
     SwiftyStoreKit.purchaseProduct(Product.ID) { result in
       switch result {
       case .success(let productId):
+        User.setProUser()
         Flurry.logEvent("Buy Pro OK", withParameters: ["view": "diff", "product": "\(productId)"])
       case .error(let error):
         Flurry.logEvent("Buy Pro Error", withParameters: ["view": "diff", "error": "\(error)"])
@@ -60,6 +61,14 @@ class DiffTableViewController: UITableViewController {
     spinner?.startAnimating()
     Flurry.logEvent("Restore Pro Clicked", withParameters: ["view": "diff"])
     SwiftyStoreKit.restorePurchases() { results in
+      if results.restoreFailedProducts.count > 0 {
+        print("Restore Failed: \(results.restoreFailedProducts)")
+      } else if results.restoredProductIds.count > 0 {
+        User.setProUser()
+        print("Restore Success: \(results.restoredProductIds)")
+      } else {
+        print("Nothing to Restore")
+      }
       self.spinner?.stopAnimating()
     }
   }
