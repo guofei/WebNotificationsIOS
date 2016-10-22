@@ -10,6 +10,13 @@ import UIKit
 import SwiftyStoreKit
 import Flurry_iOS_SDK
 
+// http://stackoverflow.com/questions/18696706/large-text-being-cut-off-in-uitextview-that-is-inside-uiscrollview
+func fixViewScroll(textView: UITextView?) {
+  // textView?.layoutManager.allowsNonContiguousLayout = false
+  textView?.isScrollEnabled = false
+  textView?.isScrollEnabled = true
+}
+
 class DiffTableViewController: UITableViewController {
   var targetURL : String? {
     didSet {
@@ -34,6 +41,8 @@ class DiffTableViewController: UITableViewController {
     if let text = diffText {
       textView?.text = text
     }
+
+    fixViewScroll(textView: textView)
 
     // Uncomment the following line to preserve selection between presentations
     // self.clearsSelectionOnViewWillAppear = false
@@ -79,6 +88,7 @@ class DiffTableViewController: UITableViewController {
         if let page = Page.getByURL(url) {
           diffText = page.contentDiff
           textView?.text = diffText
+          fixViewScroll(textView: textView)
         }
       }
     }
