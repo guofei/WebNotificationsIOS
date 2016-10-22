@@ -13,12 +13,13 @@ import AWSSNS
 import Flurry_iOS_SDK
 
 func urlFromUserInfo(userInfo: [AnyHashable: Any]) -> String? {
-  if let aps = userInfo["aps"] as? NSDictionary {
-    if let url = UrlHelper.getURL(aps["url"] as? String) {
-      return url
-    }
+  guard let aps = userInfo["aps"] as? NSDictionary else {
+    return nil
   }
-  return nil
+  guard let url = aps["url"] as? String else {
+    return nil
+  }
+  return UrlHelper.getURL(url)
 }
 
 func urlFromOptions(launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> String? {
