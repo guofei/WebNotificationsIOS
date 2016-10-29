@@ -36,6 +36,7 @@ class URLAddTableViewController: UITableViewController, UITextFieldDelegate {
   @IBOutlet weak var datePicker: UIDatePicker!
   @IBOutlet weak var notification: UISwitch!
   @IBOutlet weak var buyButton: UIButton!
+  @IBOutlet weak var navi: UINavigationItem!
 
   @IBAction func cancel(_ sender: AnyObject) {
     self.dismiss(animated: true, completion: nil)
@@ -49,6 +50,8 @@ class URLAddTableViewController: UITableViewController, UITextFieldDelegate {
 
   @IBAction func save(_ sender: AnyObject) {
     spinner?.startAnimating()
+    navi?.leftBarButtonItem?.isEnabled = false
+    navi?.rightBarButtonItem?.isEnabled = false
     if changeURL() {
       _ = Page.deleteByURL(UrlHelper.getURL(originURL))
     }
@@ -56,6 +59,8 @@ class URLAddTableViewController: UITableViewController, UITextFieldDelegate {
     Page.createOrUpdate(UrlHelper.getURL(urlField.text), second: sec, stopFetch: stopFetch) { (ok: Bool) -> Void in
       DispatchQueue.main.sync {
         self.spinner?.stopAnimating()
+        self.navi?.leftBarButtonItem?.isEnabled = true
+        self.navi?.rightBarButtonItem?.isEnabled = true
         if ok {
           self.dismiss(animated: true, completion: nil)
           Flurry.logEvent("Add URL")
