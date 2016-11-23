@@ -54,7 +54,7 @@ class DiffTableViewController: UITableViewController {
   @IBAction func buy(_ sender: AnyObject) {
     spinner?.startAnimating()
     Flurry.logEvent("Buy Pro Clicked", withParameters: ["view": "diff"])
-    SwiftyStoreKit.purchaseProduct(Product.ID) { result in
+    SwiftyStoreKit.purchaseProduct(Product.ID, atomically: true) { result in
       switch result {
       case .success(let productId):
         User.setProUser()
@@ -69,12 +69,12 @@ class DiffTableViewController: UITableViewController {
   @IBAction func restore(_ sender: AnyObject) {
     spinner?.startAnimating()
     Flurry.logEvent("Restore Pro Clicked", withParameters: ["view": "diff"])
-    SwiftyStoreKit.restorePurchases() { results in
+    SwiftyStoreKit.restorePurchases(atomically: true) { results in
       if results.restoreFailedProducts.count > 0 {
         print("Restore Failed: \(results.restoreFailedProducts)")
-      } else if results.restoredProductIds.count > 0 {
+      } else if results.restoredProducts.count > 0 {
         User.setProUser()
-        print("Restore Success: \(results.restoredProductIds)")
+        print("Restore Success: \(results.restoredProducts)")
       } else {
         print("Nothing to Restore")
       }

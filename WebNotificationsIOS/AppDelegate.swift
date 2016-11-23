@@ -8,7 +8,6 @@
 
 import UIKit
 import SwiftyStoreKit
-// import Parse
 import AWSSNS
 import Flurry_iOS_SDK
 
@@ -38,15 +37,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
     Migration.run()
 
-    Flurry.setCrashReportingEnabled(true)
     Flurry.startSession(SecretKey.FlurryKey)
     Flurry.logEvent("Started Application")
 
     Notifaction.setAfterFirstTime()
 
-    SwiftyStoreKit.completeTransactions() { completedTransactions in
-      for completedTransaction in completedTransactions {
-        if completedTransaction.transactionState == .purchased || completedTransaction.transactionState == .restored {
+    SwiftyStoreKit.completeTransactions(atomically: true) { products in
+      for product in products {
+        if product.transaction.transactionState == .purchased || product.transaction.transactionState == .restored {
           User.setProUser()
           Flurry.logEvent("Buy or Restore Pro Successed")
         }

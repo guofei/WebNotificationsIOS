@@ -48,6 +48,26 @@
                ReferencedContainer = "container:WebNotificationsIOS.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "281E577C1DE55DAE00C344A8"
+               BuildableName = "WebCheckerTests.xctest"
+               BlueprintName = "WebCheckerTests"
+               ReferencedContainer = "container:WebNotificationsIOS.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "281E578A1DE55DB700C344A8"
+               BuildableName = "WebCheckerUITests.xctest"
+               BlueprintName = "WebCheckerUITests"
+               ReferencedContainer = "container:WebNotificationsIOS.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference

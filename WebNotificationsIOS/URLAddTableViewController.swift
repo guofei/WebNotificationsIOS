@@ -81,13 +81,13 @@ class URLAddTableViewController: UITableViewController, UITextFieldDelegate {
   @IBAction func restore(_ sender: AnyObject) {
     Flurry.logEvent("Restore Pro Clicked", withParameters: ["view": "diff"])
     spinner?.startAnimating()
-    SwiftyStoreKit.restorePurchases() { results in
+    SwiftyStoreKit.restorePurchases(atomically: true) { results in
       if results.restoreFailedProducts.count > 0 {
         print("Restore Failed: \(results.restoreFailedProducts)")
-      } else if results.restoredProductIds.count > 0 {
+      } else if results.restoredProducts.count > 0 {
         User.setProUser()
         self.setProUI()
-        print("Restore Success: \(results.restoredProductIds)")
+        print("Restore Success: \(results.restoredProducts)")
       } else {
         print("Nothing to Restore")
       }
@@ -98,7 +98,7 @@ class URLAddTableViewController: UITableViewController, UITextFieldDelegate {
   @IBAction func buyPro(_ sender: AnyObject) {
     Flurry.logEvent("Buy Pro Clicked", withParameters: ["view": "urladd"])
     spinner?.startAnimating()
-    SwiftyStoreKit.purchaseProduct(Product.ID) { result in
+    SwiftyStoreKit.purchaseProduct(Product.ID, atomically: true) { result in
       switch result {
       case .success(let productId):
         User.setProUser()

@@ -1,20 +1,20 @@
 PODS:
-  - Alamofire (4.0.1)
-  - AWSCore (2.4.9)
-  - AWSSNS (2.4.9):
-    - AWSCore (= 2.4.9)
-  - Flurry-iOS-SDK/FlurrySDK (7.6.6)
-  - Ji (2.0.0):
-    - Ji/Ji (= 2.0.0)
-  - Ji/Ji (2.0.0):
+  - Alamofire (4.2.0)
+  - AWSCore (2.4.12)
+  - AWSSNS (2.4.12):
+    - AWSCore (= 2.4.12)
+  - Flurry-iOS-SDK/FlurrySDK (7.8.2)
+  - Ji (2.0.1):
+    - Ji/Ji (= 2.0.1)
+  - Ji/Ji (2.0.1):
     - Ji/Ji-libxml
-  - Ji/Ji-libxml (2.0.0)
-  - Realm (2.0.1):
-    - Realm/Headers (= 2.0.1)
-  - Realm/Headers (2.0.1)
-  - RealmSwift (2.0.1):
-    - Realm (= 2.0.1)
-  - SwiftyStoreKit (0.5.1)
+  - Ji/Ji-libxml (2.0.1)
+  - Realm (2.1.0):
+    - Realm/Headers (= 2.1.0)
+  - Realm/Headers (2.1.0)
+  - RealmSwift (2.1.0):
+    - Realm (= 2.1.0)
+  - SwiftyStoreKit (0.6.0)
 
 DEPENDENCIES:
   - Alamofire
@@ -25,15 +25,15 @@ DEPENDENCIES:
   - SwiftyStoreKit
 
 SPEC CHECKSUMS:
-  Alamofire: 7682d43245de14874acd142ec137b144aa1dd335
-  AWSCore: 175208358b95492e0ebe0337df2ab415300bddac
-  AWSSNS: 85513f30d76556ff43bc0772e65f1a74008a488f
-  Flurry-iOS-SDK: 97bbeec09cca666c2f1772f6e161c4f8ccff611e
-  Ji: 79e11b5256ee809f9f7e51dc7de2059e35adf7a6
-  Realm: 0557ee0e4ab4f0936c90e370056d1ed6265f93d6
-  RealmSwift: 64e00af79bdcd7d2a7a23fdc1cb3faf22b80ae4c
-  SwiftyStoreKit: 53c63f91545a3778dc108f860a7414905ce40a63
+  Alamofire: aa2e09d871c9160ac53c90e83c68064a94e3dfbe
+  AWSCore: 8ee5b1dc06a0fd562429fe7120113ca93cbfbca6
+  AWSSNS: 758ecea491002c9064f3771a853ca9250b93ccc0
+  Flurry-iOS-SDK: 8ed76252016d0162a893363c108a010ab97d424c
+  Ji: 6bb602a28dd08b804158f64990e6051ed5de0110
+  Realm: bc829ad0ef3d4eea70c34cfcc3b1704d18d50df1
+  RealmSwift: a4d4abbf0088c337cab5b738054395842e4b3052
+  SwiftyStoreKit: f47820a774eb94dcb2880f50a76f9533b2c282b9
 
-PODFILE CHECKSUM: b8baf3d5695def6fa63e61a277540423f353dafb
+PODFILE CHECKSUM: bc39f649c7a0e82739f7cf43aeb06619309b1bc2
 
-COCOAPODS: 1.0.1
+COCOAPODS: 1.1.1
