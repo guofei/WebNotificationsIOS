@@ -294,24 +294,7 @@
                     <view key="view" contentMode="scaleToFill" id="Rb8-z0-QO4">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2bG-yk-Pyd">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </webView>
-                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="dGm-XX-pIl">
-                                <rect key="frame" x="177.5" y="323.5" width="20" height="20"/>
-                            </activityIndicatorView>
-                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="2bG-yk-Pyd" firstAttribute="centerX" secondItem="dGm-XX-pIl" secondAttribute="centerX" id="CTO-1p-D7d"/>
-                            <constraint firstItem="2bG-yk-Pyd" firstAttribute="centerY" secondItem="dGm-XX-pIl" secondAttribute="centerY" id="iAU-Ps-kVF"/>
-                            <constraint firstItem="2bG-yk-Pyd" firstAttribute="bottom" secondItem="e7W-VE-pEm" secondAttribute="top" id="o6w-e5-ONe"/>
-                            <constraint firstItem="dGm-XX-pIl" firstAttribute="centerY" secondItem="Rb8-z0-QO4" secondAttribute="centerY" id="pfW-1i-Ltm"/>
-                            <constraint firstAttribute="trailing" secondItem="2bG-yk-Pyd" secondAttribute="trailing" id="tHK-ql-Fqi"/>
-                            <constraint firstItem="2bG-yk-Pyd" firstAttribute="leading" secondItem="Rb8-z0-QO4" secondAttribute="leading" id="vii-t4-LtZ"/>
-                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="LpY-Qj-bHE">
                         <barButtonItem key="leftBarButtonItem" systemItem="stop" id="eRJ-az-OlX">
@@ -325,10 +308,6 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <connections>
-                        <outlet property="spinner" destination="dGm-XX-pIl" id="Ad5-sM-Fyx"/>
-                        <outlet property="webView" destination="2bG-yk-Pyd" id="xQi-f2-CsC"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dWL-Gf-0Hk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

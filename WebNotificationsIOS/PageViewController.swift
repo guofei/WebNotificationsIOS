@@ -7,16 +7,14 @@
 //
 
 import UIKit
+import WebKit
 
-class PageViewController: UIViewController, UIWebViewDelegate {
+class PageViewController: UIViewController, WKUIDelegate, WKNavigationDelegate {
   struct StoryBoard {
     static let ID = "PageView"
     static let Navi = "PageViewNavi"
     static let toShowDiffSegue = "toShowDiff"
   }
-
-  @IBOutlet weak var webView: UIWebView!
-  @IBOutlet weak var spinner: UIActivityIndicatorView!
 
   var targetURL : String? {
     didSet {
@@ -24,18 +22,22 @@ class PageViewController: UIViewController, UIWebViewDelegate {
     }
   }
 
+  var webView: WKWebView?
+
+  override func loadView() {
+    let webConfiguration = WKWebViewConfiguration()
+    webView = WKWebView(frame: .zero, configuration: webConfiguration)
+    webView?.uiDelegate = self
+    webView?.navigationDelegate = self
+    view = webView
+  }
+
   override func viewDidLoad() {
     super.viewDidLoad()
-    webView?.delegate = self
-    spinner?.startAnimating()
     loadAddressURL()
     Page.update(targetURL, done: {_ in })
   }
 
-  override func didReceiveMemoryWarning() {
-    super.didReceiveMemoryWarning()
-    // Dispose of any resources that can be recreated.
-  }
 
   @IBAction func stop(_ sender: UIBarButtonItem) {
     setChecked()
@@ -50,13 +52,9 @@ class PageViewController: UIViewController, UIWebViewDelegate {
     if let url = targetURL {
       if let requestURL = URL(string: url) {
         let req = URLRequest(url: requestURL)
-        webView?.loadRequest(req)
+        _ = webView?.load(req)
       }
     }
-  }
-
-  func webViewDidFinishLoad(_ webView: UIWebView) {
-    spinner?.stopAnimating()
   }
 
   /*
