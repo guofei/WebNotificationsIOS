@@ -22,33 +22,43 @@ class PageViewController: UIViewController, WKUIDelegate, WKNavigationDelegate {
     }
   }
 
+  @IBOutlet weak var uiView: UIView!
+  @IBOutlet weak var spinner: UIActivityIndicatorView!
   var webView: WKWebView?
-
-  override func loadView() {
-    let webConfiguration = WKWebViewConfiguration()
-    webView = WKWebView(frame: .zero, configuration: webConfiguration)
-    webView?.uiDelegate = self
-    webView?.navigationDelegate = self
-    view = webView
-  }
 
   override func viewDidLoad() {
     super.viewDidLoad()
+
+    webView = WKWebView(frame: view.frame)
+    webView!.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+    webView!.uiDelegate = self
+    webView!.navigationDelegate = self
+    uiView.addSubview(webView!)
+
+    spinner.startAnimating()
     loadAddressURL()
     Page.update(targetURL, done: {_ in })
   }
 
+  override func viewWillDisappear(_ animated: Bool) {
+    super.viewWillDisappear(animated)
+    spinner.stopAnimating()
+  }
+
+  func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+    spinner.stopAnimating()
+  }
 
   @IBAction func stop(_ sender: UIBarButtonItem) {
     setChecked()
     self.dismiss(animated: true, completion: nil)
   }
 
-  fileprivate func setChecked() {
+  private func setChecked() {
     Page.setChanged(targetURL, changed: false)
   }
 
-  func loadAddressURL() {
+  private func loadAddressURL() {
     if let url = targetURL {
       if let requestURL = URL(string: url) {
         let req = URLRequest(url: requestURL)
@@ -56,6 +66,7 @@ class PageViewController: UIViewController, WKUIDelegate, WKNavigationDelegate {
       }
     }
   }
+
 
   /*
   // MARK: - Navigation
