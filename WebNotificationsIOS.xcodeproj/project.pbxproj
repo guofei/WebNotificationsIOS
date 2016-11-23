@@ -77,10 +77,6 @@
 		281E578D1DE55DB700C344A8 /* WebCheckerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebCheckerUITests.swift; sourceTree = "<group>"; };
 		281E578F1DE55DB700C344A8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		28286D031BFE37D80027A814 /* Diff.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Diff.swift; sourceTree = "<group>"; };
-		28463CE21D9B521A00C9908F /* WebNotificationsIOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebNotificationsIOSUITests.swift; sourceTree = "<group>"; };
-		28463CE41D9B521A00C9908F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		28463CF01D9B522900C9908F /* WebNotificationsIOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebNotificationsIOSTests.swift; sourceTree = "<group>"; };
-		28463CF21D9B522900C9908F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		285663601BFB8987003B147D /* Migration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Migration.swift; sourceTree = "<group>"; };
 		2858C7451BB6CC89005D7543 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		2858C7471BB7A856005D7543 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
@@ -200,30 +196,10 @@
 			path = WebCheckerUITests;
 			sourceTree = "<group>";
 		};
-		28463CE11D9B521A00C9908F /* WebNotificationsIOSUITests */ = {
-			isa = PBXGroup;
-			children = (
-				28463CE21D9B521A00C9908F /* WebNotificationsIOSUITests.swift */,
-				28463CE41D9B521A00C9908F /* Info.plist */,
-			);
-			path = WebNotificationsIOSUITests;
-			sourceTree = "<group>";
-		};
-		28463CEF1D9B522900C9908F /* WebNotificationsIOSTests */ = {
-			isa = PBXGroup;
-			children = (
-				28463CF01D9B522900C9908F /* WebNotificationsIOSTests.swift */,
-				28463CF21D9B522900C9908F /* Info.plist */,
-			);
-			path = WebNotificationsIOSTests;
-			sourceTree = "<group>";
-		};
 		286503021BAB001900BB041D = {
 			isa = PBXGroup;
 			children = (
 				285ABDE01DA148BD0087BBD3 /* WebChecker.entitlements */,
-				28463CE11D9B521A00C9908F /* WebNotificationsIOSUITests */,
-				28463CEF1D9B522900C9908F /* WebNotificationsIOSTests */,
 				281E577E1DE55DAE00C344A8 /* WebCheckerTests */,
 				281E578C1DE55DB700C344A8 /* WebCheckerUITests */,
 				28738ED51BB260610083D95F /* Frameworks */,
