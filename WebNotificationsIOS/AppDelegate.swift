@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Fabric
+import Crashlytics
 import SwiftyStoreKit
 import AWSSNS
 import Flurry_iOS_SDK
@@ -35,6 +37,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   var window: UIWindow?
 
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    Fabric.with([Crashlytics.self])
+
     Migration.run()
 
     Flurry.startSession(SecretKey.FlurryKey)

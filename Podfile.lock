@@ -3,6 +3,9 @@ PODS:
   - AWSCore (2.4.12)
   - AWSSNS (2.4.12):
     - AWSCore (= 2.4.12)
+  - Crashlytics (3.8.3):
+    - Fabric (~> 1.6.3)
+  - Fabric (1.6.11)
   - Flurry-iOS-SDK/FlurrySDK (7.8.2)
   - Ji (2.0.1):
     - Ji/Ji (= 2.0.1)
@@ -19,6 +22,8 @@ PODS:
 DEPENDENCIES:
   - Alamofire
   - AWSSNS
+  - Crashlytics
+  - Fabric
   - Flurry-iOS-SDK/FlurrySDK
   - Ji
   - RealmSwift
@@ -28,12 +33,14 @@ SPEC CHECKSUMS:
   Alamofire: aa2e09d871c9160ac53c90e83c68064a94e3dfbe
   AWSCore: 8ee5b1dc06a0fd562429fe7120113ca93cbfbca6
   AWSSNS: 758ecea491002c9064f3771a853ca9250b93ccc0
+  Crashlytics: 2b6dbe138a42395577cfa73dfa1aa7248cadf39e
+  Fabric: 5911403591946b8228ab1c51d98f1d7137e863c6
   Flurry-iOS-SDK: 8ed76252016d0162a893363c108a010ab97d424c
   Ji: 6bb602a28dd08b804158f64990e6051ed5de0110
   Realm: bc829ad0ef3d4eea70c34cfcc3b1704d18d50df1
   RealmSwift: a4d4abbf0088c337cab5b738054395842e4b3052
   SwiftyStoreKit: f47820a774eb94dcb2880f50a76f9533b2c282b9
 
-PODFILE CHECKSUM: bc39f649c7a0e82739f7cf43aeb06619309b1bc2
+PODFILE CHECKSUM: 6aa4fe425a4b46925eca3e76c9e17bb496109d10
 
 COCOAPODS: 1.1.1
