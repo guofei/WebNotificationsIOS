@@ -389,7 +389,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0810;
-				LastUpgradeCheck = 0810;
+				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = kaku;
 				TargetAttributes = {
 					281E577C1DE55DAE00C344A8 = {
@@ -722,6 +722,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = AAC9711016A3F3E68854628E /* Pods-WebChecker-WebCheckerTests.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -740,6 +741,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 1998E42C762A46EFB7668F62 /* Pods-WebChecker-WebCheckerTests.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -757,6 +759,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = FDB800228119B8BAA0432290 /* Pods-WebChecker-WebCheckerUITests.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
@@ -774,6 +777,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 4067C0401404470E70E52FF9 /* Pods-WebChecker-WebCheckerUITests.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
@@ -878,6 +882,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C8BE616E21F7FD9BB2E455FF /* Pods-WebChecker.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = WebChecker.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -901,6 +906,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E107A0A927BBE26539B81A78 /* Pods-WebChecker.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = WebChecker.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
