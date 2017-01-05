@@ -55,6 +55,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       }
     }
 
+    /*
     if let url = urlFromOptions(launchOptions: launchOptions) {
       if Page.getByURL(url) != nil {
         if let root = self.window?.rootViewController as? UINavigationController {
@@ -64,6 +65,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
       }
     }
+    */
 
     return true
   }
@@ -82,8 +84,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
   }
 
-  func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any]) {
-    print("didReceiveRemoteNotification")
+  func application(_ application: UIApplication,
+                   didReceiveRemoteNotification userInfo: [AnyHashable : Any],
+                   fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+    if let url = urlFromUserInfo(userInfo: userInfo) {
+      if Page.getByURL(url) != nil {
+        if let root = self.window?.rootViewController as? UINavigationController {
+          if let tableVC = root.topViewController as? URLsTableViewController {
+            tableVC.showPageOnce = url
+          }
+        }
+      }
+    }
   }
 
   func applicationWillResignActive(_ application: UIApplication) {
