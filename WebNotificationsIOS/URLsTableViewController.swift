@@ -26,6 +26,10 @@ class URLsTableViewController: UITableViewController {
   }
   var showPageOnce: String?
 
+  func reloadData() {
+    tableView?.reloadData()
+  }
+
   @IBOutlet weak var editBar: UIBarButtonItem!
 
   @IBAction func edit(_ sender: AnyObject) {
