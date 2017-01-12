@@ -113,6 +113,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   }
 
   func applicationDidBecomeActive(_ application: UIApplication) {
+    if let root = self.window?.rootViewController as? UINavigationController {
+      if let tableVC = root.topViewController as? URLsTableViewController {
+        tableVC.reloadData()
+      }
+    }
     User.sync()
     Page.syncRemoteToLoacle()
   }
