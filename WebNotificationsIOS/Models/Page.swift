@@ -152,7 +152,7 @@ class Page: Object {
     if url == nil {
       return false
     }
-    let res = parse(url!)
+    let res = parse(url)
     let page = Page()
     if let id = id {
       page.id = id

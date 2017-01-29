@@ -16,9 +16,9 @@ target 'WebChecker' do
   pod 'Crashlytics'
   # pod 'Dwifft', git: 'git@github.com:jflinter/Dwifft.git'
 
-  target 'WebCheckerTests' do
-  end
+  # target 'WebCheckerTests' do
+  # end
 
-  target 'WebCheckerUITests' do
-  end
+  # target 'WebCheckerUITests' do
+  # end
 end

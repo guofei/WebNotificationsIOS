@@ -54,11 +54,11 @@ class PageViewController: UIViewController, WKUIDelegate, WKNavigationDelegate {
     self.dismiss(animated: true, completion: nil)
   }
 
-  private func setChecked() {
+  fileprivate func setChecked() {
     Page.setChanged(targetURL, changed: false)
   }
 
-  private func loadAddressURL() {
+  fileprivate func loadAddressURL() {
     if let url = targetURL {
       if let requestURL = URL(string: url) {
         let req = URLRequest(url: requestURL)

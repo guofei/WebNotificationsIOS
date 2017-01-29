@@ -17,7 +17,7 @@ class URLsTableViewController: UITableViewController {
   var pages : Results<Page>? {
     get {
       do {
-        let result = try Realm().objects(Page.self).sorted(byProperty: "createdAt", ascending: false)
+        let result = try Realm().objects(Page.self).sorted(byKeyPath: "createdAt", ascending: false)
         return result
       } catch {
         return nil

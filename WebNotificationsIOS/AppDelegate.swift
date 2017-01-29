@@ -13,7 +13,7 @@ import SwiftyStoreKit
 import AWSSNS
 import Flurry_iOS_SDK
 
-func urlFromUserInfo(userInfo: [AnyHashable: Any]) -> String? {
+func urlFromUserInfo(_ userInfo: [AnyHashable: Any]) -> String? {
   guard let aps = userInfo["aps"] as? NSDictionary else {
     return nil
   }
@@ -23,9 +23,9 @@ func urlFromUserInfo(userInfo: [AnyHashable: Any]) -> String? {
   return UrlHelper.getURL(url)
 }
 
-func urlFromOptions(launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> String? {
+func urlFromOptions(_ launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> String? {
   if let userInfo = launchOptions?[UIApplicationLaunchOptionsKey.remoteNotification] as? [AnyHashable : Any] {
-    return urlFromUserInfo(userInfo: userInfo)
+    return urlFromUserInfo(userInfo)
   }
   return nil
 }
@@ -55,7 +55,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       }
     }
 
-    if let url = urlFromOptions(launchOptions: launchOptions) {
+    if let url = urlFromOptions(launchOptions) {
       if Page.getByURL(url) != nil {
         if let root = self.window?.rootViewController as? UINavigationController {
           if let tableVC = root.topViewController as? URLsTableViewController {
@@ -71,7 +71,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
     let deviceTokenString = deviceToken.reduce("", {$0 + String(format: "%02X", $1)})
     print(deviceTokenString)
-    _ = User.createUser(deviceToken: deviceTokenString)
+    _ = User.createUser(deviceTokenString)
   }
 
   func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
@@ -85,7 +85,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   func application(_ application: UIApplication,
                    didReceiveRemoteNotification userInfo: [AnyHashable : Any],
                    fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
-    guard let url = urlFromUserInfo(userInfo: userInfo) else {
+    guard let url = urlFromUserInfo(userInfo) else {
       return
     }
     if Page.getByURL(url) == nil {
