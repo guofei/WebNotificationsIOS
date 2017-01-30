@@ -22,21 +22,13 @@ extension String {
 
 
 class UrlHelper {
-  static func getURL (_ url: String?) -> String? {
-    if let url = url {
-      let str = url.removeWhitespace()
-      if (str.characters.count > 0) {
-        if url.hasPrefix("http") {
-          return str
-        } else {
-          return "http://" + str
-        }
-      } else {
-        return nil
+  static func getURL(_ url: String?) -> String? {
+    if let newURL = encode(targetURL: addScheme(targetURL: url)) {
+      if valid(url: newURL) {
+        return newURL
       }
-    } else {
-      return nil
     }
+    return nil
   }
 
   static func verifyUrl (_ urlString: String?) -> Bool {
@@ -49,5 +41,36 @@ class UrlHelper {
       }
     }
     return false
+  }
+  
+  private static func valid(url: String) -> Bool {
+    if URL(string: url) != nil {
+      return true
+    } else {
+      return false
+    }
+  }
+  
+  private static func encode(targetURL: String?) -> String? {
+    guard let url = targetURL else {
+      return nil
+    }
+    
+    return url.addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed)
+  }
+  
+  private static func addScheme(targetURL: String?) -> String? {
+    guard let url = targetURL else {
+      return nil
+    }
+    if (url.characters.count > 0) {
+      if url.hasPrefix("http") {
+        return url
+      } else {
+        return "http://" + url
+      }
+    } else {
+      return nil
+    }
   }
 }
