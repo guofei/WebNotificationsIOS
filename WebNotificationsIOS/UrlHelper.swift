@@ -24,16 +24,16 @@ extension String {
 class UrlHelper {
   static func getURL(_ url: String?) -> String? {
     if let newURL = encode(targetURL: addScheme(targetURL: url)) {
-      if valid(url: newURL) {
+      if valid(targetURL: newURL) {
         return newURL
       }
     }
     return nil
   }
 
-  static func verifyUrl (_ urlString: String?) -> Bool {
+  static func verifyUrl(targetURL: String?) -> Bool {
     //Check for nil
-    if let urlString = urlString {
+    if let urlString = targetURL {
       // create NSURL instance
       if let url = URL(string: urlString) {
         // check if your application can open the NSURL instance
@@ -43,8 +43,8 @@ class UrlHelper {
     return false
   }
   
-  private static func valid(url: String) -> Bool {
-    if URL(string: url) != nil {
+  private static func valid(targetURL: String) -> Bool {
+    if URL(string: targetURL) != nil {
       return true
     } else {
       return false
@@ -52,11 +52,7 @@ class UrlHelper {
   }
   
   private static func encode(targetURL: String?) -> String? {
-    guard let url = targetURL else {
-      return nil
-    }
-    
-    return url.addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed)
+    return targetURL.flatMap { $0.addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed) }
   }
   
   private static func addScheme(targetURL: String?) -> String? {
