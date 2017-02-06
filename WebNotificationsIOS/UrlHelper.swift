@@ -32,11 +32,8 @@ class UrlHelper {
   }
 
   static func verifyUrl(targetURL: String?) -> Bool {
-    //Check for nil
     if let urlString = targetURL {
-      // create NSURL instance
       if let url = URL(string: urlString) {
-        // check if your application can open the NSURL instance
         return UIApplication.shared.canOpenURL(url)
       }
     }
@@ -56,17 +53,14 @@ class UrlHelper {
   }
   
   private static func addScheme(targetURL: String?) -> String? {
-    guard let url = targetURL else {
-      return nil
-    }
-    if (url.characters.count > 0) {
-      if url.hasPrefix("http") {
-        return url
-      } else {
-        return "http://" + url
+    return targetURL.flatMap {
+      if ($0.characters.count <= 0) {
+        return $0
       }
-    } else {
-      return nil
+      if ($0.hasPrefix("http")) {
+        return $0
+      }
+      return "http://" + $0
     }
   }
 }
