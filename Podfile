@@ -14,6 +14,7 @@ target 'WebChecker' do
   pod 'AWSSNS'
   pod 'Fabric'
   pod 'Crashlytics'
+  pod 'SwiftLint'
   # pod 'Dwifft', git: 'git@github.com:jflinter/Dwifft.git'
 
   # target 'WebCheckerTests' do
