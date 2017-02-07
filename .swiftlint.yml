@@ -2,3 +2,6 @@ included: # paths to include during linting. `--path` is ignored if present.
   - WebNotificationsIOS
 excluded: # paths to ignore during linting. Takes precedence over `included`.
   - Pods
+variable_name:
+  min_length: # only min_length
+    warning: 3 # only error
