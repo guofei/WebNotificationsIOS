@@ -65,7 +65,7 @@ class Page: Object {
   static func setChanged(_ url: String?, changed: Bool) {
     if let page = Page.getByURL(url) {
       if let realm = getDB() {
-        try! realm.write {
+        _ = try? realm.write {
           page.changed = changed
         }
       }
@@ -90,7 +90,7 @@ class Page: Object {
     if let realm = getDB() {
       let pages = realm.objects(Page.self)
       for (index, page) in pages.enumerated() {
-        try! realm.write {
+        _ = try? realm.write {
           page.cellIndex = index
         }
       }
@@ -121,7 +121,7 @@ class Page: Object {
     API.Page.create(url, uuid: User.getUUID(), second: newSecond, stopFetch: newStop) { id in
       if let id = id {
         if let realm = getDB() {
-          try! realm.write {
+          _ = try? realm.write {
             if let page = Page.getByURL(url) {
               page.id = id
             }
@@ -137,7 +137,7 @@ class Page: Object {
         serverStopFetch(page)
       }
       if let realm = getDB() {
-        try!realm.write {
+        _ = try? realm.write {
           realm.delete(page)
         }
         return true
@@ -172,7 +172,7 @@ class Page: Object {
       page.pushChannel = channel
     }
     if let realm = getDB() {
-      try! realm.write {
+      _ = try? realm.write {
         realm.add(page, update: true)
       }
       return true
@@ -202,7 +202,7 @@ class Page: Object {
       if let content = res.content , content != page.content {
         let contentDiff = User.isProUser() ? DiffHelper.get(page.content, newData: res.content) : ""
         let url = page.url
-        try! getDB()?.write {
+        _ = try? getDB()?.write {
           if let _ = Page.getByURL(url) {
             if let title = res.title {
               page.title = title

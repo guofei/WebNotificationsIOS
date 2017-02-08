@@ -59,7 +59,7 @@ class User: Object {
       let users = realm.objects(User.self)
       if users.count > 0 {
         let user = users.first
-        try! realm.write {
+        _ = try? realm.write {
           user?.deviceToken = deviceToken
         }
         return nil
@@ -69,7 +69,7 @@ class User: Object {
         user.uuid = uuid
         user.email = uuid
         user.deviceToken = deviceToken
-        try! realm.write {
+        _ = try? realm.write {
           realm.add(user)
         }
         sync()
@@ -94,7 +94,7 @@ class User: Object {
     }
     if let user = currentUser() {
       if let realm = getDB() {
-        try! realm.write {
+        _ = try? realm.write {
           user.id = id!
           if user.deviceToken.isEmpty {
             user.deviceToken = deviceToken!
