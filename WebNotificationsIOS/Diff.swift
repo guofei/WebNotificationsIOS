@@ -27,7 +27,6 @@ fileprivate func <= <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
   }
 }
 
-
 struct Diff<T> {
   let results: [DiffStep<T>]
   var insertions: [DiffStep<T>] {
@@ -190,7 +189,7 @@ class DiffHelper {
     }
     let a = origin!.characters.split(whereSeparator: splitor).map(trans).flatMap{$0}
     let b = newData!.characters.split(whereSeparator: splitor).map(trans).flatMap{$0}
-    
+
     let diff = a.diff(b)
     let printableDiff = diff.results.map({ $0.toString }).joined(separator: "\n")
     return printableDiff

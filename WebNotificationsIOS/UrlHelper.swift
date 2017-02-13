@@ -9,7 +9,6 @@
 import Foundation
 import UIKit
 
-
 extension String {
   func replace(_ string:String, replacement:String) -> String {
     return self.replacingOccurrences(of: string, with: replacement, options: NSString.CompareOptions.literal, range: nil)
@@ -19,7 +18,6 @@ extension String {
     return self.replace(" ", replacement: "")
   }
 }
-
 
 class UrlHelper {
   static func getURL(_ url: String?) -> String? {
@@ -39,7 +37,7 @@ class UrlHelper {
     }
     return false
   }
-  
+
   private static func valid(targetURL: String) -> Bool {
     if URL(string: targetURL) != nil {
       return true
@@ -47,11 +45,11 @@ class UrlHelper {
       return false
     }
   }
-  
+
   private static func encode(targetURL: String?) -> String? {
     return targetURL.flatMap { $0.addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed) }
   }
-  
+
   private static func addScheme(targetURL: String?) -> String? {
     return targetURL.flatMap {
       if ($0.characters.count <= 0) {

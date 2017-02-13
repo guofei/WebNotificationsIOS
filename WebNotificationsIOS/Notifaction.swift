@@ -63,10 +63,8 @@ enum Notifaction: String {
     }
     ud.synchronize()
   }
-  
-  
+
   fileprivate static func toString() -> String {
     return "NotificationType"
   }
 }
-

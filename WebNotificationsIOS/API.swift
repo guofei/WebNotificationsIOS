@@ -10,16 +10,18 @@ import Foundation
 import RealmSwift
 import Alamofire
 
-
 class API {
   class Page {
-    fileprivate struct URL {
+    fileprivate struct URL
+    {
       static let USERGET = "http://webupdatenotification.com/users/"
       static let PAGEGET = "http://webupdatenotification.com/pages/"
       static let PAGEADD = "http://webupdatenotification.com/pages"
       static let PAGEUPDATE = "http://webupdatenotification.com/pages/"
     }
-    static func create(_ url: String?, uuid: String?, second: Int?, stopFetch: Bool?, clourse: @escaping (_ id: Int?) -> Void) {
+
+    static func create(_ url: String?, uuid: String?, second: Int?, stopFetch: Bool?, clourse: @escaping (_ id: Int?) -> Void)
+    {
       if url == nil || uuid == nil || second == nil || stopFetch == nil {
         return
       }
@@ -66,7 +68,8 @@ class API {
       _ = Alamofire.request(updateURL, method: .put, parameters: parameters)
     }
 
-    static func get(_ pageID: Int?, fun: @escaping (_ id: Int?, _ url: String?, _ second: Int?, _ stopFetch: Bool?, _ diff: String?) -> Void) {
+    static func get(_ pageID: Int?, fun: @escaping (_ id: Int?, _ url: String?, _ second: Int?, _ stopFetch: Bool?, _ diff: String?) -> Void)
+    {
       if pageID == nil {
         return
       }
@@ -92,7 +95,8 @@ class API {
       }
     }
 
-    static func all(_ userID: Int?, each: @escaping (_ id: Int?, _ url: String?, _ second: Int?, _ stopFetch: Bool?) -> Void) {
+    static func all(_ userID: Int?, each: @escaping (_ id: Int?, _ url: String?, _ second: Int?, _ stopFetch: Bool?) -> Void)
+    {
       if userID == nil {
         return
       }
@@ -122,12 +126,14 @@ class API {
   }
 
   class User {
-    fileprivate struct URL {
+    fileprivate struct URL
+    {
       static let ADD = "http://webupdatenotification.com/users"
       static let TOUCH = "http://webupdatenotification.com/users/touch"
     }
 
-    static func create(_ uuid: String?, token: String?, type: String?, locale: String?, zone: String?, result: @escaping (_ userID: Int?, _ deviceToken: String) -> Void) {
+    static func create(_ uuid: String?, token: String?, type: String?, locale: String?, zone: String?, result: @escaping (_ userID: Int?, _ deviceToken: String) -> Void)
+    {
       if uuid == nil || token == nil || type == nil || locale == nil || zone == nil || (uuid?.isEmpty)! {
         return
       }
@@ -156,12 +162,12 @@ class API {
         }
       }
     }
-    
+
     static func touch(_ uuid: String?) {
       if uuid == nil {
         return
       }
-      
+
       let parameters = [
         "user": [ "channel": uuid! ]
       ]

@@ -41,6 +41,6 @@ func parse(_ url: String?) -> (title: String?, content: String?) {
       }
     }
   }
-  
+
   return (title, content)
 }
