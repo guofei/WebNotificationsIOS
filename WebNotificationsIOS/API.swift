@@ -11,17 +11,17 @@ import RealmSwift
 import Alamofire
 
 class API {
-  class Page {
-    fileprivate struct URL
-    {
-      static let USERGET = "http://webupdatenotification.com/users/"
-      static let PAGEGET = "http://webupdatenotification.com/pages/"
-      static let PAGEADD = "http://webupdatenotification.com/pages"
-      static let PAGEUPDATE = "http://webupdatenotification.com/pages/"
-    }
+  fileprivate struct URL {
+    static let USERGET = "http://webupdatenotification.com/users/"
+    static let PAGEGET = "http://webupdatenotification.com/pages/"
+    static let PAGEADD = "http://webupdatenotification.com/pages"
+    static let PAGEUPDATE = "http://webupdatenotification.com/pages/"
+    static let ADD = "http://webupdatenotification.com/users"
+    static let TOUCH = "http://webupdatenotification.com/users/touch"
+  }
 
-    static func create(_ url: String?, uuid: String?, second: Int?, stopFetch: Bool?, clourse: @escaping (_ id: Int?) -> Void)
-    {
+  class Page {
+    static func create(_ url: String?, uuid: String?, second: Int?, stopFetch: Bool?, clourse: @escaping (_ id: Int?) -> Void) {
       if url == nil || uuid == nil || second == nil || stopFetch == nil {
         return
       }
@@ -37,7 +37,7 @@ class API {
       Alamofire.request(URL.PAGEADD, method: .post, parameters: parameters).responseJSON { response in
         switch response.result {
         case .success:
-          if let dic = response.result.value as? Dictionary<String, AnyObject> {
+          if let dic = response.result.value as? [String: AnyObject] {
             if let id = dic["id"] as? Int {
               clourse(id)
             }
@@ -68,8 +68,7 @@ class API {
       _ = Alamofire.request(updateURL, method: .put, parameters: parameters)
     }
 
-    static func get(_ pageID: Int?, fun: @escaping (_ id: Int?, _ url: String?, _ second: Int?, _ stopFetch: Bool?, _ diff: String?) -> Void)
-    {
+    static func get(_ pageID: Int?, fun: @escaping (_ id: Int?, _ url: String?, _ second: Int?, _ stopFetch: Bool?, _ diff: String?) -> Void) {
       if pageID == nil {
         return
       }
@@ -81,7 +80,7 @@ class API {
       Alamofire.request(getURL, method: .get).responseJSON { response in
         switch response.result {
         case .success:
-          if let item = response.result.value as? Dictionary<String, AnyObject> {
+          if let item = response.result.value as? [String: AnyObject] {
             let id = item["id"] as? Int
             let url = item["url"] as? String
             let stopFetch = item["stop_fetch"] as? Bool
@@ -95,8 +94,7 @@ class API {
       }
     }
 
-    static func all(_ userID: Int?, each: @escaping (_ id: Int?, _ url: String?, _ second: Int?, _ stopFetch: Bool?) -> Void)
-    {
+    static func all(_ userID: Int?, each: @escaping (_ id: Int?, _ url: String?, _ second: Int?, _ stopFetch: Bool?) -> Void) {
       if userID == nil {
         return
       }
@@ -108,7 +106,7 @@ class API {
       Alamofire.request(getURL, method: .get).responseJSON { response in
         switch response.result {
         case .success:
-          if let arr = response.result.value as? Array<Dictionary<String, AnyObject>> {
+          if let arr = response.result.value as? [[String: AnyObject]] {
             for item in arr {
               let id = item["id"] as? Int
               let url = item["url"] as? String
@@ -126,14 +124,7 @@ class API {
   }
 
   class User {
-    fileprivate struct URL
-    {
-      static let ADD = "http://webupdatenotification.com/users"
-      static let TOUCH = "http://webupdatenotification.com/users/touch"
-    }
-
-    static func create(_ uuid: String?, token: String?, type: String?, locale: String?, zone: String?, result: @escaping (_ userID: Int?, _ deviceToken: String) -> Void)
-    {
+    static func create(_ uuid: String?, token: String?, type: String?, locale: String?, zone: String?, result: @escaping (_ userID: Int?, _ deviceToken: String) -> Void) {
       if uuid == nil || token == nil || type == nil || locale == nil || zone == nil || (uuid?.isEmpty)! {
         return
       }
@@ -150,7 +141,7 @@ class API {
       Alamofire.request(URL.ADD, method: .post, parameters: parameters).responseJSON { response in
         switch response.result {
         case .success:
-          if let dic = response.result.value as? Dictionary<String, AnyObject> {
+          if let dic = response.result.value as? [String: AnyObject] {
             if let id = dic["id"] as? Int {
               if let deviceToken = dic["device_token"] as? String {
                 result(id, deviceToken)
