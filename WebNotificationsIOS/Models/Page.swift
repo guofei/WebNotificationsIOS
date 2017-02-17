@@ -65,7 +65,7 @@ class Page: Object {
   static func setChanged(_ url: String?, changed: Bool) {
     if let page = Page.getByURL(url) {
       if let realm = getDB() {
-        _ = try? realm.write {
+        try? realm.write {
           page.changed = changed
         }
       }
@@ -90,7 +90,7 @@ class Page: Object {
     if let realm = getDB() {
       let pages = realm.objects(Page.self)
       for (index, page) in pages.enumerated() {
-        _ = try? realm.write {
+        try? realm.write {
           page.cellIndex = index
         }
       }
@@ -121,7 +121,7 @@ class Page: Object {
     API.Page.create(url, uuid: User.getUUID(), second: newSecond, stopFetch: newStop) { id in
       if let id = id {
         if let realm = getDB() {
-          _ = try? realm.write {
+          try? realm.write {
             if let page = Page.getByURL(url) {
               page.id = id
             }
@@ -137,7 +137,7 @@ class Page: Object {
         serverStopFetch(page)
       }
       if let realm = getDB() {
-        _ = try? realm.write {
+        try? realm.write {
           realm.delete(page)
         }
         return true
@@ -172,7 +172,7 @@ class Page: Object {
       page.pushChannel = channel
     }
     if let realm = getDB() {
-      _ = try? realm.write {
+      try? realm.write {
         realm.add(page, update: true)
       }
       return true
@@ -192,17 +192,17 @@ class Page: Object {
     }
   }
 
-  fileprivate static func checkIsUpdate(_ page :Page?) -> Bool {
+  fileprivate static func checkIsUpdate(page: Page?) -> Bool {
     if page == nil {
       return false
     }
 
     if let page = page {
       let res = parse(page.url)
-      if let content = res.content , content != page.content {
+      if let content = res.content, content != page.content {
         let contentDiff = User.isProUser() ? DiffHelper.get(page.content, newData: res.content) : ""
         let url = page.url
-        _ = try? getDB()?.write {
+        try? getDB()?.write {
           if let _ = Page.getByURL(url) {
             if let title = res.title {
               page.title = title
@@ -224,20 +224,20 @@ class Page: Object {
     return false
   }
 
-  static func update(_ url :String?, done: @escaping (Bool) -> Void) {
+  static func update(_ url: String?, done: @escaping (Bool) -> Void) {
     DispatchQueue.global(qos: DispatchQoS.QoSClass.utility).async {
       let page = Page.getByURL(url)
-      let res = checkIsUpdate(page)
+      let res = checkIsUpdate(page: page)
       done(res)
     }
   }
-  
+
   static func updateAll(_ done: @escaping (Bool) -> Void) {
     DispatchQueue.global(qos: DispatchQoS.QoSClass.utility).async {
       if let realm = getDB() {
         let pages = realm.objects(Page.self)
         for	page in pages {
-          _ = checkIsUpdate(page)
+          _ = checkIsUpdate(page: page)
         }
       }
       done(true)
