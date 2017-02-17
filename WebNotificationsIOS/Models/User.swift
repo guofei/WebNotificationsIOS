@@ -10,7 +10,6 @@ import Foundation
 import RealmSwift
 import Alamofire
 
-
 // uuid is equal channel
 class User: Object {
   dynamic var id = 0
@@ -23,7 +22,6 @@ class User: Object {
   dynamic var deviceType = "iOS"
   dynamic var localeIdentifier = Locale.current.identifier
   dynamic var timeZone = TimeZone.autoupdatingCurrent.identifier
-
 
   override static func primaryKey() -> String? {
     return "uuid"
@@ -112,7 +110,7 @@ class User: Object {
       return false
     }
   }
-  
+
   static func setProUser() {
     let ud = UserDefaults.standard
     ud.set(true, forKey: Product.NSUserDefaultsKey)

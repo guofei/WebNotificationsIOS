@@ -26,7 +26,7 @@ class Migration {
     })
 
     Realm.Configuration.defaultConfiguration = config
-    
+
     _ = try? Realm()
   }
 }

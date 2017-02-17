@@ -30,10 +30,11 @@ class PageViewController: UIViewController, WKUIDelegate, WKNavigationDelegate {
     super.viewDidLoad()
 
     webView = WKWebView(frame: view.frame)
-    webView!.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+    // webView!.autoresizingMask = [.flexibleWidth, .flexibleHeight]
     webView!.uiDelegate = self
     webView!.navigationDelegate = self
     uiView.addSubview(webView!)
+    uiView.sendSubview(toBack: webView!)
 
     spinner.startAnimating()
     loadAddressURL()
@@ -67,7 +68,6 @@ class PageViewController: UIViewController, WKUIDelegate, WKNavigationDelegate {
     }
   }
 
-
   /*
   // MARK: - Navigation
 
@@ -85,5 +85,4 @@ class PageViewController: UIViewController, WKUIDelegate, WKNavigationDelegate {
       }
     }
   }
-  
 }
