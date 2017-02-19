@@ -11,7 +11,7 @@ import SwiftyStoreKit
 import Flurry_iOS_SDK
 
 class URLAddTableViewController: UITableViewController, UITextFieldDelegate {
-  var stopFetch : Bool {
+  var stopFetch: Bool {
     get {
       if notification == nil {
         return false
@@ -21,7 +21,7 @@ class URLAddTableViewController: UITableViewController, UITextFieldDelegate {
     }
   }
 
-  var proPrice : String? = nil {
+  var proPrice: String? = nil {
     didSet {
       updatePrice()
     }
@@ -29,10 +29,8 @@ class URLAddTableViewController: UITableViewController, UITextFieldDelegate {
 
   var originURL: String?
 
-  @IBOutlet weak var restoreCell: UITableViewCell!
   @IBOutlet weak var urlField: UITextField!
   @IBOutlet weak var spinner: UIActivityIndicatorView!
-  @IBOutlet weak var buyTable: UITableViewCell!
   @IBOutlet weak var datePicker: UIDatePicker!
   @IBOutlet weak var notification: UISwitch!
   @IBOutlet weak var buyButton: UIButton!
@@ -128,7 +126,7 @@ class URLAddTableViewController: UITableViewController, UITextFieldDelegate {
   */
 
   fileprivate func alert(_ title: String?, message: String?) {
-    if (title != nil && message != nil) {
+    if title != nil && message != nil {
       let alert = UIAlertController(title: title!, message: message!, preferredStyle: UIAlertControllerStyle.alert)
       alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
       self.present(alert, animated: true, completion: nil)
@@ -150,9 +148,7 @@ class URLAddTableViewController: UITableViewController, UITextFieldDelegate {
   }
 
   fileprivate func setProUI() {
-    if (User.isProUser()) {
-      buyTable?.isHidden = true
-      restoreCell?.isHidden = true
+    if User.isProUser() {
       datePicker?.isUserInteractionEnabled = true
       if urlField?.isEnabled == false {
         urlField?.isEnabled = true
@@ -175,7 +171,7 @@ class URLAddTableViewController: UITableViewController, UITextFieldDelegate {
     } else {
       datePicker?.countDownDuration = Double(PageConst.defaultSecond)
     }
-    if (User.isProUser()) {
+    if User.isProUser() {
       setProUI()
     } else {
       if Page.count() >= Product.userNumUrlLimit {
@@ -183,7 +179,7 @@ class URLAddTableViewController: UITableViewController, UITextFieldDelegate {
         urlField?.placeholder = NSLocalizedString("UnlockAddLimit", comment: "")
       }
     }
-    switch (Notifaction.type()) {
+    switch Notifaction.type() {
     case Notifaction.UNKNOWN:
       notification?.isEnabled = true
       notification?.setOn(false, animated: false)
@@ -231,7 +227,7 @@ class URLAddTableViewController: UITableViewController, UITextFieldDelegate {
     super.viewWillDisappear(animated)
   }
 
-  func textFieldShouldReturn(_ textField: UITextField) -> Bool{
+  func textFieldShouldReturn(_ textField: UITextField) -> Bool {
     urlField?.resignFirstResponder()
     return true
   }
@@ -243,71 +239,12 @@ class URLAddTableViewController: UITableViewController, UITextFieldDelegate {
 
   // MARK: - Table view data source
 
-  /*
-  override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-  // #warning Incomplete implementation, return the number of sections
-  return 0
+  override func numberOfSections(in tableView: UITableView) -> Int {
+    // #warning Incomplete implementation, return the number of sections
+    if User.isProUser() {
+      return 3
+    } else {
+      return 4
+    }
   }
-
-  override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-  // #warning Incomplete implementation, return the number of rows
-  return 0
-  }
-  */
-
-  /*
-  override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-  let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
-
-  // Configure the cell...
-
-  return cell
-  }
-  */
-
-  /*
-  // Override to support conditional editing of the table view.
-  override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-  // Return false if you do not want the specified item to be editable.
-  return true
-  }
-  */
-
-  /*
-  // Override to support editing the table view.
-  override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-  if editingStyle == .Delete {
-  // Delete the row from the data source
-  tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-  } else if editingStyle == .Insert {
-  // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-  }
-  }
-  */
-
-  /*
-  // Override to support rearranging the table view.
-  override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
-
-  }
-  */
-
-  /*
-  // Override to support conditional rearranging of the table view.
-  override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-  // Return false if you do not want the item to be re-orderable.
-  return true
-  }
-  */
-
-  /*
-  // MARK: - Navigation
-
-  // In a storyboard-based application, you will often want to do a little preparation before navigation
-  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-  // Get the new view controller using segue.destinationViewController.
-  // Pass the selected object to the new view controller.
-  }
-  */
-  
 }
