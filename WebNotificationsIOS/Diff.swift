@@ -7,7 +7,7 @@
 //
 
 import Foundation
-fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+fileprivate func < <T: Comparable>(lhs: T?, rhs: T?) -> Bool {
   switch (lhs, rhs) {
   case let (l?, r?):
     return l < r
@@ -18,7 +18,7 @@ fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
   }
 }
 
-fileprivate func <= <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+fileprivate func <= <T: Comparable>(lhs: T?, rhs: T?) -> Bool {
   switch (lhs, rhs) {
   case let (l?, r?):
     return l <= r
@@ -56,7 +56,7 @@ enum DiffStep<T> : CustomDebugStringConvertible {
   case insert(Int, T)
   case delete(Int, T)
   var isInsertion: Bool {
-    switch(self) {
+    switch self {
     case .insert:
       return true
     case .delete:
@@ -64,7 +64,7 @@ enum DiffStep<T> : CustomDebugStringConvertible {
     }
   }
   var debugDescription: String {
-    switch(self) {
+    switch self {
     case .insert(let i, let j):
       return "+\(j)@\(i)"
     case .delete(let i, let j):
@@ -72,7 +72,7 @@ enum DiffStep<T> : CustomDebugStringConvertible {
     }
   }
   var toString: String {
-    switch(self) {
+    switch self {
     case .insert(_, let j):
       return "+\(j)"
     case .delete(_, let j):
@@ -80,7 +80,7 @@ enum DiffStep<T> : CustomDebugStringConvertible {
     }
   }
   var idx: Int {
-    switch(self) {
+    switch self {
     case .insert(let i, _):
       return i
     case .delete(let i, _):
@@ -88,7 +88,7 @@ enum DiffStep<T> : CustomDebugStringConvertible {
     }
   }
   var value: T {
-    switch(self) {
+    switch self {
     case .insert(let j):
       return j.1
     case .delete(let j):
@@ -140,10 +140,9 @@ struct MemoizedSequenceComparison<T: Equatable> {
     var table = Array(repeating: Array(repeating: 0, count: m + 1), count: n + 1)
     for i in 0...n {
       for j in 0...m {
-        if (i == 0 || j == 0) {
+        if i == 0 || j == 0 {
           table[i][j] = 0
-        }
-        else if x[i-1] == y[j-1] {
+        } else if x[i-1] == y[j-1] {
           table[i][j] = table[i-1][j-1] + 1
         } else {
           table[i][j] = max(table[i-1][j], table[i][j-1])
@@ -156,10 +155,10 @@ struct MemoizedSequenceComparison<T: Equatable> {
 
 class DiffHelper {
   static func get(_ origin: String?, newData: String?) -> String {
-    if (origin == nil || newData == nil) {
+    if origin == nil || newData == nil {
       return ""
     }
-    if (origin?.characters.count <= 0 || newData?.characters.count <= 0) {
+    if origin?.characters.count <= 0 || newData?.characters.count <= 0 {
       return ""
     }
 
@@ -187,8 +186,8 @@ class DiffHelper {
         return [s]
       }
     }
-    let a = origin!.characters.split(whereSeparator: splitor).map(trans).flatMap{$0}
-    let b = newData!.characters.split(whereSeparator: splitor).map(trans).flatMap{$0}
+    let a = origin!.characters.split(whereSeparator: splitor).map(trans).flatMap {$0}
+    let b = newData!.characters.split(whereSeparator: splitor).map(trans).flatMap {$0}
 
     let diff = a.diff(b)
     let printableDiff = diff.results.map({ $0.toString }).joined(separator: "\n")

@@ -40,9 +40,9 @@ enum Notifaction: String {
   static func setAfterFirstTime() {
     if type() != Notifaction.UNKNOWN {
       if #available(iOS 10.0, *) {
-        UNUserNotificationCenter.current().requestAuthorization(options: [.badge, .alert , .sound]) { (greanted, error) in
+        UNUserNotificationCenter.current().requestAuthorization(options: [.badge, .alert, .sound]) { (greanted, _) in
           if greanted {
-            UIApplication.shared.registerForRemoteNotifications();
+            UIApplication.shared.registerForRemoteNotifications()
           }
         }
       } else {

@@ -13,8 +13,8 @@ class Migration {
     let config = Realm.Configuration(
       schemaVersion: 3,
 
-      migrationBlock: { migration, oldSchemaVersion in
-        if (oldSchemaVersion < 3) {
+      migrationBlock: { _, oldSchemaVersion in
+        if oldSchemaVersion < 3 {
           // Page.contentDiff wil be automatically added in v1
           // Page.changed will be automatically added in v2
           // Page.cellIndex will be automatically added in v2

@@ -3,7 +3,7 @@ PODS:
   - AWSCore (2.5.0)
   - AWSSNS (2.5.0):
     - AWSCore (= 2.5.0)
-  - Crashlytics (3.8.3):
+  - Crashlytics (3.8.4):
     - Fabric (~> 1.6.3)
   - Fabric (1.6.11)
   - Flurry-iOS-SDK/FlurrySDK (7.9.2)
@@ -35,7 +35,7 @@ SPEC CHECKSUMS:
   Alamofire: 856a113053a7bc9cbe5d6367a555d773fc5cfef7
   AWSCore: e9839d27ceaa2db75934a9c418630ce63c23e347
   AWSSNS: b2e3f080fa826e7ff2bcd52cb050c1592c439090
-  Crashlytics: 2b6dbe138a42395577cfa73dfa1aa7248cadf39e
+  Crashlytics: 79e236942ca1e7fc641df1feb9a275360a78ab6a
   Fabric: 5911403591946b8228ab1c51d98f1d7137e863c6
   Flurry-iOS-SDK: 300dc1d78443dea3d433a38e76292f20f14f0a96
   Ji: 6bb602a28dd08b804158f64990e6051ed5de0110

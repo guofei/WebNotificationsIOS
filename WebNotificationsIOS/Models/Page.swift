@@ -105,7 +105,7 @@ class Page: Object {
   static func syncRemoteToLoacle() {
     if let user = User.currentUser() {
       API.Page.all(user.id) { id, url, sec, stopFetch in
-        if (id != nil && url != nil && sec != nil && stopFetch != nil) {
+        if id != nil && url != nil && sec != nil && stopFetch != nil {
           let page = getByURL(url)
           if page == nil {
             _ = createOrUpdateURLToLocal(id, url: url, second: sec!, stopFetch: stopFetch!)
