@@ -18,14 +18,14 @@ func fixViewScroll(_ textView: UITextView?) {
 }
 
 class DiffTableViewController: UITableViewController {
-  var targetURL : String? {
+  var targetURL: String? {
     didSet {
       showDiff()
     }
   }
-  var diffText : String? = NSLocalizedString("BuyToUseDiff", comment: "")
+  var diffText: String? = NSLocalizedString("BuyToUseDiff", comment: "")
 
-  var proPrice : String? = nil {
+  var proPrice: String? = nil {
     didSet {
       updatePrice()
     }

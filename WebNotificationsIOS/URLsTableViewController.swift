@@ -11,10 +11,9 @@ import RealmSwift
 import Alamofire
 import Ji
 
-
 class URLsTableViewController: UITableViewController {
 
-  var pages : Results<Page>? {
+  var pages: Results<Page>? {
     get {
       do {
         let result = try Realm().objects(Page.self).sorted(byKeyPath: "createdAt", ascending: false)
@@ -48,7 +47,7 @@ class URLsTableViewController: UITableViewController {
 
   fileprivate func refresh() {
     refreshControl?.beginRefreshing()
-    Page.updateAll() { (_) -> Void in
+    Page.updateAll { (_) -> Void in
       DispatchQueue.main.sync {
         self.tableView?.reloadData()
         self.refreshControl?.endRefreshing()
@@ -120,7 +119,7 @@ class URLsTableViewController: UITableViewController {
     return cell
   }
 
-  override func tableView(_ table: UITableView, didSelectRowAt indexPath:IndexPath) {
+  override func tableView(_ table: UITableView, didSelectRowAt indexPath: IndexPath) {
     if let allPages = pages {
       let page = allPages[indexPath.row]
       if tableView.isEditing {
@@ -141,7 +140,6 @@ class URLsTableViewController: UITableViewController {
   }
   */
 
-
   /*
   // Override to support conditional editing of the table view.
   override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
@@ -149,7 +147,6 @@ class URLsTableViewController: UITableViewController {
   return true
   }
   */
-
 
   // Override to support editing the table view.
   override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
@@ -162,7 +159,6 @@ class URLsTableViewController: UITableViewController {
       }
     }
   }
-
 
   /*
   // Override to support rearranging the table view.
@@ -179,7 +175,6 @@ class URLsTableViewController: UITableViewController {
   }
   */
 
-
   // MARK: - Navigation
 
   struct StoryBoard {
@@ -189,7 +184,7 @@ class URLsTableViewController: UITableViewController {
 
   // In a storyboard-based application, you will often want to do a little preparation before navigation
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    if (segue.identifier == StoryBoard.toWebPageSegue) {
+    if segue.identifier == StoryBoard.toWebPageSegue {
       if let nav = segue.destination as? UINavigationController {
         if let subVC = nav.viewControllers.first as? PageViewController {
           if let url = sender as? String {
@@ -197,7 +192,7 @@ class URLsTableViewController: UITableViewController {
           }
         }
       }
-    } else if (segue.identifier == StoryBoard.toAddURLSegue) {
+    } else if segue.identifier == StoryBoard.toAddURLSegue {
       if let nav = segue.destination as? UINavigationController {
         if let addURLVC = nav.viewControllers.first as? URLAddTableViewController {
           if let url = sender as? String {

@@ -16,7 +16,7 @@ class PageViewController: UIViewController, WKUIDelegate, WKNavigationDelegate {
     static let toShowDiffSegue = "toShowDiff"
   }
 
-  var targetURL : String? {
+  var targetURL: String? {
     didSet {
       loadAddressURL()
     }
@@ -79,7 +79,7 @@ class PageViewController: UIViewController, WKUIDelegate, WKNavigationDelegate {
   */
 
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    if (segue.identifier == StoryBoard.toShowDiffSegue) {
+    if segue.identifier == StoryBoard.toShowDiffSegue {
       if let subVC = segue.destination as? DiffTableViewController {
         subVC.targetURL = targetURL
       }
