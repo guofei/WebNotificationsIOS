@@ -21,28 +21,14 @@ extension String {
 
 class UrlHelper {
   static func getURL(_ url: String?) -> String? {
-    if let newURL = encode(targetURL: addScheme(targetURL: url)) {
-      if valid(targetURL: newURL) {
-        return newURL
-      }
-    }
-    return nil
+    return encode(targetURL: addScheme(targetURL: url)).flatMap { valid(targetURL: $0) }
   }
 
-  static func verifyUrl(targetURL: String?) -> Bool {
-    if let urlString = targetURL {
-      if let url = URL(string: urlString) {
-        return UIApplication.shared.canOpenURL(url)
-      }
-    }
-    return false
-  }
-
-  private static func valid(targetURL: String) -> Bool {
+  private static func valid(targetURL: String) -> String? {
     if URL(string: targetURL) != nil {
-      return true
+      return targetURL
     } else {
-      return false
+      return nil
     }
   }
 
