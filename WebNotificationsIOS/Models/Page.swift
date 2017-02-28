@@ -98,7 +98,8 @@ class Page: Object {
   }
 
   fileprivate static func serverStopFetch(_ page: Page) {
-    API.Page.update(page.id, url: page.url, second: page.sec, uuid: User.getUUID(), stopFetch: true)
+    let param = API.PageParam(uuid: User.getUUID(), url: page.url, second: page.sec, stopFetch: true)
+    API.Page.update(id: page.id, param: param)
   }
 
   // dont check page nil
@@ -118,7 +119,8 @@ class Page: Object {
   fileprivate static func syncURL(_ url: String?, second: Int, stopFetch: Bool) {
     let newSecond = User.isProUser() ? second : PageConst.defaultSecond
     let newStop = Notifaction.type() == Notifaction.ON ? stopFetch : true
-    API.Page.create(url, uuid: User.getUUID(), second: newSecond, stopFetch: newStop) { id in
+    let param = API.PageParam(uuid: User.getUUID(), url: url, second: newSecond, stopFetch: newStop)
+    API.Page.create(param: param) { id in
       if let id = id {
         if let realm = getDB() {
           try? realm.write {

@@ -46,7 +46,8 @@ class User: Object {
 
   static func sync() {
     if let user = currentUser() {
-      API.User.create(user.uuid, token: user.deviceToken, type: user.deviceType, locale: user.localeIdentifier, zone: user.timeZone) { userID, deviceToken in
+      let param = API.UserParam(uuid: user.uuid, token: user.deviceToken, type: user.deviceType, locale: user.localeIdentifier, zone: user.timeZone)
+      API.User.create(param: param) { userID, deviceToken in
         currentUserSetIDAndDeviceToken(userID, deviceToken: deviceToken)
       }
     }

@@ -20,18 +20,33 @@ class API {
     static let TOUCH = "http://webupdatenotification.com/users/touch"
   }
 
-  class Page {
-    static func create(_ url: String?, uuid: String?, second: Int?, stopFetch: Bool?, clourse: @escaping (_ id: Int?) -> Void) {
+  struct PageParam {
+    var uuid: String?
+    var url: String?
+    var second: Int?
+    var stopFetch: Bool?
+
+    func invalid() -> Bool {
       if url == nil || uuid == nil || second == nil || stopFetch == nil {
+        return true
+      } else {
+        return false
+      }
+    }
+  }
+
+  class Page {
+    static func create(param: PageParam, clourse: @escaping (_ id: Int?) -> Void) {
+      if param.invalid() {
         return
       }
 
       let parameters = [
         "page": [
-          "url": url!,
-          "sec": second!,
-          "push_channel": uuid!,
-          "stop_fetch": stopFetch!
+          "url": param.url!,
+          "sec": param.second!,
+          "push_channel": param.uuid!,
+          "stop_fetch": param.stopFetch!
         ]
       ]
       Alamofire.request(URL.PAGEADD, method: .post, parameters: parameters).responseJSON { response in
@@ -48,8 +63,11 @@ class API {
       }
     }
 
-    static func update(_ id: Int?, url: String?, second: Int?, uuid: String?, stopFetch: Bool?) {
-      if id == nil || url == nil || uuid == nil || second == nil || stopFetch == nil {
+    static func update(id: Int?, param: PageParam) {
+      if param.invalid() {
+        return
+      }
+      if id == nil {
         return
       }
       if id! <= 0 {
@@ -59,10 +77,10 @@ class API {
       let updateURL = URL.PAGEUPDATE + "\(id!)"
       let parameters = [
         "page": [
-          "url": url!,
-          "sec": second!,
-          "push_channel": uuid!,
-          "stop_fetch": stopFetch!
+          "url": param.url!,
+          "sec": param.second!,
+          "push_channel": param.uuid!,
+          "stop_fetch": param.stopFetch!
         ]
       ]
       _ = Alamofire.request(updateURL, method: .put, parameters: parameters)
@@ -123,19 +141,34 @@ class API {
     }
   }
 
-  class User {
-    static func create(_ uuid: String?, token: String?, type: String?, locale: String?, zone: String?, result: @escaping (_ userID: Int?, _ deviceToken: String) -> Void) {
+  struct UserParam {
+    var uuid: String?
+    var token: String?
+    var type: String?
+    var locale: String?
+    var zone: String?
+
+    func invalid() -> Bool {
       if uuid == nil || token == nil || type == nil || locale == nil || zone == nil || (uuid?.isEmpty)! {
+        return true
+      } else {
+        return false
+      }
+    }
+  }
+  class User {
+    static func create(param: UserParam, result: @escaping (_ userID: Int?, _ deviceToken: String) -> Void) {
+      if param.invalid() {
         return
       }
 
       let parameters = [
         "user": [
-          "channel": uuid!,
-          "device_token": token!,
-          "device_type": type!,
-          "locale_identifier": locale!,
-          "time_zone": zone!
+          "channel": param.uuid!,
+          "device_token": param.token!,
+          "device_type": param.type!,
+          "locale_identifier": param.locale!,
+          "time_zone": param.zone!
         ]
       ]
       Alamofire.request(URL.ADD, method: .post, parameters: parameters).responseJSON { response in
