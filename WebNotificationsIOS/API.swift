@@ -33,6 +33,17 @@ class API {
         return false
       }
     }
+
+    func param() -> Parameters {
+      return [
+        "page": [
+          "url": url!,
+          "sec": second!,
+          "push_channel": uuid!,
+          "stop_fetch": stopFetch!
+        ]
+      ]
+    }
   }
 
   class Page {
@@ -41,15 +52,7 @@ class API {
         return
       }
 
-      let parameters = [
-        "page": [
-          "url": param.url!,
-          "sec": param.second!,
-          "push_channel": param.uuid!,
-          "stop_fetch": param.stopFetch!
-        ]
-      ]
-      Alamofire.request(URL.PAGEADD, method: .post, parameters: parameters).responseJSON { response in
+      Alamofire.request(URL.PAGEADD, method: .post, parameters: param.param()).responseJSON { response in
         switch response.result {
         case .success:
           if let dic = response.result.value as? [String: AnyObject] {
@@ -75,15 +78,7 @@ class API {
       }
 
       let updateURL = URL.PAGEUPDATE + "\(id!)"
-      let parameters = [
-        "page": [
-          "url": param.url!,
-          "sec": param.second!,
-          "push_channel": param.uuid!,
-          "stop_fetch": param.stopFetch!
-        ]
-      ]
-      _ = Alamofire.request(updateURL, method: .put, parameters: parameters)
+      _ = Alamofire.request(updateURL, method: .put, parameters: param.param())
     }
 
     static func get(_ pageID: Int?, fun: @escaping (_ id: Int?, _ url: String?, _ second: Int?, _ stopFetch: Bool?, _ diff: String?) -> Void) {
@@ -155,6 +150,18 @@ class API {
         return false
       }
     }
+
+    func param() -> Parameters {
+      return [
+        "user": [
+          "channel": uuid!,
+          "device_token": token!,
+          "device_type": type!,
+          "locale_identifier": locale!,
+          "time_zone": zone!
+        ]
+      ]
+    }
   }
   class User {
     static func create(param: UserParam, result: @escaping (_ userID: Int?, _ deviceToken: String) -> Void) {
@@ -162,16 +169,7 @@ class API {
         return
       }
 
-      let parameters = [
-        "user": [
-          "channel": param.uuid!,
-          "device_token": param.token!,
-          "device_type": param.type!,
-          "locale_identifier": param.locale!,
-          "time_zone": param.zone!
-        ]
-      ]
-      Alamofire.request(URL.ADD, method: .post, parameters: parameters).responseJSON { response in
+      Alamofire.request(URL.ADD, method: .post, parameters: param.param()).responseJSON { response in
         switch response.result {
         case .success:
           if let dic = response.result.value as? [String: AnyObject] {
