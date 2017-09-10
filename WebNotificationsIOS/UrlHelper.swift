@@ -21,7 +21,12 @@ extension String {
 
 class UrlHelper {
   static func getURL(_ url: String?) -> String? {
-    return encode(targetURL: addScheme(targetURL: url)).flatMap { valid(targetURL: $0) }
+    let schemed = addScheme(targetURL: url)
+    if valid(targetURL: schemed!) != nil {
+      return schemed
+    } else {
+      return encode(targetURL: addScheme(targetURL: url)).flatMap { valid(targetURL: $0) }
+    }
   }
 
   private static func valid(targetURL: String) -> String? {
