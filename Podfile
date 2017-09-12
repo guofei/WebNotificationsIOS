@@ -17,8 +17,9 @@ target 'WebChecker' do
   pod 'SwiftLint'
   # pod 'Dwifft', git: 'git@github.com:jflinter/Dwifft.git'
 
-  # target 'WebCheckerTests' do
-  # end
+  target 'WebCheckerTests' do
+    inherit! :search_paths
+  end
 
   # target 'WebCheckerUITests' do
   # end

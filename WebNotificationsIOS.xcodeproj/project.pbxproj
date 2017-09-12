@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		28286D041BFE37D80027A814 /* Diff.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28286D031BFE37D80027A814 /* Diff.swift */; };
+		28469A4C1F65774000375076 /* WebCheckerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28469A4B1F65774000375076 /* WebCheckerTests.swift */; };
+		28469A561F65864D00375076 /* UrlHelperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28469A551F65864D00375076 /* UrlHelperTests.swift */; };
 		285663611BFB8987003B147D /* Migration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285663601BFB8987003B147D /* Migration.swift */; };
 		2858C7461BB6CC89005D7543 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2858C7451BB6CC89005D7543 /* StoreKit.framework */; };
 		2858C7491BB7A856005D7543 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2858C7471BB7A856005D7543 /* Realm.framework */; };
@@ -40,13 +42,29 @@
 		28B5F1031D4AF01500D36913 /* SKProductExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B5F1021D4AF01500D36913 /* SKProductExtension.swift */; };
 		28B8C1B61C01BE2E000525FD /* DiffTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B8C1B51C01BE2E000525FD /* DiffTableViewController.swift */; };
 		28DC6A881E0434CF00BB5826 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2865030E1BAB001900BB041D /* AppDelegate.swift */; };
+		97B76A600D7C63165D22E922 /* Pods_WebCheckerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AE5496B75FD0FAC4D75463C /* Pods_WebCheckerTests.framework */; };
+		EFBF6C0BA520399869043986 /* Pods_WebChecker_WebCheckerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FADC0E8278A4C404B0F9B98B /* Pods_WebChecker_WebCheckerTests.framework */; };
 		FB62C45858E46CE2863088D6 /* Pods_WebChecker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 047A8E8DCA0BF2C04803D811 /* Pods_WebChecker.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		28469A4E1F65774000375076 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 286503031BAB001900BB041D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2865030A1BAB001900BB041D;
+			remoteInfo = WebChecker;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		047A8E8DCA0BF2C04803D811 /* Pods_WebChecker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WebChecker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		186920EBBCC916000BE391AC /* Pods_WebNotificationsIOSTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WebNotificationsIOSTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		28286D031BFE37D80027A814 /* Diff.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Diff.swift; sourceTree = "<group>"; };
+		28469A491F65773F00375076 /* WebCheckerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WebCheckerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		28469A4B1F65774000375076 /* WebCheckerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebCheckerTests.swift; sourceTree = "<group>"; };
+		28469A4D1F65774000375076 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		28469A551F65864D00375076 /* UrlHelperTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UrlHelperTests.swift; sourceTree = "<group>"; };
 		285663601BFB8987003B147D /* Migration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Migration.swift; sourceTree = "<group>"; };
 		2858C7451BB6CC89005D7543 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		2858C7471BB7A856005D7543 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
@@ -79,6 +97,7 @@
 		28738EE81BB2617A0083D95F /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		28738EEA1BB2619B0083D95F /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		28738EEC1BB261AF0083D95F /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		2874FD53148B3A40663E2467 /* Pods-WebChecker-WebCheckerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WebChecker-WebCheckerTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WebChecker-WebCheckerTests/Pods-WebChecker-WebCheckerTests.debug.xcconfig"; sourceTree = "<group>"; };
 		2875B94B1BAE7EC20020A4C5 /* Page.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Page.swift; path = Models/Page.swift; sourceTree = "<group>"; };
 		288E8C281BBEDDD00075DB56 /* Product.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		288E8C2A1BBEE9A90075DB56 /* Parse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parse.swift; sourceTree = "<group>"; };
@@ -92,14 +111,27 @@
 		28ED127B1BB982730046F6BF /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		3717335747C6921CEC56DD02 /* Pods-WebChecker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WebChecker.release.xcconfig"; path = "Pods/Target Support Files/Pods-WebChecker/Pods-WebChecker.release.xcconfig"; sourceTree = "<group>"; };
 		46791CEDD5D7EAC5CE7A9AEB /* Pods_WebChecker_WebNotificationsIOSUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WebChecker_WebNotificationsIOSUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5D00D2B45F793BD129D5DB83 /* Pods-WebCheckerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WebCheckerTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-WebCheckerTests/Pods-WebCheckerTests.release.xcconfig"; sourceTree = "<group>"; };
 		62F87E711F643F398808F564 /* Pods_WebNotificationsIOSUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WebNotificationsIOSUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6AE5496B75FD0FAC4D75463C /* Pods_WebCheckerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WebCheckerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		82B2778CF404A9EC010D6700 /* Pods-WebChecker-WebCheckerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WebChecker-WebCheckerTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-WebChecker-WebCheckerTests/Pods-WebChecker-WebCheckerTests.release.xcconfig"; sourceTree = "<group>"; };
 		B1BA96876C326A5B7A2549F4 /* Pods-WebChecker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WebChecker.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WebChecker/Pods-WebChecker.debug.xcconfig"; sourceTree = "<group>"; };
+		BD21AEEFEE79DF1594088BAD /* Pods-WebCheckerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WebCheckerTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WebCheckerTests/Pods-WebCheckerTests.debug.xcconfig"; sourceTree = "<group>"; };
 		C6753F4CEAECB84AF309E4FF /* Pods_WebChecker_WebCheckerUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WebChecker_WebCheckerUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F64AFE6B2BB5A3BABEAA9302 /* Pods_WebChecker_WebNotificationsIOSTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WebChecker_WebNotificationsIOSTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FADC0E8278A4C404B0F9B98B /* Pods_WebChecker_WebCheckerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WebChecker_WebCheckerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		28469A461F65773F00375076 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EFBF6C0BA520399869043986 /* Pods_WebChecker_WebCheckerTests.framework in Frameworks */,
+				97B76A600D7C63165D22E922 /* Pods_WebCheckerTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		286503081BAB001900BB041D /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -123,10 +155,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		28469A4A1F65774000375076 /* WebCheckerTests */ = {
+			isa = PBXGroup;
+			children = (
+				28469A4B1F65774000375076 /* WebCheckerTests.swift */,
+				28469A4D1F65774000375076 /* Info.plist */,
+				28469A551F65864D00375076 /* UrlHelperTests.swift */,
+			);
+			path = WebCheckerTests;
+			sourceTree = "<group>";
+		};
 		286503021BAB001900BB041D = {
 			isa = PBXGroup;
 			children = (
 				285ABDE01DA148BD0087BBD3 /* WebChecker.entitlements */,
+				28469A4A1F65774000375076 /* WebCheckerTests */,
 				28738ED51BB260610083D95F /* Frameworks */,
 				2865030D1BAB001900BB041D /* WebNotificationsIOS */,
 				2865030C1BAB001900BB041D /* Products */,
@@ -138,6 +181,7 @@
 			isa = PBXGroup;
 			children = (
 				2865030B1BAB001900BB041D /* WebChecker.app */,
+				28469A491F65773F00375076 /* WebCheckerTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -202,6 +246,7 @@
 				46791CEDD5D7EAC5CE7A9AEB /* Pods_WebChecker_WebNotificationsIOSUITests.framework */,
 				FADC0E8278A4C404B0F9B98B /* Pods_WebChecker_WebCheckerTests.framework */,
 				C6753F4CEAECB84AF309E4FF /* Pods_WebChecker_WebCheckerUITests.framework */,
+				6AE5496B75FD0FAC4D75463C /* Pods_WebCheckerTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -222,6 +267,10 @@
 			children = (
 				B1BA96876C326A5B7A2549F4 /* Pods-WebChecker.debug.xcconfig */,
 				3717335747C6921CEC56DD02 /* Pods-WebChecker.release.xcconfig */,
+				2874FD53148B3A40663E2467 /* Pods-WebChecker-WebCheckerTests.debug.xcconfig */,
+				82B2778CF404A9EC010D6700 /* Pods-WebChecker-WebCheckerTests.release.xcconfig */,
+				BD21AEEFEE79DF1594088BAD /* Pods-WebCheckerTests.debug.xcconfig */,
+				5D00D2B45F793BD129D5DB83 /* Pods-WebCheckerTests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -229,6 +278,27 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		28469A481F65773F00375076 /* WebCheckerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 28469A521F65774000375076 /* Build configuration list for PBXNativeTarget "WebCheckerTests" */;
+			buildPhases = (
+				E413A2F0095B393083DDBC4A /* [CP] Check Pods Manifest.lock */,
+				28469A451F65773F00375076 /* Sources */,
+				28469A461F65773F00375076 /* Frameworks */,
+				28469A471F65773F00375076 /* Resources */,
+				E0C8077E8CA23006D60F379F /* [CP] Embed Pods Frameworks */,
+				6D630B1B9E082D287A75ECDF /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				28469A4F1F65774000375076 /* PBXTargetDependency */,
+			);
+			name = WebCheckerTests;
+			productName = WebCheckerTests;
+			productReference = 28469A491F65773F00375076 /* WebCheckerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		2865030A1BAB001900BB041D /* WebChecker */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 286503331BAB001900BB041D /* Build configuration list for PBXNativeTarget "WebChecker" */;
@@ -258,10 +328,15 @@
 		286503031BAB001900BB041D /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0810;
+				LastSwiftUpdateCheck = 0830;
 				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = kaku;
 				TargetAttributes = {
+					28469A481F65773F00375076 = {
+						CreatedOnToolsVersion = 8.3.3;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 2865030A1BAB001900BB041D;
+					};
 					2865030A1BAB001900BB041D = {
 						CreatedOnToolsVersion = 7.0;
 						LastSwiftMigration = 0820;
@@ -295,11 +370,19 @@
 			projectRoot = "";
 			targets = (
 				2865030A1BAB001900BB041D /* WebChecker */,
+				28469A481F65773F00375076 /* WebCheckerTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		28469A471F65773F00375076 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		286503091BAB001900BB041D /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -335,13 +418,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-WebChecker-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		284EBC921DF13EDC008310F1 /* ShellScript */ = {
@@ -384,24 +470,115 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\"";
 		};
-		DC25C096AADCC627106BEC9D /* [CP] Embed Pods Frameworks */ = {
+		6D630B1B9E082D287A75ECDF /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WebCheckerTests/Pods-WebCheckerTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DC25C096AADCC627106BEC9D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-WebChecker/Pods-WebChecker-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/AWSCore/AWSCore.framework",
+				"${BUILT_PRODUCTS_DIR}/AWSSNS/AWSSNS.framework",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Flurry-iOS-SDK/Flurry_iOS_SDK.framework",
+				"${BUILT_PRODUCTS_DIR}/Ji/Ji.framework",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyStoreKit/SwiftyStoreKit.framework",
+			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSCore.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSSNS.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Flurry_iOS_SDK.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Ji.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyStoreKit.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WebChecker/Pods-WebChecker-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		E0C8077E8CA23006D60F379F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-WebChecker-WebCheckerTests/Pods-WebChecker-WebCheckerTests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/AWSCore/AWSCore.framework",
+				"${BUILT_PRODUCTS_DIR}/AWSSNS/AWSSNS.framework",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Flurry-iOS-SDK/Flurry_iOS_SDK.framework",
+				"${BUILT_PRODUCTS_DIR}/Ji/Ji.framework",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyStoreKit/SwiftyStoreKit.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSCore.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSSNS.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Flurry_iOS_SDK.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Ji.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyStoreKit.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WebCheckerTests/Pods-WebCheckerTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E413A2F0095B393083DDBC4A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-WebCheckerTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		28469A451F65773F00375076 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				28469A4C1F65774000375076 /* WebCheckerTests.swift in Sources */,
+				28469A561F65864D00375076 /* UrlHelperTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		286503071BAB001900BB041D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -427,6 +604,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		28469A4F1F65774000375076 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2865030A1BAB001900BB041D /* WebChecker */;
+			targetProxy = 28469A4E1F65774000375076 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		286503121BAB001900BB041D /* Main.storyboard */ = {
@@ -460,6 +645,48 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		28469A501F65774000375076 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BD21AEEFEE79DF1594088BAD /* Pods-WebCheckerTests.debug.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = D38TAEJ8G7;
+				INFOPLIST_FILE = WebCheckerTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.webupdatenotification.WebCheckerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WebChecker.app/WebChecker";
+			};
+			name = Debug;
+		};
+		28469A511F65774000375076 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5D00D2B45F793BD129D5DB83 /* Pods-WebCheckerTests.release.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = D38TAEJ8G7;
+				INFOPLIST_FILE = WebCheckerTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.webupdatenotification.WebCheckerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WebChecker.app/WebChecker";
+			};
+			name = Release;
+		};
 		286503311BAB001900BB041D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -482,6 +709,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -529,6 +757,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -599,6 +828,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		28469A521F65774000375076 /* Build configuration list for PBXNativeTarget "WebCheckerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				28469A501F65774000375076 /* Debug */,
+				28469A511F65774000375076 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		286503061BAB001900BB041D /* Build configuration list for PBXProject "WebNotificationsIOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

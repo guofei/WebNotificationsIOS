@@ -70,11 +70,11 @@ class DiffTableViewController: UITableViewController {
     spinner?.startAnimating()
     Flurry.logEvent("Restore Pro Clicked", withParameters: ["view": "diff"])
     SwiftyStoreKit.restorePurchases(atomically: true) { results in
-      if results.restoreFailedProducts.count > 0 {
-        print("Restore Failed: \(results.restoreFailedProducts)")
-      } else if results.restoredProducts.count > 0 {
+      if results.restoreFailedPurchases.count > 0 {
+        print("Restore Failed: \(results.restoreFailedPurchases)")
+      } else if results.restoredPurchases.count > 0 {
         User.setProUser()
-        print("Restore Success: \(results.restoredProducts)")
+        print("Restore Success: \(results.restoredPurchases)")
       } else {
         print("Nothing to Restore")
       }

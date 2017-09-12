@@ -80,12 +80,12 @@ class URLAddTableViewController: UITableViewController, UITextFieldDelegate {
     Flurry.logEvent("Restore Pro Clicked", withParameters: ["view": "diff"])
     spinner?.startAnimating()
     SwiftyStoreKit.restorePurchases(atomically: true) { results in
-      if results.restoreFailedProducts.count > 0 {
-        print("Restore Failed: \(results.restoreFailedProducts)")
-      } else if results.restoredProducts.count > 0 {
+      if results.restoredPurchases.count > 0 {
+        print("Restore Failed: \(results.restoredPurchases)")
+      } else if results.restoredPurchases.count > 0 {
         User.setProUser()
         self.setProUI()
-        print("Restore Success: \(results.restoredProducts)")
+        print("Restore Success: \(results.restoredPurchases)")
       } else {
         print("Nothing to Restore")
       }
