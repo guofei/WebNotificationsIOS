@@ -219,6 +219,7 @@ class Page: Object {
         }
         return true
       }
+      // may be a bug
       if page.id <= 0 {
         syncURL(page.url, second: page.sec, stopFetch: page.stopFetch)
       }

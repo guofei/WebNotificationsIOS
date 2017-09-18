@@ -98,12 +98,12 @@ class URLAddTableViewController: UITableViewController, UITextFieldDelegate {
     spinner?.startAnimating()
     SwiftyStoreKit.purchaseProduct(Product.ID, atomically: true) { result in
       switch result {
-      case .success(let productId):
+      case .success(let purchase):
         User.setProUser()
         self.setProUI()
-        Flurry.logEvent("Buy Pro OK", withParameters: ["view": "urladd", "product": "\(productId)"])
+        Flurry.logEvent("Buy Pro OK", withParameters: ["view": "diff", "product": "\(purchase.productId)"])
       case .error(let error):
-        Flurry.logEvent("Buy Pro Error", withParameters: ["view": "urladd", "error": "\(error)"])
+        Flurry.logEvent("Buy Pro Error", withParameters: ["view": "diff", "error": "\(error)"])
       }
       self.spinner?.stopAnimating()
     }

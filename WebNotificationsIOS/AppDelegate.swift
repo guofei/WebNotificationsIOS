@@ -45,9 +45,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     Notifaction.setAfterFirstTime()
 
-    SwiftyStoreKit.completeTransactions(atomically: true) { products in
-      for product in products {
-        if product.transaction.transactionState == .purchased || product.transaction.transactionState == .restored {
+    SwiftyStoreKit.completeTransactions(atomically: true) { purchases in
+      for purchase in purchases {
+        if purchase.transaction.transactionState == .purchased || purchase.transaction.transactionState == .restored {
+          if purchase.needsFinishTransaction {
+            // Deliver content from server, then:
+            SwiftyStoreKit.finishTransaction(purchase.transaction)
+          }
           User.setProUser()
           Flurry.logEvent("Buy or Restore Pro Successed")
         }

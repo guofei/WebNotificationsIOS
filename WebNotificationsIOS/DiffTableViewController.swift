@@ -56,9 +56,9 @@ class DiffTableViewController: UITableViewController {
     Flurry.logEvent("Buy Pro Clicked", withParameters: ["view": "diff"])
     SwiftyStoreKit.purchaseProduct(Product.ID, atomically: true) { result in
       switch result {
-      case .success(let productId):
+      case .success(let purchase):
         User.setProUser()
-        Flurry.logEvent("Buy Pro OK", withParameters: ["view": "diff", "product": "\(productId)"])
+        Flurry.logEvent("Buy Pro OK", withParameters: ["view": "diff", "product": "\(purchase.productId)"])
       case .error(let error):
         Flurry.logEvent("Buy Pro Error", withParameters: ["view": "diff", "error": "\(error)"])
       }
