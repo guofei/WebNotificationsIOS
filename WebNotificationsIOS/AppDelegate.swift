@@ -139,7 +139,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     */
     User.sync()
-    Page.syncRemoteToLoacle()
+    Page.syncAll()
   }
 
   func applicationWillTerminate(_ application: UIApplication) {

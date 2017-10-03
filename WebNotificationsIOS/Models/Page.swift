@@ -102,8 +102,7 @@ class Page: Object {
     API.Page.update(id: page.id, param: param)
   }
 
-  // dont check page nil
-  static func syncRemoteToLoacle() {
+  static func syncAll() {
     if let user = User.currentUser() {
       API.Page.all(user.id) { id, url, sec, stopFetch in
         if id != nil && url != nil && sec != nil && stopFetch != nil {
@@ -116,11 +115,15 @@ class Page: Object {
     }
   }
 
-  fileprivate static func syncURL(_ url: String?, second: Int, stopFetch: Bool) {
+  // TODO split this function
+  fileprivate static func syncURL(_ url: String?, second: Int, stopFetch: Bool, updateID: Bool) {
     let newSecond = User.isProUser() ? second : PageConst.defaultSecond
     let newStop = Notifaction.type() == Notifaction.ON ? stopFetch : true
     let param = API.PageParam(uuid: User.getUUID(), url: url, second: newSecond, stopFetch: newStop)
     API.Page.create(param: param) { id in
+      if !updateID {
+        return
+      }
       if let id = id {
         if let realm = getDB() {
           try? realm.write {
@@ -186,7 +189,7 @@ class Page: Object {
   static func createOrUpdate(_ url: String?, second: Int, stopFetch: Bool, closure: @escaping (Bool) -> Void) {
     DispatchQueue.global(qos: DispatchQoS.QoSClass.userInitiated).async {
       if createOrUpdateURLToLocal(nil, url: url, second: second, stopFetch: stopFetch) {
-        syncURL(url, second: second, stopFetch: stopFetch)
+        syncURL(url, second: second, stopFetch: stopFetch, updateID: true)
         closure(true)
       } else {
         closure(false)
@@ -194,7 +197,7 @@ class Page: Object {
     }
   }
 
-  fileprivate static func checkIsUpdate(page: Page?) -> Bool {
+  fileprivate static func contentCheck(page: Page?) -> Bool {
     if page == nil {
       return false
     }
@@ -205,7 +208,7 @@ class Page: Object {
         let contentDiff = User.isProUser() ? DiffHelper.get(page.content, newData: res.content) : ""
         let url = page.url
         try? getDB()?.write {
-          if let _ = Page.getByURL(url) {
+          if Page.getByURL(url) != nil {
             if let title = res.title {
               page.title = title
             }
@@ -217,11 +220,9 @@ class Page: Object {
             page.updatedAt = NSDate() as Date
           }
         }
+        // sync sometimes
+        syncURL(page.url, second: page.sec, stopFetch: page.stopFetch, updateID: page.id <= 0)
         return true
-      }
-      // may be a bug
-      if page.id <= 0 {
-        syncURL(page.url, second: page.sec, stopFetch: page.stopFetch)
       }
     }
     return false
@@ -230,7 +231,7 @@ class Page: Object {
   static func update(_ url: String?, done: @escaping (Bool) -> Void) {
     DispatchQueue.global(qos: DispatchQoS.QoSClass.utility).async {
       let page = Page.getByURL(url)
-      let res = checkIsUpdate(page: page)
+      let res = contentCheck(page: page)
       done(res)
     }
   }
@@ -240,7 +241,7 @@ class Page: Object {
       if let realm = getDB() {
         let pages = realm.objects(Page.self)
         for	page in pages {
-          _ = checkIsUpdate(page: page)
+          _ = contentCheck(page: page)
         }
       }
       done(true)
