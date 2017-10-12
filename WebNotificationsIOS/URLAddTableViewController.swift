@@ -183,14 +183,11 @@ class URLAddTableViewController: UITableViewController, UITextFieldDelegate {
     case Notifaction.UNKNOWN:
       notification?.isEnabled = true
       notification?.setOn(false, animated: false)
-      break
     case Notifaction.ON:
       notification?.isEnabled = true
-      break
     case Notifaction.OFF:
       notification?.setOn(false, animated: false)
       notification?.isEnabled = false
-      break
     }
   }
 

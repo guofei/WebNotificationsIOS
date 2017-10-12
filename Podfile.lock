@@ -1,24 +1,24 @@
 PODS:
   - Alamofire (4.5.1)
-  - AWSCore (2.6.1)
-  - AWSSNS (2.6.1):
-    - AWSCore (= 2.6.1)
-  - Crashlytics (3.8.6):
-    - Fabric (~> 1.6.3)
-  - Fabric (1.6.13)
-  - Flurry-iOS-SDK/FlurrySDK (8.2.0)
-  - Ji (2.0.1):
-    - Ji/Ji (= 2.0.1)
-  - Ji/Ji (2.0.1):
+  - AWSCore (2.6.3)
+  - AWSSNS (2.6.3):
+    - AWSCore (= 2.6.3)
+  - Crashlytics (3.9.0):
+    - Fabric (~> 1.7.0)
+  - Fabric (1.7.0)
+  - Flurry-iOS-SDK/FlurrySDK (8.2.2)
+  - Ji (2.1.0):
+    - Ji/Ji (= 2.1.0)
+  - Ji/Ji (2.1.0):
     - Ji/Ji-libxml
-  - Ji/Ji-libxml (2.0.1)
-  - Realm (2.10.0):
-    - Realm/Headers (= 2.10.0)
-  - Realm/Headers (2.10.0)
-  - RealmSwift (2.10.0):
-    - Realm (= 2.10.0)
-  - SwiftLint (0.22.0)
-  - SwiftyStoreKit (0.10.7)
+  - Ji/Ji-libxml (2.1.0)
+  - Realm (2.10.2):
+    - Realm/Headers (= 2.10.2)
+  - Realm/Headers (2.10.2)
+  - RealmSwift (2.10.2):
+    - Realm (= 2.10.2)
+  - SwiftLint (0.23.1)
+  - SwiftyStoreKit (0.10.8)
 
 DEPENDENCIES:
   - Alamofire
@@ -33,16 +33,16 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   Alamofire: 2d95912bf4c34f164fdfc335872e8c312acaea4a
-  AWSCore: e7d37fa0715def975acf1b0d75556576780088b8
-  AWSSNS: c92b66ebd6f434ae106d3ba49f9432436daba37e
-  Crashlytics: 95d05f4e4c19a771250c4bd9ce344d996de32bbf
-  Fabric: 2fb5676bc811af011a04513451f463dac6803206
-  Flurry-iOS-SDK: 5907f4767bbe538ced4d39f1268096730193b471
-  Ji: 6bb602a28dd08b804158f64990e6051ed5de0110
-  Realm: 98b3a25643cf6b3e07d2b99fb43fe0eb9c801dec
-  RealmSwift: 34073ad3a31232bbaf7c0db898c037940284cba2
-  SwiftLint: 1134786caedd2caab0560d2f36b76414a5a56808
-  SwiftyStoreKit: b13badd58fe138e258d04dec7bc1c9b092351af6
+  AWSCore: 05ff0ec10c2e79487e0caaa64faa3b76884a7b2f
+  AWSSNS: 02c2901829fcdc3a92b2555df5d97644ad7f7033
+  Crashlytics: 64aad5dd97249dd3ff94b979fea140144590cdd3
+  Fabric: e6be012366472553807dada21243c5ab8d904151
+  Flurry-iOS-SDK: 2fe79828380c013d442ac2233f55568f82354de7
+  Ji: 21946da4e13425485ddd424edfaeeced0d80ad28
+  Realm: 0ef72b837fb67e9f4b098bac771ddd72c7fdbb69
+  RealmSwift: 07a9ae0505091eda6b2ee7c190c3786d6e90a7b0
+  SwiftLint: 1b670ce79284c76520f84060e87d645078fd32fa
+  SwiftyStoreKit: 8c193678fabbaafb4430a536497613f89fefd7ec
 
 PODFILE CHECKSUM: 276c46f448a28051c6385cf07e882b34920fa16c
 

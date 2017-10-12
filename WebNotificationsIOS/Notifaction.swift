@@ -42,13 +42,15 @@ enum Notifaction: String {
       if #available(iOS 10.0, *) {
         UNUserNotificationCenter.current().requestAuthorization(options: [.badge, .alert, .sound]) { (greanted, _) in
           if greanted {
-            UIApplication.shared.registerForRemoteNotifications()
+            DispatchQueue.main.async(execute: UIApplication.shared.registerForRemoteNotifications)
           }
         }
       } else {
-        let settings = UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil)
-        UIApplication.shared.registerUserNotificationSettings(settings)
-        UIApplication.shared.registerForRemoteNotifications()
+        DispatchQueue.main.async(execute: {
+          let settings = UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil)
+          UIApplication.shared.registerUserNotificationSettings(settings)
+          UIApplication.shared.registerForRemoteNotifications()
+        })
       }
       setOpen(true)
     }
