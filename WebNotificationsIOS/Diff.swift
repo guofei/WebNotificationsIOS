@@ -158,7 +158,7 @@ class DiffHelper {
     if origin == nil || newData == nil {
       return ""
     }
-    if origin?.characters.count <= 0 || newData?.characters.count <= 0 {
+    if origin?.count <= 0 || newData?.count <= 0 {
       return ""
     }
 
@@ -177,17 +177,17 @@ class DiffHelper {
 
     let maxSentenceLen = 100
     let splitSentence = " ,、，:：.。。；;！！!"
-    let trans = { (sub: String.CharacterView) -> [String] in
+    let trans = { (sub: Substring) -> [String] in
       let s = String.init(sub)
-      if s.characters.count > maxSentenceLen {
+      if s.count > maxSentenceLen {
         // something like $99.99 will be splited
-        return s.characters.split { splitSentence.characters.contains($0) }.map(String.init)
+        return s.split { splitSentence.contains($0) }.map(String.init)
       } else {
         return [s]
       }
     }
-    let a = origin!.characters.split(whereSeparator: splitor).map(trans).flatMap {$0}
-    let b = newData!.characters.split(whereSeparator: splitor).map(trans).flatMap {$0}
+    let a = origin!.split(whereSeparator: splitor).map(trans).flatMap {$0}
+    let b = newData!.split(whereSeparator: splitor).map(trans).flatMap {$0}
 
     let diff = a.diff(b)
     let printableDiff = diff.results.map({ $0.toString }).joined(separator: "\n")

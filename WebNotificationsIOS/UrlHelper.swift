@@ -45,7 +45,7 @@ class UrlHelper {
 
   private static func addScheme(targetURL: String?) -> String? {
     return targetURL.flatMap {
-      if $0.characters.count <= 0 {
+      if $0.count <= 0 {
         return $0
       }
       if $0.hasPrefix("http") {

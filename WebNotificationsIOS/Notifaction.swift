@@ -15,6 +15,7 @@ enum Notifaction: String {
   case ON = "notifactionOn"
   case OFF = "notifactionOff"
 
+  // TODO main thread
   static func type() -> Notifaction {
     let ud = UserDefaults.standard
     if let _ = ud.object(forKey: Notifaction.toString()) as? String {
