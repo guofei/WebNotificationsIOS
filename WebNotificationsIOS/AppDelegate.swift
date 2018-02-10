@@ -47,13 +47,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     SwiftyStoreKit.completeTransactions(atomically: true) { purchases in
       for purchase in purchases {
-        if purchase.transaction.transactionState == .purchased || purchase.transaction.transactionState == .restored {
+        switch purchase.transaction.transactionState {
+        case .purchased, .restored:
           if purchase.needsFinishTransaction {
             // Deliver content from server, then:
             SwiftyStoreKit.finishTransaction(purchase.transaction)
           }
+          // Unlock content
           User.setProUser()
           Flurry.logEvent("Buy or Restore Pro Successed")
+        case .failed, .purchasing, .deferred:
+          break
         }
       }
     }

@@ -80,7 +80,7 @@ class URLAddTableViewController: UITableViewController, UITextFieldDelegate {
     Flurry.logEvent("Restore Pro Clicked", withParameters: ["view": "diff"])
     spinner?.startAnimating()
     SwiftyStoreKit.restorePurchases(atomically: true) { results in
-      if results.restoredPurchases.count > 0 {
+      if results.restoreFailedPurchases.count > 0 {
         print("Restore Failed: \(results.restoredPurchases)")
       } else if results.restoredPurchases.count > 0 {
         User.setProUser()
