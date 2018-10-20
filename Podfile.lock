@@ -1,24 +1,24 @@
 PODS:
-  - Alamofire (4.5.1)
-  - AWSCore (2.6.4)
-  - AWSSNS (2.6.4):
-    - AWSCore (= 2.6.4)
-  - Crashlytics (3.9.0):
-    - Fabric (~> 1.7.0)
-  - Fabric (1.7.0)
-  - Flurry-iOS-SDK/FlurrySDK (8.3.0)
+  - Alamofire (4.7.3)
+  - AWSCore (2.6.32)
+  - AWSSNS (2.6.32):
+    - AWSCore (= 2.6.32)
+  - Crashlytics (3.10.9):
+    - Fabric (~> 1.7.13)
+  - Fabric (1.7.13)
+  - Flurry-iOS-SDK/FlurrySDK (9.2.1)
   - Ji (2.1.0):
     - Ji/Ji (= 2.1.0)
   - Ji/Ji (2.1.0):
     - Ji/Ji-libxml
   - Ji/Ji-libxml (2.1.0)
-  - Realm (2.10.2):
-    - Realm/Headers (= 2.10.2)
-  - Realm/Headers (2.10.2)
-  - RealmSwift (2.10.2):
-    - Realm (= 2.10.2)
-  - SwiftLint (0.23.1)
-  - SwiftyStoreKit (0.10.8)
+  - Realm (3.11.1):
+    - Realm/Headers (= 3.11.1)
+  - Realm/Headers (3.11.1)
+  - RealmSwift (3.11.1):
+    - Realm (= 3.11.1)
+  - SwiftLint (0.27.0)
+  - SwiftyStoreKit (0.13.3)
 
 DEPENDENCIES:
   - Alamofire
@@ -31,19 +31,33 @@ DEPENDENCIES:
   - SwiftLint
   - SwiftyStoreKit
 
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Alamofire
+    - AWSCore
+    - AWSSNS
+    - Crashlytics
+    - Fabric
+    - Flurry-iOS-SDK
+    - Ji
+    - Realm
+    - RealmSwift
+    - SwiftLint
+    - SwiftyStoreKit
+
 SPEC CHECKSUMS:
-  Alamofire: 2d95912bf4c34f164fdfc335872e8c312acaea4a
-  AWSCore: f5611be1c3edc38dbf9d6da0a5d2b6c4841d1c05
-  AWSSNS: 0eace54987b5a3ac44c060776691d14ce841fc6a
-  Crashlytics: 64aad5dd97249dd3ff94b979fea140144590cdd3
-  Fabric: e6be012366472553807dada21243c5ab8d904151
-  Flurry-iOS-SDK: bd60421d26f3826edd1686770673f7b65990c057
+  Alamofire: c7287b6e5d7da964a70935e5db17046b7fde6568
+  AWSCore: bfb49938a3a4eb190bc68edf1fa9e90969de8fa2
+  AWSSNS: f576a8861a6db426339726442bab043a8e7dd441
+  Crashlytics: 55e24fc23989680285a21cb1146578d9d18e432c
+  Fabric: 25d0963b691fc97be566392243ff0ecef5a68338
+  Flurry-iOS-SDK: 263ba205f67b47f96fb2e64cdb56f51d58b65c4e
   Ji: 21946da4e13425485ddd424edfaeeced0d80ad28
-  Realm: 0ef72b837fb67e9f4b098bac771ddd72c7fdbb69
-  RealmSwift: 07a9ae0505091eda6b2ee7c190c3786d6e90a7b0
-  SwiftLint: 1b670ce79284c76520f84060e87d645078fd32fa
-  SwiftyStoreKit: 8c193678fabbaafb4430a536497613f89fefd7ec
+  Realm: 037c5919b9ceb59d6beed5d3b031096856b119b3
+  RealmSwift: c9580133e73ef40ed340401af2dbc9a5790dfea7
+  SwiftLint: 3207c1faa2240bf8973b191820a116113cd11073
+  SwiftyStoreKit: 9ebd15971e28aa2989825fe8bc092eb5f75dd0b2
 
 PODFILE CHECKSUM: 276c46f448a28051c6385cf07e882b34920fa16c
 
-COCOAPODS: 1.3.1
+COCOAPODS: 1.5.3
