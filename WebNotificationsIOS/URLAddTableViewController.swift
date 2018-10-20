@@ -12,12 +12,10 @@ import Flurry_iOS_SDK
 
 class URLAddTableViewController: UITableViewController, UITextFieldDelegate {
   var stopFetch: Bool {
-    get {
-      if notification == nil {
-        return false
-      } else {
-        return !notification.isOn
-      }
+    if notification == nil {
+      return false
+    } else {
+      return !notification.isOn
     }
   }
 

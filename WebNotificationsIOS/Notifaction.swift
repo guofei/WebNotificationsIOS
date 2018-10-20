@@ -18,7 +18,7 @@ enum Notifaction: String {
   // TODO main thread
   static func type() -> Notifaction {
     let ud = UserDefaults.standard
-    if let _ = ud.object(forKey: Notifaction.toString()) as? String {
+    if ud.object(forKey: Notifaction.toString()) != nil {
       if UIApplication.shared.isRegisteredForRemoteNotifications {
         return ON
       } else {
