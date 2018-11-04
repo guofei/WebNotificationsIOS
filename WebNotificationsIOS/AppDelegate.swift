@@ -23,8 +23,8 @@ func urlFromUserInfo(_ userInfo: [AnyHashable: Any]) -> String? {
   return UrlHelper.getURL(url)
 }
 
-func urlFromOptions(_ launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> String? {
-  if let userInfo = launchOptions?[UIApplicationLaunchOptionsKey.remoteNotification] as? [AnyHashable : Any] {
+func urlFromOptions(_ launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> String? {
+  if let userInfo = launchOptions?[UIApplication.LaunchOptionsKey.remoteNotification] as? [AnyHashable : Any] {
     return urlFromUserInfo(userInfo)
   }
   return nil
@@ -35,7 +35,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
   var window: UIWindow?
 
-  func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+  func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
     Fabric.with([Crashlytics.self])
 
     Migration.run()

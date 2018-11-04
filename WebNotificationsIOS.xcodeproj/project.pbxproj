@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		28286D041BFE37D80027A814 /* Diff.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28286D031BFE37D80027A814 /* Diff.swift */; };
-		28469A4C1F65774000375076 /* WebCheckerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28469A4B1F65774000375076 /* WebCheckerTests.swift */; };
-		28469A561F65864D00375076 /* UrlHelperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28469A551F65864D00375076 /* UrlHelperTests.swift */; };
 		285663611BFB8987003B147D /* Migration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285663601BFB8987003B147D /* Migration.swift */; };
 		2858C7461BB6CC89005D7543 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2858C7451BB6CC89005D7543 /* StoreKit.framework */; };
 		2858C7491BB7A856005D7543 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2858C7471BB7A856005D7543 /* Realm.framework */; };
@@ -41,14 +39,14 @@
 		28B480E31BB2D618006B257A /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B480E21BB2D618006B257A /* User.swift */; };
 		28B5F1031D4AF01500D36913 /* SKProductExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B5F1021D4AF01500D36913 /* SKProductExtension.swift */; };
 		28B8C1B61C01BE2E000525FD /* DiffTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B8C1B51C01BE2E000525FD /* DiffTableViewController.swift */; };
+		28D8F673218D3E2400643158 /* WebCheckerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D8F672218D3E2400643158 /* WebCheckerTests.swift */; };
+		28D8F67D218D3F4600643158 /* UrlHelperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D8F67C218D3F4600643158 /* UrlHelperTests.swift */; };
 		28DC6A881E0434CF00BB5826 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2865030E1BAB001900BB041D /* AppDelegate.swift */; };
-		97B76A600D7C63165D22E922 /* Pods_WebCheckerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AE5496B75FD0FAC4D75463C /* Pods_WebCheckerTests.framework */; };
-		EFBF6C0BA520399869043986 /* Pods_WebChecker_WebCheckerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FADC0E8278A4C404B0F9B98B /* Pods_WebChecker_WebCheckerTests.framework */; };
 		FB62C45858E46CE2863088D6 /* Pods_WebChecker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 047A8E8DCA0BF2C04803D811 /* Pods_WebChecker.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		28469A4E1F65774000375076 /* PBXContainerItemProxy */ = {
+		28D8F675218D3E2400643158 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 286503031BAB001900BB041D /* Project object */;
 			proxyType = 1;
@@ -61,10 +59,6 @@
 		047A8E8DCA0BF2C04803D811 /* Pods_WebChecker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WebChecker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		186920EBBCC916000BE391AC /* Pods_WebNotificationsIOSTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WebNotificationsIOSTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		28286D031BFE37D80027A814 /* Diff.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Diff.swift; sourceTree = "<group>"; };
-		28469A491F65773F00375076 /* WebCheckerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WebCheckerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		28469A4B1F65774000375076 /* WebCheckerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebCheckerTests.swift; sourceTree = "<group>"; };
-		28469A4D1F65774000375076 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		28469A551F65864D00375076 /* UrlHelperTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UrlHelperTests.swift; sourceTree = "<group>"; };
 		285663601BFB8987003B147D /* Migration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Migration.swift; sourceTree = "<group>"; };
 		2858C7451BB6CC89005D7543 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		2858C7471BB7A856005D7543 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
@@ -108,6 +102,10 @@
 		28B8C1B51C01BE2E000525FD /* DiffTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiffTableViewController.swift; sourceTree = "<group>"; };
 		28B8C1BC1C01F8AD000525FD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		28B8C1BE1C01F8B0000525FD /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Main.strings; sourceTree = "<group>"; };
+		28D8F670218D3E2400643158 /* WebCheckerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WebCheckerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		28D8F672218D3E2400643158 /* WebCheckerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebCheckerTests.swift; sourceTree = "<group>"; };
+		28D8F674218D3E2400643158 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		28D8F67C218D3F4600643158 /* UrlHelperTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UrlHelperTests.swift; sourceTree = "<group>"; };
 		28ED127B1BB982730046F6BF /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		3717335747C6921CEC56DD02 /* Pods-WebChecker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WebChecker.release.xcconfig"; path = "Pods/Target Support Files/Pods-WebChecker/Pods-WebChecker.release.xcconfig"; sourceTree = "<group>"; };
 		46791CEDD5D7EAC5CE7A9AEB /* Pods_WebChecker_WebNotificationsIOSUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WebChecker_WebNotificationsIOSUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -123,15 +121,6 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		28469A461F65773F00375076 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				EFBF6C0BA520399869043986 /* Pods_WebChecker_WebCheckerTests.framework in Frameworks */,
-				97B76A600D7C63165D22E922 /* Pods_WebCheckerTests.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		286503081BAB001900BB041D /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -152,24 +141,21 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		28D8F66D218D3E2400643158 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		28469A4A1F65774000375076 /* WebCheckerTests */ = {
-			isa = PBXGroup;
-			children = (
-				28469A4B1F65774000375076 /* WebCheckerTests.swift */,
-				28469A4D1F65774000375076 /* Info.plist */,
-				28469A551F65864D00375076 /* UrlHelperTests.swift */,
-			);
-			path = WebCheckerTests;
-			sourceTree = "<group>";
-		};
 		286503021BAB001900BB041D = {
 			isa = PBXGroup;
 			children = (
 				285ABDE01DA148BD0087BBD3 /* WebChecker.entitlements */,
-				28469A4A1F65774000375076 /* WebCheckerTests */,
+				28D8F671218D3E2400643158 /* WebCheckerTests */,
 				28738ED51BB260610083D95F /* Frameworks */,
 				2865030D1BAB001900BB041D /* WebNotificationsIOS */,
 				2865030C1BAB001900BB041D /* Products */,
@@ -181,7 +167,7 @@
 			isa = PBXGroup;
 			children = (
 				2865030B1BAB001900BB041D /* WebChecker.app */,
-				28469A491F65773F00375076 /* WebCheckerTests.xctest */,
+				28D8F670218D3E2400643158 /* WebCheckerTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -262,6 +248,16 @@
 			name = Models;
 			sourceTree = "<group>";
 		};
+		28D8F671218D3E2400643158 /* WebCheckerTests */ = {
+			isa = PBXGroup;
+			children = (
+				28D8F67C218D3F4600643158 /* UrlHelperTests.swift */,
+				28D8F672218D3E2400643158 /* WebCheckerTests.swift */,
+				28D8F674218D3E2400643158 /* Info.plist */,
+			);
+			path = WebCheckerTests;
+			sourceTree = "<group>";
+		};
 		D8C29B154EAFABDA733EB5F2 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -278,25 +274,6 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		28469A481F65773F00375076 /* WebCheckerTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 28469A521F65774000375076 /* Build configuration list for PBXNativeTarget "WebCheckerTests" */;
-			buildPhases = (
-				E413A2F0095B393083DDBC4A /* [CP] Check Pods Manifest.lock */,
-				28469A451F65773F00375076 /* Sources */,
-				28469A461F65773F00375076 /* Frameworks */,
-				28469A471F65773F00375076 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				28469A4F1F65774000375076 /* PBXTargetDependency */,
-			);
-			name = WebCheckerTests;
-			productName = WebCheckerTests;
-			productReference = 28469A491F65773F00375076 /* WebCheckerTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 		2865030A1BAB001900BB041D /* WebChecker */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 286503331BAB001900BB041D /* Build configuration list for PBXNativeTarget "WebChecker" */;
@@ -319,24 +296,37 @@
 			productReference = 2865030B1BAB001900BB041D /* WebChecker.app */;
 			productType = "com.apple.product-type.application";
 		};
+		28D8F66F218D3E2400643158 /* WebCheckerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 28D8F677218D3E2400643158 /* Build configuration list for PBXNativeTarget "WebCheckerTests" */;
+			buildPhases = (
+				28D8F66C218D3E2400643158 /* Sources */,
+				28D8F66D218D3E2400643158 /* Frameworks */,
+				28D8F66E218D3E2400643158 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				28D8F676218D3E2400643158 /* PBXTargetDependency */,
+			);
+			name = WebCheckerTests;
+			productName = WebCheckerTests;
+			productReference = 28D8F670218D3E2400643158 /* WebCheckerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		286503031BAB001900BB041D /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0830;
+				LastSwiftUpdateCheck = 1010;
 				LastUpgradeCheck = 1000;
 				ORGANIZATIONNAME = kaku;
 				TargetAttributes = {
-					28469A481F65773F00375076 = {
-						CreatedOnToolsVersion = 8.3.3;
-						ProvisioningStyle = Automatic;
-						TestTargetID = 2865030A1BAB001900BB041D;
-					};
 					2865030A1BAB001900BB041D = {
 						CreatedOnToolsVersion = 7.0;
-						LastSwiftMigration = 0820;
+						LastSwiftMigration = 1010;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
@@ -349,6 +339,11 @@
 								enabled = 1;
 							};
 						};
+					};
+					28D8F66F218D3E2400643158 = {
+						CreatedOnToolsVersion = 10.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 2865030A1BAB001900BB041D;
 					};
 				};
 			};
@@ -367,19 +362,12 @@
 			projectRoot = "";
 			targets = (
 				2865030A1BAB001900BB041D /* WebChecker */,
-				28469A481F65773F00375076 /* WebCheckerTests */,
+				28D8F66F218D3E2400643158 /* WebCheckerTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		28469A471F65773F00375076 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		286503091BAB001900BB041D /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -388,6 +376,13 @@
 				286A42E31BC0C77E0065E647 /* Localizable.strings in Resources */,
 				286503161BAB001900BB041D /* Assets.xcassets in Resources */,
 				286503141BAB001900BB041D /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		28D8F66E218D3E2400643158 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -484,36 +479,9 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WebChecker/Pods-WebChecker-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		E413A2F0095B393083DDBC4A /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-WebCheckerTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		28469A451F65773F00375076 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				28469A4C1F65774000375076 /* WebCheckerTests.swift in Sources */,
-				28469A561F65864D00375076 /* UrlHelperTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		286503071BAB001900BB041D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -538,13 +506,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		28D8F66C218D3E2400643158 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				28D8F673218D3E2400643158 /* WebCheckerTests.swift in Sources */,
+				28D8F67D218D3F4600643158 /* UrlHelperTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		28469A4F1F65774000375076 /* PBXTargetDependency */ = {
+		28D8F676218D3E2400643158 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 2865030A1BAB001900BB041D /* WebChecker */;
-			targetProxy = 28469A4E1F65774000375076 /* PBXContainerItemProxy */;
+			targetProxy = 28D8F675218D3E2400643158 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -580,48 +557,6 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		28469A501F65774000375076 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = BD21AEEFEE79DF1594088BAD /* Pods-WebCheckerTests.debug.xcconfig */;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEVELOPMENT_TEAM = D38TAEJ8G7;
-				INFOPLIST_FILE = WebCheckerTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.webupdatenotification.WebCheckerTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
-				SWIFT_VERSION = 3.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WebChecker.app/WebChecker";
-			};
-			name = Debug;
-		};
-		28469A511F65774000375076 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5D00D2B45F793BD129D5DB83 /* Pods-WebCheckerTests.release.xcconfig */;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = D38TAEJ8G7;
-				INFOPLIST_FILE = WebCheckerTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.webupdatenotification.WebCheckerTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WebChecker.app/WebChecker";
-			};
-			name = Release;
-		};
 		286503311BAB001900BB041D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -732,7 +667,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = B1BA96876C326A5B7A2549F4 /* Pods-WebChecker.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = WebChecker.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -748,7 +682,8 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_INSTALL_OBJC_HEADER = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
 		};
@@ -756,7 +691,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 3717335747C6921CEC56DD02 /* Pods-WebChecker.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = WebChecker.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -772,22 +706,69 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_INSTALL_OBJC_HEADER = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.2;
+			};
+			name = Release;
+		};
+		28D8F678218D3E2400643158 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = D38TAEJ8G7;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = WebCheckerTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kaku.WebCheckerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WebChecker.app/WebChecker";
+			};
+			name = Debug;
+		};
+		28D8F679218D3E2400643158 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = D38TAEJ8G7;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = WebCheckerTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kaku.WebCheckerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WebChecker.app/WebChecker";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		28469A521F65774000375076 /* Build configuration list for PBXNativeTarget "WebCheckerTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				28469A501F65774000375076 /* Debug */,
-				28469A511F65774000375076 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		286503061BAB001900BB041D /* Build configuration list for PBXProject "WebNotificationsIOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -802,6 +783,15 @@
 			buildConfigurations = (
 				286503341BAB001900BB041D /* Debug */,
 				286503351BAB001900BB041D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		28D8F677218D3E2400643158 /* Build configuration list for PBXNativeTarget "WebCheckerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				28D8F678218D3E2400643158 /* Debug */,
+				28D8F679218D3E2400643158 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

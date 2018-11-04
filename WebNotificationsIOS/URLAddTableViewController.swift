@@ -125,8 +125,8 @@ class URLAddTableViewController: UITableViewController, UITextFieldDelegate {
 
   fileprivate func alert(_ title: String?, message: String?) {
     if title != nil && message != nil {
-      let alert = UIAlertController(title: title!, message: message!, preferredStyle: UIAlertControllerStyle.alert)
-      alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+      let alert = UIAlertController(title: title!, message: message!, preferredStyle: UIAlertController.Style.alert)
+      alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
       self.present(alert, animated: true, completion: nil)
     }
   }
@@ -158,7 +158,7 @@ class URLAddTableViewController: UITableViewController, UITextFieldDelegate {
   fileprivate func initUI() {
     if let price = proPrice {
       let text = NSLocalizedString("BuyProWithoutPrice", comment: "") + " (\(price))"
-      buyButton?.setTitle(text, for: UIControlState())
+      buyButton?.setTitle(text, for: UIControl.State())
     }
     if let url = UrlHelper.getURL(originURL) {
       if let page = Page.getByURL(url) {
@@ -192,7 +192,7 @@ class URLAddTableViewController: UITableViewController, UITextFieldDelegate {
   fileprivate func updatePrice() {
     if let price = proPrice {
       let text = NSLocalizedString("BuyProWithoutPrice", comment: "") + " (\(price))"
-      buyButton?.setTitle(text, for: UIControlState())
+      buyButton?.setTitle(text, for: UIControl.State())
     }
   }
 

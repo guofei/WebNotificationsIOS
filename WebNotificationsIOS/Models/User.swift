@@ -12,16 +12,16 @@ import Alamofire
 
 // uuid is equal channel
 class User: Object {
-  dynamic var id = 0
-  dynamic var uuid = ""
-  dynamic var email = ""
-  dynamic var password = ""
+  @objc dynamic var id = 0
+  @objc dynamic var uuid = ""
+  @objc dynamic var email = ""
+  @objc dynamic var password = ""
 
   // schemaVersion: 3
-  dynamic var deviceToken = ""
-  dynamic var deviceType = "iOS"
-  dynamic var localeIdentifier = Locale.current.identifier
-  dynamic var timeZone = TimeZone.autoupdatingCurrent.identifier
+  @objc dynamic var deviceToken = ""
+  @objc dynamic var deviceType = "iOS"
+  @objc dynamic var localeIdentifier = Locale.current.identifier
+  @objc dynamic var timeZone = TimeZone.autoupdatingCurrent.identifier
 
   override static func primaryKey() -> String? {
     return "uuid"

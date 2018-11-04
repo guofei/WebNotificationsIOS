@@ -108,9 +108,9 @@ class URLsTableViewController: UITableViewController {
       cell.detailTextLabel?.text = emoji + page.formatedUpdateTime() + " " + page.url
       cell.textLabel?.text = page.title
       if page.changed {
-        cell.accessoryType = UITableViewCellAccessoryType.checkmark
+        cell.accessoryType = UITableViewCell.AccessoryType.checkmark
       } else {
-        cell.accessoryType = UITableViewCellAccessoryType.none
+        cell.accessoryType = UITableViewCell.AccessoryType.none
       }
     }
 
@@ -147,7 +147,7 @@ class URLsTableViewController: UITableViewController {
   */
 
   // Override to support editing the table view.
-  override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+  override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
     if editingStyle == .delete {
       // Delete the row from the data source
       if let allPages = pages {

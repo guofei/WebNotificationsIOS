@@ -34,7 +34,7 @@ class PageViewController: UIViewController, WKUIDelegate, WKNavigationDelegate {
     webView!.uiDelegate = self
     webView!.navigationDelegate = self
     uiView.addSubview(webView!)
-    uiView.sendSubview(toBack: webView!)
+    uiView.sendSubviewToBack(webView!)
 
     spinner.startAnimating()
     loadAddressURL()

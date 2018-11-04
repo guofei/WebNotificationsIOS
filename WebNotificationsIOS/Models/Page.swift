@@ -15,19 +15,19 @@ struct PageConst {
 
 // pushChannel is equal User::uuid
 class Page: Object {
-  dynamic var id = 0
-  dynamic var cellIndex = 0
-  dynamic var url = ""
-  dynamic var sec = 0
-  dynamic var pushChannel = ""
-  dynamic var stopFetch = true
-  dynamic var title = "unknown"
-  dynamic var content = ""
-  dynamic var contentDiff = ""
-  dynamic var digest = ""
-  dynamic var changed = false
-  dynamic var createdAt = Date()
-  dynamic var updatedAt = Date()
+  @objc dynamic var id = 0
+  @objc dynamic var cellIndex = 0
+  @objc dynamic var url = ""
+  @objc dynamic var sec = 0
+  @objc dynamic var pushChannel = ""
+  @objc dynamic var stopFetch = true
+  @objc dynamic var title = "unknown"
+  @objc dynamic var content = ""
+  @objc dynamic var contentDiff = ""
+  @objc dynamic var digest = ""
+  @objc dynamic var changed = false
+  @objc dynamic var createdAt = Date()
+  @objc dynamic var updatedAt = Date()
 
   override static func primaryKey() -> String? {
     return "url"

@@ -97,7 +97,7 @@ class DiffTableViewController: UITableViewController {
   fileprivate func updatePrice() {
     if let price = proPrice {
       let text = NSLocalizedString("BuyProWithoutPrice", comment: "") + " (\(price))"
-      buyButton?.setTitle(text, for: UIControlState())
+      buyButton?.setTitle(text, for: UIControl.State())
     }
   }
 
