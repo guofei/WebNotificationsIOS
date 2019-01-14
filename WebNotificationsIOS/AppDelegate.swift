@@ -24,7 +24,7 @@ func urlFromUserInfo(_ userInfo: [AnyHashable: Any]) -> String? {
 }
 
 func urlFromOptions(_ launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> String? {
-  if let userInfo = launchOptions?[UIApplication.LaunchOptionsKey.remoteNotification] as? [AnyHashable : Any] {
+  if let userInfo = launchOptions?[UIApplication.LaunchOptionsKey.remoteNotification] as? [AnyHashable: Any] {
     return urlFromUserInfo(userInfo)
   }
   return nil
@@ -90,7 +90,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   }
 
   func application(_ application: UIApplication,
-                   didReceiveRemoteNotification userInfo: [AnyHashable : Any],
+                   didReceiveRemoteNotification userInfo: [AnyHashable: Any],
                    fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
     guard let url = urlFromUserInfo(userInfo) else {
       return
